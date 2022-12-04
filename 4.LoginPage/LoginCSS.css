@@ -1,0 +1,117 @@
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+
+
+body {
+    background-color: #2D2D2D;
+    font-family: 'Share Tech Mono', monospace;
+    word-wrap: break-word;
+}
+
+@font-face {
+    font-family: "C77";
+    src: url(./Font/Cyberpunk.otf);
+}
+
+@font-face {
+    font-family: "Trauma";
+    src: url(./Font/Trauma.otf);
+}
+
+/*nav menu*/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/*form*/
+ 
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+
+
+.imgcontainer{
+    padding-top: 100px;
+    text-align: center;
+    margin: 20px;
+    
+}
+.avatar{
+    max-width: 50%;
+}
+
+
+
+.container {
+    background-color: rgba(34, 33, 33, 0.95);
+    border-radius: 10px;
+    
+    width: 100%;
+    padding: 10px 30px;
+    box-shadow: 1px 1px 10px #79F2BA;
+    color: white;
+   
+
+}
+
+
+
+input,
+textarea,
+.sbmBtn{
+
+    width: 100%;
+    border: 1px solid;
+    border-radius: 5px;
+    background: #3a3a3a;
+    color: white;
+    padding: 10px 0;
+    border: none;
+    margin: 0.5em;
+    margin-top: 20px;
+    transition: background 500ms ease;
+}
+button:hover {
+
+    cursor: pointer;
+    background: #79f2babd;
+}
+
+
+#Footer {
+    height: 300px;
+    text-align: center;
+    background-color: #22242A;
+    margin-bottom: 0;
+
+}
+
+.socialstitle {
+    color: white;
+    padding-top: 100px;
+}
+
+.rights {
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.registration{
+text-decoration: none;
+color: white;
+}
+
+.registration:hover{
+    color: #79f2babd ;
+}

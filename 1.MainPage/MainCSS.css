@@ -1,0 +1,153 @@
+*{ 
+
+  box-sizing: border-box; 
+
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: auto;
+}
+
+main{
+  background-color:rgb(17, 17,17, 0.95);
+  background-repeat: no-repeat;
+  margin: 20px 5px;
+  width: auto;
+}
+body{
+
+  background-color: #2D2D2D;
+  font-family:'Share Tech Mono', monospace;
+  word-wrap: break-word;
+}
+
+@font-face {
+  font-family: "C77";
+  src: url(../Font/Cyberpunk.otf);
+}
+@font-face {
+    font-family: "Trauma";
+    src: url(../Font/Trauma.otf);
+  }
+
+
+
+#menu{
+  width: 100%;
+}
+
+#sideBar{
+  color: #79f2ba81;
+  margin-top: 55px;
+  flex-direction: column
+ 
+}
+.mainTitle{
+  font-family: "Trauma";
+  color:#79F2BA;
+  -webkit-text-stroke: 1px black;
+  font-size:80px;
+  padding: 50px 50px;
+  text-align: center;
+}
+
+#feedarea{
+  position: fixed;
+  width: auto;
+  font-size: 21px;
+  overflow-y: scroll;
+  top: 5%;
+  bottom: 0;
+  
+}
+
+.intro{
+  color: white;
+  margin: 20px;
+  text-align: justify;
+  font-size: 16px;
+  padding: 20px;
+}
+/*Banner Hero*/
+.addInfo{
+  color: white;
+  font-size: 16px;
+  padding: 100px 50px;
+  
+
+}
+
+#HERO{
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2)), url("../Images/HERO_team.jpg");
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+/*personnel section*/
+
+
+/*Our Personnel*/
+.squadTitle{
+  padding-top: 100px;
+  font-family: "Trauma";
+  color:#79F2BA;
+  text-align: center;
+  font-size: 2em;
+
+}
+
+/* Gallery */
+.teamShowcase{
+  
+text-align: center;
+  
+}
+.teamShowcase img{
+  transition: 1s;
+  width:45%;
+  padding: 15px;
+  max-width: 600px;
+  min-width: 300px;
+
+}
+.teamShowcase img:hover{
+filter: grayscale(100%);
+transform: scale(1.1);
+}
+/* Gallery */
+
+a{
+  text-decoration: none;
+}
+
+/*Ajax Div*/
+#busModel{
+  background-color: rgb(0, 0, 0, 0.5);;
+  height: auto;
+  padding: 50px;
+  text-align: justify;
+  color: #ffffff;
+  font-family: "Trauma";
+}
+/*Ajax Div */
+
+#Footer{
+  height: 300px;
+  text-align: center;
+  background-color: #22242A;
+
+}
+
+.socialstitle{
+  color: white;
+  padding-top: 100px;
+}
+.rights{
+  color: white;
+  padding: 10px 10px;
+  text-align: center; 
+}

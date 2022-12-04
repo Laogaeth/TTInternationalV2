@@ -1,0 +1,105 @@
+@font-face {
+    font-family: "trauma";
+    src: url(./Trauma.otf);  }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+  }
+  
+
+  
+  html, body {
+	width: 100%;
+	height: 100%;
+  }
+  
+  body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7)), url("./background.jpg") ;
+    background-position: center; 
+	background-size: 200vh;
+  }
+  .container{
+	color: rgb(231, 230, 230);;
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	font-family: "Trauma";
+	font-size: 1.5em;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  
+  @keyframes glow{
+	from {
+	  text-shadow: 0 0 0.5px #79F2BA, 0 0 1px #79F2BA, 0 0 2px #79F2BA;
+	}
+	to {
+	  text-shadow: 0 0 1px #79F2BA, 0 0 2px#79F2BA, 0 0 2.5 #79F2BA;
+	}
+  }
+
+  .right {
+	text-align: right;
+	width: 100%;
+  }
+  
+  .stack {
+	display: grid;
+	grid-template-columns: 1fr;
+	
+  }
+  
+  .stack span {
+	
+	grid-row-start: 1;
+	grid-column-start: 1;
+	font-size: 2em;
+	--stack-height: calc(100% / var(--stacks) - 1px);
+	--inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+	--clip-top: calc(var(--stack-height) * var(--index));
+	--clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+	clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+	animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 10ms), glitch 3ms ease infinite 5ms alternate-reverse;
+  }
+  
+  .stack span:nth-child(odd) { --glitch-translate: 8px; }
+  .stack span:nth-child(even) { --glitch-translate: -8px; }
+  
+  @keyframes stack {
+	0% {
+	  opacity: 0;
+	  transform: translateX(-50%);
+	  text-shadow: -2px 3px 0 #F20505, 2px -3px 0 #79F2BA;
+	};
+	60% {
+	  opacity: 0.5;
+	  transform: translateX(50%);
+	}
+	80% {
+	  transform: none;
+	  opacity: 1;
+	  text-shadow: 2px -3px 0 #F20505, -2px 3px 0 #79F2BA;
+	}
+	100% {
+	  text-shadow: none;
+	}
+  }
+  
+  @keyframes glitch {
+	0% {
+	  text-shadow: -2px 3px 0#F20505, 2px -3px 0#79F2BA;
+	  transform: translate(var(--glitch-translate));
+	}
+	2% {
+	  text-shadow: 2px -3px 0 #F20505, -2px 3px 0#79F2BA;
+	}
+	4%, 100% {  text-shadow: none; transform: none; }
+  }
