@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Trauma Team, Life Insurance">
+  <meta name="author" content="Pedro Pereira">
+  <link rel="icon" type="image/x-icon" href="../Images/brain.png">
+
+  <title>Night City</title>
+  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="./js/validation.js" defer></script>
+    <link rel="stylesheet" href="../5.RegistrationPage/registCSS.css">    
+
+</head>
+
+<body>
+  <!--menu bar-->
+ <div class="sticky" id="menu">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <a class="navbar-brand" href="../1.MainPage/MainPage.html">HOME</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+       <div class="navbar-nav">
+        
+         <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
+         <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Portfolio</a> 
+         <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html">Custom Pricing</a> 
+         <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
+       </div>
+     </div>
+   </nav>
+   
+   </div>
+   <main>
+  
+
+
+ <!--Form -->
+ <div class="container-fluid">
+    
+   <div class="container">
+   <form name="formulario" method="post" action="registration_form.php" id="signup">
+
+    <h1>Join us today!</h1>
+    <br>
+      <p>Full Name</p>
+    <input type="text" id="client" name="client" placeholder="John Smith" >
+    <br>
+    <br>
+    
+    <br>
+    <p>Username</p>
+  <input type="text" id="name" name="name" placeholder="Username" >
+  <br>
+  <br>
+  <p>Email Adress</p>
+    <input type="email" id="email" name="email" placeholder="ImAUser@gmail.com"  >
+    <br>
+    <br>
+    <p>Password</p>
+    <input type="password" id="password" name="password" placeholder="Password" >
+    <p>Repeat password</p>
+    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Password" >
+
+    <button type="submit" name="btnSubmit" class="sbmBtn">Submit</button>
+    <input type="hidden" name="form_submitted" value="1" />
+
+   </form>
+   
+  </div>
+  
+</div>
+<hr>
+
+
+                 
+<!--footer-->
+
+   <div class="container-fluid" id="Footer">
+    <h4 class="socialstitle">TTI®</h4>
+          
+    <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
+    </div>
+  </main>
+ <script src="../3.ContactsPage/JavascriptContacts.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
