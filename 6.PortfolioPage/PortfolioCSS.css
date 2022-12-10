@@ -1,0 +1,90 @@
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: auto;
+    z-index: 1;
+}
+
+
+body {
+
+    background-color: #2D2D2D;
+    font-family: 'Share Tech Mono', monospace;
+    word-wrap: break-word;
+    width: 100%;
+    height: 100%;
+}
+#menu {
+    width: 100%;
+}
+
+h4{
+    font-size: 3em;
+    margin: 100px 20px;
+    color: white;
+    background-color: rgb(17, 17, 17, 0.95);
+    
+}
+h3{
+    color: white;
+    font-size: 2em;
+}
+
+
+h6 {
+    font-size: 1em;
+    padding: 10px;
+    color: white;
+}
+hr{
+    color: white;
+}
+p{
+    font-size: 1em;
+    padding: 10px;
+    color: white;
+}
+
+section{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.row{
+    max-width: 100%;
+        margin: auto;
+}
+.portView{
+    max-width: 100%;
+    position: relative;
+}
+
+.oddSec{
+    background-color: rgb(17, 17, 17, 0.95);}
+b{
+    color: #79F2BA;
+}
+#Footer {
+    height: 300px;
+    text-align: center;
+    background-color: #22242A;
+
+}
+
+.socialstitle {
+    color: white;
+    padding-top: 100px;
+}
+
+.rights {
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+}
