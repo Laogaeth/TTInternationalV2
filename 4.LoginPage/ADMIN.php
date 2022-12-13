@@ -255,6 +255,7 @@ if ($result->num_rows > 0) {
 
 <h2 style="color: red;">Delete data</h2>
 <form method="POST" action="../4.LoginPage/newsDELETE.php">
+   <label for="id">ID:</label><br>
   <input type="text" name="id">
   <input type="submit" value="Delete">
 </form> 
