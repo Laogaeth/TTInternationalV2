@@ -8,26 +8,6 @@ if (isset($_SESSION["user_id"])){
             $user = $result->fetch_assoc();
 }
 
-//admin button
-$db = mysqli_connect('localhost', 'root', '', 'db_login');
-if (isset($_SESSION['user_id'])) {
-  $user_id = $_SESSION['user_id'];
-  // ask the database to get the user information
-  $query = "SELECT * FROM user WHERE id = $user_id";
-  $result = mysqli_query($db, $query);
-
-  //Check if id ==1 (admin)
-  if (mysqli_num_rows($result) == 1) {
-    $user = mysqli_fetch_assoc($result);
-    if ($user['id'] == 1) {
-      //show the div for admin domain
-      echo "<button class='adminButton'>
-             <a href='../4.LoginPage/ADMIN.php'>Go to admin page</a>
-            </button>";
-    }
-  }
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,10 +31,18 @@ if (isset($_SESSION['user_id'])) {
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <!--My css & JS-->
 <link rel="stylesheet" href="../4.LoginPage/LoginCSS.css">
-  <style>
-    body{
+ 
+ <style>
+  body{
+    height: 100vh;
+  }
+    main{
       background:linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(../Images/userBackground.jpg);
+      max-width: 1600px;
+      margin: auto;
+      height: 100%;
     }
+
     a{
       font-family: 'Share Tech Mono', monospace;
       text-decoration: none;
@@ -62,16 +50,16 @@ if (isset($_SESSION['user_id'])) {
     }
     .adminButton{
       padding: 1em 1em;
-      margin: 100px;
-      margin-top: 20%;
       border-radius: 5px;
       background: #3a3a3a;      
       border: none;
       transition: background 500ms ease;
+      float: right;
+      margin-top: -20px;
+      margin-right: 10px;
+      margin-bottom: 10px
     }
-    section{
-      margin: auto;
-    }
+
   
   </style>
 
@@ -98,6 +86,8 @@ if (isset($_SESSION['user_id'])) {
     </nav>
   </div>
 
+<main>
+
   <section>
 
   <div class="container--userarea">
@@ -106,8 +96,29 @@ if (isset($_SESSION['user_id'])) {
         <?php else: ?>
                <p><a href="./LoginPage.php">You must be logged in to acess. Click here.</a></p>
                <?php endif; ?>
+               
+               <?php
+                $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
+                if (isset($_SESSION['user_id'])) {
+                  $user_id = $_SESSION['user_id'];
+                  // ask the database to get the user information
+                  $query = "SELECT * FROM user WHERE id = $user_id";
+                  $result = mysqli_query($db, $query);
+                
+                  //Check if id ==1 (admin)
+                  if (mysqli_num_rows($result) == 1) {
+                    $user = mysqli_fetch_assoc($result);
+                    if ($user['id'] == 1) {
+                      //show the div for admin domain
+                      echo "<button class='adminButton'>
+                             <a href='../4.LoginPage/ADMIN.php'>Go to admin page</a>
+                            </button>";
+                    }
+                  }
+                }
+                ?>
                <p> <a class="logout" href="./logout.php">Log Out</a> </p>
-               <script src="../3.ContactsPage/JavascriptContacts.js"></script>
+
                </div>
 </section>
 
@@ -115,7 +126,7 @@ if (isset($_SESSION['user_id'])) {
 
 <section>
 <?php
-$db = mysqli_connect('localhost', 'root', '', 'db_login');
+$db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 
 if (isset($_SESSION['user_id'])) {
   $username = $_SESSION['user_id'];
@@ -125,7 +136,7 @@ if (isset($_SESSION['user_id'])) {
   $user = mysqli_fetch_assoc($user_result);
 
   echo "<div";
-  echo "<section class='container'>";
+  echo "<section class='container container--client'>";
   echo "Client: " . $user['client'] . "<br>";
   echo "Name: " . $user['name'] . "<br>";
   echo "Email: " . $user['email'] . "<br>";
@@ -159,7 +170,7 @@ if (isset($_SESSION['user_id'])) {
 }
 ?>
 </section>
-           
+       </main>    
                
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>

@@ -11,7 +11,7 @@ if (isset($_SESSION["user_id"])){
 ?>
 <!--User verification, if not admin get's yeeted-->
 <?php
-$db = new mysqli("localhost", "root", "", "db_login");
+$db = new mysqli("localhost:3307", "root", "", "db_login");
 
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
@@ -115,7 +115,7 @@ body{
 <?php
 
 // Connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'db_login');
+$db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 
 // Query the database to get the projects
 $query = "SELECT * FROM projects";
@@ -188,7 +188,7 @@ while ($project = mysqli_fetch_assoc($result)) {
 
 <div class="container">
 <?php
-$db = new mysqli("localhost", "root", "", "db_login");
+$db = new mysqli("localhost:3307", "root", "", "db_login");
 
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);

@@ -108,6 +108,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 
   </section>
 
+      <hr>
 
  <div id="Footer">
   <h4 class="socialstitle">TTI®</h4>
