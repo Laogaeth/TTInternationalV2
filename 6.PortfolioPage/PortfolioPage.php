@@ -40,7 +40,7 @@
       </div>
     </nav>
   </div>
- 
+ <main>
 
  <!--Portfolio-->
 
@@ -51,7 +51,7 @@
  <section class="oddSec">
     <div class="row">
   <?php
-$conn = mysqli_connect('localhost', 'root', '', 'db_login');
+$conn = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 $query = "SELECT * FROM projects WHERE id = 1";
 $results = mysqli_query($conn, $query);
 
@@ -81,7 +81,7 @@ echo "</div>";
     </div>
 
      <?php
-$conn = mysqli_connect('localhost', 'root', '', 'db_login');
+$conn = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 $query = "SELECT * FROM projects WHERE id = 2";
 $results = mysqli_query($conn, $query);
 echo "<div class='col-sm-4'>";
@@ -101,7 +101,7 @@ echo "</div>";
  <section class="oddSec">
     <div class="row">
      <?php
-$conn = mysqli_connect('localhost', 'root', '', 'db_login');
+$conn = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 $query = "SELECT * FROM projects WHERE id = 3";
 $results = mysqli_query($conn, $query);
 echo "<div class='col-sm-4'>";
@@ -126,7 +126,7 @@ echo "</div>";
     <img class="portView" src="./images/4.png" alt="">
     </div>
      <?php
-$conn = mysqli_connect('localhost', 'root', '', 'db_login');
+$conn = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 $query = "SELECT * FROM projects WHERE id = 4";
 $results = mysqli_query($conn, $query);
 echo "<div class='col-sm-4'>";
@@ -144,7 +144,7 @@ echo "</div>";
  <section class="oddSec">
     <div class="row">
      <?php
-$conn = mysqli_connect('localhost', 'root', '', 'db_login');
+$conn = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 $query = "SELECT * FROM projects WHERE id = 5";
 $results = mysqli_query($conn, $query);
 echo "<div class='col-sm-4'>";
@@ -178,7 +178,7 @@ echo "</div>";
 
   <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
  </div>
-
+</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>

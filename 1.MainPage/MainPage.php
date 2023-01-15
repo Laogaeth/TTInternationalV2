@@ -28,7 +28,8 @@
 </head>
 
  <body>
-  <main>
+ 
+ 
   <!--Nav Menu-->
   <div class="sticky" id="menu">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -48,7 +49,7 @@
   </div>
 
 
-
+ <main></main>
       <!--intro-->
 
   <div class="container-fluid">
@@ -76,7 +77,7 @@
   </div>
   <div class="col-sm-8">
   <?php
-$db = new mysqli('localhost', 'root', '', 'db_login');
+$db = new mysqli('localhost:3307', 'root', '', 'db_login');
 $result = $db->query('SELECT * FROM news ORDER BY id DESC LIMIT 5');
 echo '<ul class="ul--news">';
 while ($row = $result->fetch_assoc()) {
@@ -149,12 +150,11 @@ $db->close();
 
   <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
  </div>
-
+</main>
+</div>
 <script src="./MainJavascript.js"></script>
  <!--redundante// 4.1.3 for button -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
-
 </body>
 </html>

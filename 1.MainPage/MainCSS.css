@@ -10,20 +10,19 @@
   top: 0;
   width: auto;
 }
-
- main{
-  background-color:rgb(17, 17,17, 0.95);
+main {
+  background-color: rgb(17, 17, 17, 0.95);
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
-  width: 100%;
-} 
-body{
+  max-width: 1600px;
+}
 
+body {
   background-color: #2D2D2D;
-  font-family:'Share Tech Mono', monospace;
+  font-family: 'Share Tech Mono', monospace;
   word-wrap: break-word;
-  
+
 }
 
 @font-face {

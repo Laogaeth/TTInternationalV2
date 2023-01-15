@@ -13,6 +13,13 @@
     z-index: 1;
 }
 
+main {
+    background-color: rgb(17, 17, 17, 0.95);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    max-width: 1600px;
+}
 
 body {
 
@@ -67,7 +74,8 @@ section{
 }
 
 .oddSec{
-    background-color: rgb(17, 17, 17, 0.95);}
+        background-color: rgba(68, 67, 67, 0.95);
+}
 b{
     color: #79F2BA;
 }
