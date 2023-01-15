@@ -49,7 +49,7 @@
   </div>
 
 
- <main></main>
+ <main>
       <!--intro-->
 
   <div class="container-fluid">

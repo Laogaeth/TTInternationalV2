@@ -9,10 +9,7 @@ body {
     background-color: #2D2D2D;
     font-family: 'Share Tech Mono', monospace;
     word-wrap: break-word;
-   
-    display: flex;
-    flex-direction: column;
-}
+    }
 
 @font-face {
     font-family: "C77";
@@ -37,7 +34,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10vh;
+    height: 100vh;
 }
 
 
@@ -90,10 +87,10 @@ button:hover {
 
 
 #Footer {
-    height: 300px;
+   
     text-align: center;
     background-color: #22242A;
-    margin-top: auto ;
+   
 }
 
 .socialstitle {
@@ -151,12 +148,11 @@ b{
 
 main{
     background:linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(../Images/loginBack.png);
-    
-    
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 20px 5px;
-    width: auto;
+    
+    max-width: 1600px;
+    margin: auto;
 }
 
 
