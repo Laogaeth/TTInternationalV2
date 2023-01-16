@@ -76,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
     </nav>
   </div>
      
-<main>
+<main class="main--glass--effect">
   <section>
  <form method="post">
   <div class="imgcontainer">

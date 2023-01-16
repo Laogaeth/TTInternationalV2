@@ -37,16 +37,18 @@ if (isset($_SESSION["user_id"])){
     height: 100vh;
   }
     main{
-      background:linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(../Images/userBackground.jpg);
+      background: #ff480068;
       max-width: 1600px;
       margin: auto;
-      height: 100%;
+      
     }
 
     a{
       font-family: 'Share Tech Mono', monospace;
-      text-decoration: none;
-      color: #79F2BA;
+      color: #fff;
+    }
+    a:visited{
+      color: #fff;
     }
     .adminButton{
       padding: 1em 1em;
@@ -86,11 +88,11 @@ if (isset($_SESSION["user_id"])){
     </nav>
   </div>
 
-<main>
+<main class="main--glass--effect">
 
   <section>
 
-  <div class="container--userarea">
+  <div class="container--userarea main--glass--effect">
      <?php if (isset($user)): ?>
         <h1>Welcome <b> <?=htmlspecialchars( $user["name"])?></b> to your user enviroment.</h1>
         <?php else: ?>
@@ -223,7 +225,7 @@ if (isset($_SESSION['user_id'])) {
     <input type="submit" name="submit" value="Delete">
 </form>
 
-<hr>
+
 
   </section>
 </main>    

@@ -77,10 +77,7 @@ if ($result->num_rows > 0) {
 .container{
     margin-top: 10%;
 }
-main{
-    background:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url(../Images/adminBack.webp);
-    
-}
+
 
 </style>
 
@@ -107,7 +104,7 @@ main{
       </div>
     </nav>
   </div>
-  <main>
+  <main class="main--glass--effect">
 <!-- admin area-->
 <table class="admin" border ='0' cellpadding='6' cellspacing='6' width="600px">  
 <tr>  

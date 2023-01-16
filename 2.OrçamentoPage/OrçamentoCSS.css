@@ -50,6 +50,9 @@
     justify-content: center;
     
 }
+.main--glass--effect {
+  box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
+}
 
 select, option, .InStyle, #sbmtBtn{
     width: 100%;
@@ -65,7 +68,7 @@ select, option, .InStyle, #sbmtBtn{
 #sbmtBtn:hover{
   
   cursor: pointer;
-  background: #79f2babd;
+  background: #ff480068;
 }
 
 
