@@ -153,7 +153,6 @@ main{
     background:linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(../Images/loginBack.png);
     background-size: cover;
     background-repeat: no-repeat;
-    
     max-width: 1600px;
     margin: auto;
 }

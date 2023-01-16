@@ -65,19 +65,23 @@ if ($result->num_rows > 0) {
 <style>
 .admin{
     margin: auto;
-    margin-top:20%;
-    background-color: black;
+    margin-top:100px;
+    background: rgba(34, 33, 33, 0.95);
+    border-radius: 20px;
     color: white;
-    max-width: 80%;
+    max-width: 90%;
+}
+.admin td{
+  padding: 10px;
 }
 .container{
     margin-top: 10%;
 }
-body{
-    background:linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(../Images/adminBack.webp);
+main{
+    background:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url(../Images/adminBack.webp);
     
-
 }
+
 </style>
 
 
@@ -96,15 +100,18 @@ body{
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
+          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Portfolio</a> 
           <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
           <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
         </div>
       </div>
     </nav>
   </div>
+  <main>
 <!-- admin area-->
-<table class="admin" border ='1' cellpadding='4' cellspacing='4'>  
+<table class="admin" border ='0' cellpadding='6' cellspacing='6' width="600px">  
 <tr>  
+<hr>
 <td><b>ID</b></td>
 <td><b>Name</b></td>  
 <td><b>Tech Used</b></td>  
