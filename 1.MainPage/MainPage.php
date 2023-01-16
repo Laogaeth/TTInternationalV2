@@ -49,7 +49,7 @@
   </div>
 
 
- <main>
+ <main class="main--glass--effect">
       <!--intro-->
 
   <div class="container-fluid">
@@ -59,6 +59,7 @@
   <h3 class="intro">
   Trauma Team International (TTI) is a corporation that specializes in rapid response medical services. As the premium paramedical franchise, Trauma Team™ is one of the most notable corporations of the 21st century. 
   The company automatically bills their patients from the moment they receive the order to the location of retrieval.
+  <hr style="border: 0">
   TTI partners with many corporations such as Arasaka, Militech, Night Corp, Biotechnica, or Kiroshi, allowing certain employees access to Trauma Team memberships without paying for the service themselves. 
   The medical corporation also manufacturers its own products for the general public to use. </h3>
 </div>
@@ -69,8 +70,6 @@
 <!------------------NEWS------------------>
 
 <div class="container" id="news-feed">
-  <h1 class="h1--news">Night City News</h1>
-  <p class="p--news">click here</p>
   <div class="row">
   <div class="col-sm-4">
   <img class="newsCaster" src="../Images/NCN.jpg" alt="">
@@ -95,13 +94,15 @@ $db->close();
 </div>
 </div>
 
+
+
 </section>
 
 
 <section>
 <!--hero banner + text-->
 <div class="container-fluid" id="HERO">
-  <div class="addInfo"><em style="color: #79F2BA"> Seven minutes or a refund. That's the Trauma Team guarantee</em> - the type of guarantee that warms a policy holder's heart as they begin to bleed out in an alley.
+  <div class="addInfo"><em style="color: #F57F17;"> Seven minutes or a refund. That's the Trauma Team guarantee</em> - the type of guarantee that warms a policy holder's heart as they begin to bleed out in an alley.
     Assuming you haven't lost consciousness from blood loss, don't worry as you count the seconds of life slipping from you, because help is on the way. First, you'll see a heavily armored AV descend from the sky, using its heavy machine gun turrets to mow down the bastards who are trying to kill you. 
     Then you'll see the medics, your guardian angels clad in green and white and armed to the teeth. 
    
@@ -111,7 +112,7 @@ $db->close();
       It may have a long list of zeros attached to it, but you'll still sign up for a half-year policy extension with a smile on your lips.
       Trauma Team provides medical, paramedical and extraction services in all of the world's major cities.
       In fact, this may be the only corporation that enjoys such a high level of public trust.
-      As long as you pay your dues, <b style="color: #79F2BA">your life is safe in their hands no matter how dire the situation.</b>
+      As long as you pay your dues, <b style="color: #F57F17;">your life is safe in their hands no matter how dire the situation.</b>
   </div>
   </div>
 </div>
@@ -123,7 +124,7 @@ $db->close();
 
 <section>
 <!--Gallery-->
-<div class="container-fluid" id="personnel">
+<!-- <div class="container-fluid" id="personnel">
  <h2 class="squadTitle" >Our personnel</h2>
  <br>
  <br>
@@ -133,12 +134,12 @@ $db->close();
  <a href="../Images/leadEMT.png" data-lightbox="mygallary" data-title="Militech grade hardware."><img src="../Images/leadEMT_thumbnail.png" alt="Hardware"></a>
  <a href="../Images/ship.jpg" data-lightbox="mygallary" data-title="Aerodyne complete with the most recent weaponry and medical care utilities."><img src="../Images/ship_thumbnail.jpg" alt="Airship"></a>
 </div>
-</div>
+</div> -->
 
-<!--Gallery-->
+
    <!--Ajax div-->   
 <div class="container-fluid" id="businessModel">
-  <a href="#" onclick="loadAjax()"> <h3 class="busTitle" id="busModel">Seven minutes or a refund. Click <em style="color: #79F2BA"> here </em>to check our subscription models today.</h3></a>
+  <a href="#" onclick="loadAjax()"> <h3 class="busTitle" id="busModel">Seven minutes or a refund. Click <em style="color: #F57F17;"> here </em>to check our subscription models today.</h3></a>
    </div>
   <!--Ajax div-->
 </section>

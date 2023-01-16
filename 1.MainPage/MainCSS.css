@@ -11,18 +11,24 @@
   width: auto;
 }
 main {
-  background-color: rgb(17, 17, 17, 0.95);
+  background:#222035ec;
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
-  max-width: 1600px;
+  max-width: 1700px;
+  padding: 20px;
+  font-size: 1.5rem;
+  word-wrap: break-word;
+}
+.main--glass--effect {
+  box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
 }
 
 body {
-  background-color: #2D2D2D;
+  background: #ff480068;
   font-family: 'Share Tech Mono', monospace;
-  word-wrap: break-word;
-
+  
+/* White: #FFFFFF Off-white: #F8F8F8 Light gray: #D3D3D3 Pale pink: #FFC0CB Pale orange: #FFA07A */
 }
 
 @font-face {
@@ -40,43 +46,30 @@ body {
   width: 100%;
 }
 
-/* #sideBar{
-  color: #79f2ba81;
-  margin-top: 55px;
-  flex-direction: column
- 
-} */
+
 .mainTitle{
   font-family: "Trauma";
-  color:#79F2BA;
-  -webkit-text-stroke: 1px black;
-  font-size:2em;
-  margin-top: 10vh;
+  color: #F57F17;
+  font-size:2rem;
+  margin-top: 100px;
   padding: 10px 10px;
   text-align: center;
 }
 
-/* #feedarea{
-  position: fixed;
-  width: auto;
-  font-size: 21px;
-  overflow-y: scroll;
-  top: 5%;
-  bottom: 0;
-  
-} */
+
 
 .intro{
   color: white;
   margin: 7px 15px;
   text-align: center;
-  font-size: 16px;
+  font-size: 1rem;
   padding: 10px 10px;
 }
+
 /*Banner Hero*/
 .addInfo{
   color: white;
-  font-size: 16px;
+  font-size: 1rem;
   margin-top: 100px;
   padding-top: 70px;
   padding-bottom: 70px;
@@ -85,7 +78,7 @@ body {
 }
 
 #HERO{
-  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2)), url("../Images/HERO_team.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), url("../1.MainPage/background.jpg");
   width: 100%;
   height: auto;
   background-repeat: no-repeat;
@@ -99,7 +92,7 @@ body {
 .squadTitle{
   padding-top: 100px;
   font-family: "Trauma";
-  color:#79F2BA;
+  color:#F57F17;;
   text-align: center;
   font-size: 2em;
 
@@ -158,6 +151,7 @@ a{
   text-align: center; 
 }
 
+
 #news-feed ul li {
   
   text-decoration: none;
@@ -167,11 +161,11 @@ a{
 #news-feed {
   width: 100%;
   overflow: hidden;
-  transition: transform 1s ease;
+  transition: transform 3s ease;
 }
 
 #news-feed.collapsed {
-  height: 400px;
+  height: 240px;
   transition: transform 3s ease;
 }
 
@@ -187,8 +181,7 @@ transition: transform 3s ease;
 }
 .h1--news{
   
-    color: #79F2BA;
-    -webkit-text-stroke: 1px black;
+    color: #F57F17;
     font-size: 2em;
     padding: 10px 10px;
     text-align: center;
@@ -197,14 +190,6 @@ transition: transform 3s ease;
 
 }
 
-.p--news{
-  color: #79F2BA;
-  text-align: center;
-  padding-bottom: 90px;
-  cursor: pointer;
-  font-family: 'Share Tech Mono', monospace;
-  
-}
 section{
   margin: 100px 0 ;
 }
