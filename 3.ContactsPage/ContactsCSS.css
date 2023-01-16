@@ -6,14 +6,18 @@
 
 
 main{
-  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), url("./background.jpg");
-        background-size: cover;
-      background-repeat: no-repeat;
-      max-width: 1600px;
-      margin: auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), url("./background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.main--glass--effect {
+  box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
 }
 body{
- background-color: #2D2D2D;
+ background-color: #ff480068;
  font-family:'Share Tech Mono', monospace;
  word-wrap: break-word;
 }
@@ -35,17 +39,16 @@ body{
 
 /*form*/
 #map{
-  width: 100%;
+  max-width: 800px;
 }
 
 .container {
   background-color:rgba(34, 33, 33, 0.95);
   border-radius: 10px;
-  margin-top: 7vh;
-
-  width: 90%;
+  margin-top: 100px;
+  max-width: 800px;
   padding: 10px 30px;
-  box-shadow:1px 1px 10px #79F2BA;
+  box-shadow:1px 1px 20px #ff480068;
   color: white;
   display: flex;
   justify-content: center;
@@ -61,19 +64,21 @@ input, textarea, .sbmBtn, .googleMapsBtn{
   color: white;
   padding: 10px 0;
   border: none;
-  margin: 0.5em;
+  padding: 10px;
   margin-top: 20px;
   transition: background 500ms ease;
+  margin: auto;
 }
 
 
 button:hover{
 
 cursor: pointer;
-background: #79f2babd;
+background: #ff4800;
 }
 #map{
   border-radius: 20px;
+  margin: auto;
 }
 
 

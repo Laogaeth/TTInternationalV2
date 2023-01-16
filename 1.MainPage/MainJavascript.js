@@ -33,22 +33,16 @@
 // }
 
 //Load Ajax Business Model html
-function loadAjax(){
-  var objHttp=null;
- if(window.XMLHttpRequest){
-  objHttp = new XMLHttpRequest();
- }else if(window.ActiveXObject){
-  objHttp = newActiveXObject("Microsoft.XMLHTTP");
-
- }
-  objHttp.open("GET", "BusinessModel" + ".html",true);
-  objHttp.onreadystatechange = function(){
-    if(objHttp.readyState==4){
-      document.getElementById("busModel").innerHTML= objHttp.responseText;
-    }
+async function loadAjax() {
+  try {
+    const response = await fetch("BusinessModel.html");
+    const html = await response.text();
+    document.getElementById("busModel").innerHTML = html;
+  } catch (error) {
+    console.error(error);
   }
-  objHttp.send(null);
 }
+
 //news click event
   document.getElementById("news-feed").classList.add("collapsed");
   document
