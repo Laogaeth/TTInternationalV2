@@ -2,11 +2,8 @@
     box-sizing: border-box;
 }
 
-
-
-
 body {
-    background-color: #2D2D2D;
+    background-color: #ff480068;
     font-family: 'Share Tech Mono', monospace;
     word-wrap: break-word;
     }
@@ -39,11 +36,11 @@ section{
 
 
 .imgcontainer{
-    padding-top: 100px;
+    margin-top: 200px;
     text-align: center;
-    margin: 20px;
-    
+     margin-bottom: 20px;
 }
+
 .avatar{
     max-width: 50%;
     
@@ -52,15 +49,16 @@ section{
 
 
 .container {
-    background-color: rgba(34, 33, 33, 0.95);
+    background:#222035ec;
     border-radius: 10px;
     width: 100%;
     
     padding: 10px 30px;
-    box-shadow: 1px 1px 10px #79F2BA;
+    box-shadow: 1px 1px 10px #222035ec;
     color: white;
-   
-
+}
+.main--glass--effect {
+    box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
 }
 
 
@@ -84,7 +82,7 @@ textarea,
 button:hover {
 
     cursor: pointer;
-    background: #79f2babd;
+    background: #ff480068;
 }
 
 
@@ -114,7 +112,7 @@ color: white;
 }
 
 .registration:hover{
-    color: #79f2babd ;
+    color: #ff4800f0 ;
 }
 
 h1{
@@ -126,9 +124,7 @@ h1{
    
 }
 
-b{
-    color: #79f2babd;
-}
+
 .container--userarea{
         background-color: rgba(34, 33, 33, 0.95);
         border-radius: 10px;
@@ -147,13 +143,12 @@ b{
     padding: 15px 20px;
 }
 .logout:hover{
-    color: #79F2BA;
+    color: #ff480068;
 }
 
 main{
-    background:linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(../Images/loginBack.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: #ff480068;
+
     max-width: 1600px;
     margin: auto;
     height: 100%;

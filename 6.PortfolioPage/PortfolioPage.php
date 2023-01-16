@@ -40,7 +40,7 @@
       </div>
     </nav>
   </div>
- <main>
+ <main class="main--glass--effect">
 
  <!--Portfolio-->
 
@@ -72,6 +72,7 @@ echo "</div>";
 
 </section>
 
+
  <section>
 
     <div class="row">
@@ -86,17 +87,17 @@ $query = "SELECT * FROM projects WHERE id = 2";
 $results = mysqli_query($conn, $query);
 echo "<div class='col-sm-4'>";
 while ($project = mysqli_fetch_assoc($results)) {
-    echo "<h3><b>{$project['name']}</b></h3>";
+    echo "<h3 class='h3--contrast'>{$project['name']}</h3>";
     echo "<hr>";
-    echo "<p>{$project['tech']}</p>";
-    echo "<p>Time frame: {$project['time']}</p>";
+    echo "<p class='p--contrast'>{$project['tech']}</p>";
+    echo "<p class='p--contrast'>Time frame: {$project['time']}</p>";
 }
 echo "</div>";
 ?>
     </div>
-
-
 </section>
+
+
 
  <section class="oddSec">
     <div class="row">
@@ -119,6 +120,8 @@ echo "</div>";
     </div>
 </section>
 
+
+
  <section>
     <div class="row">
     
@@ -131,15 +134,17 @@ $query = "SELECT * FROM projects WHERE id = 4";
 $results = mysqli_query($conn, $query);
 echo "<div class='col-sm-4'>";
 while ($project = mysqli_fetch_assoc($results)) {
-    echo "<h3><b>{$project['name']}</b></h3>";
+    echo "<h3 class='h3--contrast'>{$project['name']}</h3>";
     echo "<hr>";
-    echo "<p>{$project['tech']}</p>";
-    echo "<p>Time frame: {$project['time']}</p>";
+    echo "<p class='p--contrast'>{$project['tech']}</p>";
+    echo "<p class='p--contrast'>Time frame: {$project['time']}</p>";
 }
 echo "</div>";
 ?>
     </div>
 </section>
+
+
 
  <section class="oddSec">
     <div class="row">
@@ -161,6 +166,8 @@ echo "</div>";
     </div>
     </div>
 </section>
+
+
 
  <section>
     <h4>No matter how dire, failure is not an option.</h4>

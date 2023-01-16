@@ -82,7 +82,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
   <div class="imgcontainer">
 
 
-    <img src="../Images/brain.png" alt="Avatar" class="avatar">
+    <img src="../Images/redPanda.png" alt="Avatar" class="avatar">
       
   </div>
 
@@ -108,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
 
   </section>
 
-      <hr>
+
 
  <div id="Footer">
   <h4 class="socialstitle">TTI®</h4>

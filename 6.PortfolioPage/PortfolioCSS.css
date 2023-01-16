@@ -14,7 +14,7 @@
 }
 
 main {
-    background-color: rgb(17, 17, 17, 0.95);
+    background-color: #ff480068;
     background-repeat: no-repeat;
     background-size: cover;
     margin: auto;
@@ -22,8 +22,7 @@ main {
 }
 
 body {
-
-    background-color: #2D2D2D;
+    background-color: #ff480068;
     font-family: 'Share Tech Mono', monospace;
     word-wrap: break-word;
     width: 100%;
@@ -32,9 +31,11 @@ body {
 #menu {
     width: 100%;
 }
-
+.main--glass--effect {
+    box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
+}
 h4{
-    font-size: 3em;
+    font-size: 3rem;
     margin: 100px 20px;
     color: white;
     background-color: rgb(17, 17, 17, 0.95);
@@ -42,7 +43,11 @@ h4{
 }
 h3{
     color: white;
-    font-size: 2em;
+    font-size: 3rem;
+}
+.h3--contrast{
+    color: #222035ec;
+    font-size: 3rem;
 }
 
 
@@ -55,14 +60,19 @@ hr{
     color: white;
 }
 p{
-    font-size: 1em;
+    font-size: 2rem;
     padding: 10px;
     color: white;
+}
+.p--contrast{
+    color:#222035ec;
+    font-size: 2rem;
 }
 
 section{
     padding-top: 100px;
     padding-bottom: 100px;
+
 }
 .row{
     max-width: 100%;
@@ -74,10 +84,10 @@ section{
 }
 
 .oddSec{
-        background-color: rgba(68, 67, 67, 0.95);
+       background: #222035ec;
 }
 b{
-    color: #79F2BA;
+    color: #F57F17;
 }
 #Footer {
     height: 300px;
