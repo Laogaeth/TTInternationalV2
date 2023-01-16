@@ -80,6 +80,7 @@ textarea,
     margin-top: 20px;
     transition: background 500ms ease;
 }
+.sbmBtn:hover,
 button:hover {
 
     cursor: pointer;
@@ -155,6 +156,7 @@ main{
     background-repeat: no-repeat;
     max-width: 1600px;
     margin: auto;
+    height: 100%;
 }
 
 

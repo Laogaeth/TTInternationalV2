@@ -164,13 +164,69 @@ if (isset($_SESSION['user_id'])) {
   echo "Client: <input type='text' name='client' value='" . $user['client'] . "'required><br>";
   echo "Name: <input type='text' name='name' value='" . $user['name'] . "'required><br>";
   echo "Email: <input type='email' name='email' value='" . $user['email'] . "'required><br>";
-  echo "<input type='submit' name='update_user' value='Update'>";
+  echo "<input type='submit' class='sbmBtn' name='update_user' value='Update'>";
   echo "</form>";
   echo "</section>";
 }
 ?>
-</section>
-       </main>    
+<form method="post" class="container container--client">
+    <?php
+
+    // Connect to the database
+    $conn = mysqli_connect('localhost:3307', 'root', '', 'db_login');
+    // Get the current user's ID
+    $user_id = $_SESSION['user_id'];
+    if(isset($_POST['submit']))
+    {
+        if($_POST['submit'] == "Update")
+        {
+            // Get the new consultation and date from the form
+            $new_consultation = mysqli_real_escape_string($conn, $_POST['new_consultation']);
+            $new_date = $_POST['new_date'];
+            // Update the consultation and date for the current user
+            $query = "UPDATE user SET consultation = '$new_consultation', consultation_date = '$new_date' WHERE id = $user_id";
+            mysqli_query($conn, $query);
+            echo "Your consultation has been updated.";
+        }
+        else if($_POST['submit'] == "Delete")
+        {
+            // Delete the consultation and date for the current user
+            $query = "UPDATE user SET consultation = NULL, date = NULL WHERE id = $user_id";
+            mysqli_query($conn, $query);
+            echo "Your consultation has been deleted.";
+        }
+        else if($_POST['submit'] == "Add")
+        {
+            // Get the new consultation and date from the form
+            $new_consultation = mysqli_real_escape_string($conn, $_POST['new_consultation']);
+            $new_date = $_POST['new_date'];
+            // Insert the new consultation and date for the current user
+            $query = "INSERT INTO user (consultation, consultation_date) VALUES ('$new_consultation', '$new_date') WHERE id = $user_id";
+            mysqli_query($conn, $query);
+            echo "Your new consultation has been added.";
+        }
+    }
+    // Retrieve the consultation and date for the current user
+    $query = "SELECT consultation, consultation_date FROM user WHERE id = $user_id";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $consultation = $row['consultation'];
+    $date = $row['consultation_date'];
+    ?>
+    <label for="consultation">Your consultation is:</label>
+    <textarea id="consultation" name="new_consultation" rows="4" cols="50"><?php echo $consultation ?></textarea>
+    <br>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="new_date" value="<?php echo $date ?>">
+    <br>
+    <input type="submit" name="submit" value="Submit" class="sbmBtn">
+    <input type="submit" name="submit" value="Delete">
+</form>
+
+<hr>
+
+  </section>
+</main>    
                
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
