@@ -6,9 +6,7 @@
 
 
 main{
-    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), url("./background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background:#ff480068;
     max-width: 1600px;
     margin: auto;
 }
@@ -43,12 +41,13 @@ body{
 }
 
 .container {
-  background-color:rgba(34, 33, 33, 0.95);
+  background-color:#222035ec;
   border-radius: 10px;
-  margin-top: 100px;
+  margin-top: 70px;
+  margin-bottom: 50px;
   max-width: 800px;
-  padding: 10px 30px;
-  box-shadow:1px 1px 20px #ff480068;
+  padding: 30px 30px;
+  box-shadow:1px 1px 20px #222035ec;
   color: white;
   display: flex;
   justify-content: center;
@@ -58,23 +57,25 @@ body{
 input, textarea, .sbmBtn, .googleMapsBtn{
   
   width: 100%;
-  border: 1px solid ;
+
   border-radius: 5px;
   background: #3a3a3a;
   color: white;
-  padding: 10px 0;
+  margin-top: 10px;
+  padding: 10px 10px;
   border: none;
-  padding: 10px;
+
   margin-top: 20px;
   transition: background 500ms ease;
-  margin: auto;
+
+  box-shadow: 1px 1px 20px #222035a2;
 }
 
 
 button:hover{
 
 cursor: pointer;
-background: #ff4800;
+background: #ff48007e;
 }
 #map{
   border-radius: 20px;

@@ -49,7 +49,7 @@
   </div>
 
 
- <main class="main--glass--effect">
+ <main class="main--glass--effect section--color" >
       <!--intro-->
 
   <div class="container-fluid">
@@ -99,7 +99,7 @@ $db->close();
 </section>
 
 
-<section>
+<section >
 <!--hero banner + text-->
 <div class="container-fluid" id="HERO">
   <div class="addInfo"><em style="color: #F57F17;"> Seven minutes or a refund. That's the Trauma Team guarantee</em> - the type of guarantee that warms a policy holder's heart as they begin to bleed out in an alley.

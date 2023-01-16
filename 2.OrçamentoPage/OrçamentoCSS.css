@@ -6,14 +6,14 @@
 
   
   main{
-    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url("./background.jpg");
+    background: #ff480068;
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 1600px;
     margin: auto;
   }
   body{
-    background-color: #2D2D2D;
+    background-color: #ff480068;
     font-family:'Share Tech Mono', monospace;
     word-wrap: break-word;
   }
@@ -39,12 +39,12 @@
 
 
 .container{
-    background-color:rgba(34, 33, 33, 0.95);
+    background: #222035ec;
     border-radius: 10px;
     margin-top: 7vh;
-    width: 90%;
+    max-width: 800px;
     padding: 10px 30px;
-    box-shadow:1px 1px 10px #79F2BA;
+    box-shadow:1px 1px 10px #222035ec;
     color: white;
     display: flex;
     justify-content: center;

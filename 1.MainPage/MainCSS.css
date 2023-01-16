@@ -11,7 +11,7 @@
   width: auto;
 }
 main {
-  background:#222035ec;
+  background:#ff480068;
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
@@ -29,6 +29,10 @@ body {
   font-family: 'Share Tech Mono', monospace;
   
 /* White: #FFFFFF Off-white: #F8F8F8 Light gray: #D3D3D3 Pale pink: #FFC0CB Pale orange: #FFA07A */
+}
+.section--color{
+  background: #222035ec;
+
 }
 
 @font-face {
