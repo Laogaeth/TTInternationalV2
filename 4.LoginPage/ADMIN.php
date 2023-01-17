@@ -77,8 +77,6 @@ if ($result->num_rows > 0) {
 .container{
     margin-top: 10%;
 }
-
-
 </style>
 
 
@@ -90,7 +88,7 @@ if ($result->num_rows > 0) {
     <!-- Navbar Menu -->
   <div class="sticky" id="menu">
     <nav class="navbar navbar-expand-lg ">
-      <a class="navbar-brand" href="./MainPage.php">HOME</a>
+      <a class="navbar-brand" href="../1.MainPage/MainPage.php">HOME</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

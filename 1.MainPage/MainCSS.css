@@ -35,13 +35,10 @@
 
 main {
   background:#ff480068;
-  background-repeat: no-repeat;
-  background-size: cover;
   margin: auto;
-  max-width: 1700px;
-  font-size: 2rem;
+  max-width: 1600px;
+  font-size: 1.3rem;
   word-wrap: break-word;
-  padding: 10px;
   font-family: 'Montserrat', sans-serif;  
 }
 .main--glass--effect {
@@ -50,7 +47,6 @@ main {
 
 body {
   background: #ff480068;
-  font-family: 'Montserrat', sans-serif;
 }
 .section--color{
   background: #222035ec;

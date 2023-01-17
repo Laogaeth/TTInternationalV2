@@ -7,25 +7,20 @@
   
   main{
     background: #ff480068;
-    background-size: cover;
-    background-repeat: no-repeat;
     max-width: 1600px;
     margin: auto;
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif;
+    word-wrap: break-word;
   }
+  .main--glass--effect {
+      box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
+    }
   body{
     background-color: #ff480068;
-    font-family:'Share Tech Mono', monospace;
     word-wrap: break-word;
   }
   
-  @font-face {
-    font-family: "C77";
-    src: url(./Font/Cyberpunk.otf);
-  }
-  @font-face {
-      font-family: "Trauma";
-      src: url(./Font/Trauma.otf);
-    }
   /*nav menu*/
     .sticky {
       position: fixed;
@@ -48,6 +43,7 @@
     color: white;
     display: flex;
     justify-content: center;
+    
     
 }
 .main--glass--effect {

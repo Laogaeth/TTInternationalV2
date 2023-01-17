@@ -5,8 +5,6 @@
 
 body {
     background-color: #ff480068;
-    font-family: 'Montserrat', sans-serif;
-    word-wrap: break-word;
     }
 
 /*nav menu*/
@@ -38,6 +36,17 @@ body {
 
 .navbar a:hover {
     color: #F57F17;
+}
+main {
+    background: #ff480068;
+    max-width: 1600px;
+    margin: auto;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    word-wrap: break-word;
+}
+.main--glass--effect {
+    box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
 }
 
 /*form*/
@@ -160,12 +169,6 @@ h1{
     color: #ff480068;
 }
 
-main{
-    background: #ff480068;
-    max-width: 1600px;
-    margin: auto;
-    height: 100%;
-}
 
 
 .admin--divider{

@@ -8,9 +8,13 @@
 
 
 main{
-    background:#ff480068;
-    max-width: 1600px;
-    margin: auto;
+      background: #ff480068;
+        margin: auto;
+        max-width: 1600px;
+        font-size: 1.3rem;
+        word-wrap: break-word;
+        font-family: 'Montserrat', sans-serif;
+
 }
 
 .main--glass--effect {
@@ -18,8 +22,6 @@ main{
 }
 body{
  background-color: #ff480068;
-font-family: 'Montserrat', sans-serif;
- word-wrap: break-word;
 }
 
 
