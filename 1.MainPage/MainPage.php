@@ -25,7 +25,7 @@
  
   <!--Nav Menu-->
   <div class="sticky" id="menu">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg ">
       <a class="navbar-brand" href="./MainPage.php">HOME</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
-          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Portfolio</a> 
+          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Products</a> 
           <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
           <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
         </div>
@@ -130,7 +130,7 @@
    </div> -->
   <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col">
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Hygiene Products</h5>
@@ -140,35 +140,36 @@
         </div>
 
 
-        <div class="col-sm-6">
+        <div class="col">
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Food & Treats</h5>
-              <img  src="../1.MainPage/pet-food.png" alt="Hygiene" class="card--image">
+              <img  src="../1.MainPage/pet-food.png" alt="Food" class="card--image">
             </div>
           </div>
         </div>
 
-        
-         <div class="col-sm-6">
+
+         <div class="col">
           <div class="card shadow--sm">
             <div class="card--body">
-              <h5 class="card--title">Food & Treats</h5>
-              <img  src="../1.MainPage/pet-food.png" alt="Hygiene" class="card--image">
+              <h5 class="card--title">Toys</h5>
+              <img  src="../1.MainPage/toys.png" alt="Toys" class="card--image">
             </div>
           </div>
         </div>
-      </div>
+     
 
 
-       <div class="col-sm-6">
+       <div class="col">
           <div class="card shadow--sm">
             <div class="card--body">
-              <h5 class="card--title">Food & Treats</h5>
-              <img  src="../1.MainPage/pet-food.png" alt="Hygiene" class="card--image">
+              <h5 class="card--title">Clothes</h5>
+              <img  src="../1.MainPage/Clothes.png" alt="Clothes" class="card--image">
             </div>
           </div>
         </div>
+         </div>
 
   </div>
 

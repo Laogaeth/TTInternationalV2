@@ -89,21 +89,24 @@ if ($result->num_rows > 0) {
 
     <!-- Navbar Menu -->
   <div class="sticky" id="menu">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="../1.MainPage/MainPage.php">HOME</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg ">
+      <a class="navbar-brand" href="./MainPage.php">HOME</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
-          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Portfolio</a> 
-          <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
+          <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a>
+          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Products</a>
+          <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html">Custom Pricing</a>
           <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
         </div>
       </div>
     </nav>
   </div>
+
+
   <main class="main--glass--effect">
 <!-- admin area-->
 <table class="admin" border ='0' cellpadding='6' cellspacing='6' width="600px">  

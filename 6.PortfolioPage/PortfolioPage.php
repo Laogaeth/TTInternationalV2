@@ -7,11 +7,7 @@
   <meta name="keywords" content="Trauma Team, Life Insurance">
   <meta name="author" content="Pedro Pereira">
   <link rel="icon" type="image/x-icon" href="../Images/brain.png">
-  <title>Night City</title>
-  <!--fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
+  <title>Products</title> 
   <!--fonts-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -21,19 +17,19 @@
 </head>
 
  <body>
-   <!-- onload="timerAlert()" -->
+
  
   <!--Nav Menu-->
   <div class="sticky" id="menu">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="../1.MainPage/MainPage.php">HOME</a>
+    <nav class="navbar navbar-expand-lg ">
+      <a class="navbar-brand" href="./MainPage.php">HOME</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
-          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Portfolio</a> 
+          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Products</a> 
           <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
           <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
         </div>
