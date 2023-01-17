@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@600&display=swap');
 *{ 
-
   box-sizing: border-box; 
-  
-  
 }
 
 .sticky {
@@ -16,9 +15,10 @@ main {
   background-size: cover;
   margin: auto;
   max-width: 1700px;
-  padding: 20px;
-  font-size: 1.5rem;
+  font-size: 2rem;
   word-wrap: break-word;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;  
 }
 .main--glass--effect {
   box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
@@ -28,23 +28,11 @@ body {
   background: #ff480068;
   font-family: 'Share Tech Mono', monospace;
   
-/* White: #FFFFFF Off-white: #F8F8F8 Light gray: #D3D3D3 Pale pink: #FFC0CB Pale orange: #FFA07A */
 }
 .section--color{
   background: #222035ec;
 
 }
-
-@font-face {
-  font-family: "C77";
-  src: url(../Font/Cyberpunk.otf);
-}
-@font-face {
-    font-family: "Trauma";
-    src: url(../Font/Trauma.otf);
-  }
-
-
 
 #menu{
   width: 100%;
@@ -52,8 +40,7 @@ body {
 
 
 .mainTitle{
-  font-family: "Trauma";
-  color: #F57F17;
+  font-family: 'Quicksand', sans-serif;  color: #F57F17;
   font-size:2rem;
   margin-top: 100px;
   padding: 10px 10px;
@@ -73,7 +60,7 @@ body {
 /*Banner Hero*/
 .addInfo{
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-top: 100px;
   padding-top: 70px;
   padding-bottom: 70px;
@@ -82,7 +69,7 @@ body {
 }
 
 #HERO{
-  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)), url("../1.MainPage/background.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../1.MainPage/background.webp");
   width: 100%;
   height: auto;
   background-repeat: no-repeat;
@@ -142,7 +129,7 @@ a{
   height: 300px;
   text-align: center;
   background-color: #22242A;
-
+  margin-bottom: 0;
 }
 
 .socialstitle{
@@ -155,8 +142,30 @@ a{
   text-align: center; 
 }
 
+.shadow--sm{
+    box-shadow: 0 10px #64646439;
+}
+.card{
+  padding: 20px 20px;
+  margin: 30px;
+  background:#f2a562;
+  border-radius: 30px;
+}
+.card--title{
+  text-align: center;
 
-#news-feed ul li {
+}
+.card--body{
+  max-width: 200px;
+  margin: 0 auto;
+}
+.card--image{
+
+  max-width: 200px;
+  padding: 20px 20px;
+}
+
+/* #news-feed ul li {
   
   text-decoration: none;
   list-style-type:none ;
@@ -195,9 +204,9 @@ transition: transform 3s ease;
 }
 
 section{
-  margin: 100px 0 ;
+  margin: 100px 0;
 }
 
 .ul--news{
   padding: 0;
-}
+} */

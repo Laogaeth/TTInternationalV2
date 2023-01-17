@@ -1,6 +1,4 @@
-@font-face {
-    font-family: "trauma";
-    src: url(./Trauma.otf);  }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@600&display=swap');
 
 * {
 	margin: 0;
@@ -20,32 +18,29 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7)), url("./background.jpg") ;
-    background-position: center; 
-	background-size: 200vh;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("./background.jpg") ;
+    background-size: cover; 
+	background-repeat:no-repeat;
+	
   }
   .container{
 	color: rgb(231, 230, 230);;
 	font-size: 1.5rem;
 	display: flex;
 	flex-direction: column;
-	font-family: "Trauma";
-	font-size: 1.5em;
-	-webkit-animation: glow 1s ease-in-out infinite alternate;
-	-moz-animation: glow 1s ease-in-out infinite alternate;
-	animation: glow 1s ease-in-out infinite alternate;
+	font-family: "Quicksand", sans-serif;
+	
   }
   
-  
-  @keyframes glow{
-	from {
-	  text-shadow: 0 0 0.5px #79F2BA, 0 0 1px #79F2BA, 0 0 2px #79F2BA;
-	}
-	to {
-	  text-shadow: 0 0 1px #79F2BA, 0 0 2px#79F2BA, 0 0 2.5 #79F2BA;
-	}
-  }
+  .container h1 {
+	font-size: 3em;
+	padding: 5px;
 
+
+  }
+  
+  
+/* 
   .right {
 	text-align: right;
 	width: 100%;
@@ -102,4 +97,4 @@
 	  text-shadow: 2px -3px 0 #F20505, -2px 3px 0#79F2BA;
 	}
 	4%, 100% {  text-shadow: none; transform: none; }
-  }
+  } */
