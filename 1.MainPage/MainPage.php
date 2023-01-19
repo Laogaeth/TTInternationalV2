@@ -46,15 +46,30 @@
       <!--intro-->
 
   <div class="container-fluid">
+    <div class="row">
     <div class="col-sm-12">
   <h1 class="mainTitle">Whiskers & Bandits</h1>
     </div>
-  <h3 class="intro">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, accusantium. Vitae, in quae quis placeat nostrum similique. Repudiandae, quis vitae nesciunt, repellendus natus, non asperiores omnis delectus amet in ut!
-  <hr style="border: 0">
- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate delectus iusto tenetur at totam adipisci eveniet neque maxime ratione suscipit dicta possimus, voluptatibus omnis et consequatur mollitia nam quidem quas! </h3>
-</div>
+    <div class="col-8">
+    <h3 class="intro">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, accusantium. Vitae, in quae quis placeat nostrum similique. 
+    Repudiandae, quis vitae nesciunt, repellendus natus, non asperiores omnis delectus 
+    amet in ut!
+    <hr style="border: 0">
+  Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit. Cupiditate delectus iusto tenetur at totam adipisci 
+    eveniet neque maxime ratione suscipit dicta possimus, voluptatibus omnis et 
+    consequatur mollitia nam quidem quas!
 
+  </h3>
+
+   </div>
+
+   <div class="col-4">
+    <img src="../1.MainPage/cat.png" alt="cato" class="intro--image">
+   </div>
+   </div>
+  </div>
 
 
 <!------------------NEWS------------------>
