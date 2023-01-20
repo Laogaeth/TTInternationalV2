@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@600&display=swap');
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: auto;
+    z-index: 1;
+}
+.navbar {
+    position: relative;
+    background: transparent;
+}
+
+.navbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 32, 53, 0.8);
+    z-index: -1;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    color: #fff;
+}
+
+.navbar a:hover {
+    color: #F57F17;
+}
+
+main {
+    background-color: #ff480068;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    max-width: 1600px;
+}
+
+body {
+    background-color: #ff480068;
+    font-family: 'Montserrat', sans-serif;
+    word-wrap: break-word;
+    width: 100%;
+    height: 100%;
+}
+section{
+    padding: 10px 10px;
+    margin:auto;
+}
+#menu {
+    width: 100%;
+}
+.main--glass--effect {
+    box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
+}
+.shadow--sm {
+    box-shadow: 0 10px #64646439;
+}
+
+
+.card {
+    padding: 10px;
+    background: rgba(34, 32, 53, 0.4);
+    border-radius: 30px;
+    margin: 10px 10px 10px auto;
+    color: #fff;
+    border: none;
+}
+.card--image{
+    max-height: 100%;
+}
+.card--text{
+    padding: 10px 10px;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 200;
+    color: #fff;
+}
+
+
+#Footer {
+    height: 300px;
+    text-align: center;
+    background-color: #22242A;
+
+}
+
+.socialstitle {
+    color: white;
+    padding-top: 100px;
+}
+
+.rights {
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+}

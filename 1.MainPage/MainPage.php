@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
-          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Products</a> 
+          <a class="nav-item nav-link" href="../Products/productsPage.php">Products</a> 
           <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
           <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
         </div>
