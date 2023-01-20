@@ -48,9 +48,9 @@
   <div class="container-fluid">
     <div class="row">
     <div class="col-sm-12">
-  <h1 class="mainTitle">Whiskers & Bandits</h1>
+  <h1 class="main--title">Whiskers & Bandits</h1>
     </div>
-    <div class="col-8">
+    <div class="col-sm-8">
     <h3 class="intro">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, accusantium. Vitae, in quae quis placeat nostrum similique. 
     Repudiandae, quis vitae nesciunt, repellendus natus, non asperiores omnis delectus 
@@ -65,7 +65,7 @@
 
    </div>
 
-   <div class="col-4">
+   <div class="col-sm-4">
     <img src="../1.MainPage/cat.png" alt="cato" class="intro--image">
    </div>
    </div>
@@ -143,7 +143,14 @@
 <!-- <div class="container-fluid" id="businessModel">
   <a href="#" onclick="loadAjax()"> <h3 class="busTitle" id="busModel">Seven minutes or a refund. Click <em style="color: #F57F17;"> here </em>to check our subscription models today.</h3></a>
    </div> -->
+
+
   <div class="container-fluid">
+      <div class="col-12">
+        <h3 class="main--title products--title">Pet Care</h3>
+      </div>
+
+
       <div class="row">
         <div class="col">
           <div class="card shadow--sm">

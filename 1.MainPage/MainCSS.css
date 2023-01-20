@@ -58,25 +58,33 @@ body {
 }
 
 
-.mainTitle{
+.main--title{
   font-family: 'Quicksand', sans-serif;  color: #F57F17;
   font-size:2rem;
   margin-top: 100px;
-  padding: 40px 40px;
   text-align: left;
+  padding: 20px 20px;
 }
-
+.products--title{
+  font-size: 5rem;
+  text-align: center;
+}
 
 
 .intro{
   color: white;
-
+  padding: 20px 20px;
   text-align: left;
   font-size: 1rem;
 
 }
+        /*center this image  */
 .intro--image{
-  max-width: 300px;
+  margin: 0 auto;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -97,6 +105,7 @@ body {
   height: auto;
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 20px 20px;
 
 }
 /*personnel section*/
@@ -137,16 +146,6 @@ a{
 
 }
 
-/*Ajax Div*/
-#busModel{
-  background-color: rgb(0, 0, 0, 0.5);;
-  height: auto;
-  padding: 50px;
-  text-align: left;
-  color: #ffffff;
-  font-family: "Trauma";
-}
-/*Ajax Div */
 
 #Footer{
   height: 300px;
@@ -173,7 +172,7 @@ a{
   margin: 30px;
   background:#f29f55;
   border-radius: 30px;
-max-width: 330px;
+
 
 }
 .card--title{
@@ -185,10 +184,11 @@ max-width: 330px;
   margin: 0 auto;
 }
 .card--image{
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  padding: 20px 20px;
+  max-width:  200px;
+  max-height: 200px;
+  padding: 50px;
+
+
  
 }
 
