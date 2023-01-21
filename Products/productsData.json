@@ -2,25 +2,25 @@
     "products": [
         {
             "id": 1,
-            "category": "Hygiene products",
+            "category": "Hygiene",
             "name": "Pet Head Shampoo Orange Scent",
             "image": "./hyegiene/shampooOrange.png"
         },
         {
             "id": 2,
-            "category": "Hygiene products",
+            "category": "Hygiene",
             "name": "Pet Head Shampoo Peach Scent",
             "image": "./hyegiene/shampooPeach.png"
         },
         {
             "id": 3,
-            "category": "Hygiene products",
+            "category": "Hygiene",
             "name": "Pet Head Shampoo Pear Scent",
             "image": "./hyegiene/shampooPear.png"
         },
         {
             "id": 4,
-            "category": "Hygiene products",
+            "category": "Hygiene",
             "name": "Pet Head Dry Shampoo Coconut Scent",
             "image": "./hyegiene/shampooCoconut.png"
         },
@@ -28,19 +28,74 @@
             "id": 5,
             "category": "Food & Treats",
             "name": "Purina ONE with chicken",
-            "image": "https://www.example.com/images/purina-one-chicken.jpg"
+            "image": "./Food/food1.png"
         },
         {
             "id": 6,
             "category": "Food & Treats",
-            "name": "Concept for life Urinary with chicken",
-            "image": "https://www.example.com/images/concept-for-life-urinary-chicken.jpg"
+            "name": "Smilla Diet with beef",
+            "image": "./Food/food2.png"
         },
         {
             "id": 7,
             "category": "Food & Treats",
+            "name": "Concept for life Urinary with chicken",
+            "image": "./Food/food3.png"
+        },
+        {
+            "id": 8,
+            "category": "Food & Treats",
             "name": "Concept for Life Hypo Allergenic",
-            "image": "https://www.example.com/images/concept-for-life-hypo-allergenic.jpg"
+            "image": "./Food/food4.png"
+        },
+         {
+            "id": 9,
+            "category": "Toys",
+            "name": "Squeeky wild mouse",
+            "image": "./toys/toy1.png"
+        },
+         {
+            "id": 10,
+            "category": "Toys",
+            "name": "Squeeky cheese",
+            "image": "./toys/toy2.png"
+        },
+         {
+            "id": 11,
+            "category": "Toys",
+            "name": "Ball with bell",
+            "image": "./toys/toy3.png"
+        },
+         {
+            "id": 12,
+            "category": "Toys",
+            "name": "Chase ball with a bell",
+            "image": "./toys/toy4.png"
+        },
+        {
+            "id": 13,
+            "category": "Clothes",
+            "name": "Squeeky wild mouse",
+            "image": "./clothes/clothes1.png"
+        },
+         {
+            "id": 14,
+            "category": "Clothes",
+            "name": "Squeeky cheese",
+            "image": "./clothes/clothes2.png"
+        },
+         {
+            "id": 15,
+            "category": "Clothes",
+            "name": "Ball with bell",
+            "image": "./clothes/clothes3.png"
+        },
+         {
+            "id": 16,
+            "category": "Clothes",
+            "name": "Chase ball with a bell",
+            "image": "./clothes/clothes4.png"
         }
+
     ]
 }

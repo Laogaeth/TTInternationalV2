@@ -45,30 +45,14 @@
    <div class="container">
     <h5>Hygiene</h5>
         <div id="hygiene-products" class="row"></div>
-
-  <div class="row">
-    <h5>Food & Treats</h5>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./Food/food1.png"  alt=""> <p class="card--text">Purina ONE with chicken</p>                  </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./Food/food2.png"  alt="">  <p class="card--text">Smilla Diet with beef</p>                   </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./Food/food3.png"   alt="">   <p class="card--text">Concept for life Urinary with chicken </p></div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./Food/food4.png" alt=""><p class="card--text">Concept for Life Hypo Allergenic</p>           </div>
-  </div>
-
-  <div class="row">
+    <h5>Foods & Treats</h5>
+        <div id="food-treats" class="row"></div>
     <h5>Toys</h5>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooOrange.png" alt=""> <p class="card--text">Pet Head Shampoo Orange Scent</p>     </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooPeach.png" alt="">  <p class="card--text">Pet Head Shampoo Peach Scent</p>      </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooPear.png" alt="">   <p class="card--text">Pet Head Shampoo Pear Scent</p>       </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooCoconut.png" alt=""><p class="card--text">Pet Head Dry Shampoo Coconut Scent</p></div>
-  </div>
-
-  <div class="row">
+        <div id="toys" class="row"></div>
     <h5>Clothes</h5>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooOrange.png" alt=""> <p class="card--text">Pet Head Shampoo Orange Scent</p>     </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooPeach.png" alt="">  <p class="card--text">Pet Head Shampoo Peach Scent</p>      </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooPear.png" alt="">   <p class="card--text">Pet Head Shampoo Pear Scent</p>       </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooCoconut.png" alt=""><p class="card--text">Pet Head Dry Shampoo Coconut Scent</p></div>
-  </div>
+        <div id="clothes" class="row"></div>
+
+
 </div>
 
         
