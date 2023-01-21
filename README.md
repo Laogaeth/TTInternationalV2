@@ -12,7 +12,7 @@ It was originally intended to be a bleak representation of the world in the game
 -CSS
 
 
--JavaScript
+-JavaScript // jQuery
 
 
 -PHP
@@ -26,3 +26,5 @@ This is the second version of the project, with a major focus on creating a more
 Features a cleanear layout, making it easy for users to navigate and find the information they need. The use of bright colors and playful illustrations helps to create a positive and inviting atmosphere, which is in contrast to the darker tone of the original version and it's also something I want to work more towards to.
 
 Overall I'm having a whole lot fun with this, a whole lot of raccoons are to be expected.
+
+Soon you'll be able to run this locally once I complete the database for it, to run it I have it set up as "localhost:3307"
