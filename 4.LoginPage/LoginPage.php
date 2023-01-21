@@ -68,8 +68,8 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
           <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Products</a> 
-          <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
           <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
+          <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
         </div>
       </div>
     </nav>

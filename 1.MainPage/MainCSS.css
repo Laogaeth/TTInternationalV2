@@ -13,6 +13,7 @@
 .navbar {
   position: relative;
   background: transparent;
+  padding-left: 10px;
 }
 
 .navbar::before {
@@ -100,7 +101,7 @@ body {
 }
 
 #HERO{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../1.MainPage/background.webp");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../1.MainPage/images/background.webp");
   width: 100%;
   height: auto;
   background-repeat: no-repeat;

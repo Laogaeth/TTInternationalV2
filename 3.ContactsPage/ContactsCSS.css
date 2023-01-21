@@ -35,6 +35,7 @@ body{
 .navbar {
   position: relative;
   background: transparent;
+  padding-left: 10px;
 }
 
 .navbar::before {

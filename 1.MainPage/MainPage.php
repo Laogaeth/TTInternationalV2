@@ -30,8 +30,9 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
           <a class="nav-item nav-link" href="../Products/productsPage.php">Products</a> 
-          <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
           <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
+          <a class="nav-item nav-link" href="../ShoppingCart/cartPage.php">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
+
         </div>
       </div>
     </nav>
@@ -62,37 +63,11 @@
    </div>
 
    <div class="col-sm-4">
-    <img src="../1.MainPage/cat.png" alt="cato" class="intro--image">
+    <img src="../1.MainPage/images/cat.png" alt="cato" class="intro--image">
    </div>
    </div>
   </div>
 
-
-<!------------------NEWS------------------>
-
-<!-- <div class="container" id="news-feed">
-  <div class="row">
-  <div class="col-sm-4">
-  <img class="newsCaster" src="../Images/NCN.jpg" alt="">
-  </div>
-  <div class="col-sm-8">
-//<?php
-//$db = new mysqli('localhost:3307', 'root', '', 'db_login');
-//$result = $db->query('SELECT * FROM news ORDER BY id DESC LIMIT 5');
-//echo '<ul class="ul--news">';
-//while ($row = $result->fetch_assoc()) {
-//
-//    echo '<li>
-//    <h3 class="h1--news" data-id="'.$row['id'].'">'.$row['name'].'</h3>'.'<br>'.'<p>'.$row['resumo']."</p>".'<hr>'.'</li>';
-//}
-//echo '</ul>';
-//
-//$db->close();
-//?>
-  </div>
-</div>
-</div>
- -->
 
 
 <section >
@@ -119,28 +94,6 @@
 </section>
 
 
-
-
-<!--Gallery-->
-<!-- <div class="container-fluid" id="personnel">
- <h2 class="squadTitle" >Our personnel</h2>
- <br>
- <br>
-<div class="teamShowcase">
- <a href="../Images/Pilot.png" data-lightbox="mygallary" data-title="Your own aerodyne Militech trained Pilot."><img src="../Images/Pilot_thumbnail.png" alt="Pilot" ></a>
- <a href="../Images/Security.png" data-lightbox="mygallary" data-title="Combat ready paramedic."><img src="../Images/Security_thumbnail.png" alt="Paramedic"></a>
- <a href="../Images/leadEMT.png" data-lightbox="mygallary" data-title="Militech grade hardware."><img src="../Images/leadEMT_thumbnail.png" alt="Hardware"></a>
- <a href="../Images/ship.jpg" data-lightbox="mygallary" data-title="Aerodyne complete with the most recent weaponry and medical care utilities."><img src="../Images/ship_thumbnail.jpg" alt="Airship"></a>
-</div>
-</div> -->
-
-
-   <!--Ajax div-->   
-<!-- <div class="container-fluid" id="businessModel">
-  <a href="#" onclick="loadAjax()"> <h3 class="busTitle" id="busModel">Seven minutes or a refund. Click <em style="color: #F57F17;"> here </em>to check our subscription models today.</h3></a>
-   </div> -->
-
-
   <div class="container-fluid">
       <div class="col-12">
         <h3 class="main--title products--title">Pet Care</h3>
@@ -152,7 +105,7 @@
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Hygiene Products</h5>
-              <img  src="../1.MainPage/soap.png" alt="Hygiene" class="card--image">
+              <img  src="../1.MainPage/images/soap.png" alt="Hygiene" class="card--image">
             </div>
           </div>
         </div>
@@ -162,7 +115,7 @@
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Food & Treats</h5>
-              <img  src="../1.MainPage/pet-food.png" alt="Food" class="card--image">
+              <img  src="../1.MainPage/images/pet-food.png" alt="Food" class="card--image">
             </div>
           </div>
         </div>
@@ -172,7 +125,7 @@
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Toys</h5>
-              <img  src="../1.MainPage/toys.png" alt="Toys" class="card--image">
+              <img  src="../1.MainPage/images/toys.png" alt="Toys" class="card--image">
             </div>
           </div>
         </div>
@@ -183,7 +136,7 @@
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Clothes</h5>
-              <img  src="../1.MainPage/Clothes.png" alt="Clothes" class="card--image">
+              <img  src="../1.MainPage/images/clothes.png" alt="Clothes" class="card--image">
             </div>
           </div>
         </div>
