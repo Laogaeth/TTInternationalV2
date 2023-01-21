@@ -13,11 +13,7 @@
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <!--My css & JS-->
  <link rel="stylesheet" href="./MainCSS.css">
-  
-  
-  <!--lightbox-->
-  <link rel="stylesheet" href="../lightbox.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox.js"></script>
+ 
 </head>
 
  <body>

@@ -10,9 +10,10 @@
   <title>Products</title> 
   <!--fonts-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../Products/products.css">
+  <script src="../Products/javascriptProducts.js"></script>
   
 </head>
 
@@ -42,13 +43,8 @@
     <h3>Our Selection</h3>
 
    <div class="container">
-  <div class="row">
     <h5>Hygiene</h5>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooOrange.png" alt=""> <p class="card--text">Pet Head Shampoo Orange Scent</p>     </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooPeach.png" alt="">  <p class="card--text">Pet Head Shampoo Peach Scent</p>      </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooPear.png" alt="">   <p class="card--text">Pet Head Shampoo Pear Scent</p>       </div>
-    <div class="col-sm card shadow--sm"><img class="card--image" src="./hyegiene/shampooCoconut.png" alt=""><p class="card--text">Pet Head Dry Shampoo Coconut Scent</p></div>
-  </div>
+        <div id="hygiene-products" class="row"></div>
 
   <div class="row">
     <h5>Food & Treats</h5>

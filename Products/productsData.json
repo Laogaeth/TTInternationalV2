@@ -1,0 +1,46 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "category": "Hygiene products",
+            "name": "Pet Head Shampoo Orange Scent",
+            "image": "./hyegiene/shampooOrange.png"
+        },
+        {
+            "id": 2,
+            "category": "Hygiene products",
+            "name": "Pet Head Shampoo Peach Scent",
+            "image": "./hyegiene/shampooPeach.png"
+        },
+        {
+            "id": 3,
+            "category": "Hygiene products",
+            "name": "Pet Head Shampoo Pear Scent",
+            "image": "./hyegiene/shampooPear.png"
+        },
+        {
+            "id": 4,
+            "category": "Hygiene products",
+            "name": "Pet Head Dry Shampoo Coconut Scent",
+            "image": "./hyegiene/shampooCoconut.png"
+        },
+        {
+            "id": 5,
+            "category": "Food & Treats",
+            "name": "Purina ONE with chicken",
+            "image": "https://www.example.com/images/purina-one-chicken.jpg"
+        },
+        {
+            "id": 6,
+            "category": "Food & Treats",
+            "name": "Concept for life Urinary with chicken",
+            "image": "https://www.example.com/images/concept-for-life-urinary-chicken.jpg"
+        },
+        {
+            "id": 7,
+            "category": "Food & Treats",
+            "name": "Concept for Life Hypo Allergenic",
+            "image": "https://www.example.com/images/concept-for-life-hypo-allergenic.jpg"
+        }
+    ]
+}
