@@ -40,21 +40,37 @@
  <main class="main--glass--effect">
 
   <section>
-    <h3>Our Selection</h3>
 
-   <div class="container">
-    <h5>Hygiene</h5>
+    <h3 class="section--h3">Our Selection</h3>
+
+    <div class="filters">
+  <a href="#hygiene-products"><button class=" shadow--xs">Hygiene       </button></a>
+  <a href="#food-treats">     <button class=" shadow--xs">Food & Treats </button></a>
+  <a href="#toys">            <button class=" shadow--xs">Toys          </button></a>
+  <a href="#clothes">         <button class=" shadow--xs">Clothes       </button></a>
+    
+    
+    </div>
+
+
+   <div class="container products--title underline">
+    <h5 id="Hygiene">Hygiene</h5>
         <div id="hygiene-products" class="row"></div>
+
     <h5>Foods & Treats</h5>
         <div id="food-treats" class="row"></div>
+
     <h5>Toys</h5>
         <div id="toys" class="row"></div>
+
     <h5>Clothes</h5>
         <div id="clothes" class="row"></div>
 
+  </div>
 
-</div>
-
+  <div class="container">
+          <button class="button--icon"><img class="button--icon--arrow" src="./icons/arrowUp.png" alt=""></button>
+  </div>
         
   </section>
 

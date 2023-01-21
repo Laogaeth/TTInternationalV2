@@ -75,25 +75,25 @@
         {
             "id": 13,
             "category": "Clothes",
-            "name": "Squeeky wild mouse",
+            "name": "Winter Jumper",
             "image": "./clothes/clothes1.png"
         },
          {
             "id": 14,
             "category": "Clothes",
-            "name": "Squeeky cheese",
+            "name": "Camouflage Jumper",
             "image": "./clothes/clothes2.png"
         },
          {
             "id": 15,
             "category": "Clothes",
-            "name": "Ball with bell",
+            "name": "Melon Jumper",
             "image": "./clothes/clothes3.png"
         },
          {
             "id": 16,
             "category": "Clothes",
-            "name": "Chase ball with a bell",
+            "name": "Festive Cloaks",
             "image": "./clothes/clothes4.png"
         }
 

@@ -18,3 +18,4 @@ $.getJSON("productsData.json", function(data) {
         }
     });
 });
+
