@@ -14,11 +14,12 @@
 #menu {
     width: 100%;
 }
+ 
 
 .navbar {
     position: relative;
     background: transparent;
-    padding-left: 10px;
+    padding-left: 11px;
 }
 
 .navbar::before {
