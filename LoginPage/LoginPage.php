@@ -4,7 +4,7 @@ $is_invalid= false;
 
 if($_SERVER["REQUEST_METHOD"]==="POST"){
 
-  $mysqli = require __DIR__."./../RegistrationPage/database.php";
+  $mysqli = require __DIR__."../../RegistrationPage/database.php";
   $sql = sprintf("SELECT * FROM user
                   WHERE email = '%s'",
                   $mysqli->real_escape_string($_POST["email"]));
