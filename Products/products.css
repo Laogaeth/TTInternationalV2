@@ -100,7 +100,7 @@ section{
     box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
 }
 .shadow--sm {
-    box-shadow: 0 10px #64646439;
+    box-shadow: 10px 10px #0b0b0b60;
 }
 .shadow--xs {
     box-shadow: 0 5px #64646439;
@@ -120,14 +120,14 @@ section{
 .card {
     background: rgba(34, 32, 53, 0.4);
     border-radius: 30px;
-    margin: 10px 10px 10px auto;
+    margin: 20px 20px 20px auto;
     color: #fff;
     border: none;
+    padding: 0;
 }
 .card:hover{
     background: rgba(34, 32, 53, 0.8);
     border-radius: 30px;
-    margin: 10px 10px 10px auto;
     color: #fff;
     border: none;
     transition: 0.5s;
@@ -139,13 +139,21 @@ section{
         height: 100%;
         padding: 10px 10px;
 }
+
 .card--text{
-    padding: 10px 10px;
+    padding: 5px 10px 5px 10px;
     text-align: left;
-    font-size: 0.7rem;
-    color: #fff;
+    font-size: 1rem;
+    color: white;
     margin-bottom: 1px;
+    color: black;
 }
+.card--buy--info{
+    background-color:#f5f5f5f5;
+    border-radius: 0 0 30px  30px;
+    width: 100%;
+}
+
 .button--icon{
     border: none;
     background: none;
@@ -187,6 +195,7 @@ section{
         transform: translateY(20px);
     }
 }
+
 
 
 

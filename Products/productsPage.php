@@ -28,11 +28,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="../4.LoginPage/LoginPage.php">User Hub</a> 
-          <a class="nav-item nav-link" href="../6.PortfolioPage/PortfolioPage.php">Products</a> 
-          <a class="nav-item nav-link" href="../2.OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
-          <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Contacts</a>
-          <a class="nav-item nav-link" href="../3.ContactsPage/Contacts.html">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
+          <a class="nav-item nav-link" href="../LoginPage/LoginPage.php">User Hub</a> 
+          <a class="nav-item nav-link" href="../PortfolioPage/PortfolioPage.php">Products</a> 
+          <a class="nav-item nav-link" href="../OrçamentoPage/OrçamentoPage.html" >Custom Pricing</a> 
+          <a class="nav-item nav-link" href="../ContactsPage/Contacts.html">Contacts</a>
+          <a class="nav-item nav-link" href="../ShoppingCart/cartPage.php">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
 
         </div>
       </div>
@@ -87,6 +87,7 @@
 
 
  <script src="../Products/javascriptProducts.js"></script>
+ 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>

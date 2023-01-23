@@ -1,28 +1,34 @@
-var categoryDivMap = {
-    "Food & Treats": "#food-treats",
-    "Hygiene": "#hygiene-products",
-    "Toys": "#toys",
-    "Clothes": "#clothes"
+//map out category names 
+const categoryDivMap ={
+  "Food & Treats":"#food-treats",
+  "Hygiene":"#hygiene-products",
+  "Toys":"#toys",
+  "Clothes":"#clothes"
 };
-
-$.getJSON("productsData.json", function(data) {
-    $.each(data.products, function(index, product) {
-        var categoryDiv = categoryDivMap[product.category];
-        if (categoryDiv) {
-            $(categoryDiv).append(
-                "<div class='col-sm card shadow--sm'>" +
-                    "<img class='card--image' src='" + product.image + "'>" +
-                    "<p class='card--text'>" + product.name + "</p>" +
-                "</div>"
-            );
+//Snatch products data from json file
+$.getJSON("productsData.json", function(data){
+    //Snatch the prices from prices.php script
+    $.getJSON("prices.php", function(prices){
+      //Loops through all products
+      $.each(data.products,function(index,product){
+        const categoryDiv = categoryDivMap[product.category];
+        if (categoryDiv){
+          $(categoryDiv).append(
+            "<div class = 'col-sm card shadow--sm'>" +
+            "<img class = 'card--image' src='"+ product.image +"'>"+
+            "<p class ='card--text  card--buy--info'>"+ product.name + 
+             " <br>" +prices[product.name] + " €</p>"+
+            "</div>"
+          );
         }
+      });
     });
 });
 
 
-//get back to the top button
 
-// Get the button
+
+//get back to the top button
 const button = document.querySelector('.button--icon');
 const h5Title = document.getElementById('hygiene');
 window.addEventListener('scroll', () => {
