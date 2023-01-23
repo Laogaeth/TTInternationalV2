@@ -81,9 +81,9 @@ if (isset($_SESSION["user_id"])){
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="../LoginPage/LoginPage.php">User Hub</a>
-          <a class="nav-item nav-link" href="../PortfolioPage/PortfolioPage.php">Products</a>
+          <a class="nav-item nav-link" href="../Products/productsPage.php">Products</a> 
           <a class="nav-item nav-link" href="../ContactsPage/Contacts.html">Contacts</a>
-          <a class="nav-item nav-link" href="../ContactsPage/Contacts.html">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
+          <a class="nav-item nav-link" href="../ShoppingCart/cartPage.php">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
         </div>
       </div>
     </nav>

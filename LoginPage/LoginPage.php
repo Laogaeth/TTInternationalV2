@@ -60,14 +60,14 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
     <!-- Navbar Menu -->
   <div class="sticky" id="menu">
     <nav class="navbar navbar-expand-lg ">
-      <a class="navbar-brand" href="../1.MainPage/MainPage.php">HOME</a>
+      <a class="navbar-brand" href="../MainPage/MainPage.php">HOME</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="../LoginPage/LoginPage.php">User Hub</a> 
-          <a class="nav-item nav-link" href="../PortfolioPage/PortfolioPage.php">Products</a> 
+          <a class="nav-item nav-link" href="../Products/productsPage.php">Products</a> 
           <a class="nav-item nav-link" href="../ContactsPage/Contacts.html">Contacts</a>
           <a class="nav-item nav-link" href="../ShoppingCart/cartPage.php">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
         </div>

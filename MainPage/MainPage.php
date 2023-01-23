@@ -18,26 +18,20 @@
 
  <body>
  
- 
   <!--Nav Menu-->
-  <div class="sticky" id="menu">
-    <nav class="navbar navbar-expand-lg ">
-      <a class="navbar-brand" href="./MainPage.php">HOME</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="../LoginPage/LoginPage.php">User Hub</a> 
-          <a class="nav-item nav-link" href="../Products/productsPage.php">Products</a> 
-          <a class="nav-item nav-link" href="../ContactsPage/Contacts.html">Contacts</a>
-          <a class="nav-item nav-link" href="../ShoppingCart/cartPage.php">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
+  
+ <div class="navbar">
+      <button  class="btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
-        </div>
-      </div>
-    </nav>
-  </div>
-
+    <div class="menu__nav">
+      <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>             <p class="menu--nav--text">Home      </p></a>
+      <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>        <p class="menu--nav--text">User      </p></a> 
+      <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>    <p class="menu--nav--text">Products  </p></a>    
+      <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i><p class="menu--nav--text">Contacts  </p></a>
+    </div>
+</div>
+      
+      
 
  <main class="main--glass--effect section--color" >
       <!--intro-->
@@ -63,7 +57,7 @@
    </div>
 
    <div class="col-sm-4">
-    <img src="../1.MainPage/images/cat.png" alt="cato" class="intro--image">
+    <img src="../MainPage/images/cat.png" alt="cato" class="intro--image">
    </div>
    </div>
   </div>
@@ -105,7 +99,7 @@
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Hygiene Products</h5>
-              <img  src="../1.MainPage/images/soap.png" alt="Hygiene" class="card--image">
+              <img  src="../MainPage/images/soap.png" alt="Hygiene" class="card--image">
             </div>
           </div>
         </div>
@@ -115,7 +109,7 @@
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Food & Treats</h5>
-              <img  src="../1.MainPage/images/pet-food.png" alt="Food" class="card--image">
+              <img  src="../MainPage/images/pet-food.png" alt="Food" class="card--image">
             </div>
           </div>
         </div>
@@ -125,7 +119,7 @@
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Toys</h5>
-              <img  src="../1.MainPage/images/toys.png" alt="Toys" class="card--image">
+              <img  src="../MainPage/images/toys.png" alt="Toys" class="card--image">
             </div>
           </div>
         </div>
@@ -136,7 +130,7 @@
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Clothes</h5>
-              <img  src="../1.MainPage/images/clothes.png" alt="Clothes" class="card--image">
+              <img  src="../MainPage/images/clothes.png" alt="Clothes" class="card--image">
             </div>
           </div>
         </div>
