@@ -82,7 +82,7 @@ main {
     font-size: 1rem;
     word-wrap: break-word;
     font-family: 'Montserrat', sans-serif;
-    min-height: 100%;
+   
    
 
 }
@@ -162,7 +162,7 @@ textarea,
 button:hover {
 
     cursor: pointer;
-    background: #ff480068;
+    background: #343151;
 }
 
 
@@ -196,23 +196,24 @@ color: white;
 }
 
 h1{
-    margin: 50px;
+   
     font-size: 2em;
     color: white;
-    padding: 15px 5px;
+    padding: 20px;
     text-align: center;
    
 }
 
 
 .container--userarea{
-       background: #222035ec;
-        border-radius: 10px;
-        margin: auto;
-        margin-top:100px;
-        margin-bottom: 40px;
-        max-width: 600px;
-        color: white;
+    background: #222035ec;
+    border-radius: 10px;
+    margin: auto;
+    margin-top:100px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    color: white;
+    padding: 2px;
 
 }
 .logout{
@@ -234,4 +235,11 @@ margin-top: 50px ;
 
 .container--client{
     max-width: 600px;
+    margin: auto;
+}
+
+.helloPanda{
+    max-height: 200px;
+    width: auto;
+    padding: 20px 20px;
 }

@@ -25,32 +25,26 @@
 </head>
 
 <body>
-  <!--menu bar-->
-  <div class="sticky" id="menu">
-    <nav class="navbar navbar-expand-lg ">
-      <a class="navbar-brand" href="../1.MainPage/MainPage.php">HOME</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="../LoginPage/LoginPage.php">User Hub</a>
-          <a class="nav-item nav-link" href="../PortfolioPage/PortfolioPage.php">Products</a>
-          <a class="nav-item nav-link" href="../OrçamentoPage/OrçamentoPage.html">Custom Pricing</a>
-          <a class="nav-item nav-link" href="../ContactsPage/Contacts.html">Contacts</a>
-        </div>
-      </div>
-    </nav>
-  </div>
+  <div class="wrapper row">
+ <div class="col navbar">
+      <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
-   <main class="main--glass--effect">
+    <div class="menu__nav">
+      <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a> 
+      <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
+      <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
+      <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
+
+    </div>
+</div>
+      
+   <main class="col-11 main--glass--effect">
   
-
-
  <!--Form -->
 
-    
+        <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="pandaForm">
+
    <div class="container container--form">
 
    <form name="formulario" method="post" action="registration_form.php" id="signup">
@@ -86,20 +80,19 @@
 <hr style="border:0 solid white">
 
 
-                 
-<!--footer-->
-
-   <div class="container-fluid" id="Footer">
-    <h4 class="socialstitle">TTI®</h4>
-          
-    <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
-    </div>
-
 
   </main>
+  </div>
+<!--footer-->
+
+<div class="container-fluid" id="Footer">
+  <h4 class="socialstitle">TTI®</h4>
+
+  <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
+</div>
 
 
- <script src="../3.ContactsPage/JavascriptContacts.js"></script>
+ <script src="../RegistrationPage/registrationJavascript.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

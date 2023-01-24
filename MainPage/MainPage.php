@@ -147,11 +147,15 @@
 
 </main>
 </div>
+
+
  <div id="Footer">
   <h4 class="socialstitle">TTI®</h4>
 
   <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
  </div>
+
+
    <script src="./MainJavascript.js"></script>
  <!--redundante// 4.1.3 for button -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

@@ -17,7 +17,7 @@ $.getJSON("productsData.json", function(data){
             "<div class = 'col-sm card shadow--sm'>" +
             "<img class = 'card--image' src='"+ product.image +"'>"+
             "<p class ='card--text  card--buy--info'>"+ product.name + 
-             " <br>" +prices[product.name] + " €</p>"+
+             " <br>" +prices[product.name] + " €"+ "<i class='fa-solid fa-cart-shopping card--cart'></i>" + "</p>" +
             "</div>"
           );
         }
@@ -66,3 +66,18 @@ $(document).ready(function(){
         }
     });
 });
+
+
+//this script makes the side menu content reappear once it's expanded
+$(document).ready(function() {
+  $('.nav--arrow').click(function() {
+    if ($('.menu__nav').is(':visible')) {
+      $('.menu__nav').hide();
+    } else {
+      setTimeout(function() {
+        $('.menu__nav').show();
+      }, 800);
+    }
+  });
+});
+

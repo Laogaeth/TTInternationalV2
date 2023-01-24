@@ -33,23 +33,9 @@ if (isset($_SESSION["user_id"])){
 <link rel="stylesheet" href="../LoginPage/LoginCSS.css">
  
  <style>
-  body{
+  main{
     height: 100vh;
   }
-    main{
-      background: #ff480068;
-      max-width: 1600px;
-      margin: auto;
-      
-    }
-
-    a{
-      font-family: 'Share Tech Mono', monospace;
-      color: #fff;
-    }
-    a:visited{
-      color: #fff;
-    }
     .adminButton{
       padding: 1em 1em;
       border-radius: 5px;
@@ -68,32 +54,28 @@ if (isset($_SESSION["user_id"])){
 </head>
 
 
-<body>
+<body class="wrapper row">
 
-    <!-- Navbar Menu -->
-  <div class="sticky" id="menu">
-    <nav class="navbar navbar-expand-lg ">
-      <a class="navbar-brand" href="./MainPage.php">HOME</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="../LoginPage/LoginPage.php">User Hub</a>
-          <a class="nav-item nav-link" href="../Products/productsPage.php">Products</a> 
-          <a class="nav-item nav-link" href="../ContactsPage/Contacts.html">Contacts</a>
-          <a class="nav-item nav-link" href="../ShoppingCart/cartPage.php">Shopping cart <img  class="icon--shoppingCart" src="../icons/shoppingCart.png" alt=""></a>
-        </div>
-      </div>
-    </nav>
-  </div>
 
-<main class="main--glass--effect">
+  
+ <div class="col navbar">
+      <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
+    <div class="menu__nav">
+      <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a> 
+      <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
+      <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
+      <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
+
+    </div>
+</div>
+
+<main class="col-11 main--glass--effect">
   <section>
 
-  <div class="container--userarea main--glass--effect">
+  <div class="col-11 container--userarea main--glass--effect">
+    <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
      <?php if (isset($user)): ?>
         <h1>Welcome <b> <?=htmlspecialchars( $user["name"])?></b> to your user enviroment.</h1>
         <?php else: ?>
@@ -114,7 +96,7 @@ if (isset($_SESSION["user_id"])){
                     if ($user['id'] == 1) {
                       //show the div for admin domain
                       echo "<button class='adminButton'>
-                             <a href='../4.LoginPage/ADMIN.php'>Go to admin page</a>
+                             <a href='../LoginPage/ADMIN.php'>Go to admin page</a>
                             </button>";
                     }
                   }
@@ -162,7 +144,7 @@ if (isset($_SESSION['user_id'])) {
 
   // Display the personal info update form
 
-  echo "<form method='post' action='../4.LoginPage/session.php'>";
+  echo "<form method='post' action='../LoginPage/session.php'>";
   echo "<h6>Update personal info</h6>";
   echo "Client: <input type='text' name='client' value='" . $user['client'] . "'required><br>";
   echo "Name: <input type='text' name='name' value='" . $user['name'] . "'required><br>";
@@ -172,65 +154,14 @@ if (isset($_SESSION['user_id'])) {
   echo "</section>";
 }
 ?>
-<form method="post" class="container container--client">
-    <?php
 
-    // Connect to the database
-    $conn = mysqli_connect('localhost:3307', 'root', '', 'db_login');
-    // Get the current user's ID
-    $user_id = $_SESSION['user_id'];
-    if(isset($_POST['submit']))
-    {
-        if($_POST['submit'] == "Update")
-        {
-            // Get the new consultation and date from the form
-            $new_consultation = mysqli_real_escape_string($conn, $_POST['new_consultation']);
-            $new_date = $_POST['new_date'];
-            // Update the consultation and date for the current user
-            $query = "UPDATE user SET consultation = '$new_consultation', consultation_date = '$new_date' WHERE id = $user_id";
-            mysqli_query($conn, $query);
-            echo "Your consultation has been updated.";
-        }
-        else if($_POST['submit'] == "Delete")
-        {
-            // Delete the consultation and date for the current user
-            $query = "UPDATE user SET consultation = NULL, date = NULL WHERE id = $user_id";
-            mysqli_query($conn, $query);
-            echo "Your consultation has been deleted.";
-        }
-        else if($_POST['submit'] == "Add")
-        {
-            // Get the new consultation and date from the form
-            $new_consultation = mysqli_real_escape_string($conn, $_POST['new_consultation']);
-            $new_date = $_POST['new_date'];
-            // Insert the new consultation and date for the current user
-            $query = "INSERT INTO user (consultation, consultation_date) VALUES ('$new_consultation', '$new_date') WHERE id = $user_id";
-            mysqli_query($conn, $query);
-            echo "Your new consultation has been added.";
-        }
-    }
-    // Retrieve the consultation and date for the current user
-    $query = "SELECT consultation, consultation_date FROM user WHERE id = $user_id";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
-    $consultation = $row['consultation'];
-    $date = $row['consultation_date'];
-    ?>
-    <label for="consultation">Your consultation is:</label>
-    <textarea id="consultation" name="new_consultation" rows="4" cols="50"><?php echo $consultation ?></textarea>
-    <br>
-    <label for="date">Date:</label>
-    <input type="date" id="date" name="new_date" value="<?php echo $date ?>">
-    <br>
-    <input type="submit" name="submit" value="Submit" class="sbmBtn">
-    <input type="submit" name="submit" value="Delete">
 </form>
 
 
 
   </section>
 </main>    
-               
+  <script src="../LoginPage/loginJavascript.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
