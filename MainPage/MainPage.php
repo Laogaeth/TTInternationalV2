@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +19,7 @@
   <!--My css & JS-->
 
  <link rel="stylesheet" href="./MainCSS.css">
- 
- 
+
 </head>
 
  <body >
@@ -25,6 +29,10 @@
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
     <div class="menu__nav">
+      <div>
+      <img src="../Images/welcomeCat.png" alt="" class="navbar--cat">
+     <p class="navbar--cat--text"> Welcome <?php echo $_SESSION["user_name"];?> </p></div>
+      <a class="menu--icon" href="../LoginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i>                   <p class="menu--nav--text">Logout         </p></a>
       <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
       <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a> 
       <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    

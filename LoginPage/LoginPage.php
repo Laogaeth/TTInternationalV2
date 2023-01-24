@@ -1,29 +1,26 @@
-
 <?php
-$is_invalid= false;
+$is_invalid = false;
 
-if($_SERVER["REQUEST_METHOD"]==="POST"){
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $mysqli = require __DIR__."../../RegistrationPage/database.php";
-  $sql = sprintf("SELECT * FROM user
-                  WHERE email = '%s'",
+  $sql = sprintf("SELECT * FROM user WHERE email = '%s'",
                   $mysqli->real_escape_string($_POST["email"]));
   $result = $mysqli->query($sql);
   $user = $result->fetch_assoc();
-  
-  if($user){
-    if (password_verify($_POST["password"], $user["password_hash"])){
 
+  if ($user) {
+    if (password_verify($_POST["password"], $user["password_hash"])) {
       session_start();
-      session_regenerate_id();  //to prevent session fixation attacks
-      $_SESSION["user_id"] = $user["id"]; //store user id in session superglobal, files stored in server
+      session_regenerate_id(); //to prevent session fixation attacks
 
+      $_SESSION["user_id"] = $user["id"]; //store user id in session superglobal, files stored in server
+      $_SESSION["user_name"] = $user["name"]; 
       header("Location: ./session.php");
       exit;
-
     }
   }
- $is_invalid= true;
+  $is_invalid = true;
 }
 
 ?>
@@ -59,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
     <div class="menu__nav">
-      <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../MainPage/MainPage.php">     <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
       <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a> 
       <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
       <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>

@@ -9,6 +9,7 @@ if (isset($_SESSION["user_id"])){
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +63,7 @@ if (isset($_SESSION["user_id"])){
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
     <div class="menu__nav">
-      <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../MainPage/MainPage.php">     <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
       <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a> 
       <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
       <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>

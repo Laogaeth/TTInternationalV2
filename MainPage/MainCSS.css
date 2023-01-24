@@ -37,6 +37,7 @@ body{
     transition: ease-in-out 0.3s;
     z-index: 1;
     color: white;
+    overflow: scroll;
 }
 
 .menu--icon {
@@ -192,8 +193,19 @@ a{
 .card--image{
   max-width:  200px;
   max-height: 200px;
-  padding: 50px;
+  padding: 50px; 
+}
 
 
- 
+.navbar--cat{
+  max-height: 10rem;
+  position: relative;
+  top: 0;
+}
+.navbar--cat--text{
+  margin-top: -50px;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
