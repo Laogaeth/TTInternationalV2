@@ -1,54 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@600&display=swap');
 * {
     box-sizing: border-box;
+
 }
 
 body {
-    background-color: #ff480068;
-    }
+    padding: 0;
+    margin: 0;
+    background: #ff480068;
 
-/*nav menu*/
+}
+
+.nav--arrow {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    height: 30px;
+    width: 30px;
+}
+
 .sticky {
     position: fixed;
-    top: 0;
-    width: 100%;
 }
+
+.menu__nav {
+    display: none;
+    transition: all 0.5s ease-in-out;
+}
+
 .navbar {
-    position: relative;
-    background: transparent;
-    padding-left: 10px;
-
-}
-
-.navbar::before {
-    content: "";
-    position: absolute;
+    background: #222035;
+    width: 40px;
+    position: fixed;
+    overflow: hidden;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(34, 32, 53, 0.8);
-    z-index: -1;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    bottom: 0;
+    border-top-right-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+    transition: ease-in-out 0.3s;
+    z-index: 1;
+    color: white;
 }
 
-.navbar a {
+.menu--icon {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
     color: #fff;
+    text-decoration: none;
+    margin: 25px;
+    padding: 10px 0 10px;
 }
 
-.navbar a:hover {
-    color: #F57F17;
+.menu--icon a:visited,
+.menu--icon:hover {
+    background-color: #343151;
+    color: #fff;
+    padding: 5px;
+    border-radius: 20px;
 }
+
+.btn {
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.menu--nav--text {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    margin-left: 10px;
+    padding-top: 16px;
+}
+
 main {
     background: #ff480068;
-    max-width: 1600px;
     margin: auto;
-    height: 100%;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
     word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100%;
+   
+
 }
+
+@media only screen and (max-width: 930px) {
+    main {
+        margin-right: 0;
+    }
+}
+
+
 .main--glass--effect {
     box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
+}
+
+.wrapper {
+    margin: auto;
+    max-width: 1600px;
+    
+    
 }
 
 /*form*/
@@ -62,7 +116,7 @@ section{
 
 
 .imgcontainer{
-    margin-top: 200px;
+    margin-top: 100px;
     text-align: center;
      margin-bottom: 20px;
 }
@@ -78,10 +132,10 @@ section{
     background:#222035ec;
     border-radius: 10px;
     width: 100%;
-    
     padding: 10px 30px;
     box-shadow: 1px 1px 10px #222035ec;
     color: white;
+    margin-bottom: 300px;
 }
 .main--glass--effect {
     box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
@@ -113,8 +167,8 @@ button:hover {
 
 
 #Footer {
-    margin-top: 26%;
     text-align: center;
+ 
     height: 300px;
     background-color: #22242A;
    

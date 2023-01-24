@@ -2,10 +2,11 @@
 *{ 
   box-sizing: border-box; 
 }
+
 body{
   padding: 0;
   margin: 0;
-        
+  background: #ff480068;     
 }
 
 .nav--arrow{
@@ -19,7 +20,10 @@ body{
 .sticky{
   position: fixed;
 }
-
+.menu__nav{
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
 .navbar {
     background: #222035;
     width: 40px;
@@ -37,32 +41,56 @@ body{
 
 .menu--icon {
       display: flex;
-      align-items: baseline;
+      align-items: center;
+      justify-content: baseline;
       color: #fff;
       text-decoration: none;
       margin: 25px;
+      padding: 10px 0 10px;
+}
+.menu--icon a:visited,
+.menu--icon:hover{
+    background-color: #343151;
+    color: #fff;
+    padding: 5px;
+    border-radius: 20px;  
+}
+.btn{
+    border: none;
+    cursor: pointer;
+    outline: none;
+
 }
 .menu--nav--text{
-    font-size: 1.1rem;
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
     margin-left: 10px;
+    padding-top: 16px;
 }
 
 main {
   background:#ff480068;
   margin: auto;
-  max-width: 1600px;
   font-size: 1rem;
   word-wrap: break-word;
   font-family: 'Montserrat', sans-serif;  
 }
+@media only screen and (max-width: 930px) {
+  main {
+    margin-right: 0;
+  }
+}
+
+
 .main--glass--effect {
   box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
 }
 
-body {
-  background: #ff480068;
+.wrapper{
+  margin: auto;
+  max-width: 1600px;
+ 
 }
 .section--color{
   background: #222035ec;
@@ -117,7 +145,6 @@ body {
   height: auto;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 20px 20px;
 
 }
 
@@ -148,8 +175,8 @@ a{
     box-shadow: 0 10px #64646439;
 }
 .card{
-  padding: 20px 20px;
-  margin: 30px;
+  max-width: 250px;
+  margin: 10px auto;
   background:#f29f55;
   border-radius: 30px;
 }
@@ -170,49 +197,3 @@ a{
 
  
 }
-
-/* #news-feed ul li {
-  
-  text-decoration: none;
-  list-style-type:none ;
-  color: white;
-}
-#news-feed {
-  width: 100%;
-  overflow: hidden;
-  transition: transform 3s ease;
-}
-
-#news-feed.collapsed {
-  height: 240px;
-  transition: transform 3s ease;
-}
-
-#news-feed:not(.collapsed) {
-  height: 100%;
-transition: transform 3s ease;
-}
-
-.newsCaster{
-  margin-bottom: 30px;
-  max-width: 100%;
-  
-}
-.h1--news{
-  
-    color: #F57F17;
-    font-size: 2em;
-    padding: 10px 10px;
-    text-align: center;
-    cursor: pointer;
-    font-family: 'Share Tech Mono', monospace;
-
-}
-
-section{
-  margin: 100px 0;
-}
-
-.ul--news{
-  padding: 0;
-} */

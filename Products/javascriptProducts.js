@@ -43,3 +43,26 @@ window.addEventListener('scroll', () => {
     button.style.display = 'none';
   }
 });
+
+//script for the side menu animation
+
+$(document).ready(function(){
+    $('.btn__menu__arrow').click(function() {
+        const currentWidth = $('.navbar').css('width');
+        if (currentWidth === '40px') {
+            $('.navbar').animate({
+                width: '170px'
+            }, 'slow');
+            $('.nav--arrow').animate({
+                left: '+=125px'
+            }, 'slow');
+        } else {
+            $('.navbar').animate({
+                width: '40px'
+            }, 'slow');
+            $('.nav--arrow').animate({
+                left: '-=125px'
+            }, 'slow');
+        }
+    });
+});

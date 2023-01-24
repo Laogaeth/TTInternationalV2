@@ -12,28 +12,31 @@
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <!--My css & JS-->
+
  <link rel="stylesheet" href="./MainCSS.css">
+ 
  
 </head>
 
- <body>
- 
-  <!--Nav Menu-->
+ <body >
+ <div class="wrapper row">
   
- <div class="navbar">
-      <button  class="btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
+ <div class="col navbar">
+      <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
     <div class="menu__nav">
-      <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>             <p class="menu--nav--text">Home      </p></a>
-      <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>        <p class="menu--nav--text">User      </p></a> 
-      <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>    <p class="menu--nav--text">Products  </p></a>    
-      <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i><p class="menu--nav--text">Contacts  </p></a>
+      <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a> 
+      <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
+      <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
+      <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
+
     </div>
 </div>
       
       
 
- <main class="main--glass--effect section--color" >
+ <main class=" col-11 main--glass--effect section--color" >
       <!--intro-->
 
   <div class="container-fluid">
@@ -95,7 +98,7 @@
 
 
       <div class="row">
-        <div class="col">
+        <div class="col-sm">
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Hygiene Products</h5>
@@ -105,7 +108,7 @@
         </div>
 
 
-        <div class="col">
+        <div class="col-sm">
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Food & Treats</h5>
@@ -115,7 +118,7 @@
         </div>
 
 
-         <div class="col">
+         <div class="col-sm">
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Toys</h5>
@@ -126,7 +129,7 @@
      
 
 
-       <div class="col">
+       <div class="col-sm">
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Clothes</h5>
@@ -141,14 +144,15 @@
 
 
 
+
+</main>
+</div>
  <div id="Footer">
   <h4 class="socialstitle">TTI®</h4>
 
   <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
  </div>
-</main>
-
-<script src="./MainJavascript.js"></script>
+   <script src="./MainJavascript.js"></script>
  <!--redundante// 4.1.3 for button -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
