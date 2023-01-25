@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,21 +55,41 @@ session_start();
 
  <main class="col-11 main--glass--effect section--color" >
         <h1 class="text-center">Checkout</h1>
-      <div class="container container--form">
-      
-      <form>
-        <div class="form-group">
+
+        <div class="container--form">
+     <?php
+  session_start();
+  if(!isset($_SESSION['user_id'])){
+    header("Location: login.php");
+    exit();
+  }
+  $user_id = $_SESSION['user_id'];
+
+  //connect to the database
+  $db = mysqli_connect("localhost:3307", "root", "", "db_login");
+  //retrieve user information from the 'user' table
+  $query1 = "SELECT name, email FROM user WHERE id = '$user_id'";
+  $result1 = mysqli_query($db, $query1);
+  $user_data = mysqli_fetch_assoc($result1);
+  //retrieve user address from the 'personal_info' table
+  $query2 = "SELECT address FROM personal_info WHERE user_id = '$user_id'";
+  $result2 = mysqli_query($db, $query2);
+  $address_data = mysqli_fetch_assoc($result2);
+?>
+
+<div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter your name">
+          <input type="text" class="form-control" id="name" value="<?php echo $user_data['name']; ?>" readonly>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          <input type="email" class="form-control" id="email" value="<?php echo $user_data['email']; ?>" readonly>
         </div>
         <div class="form-group">
           <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="Enter your address">
+          <input type="text" class="form-control" id="address" value="<?php echo $address_data['address']; ?>" readonly>
         </div>
+
         <div class="form-group">
           <label for="card-number">Card Number</label>
           <input type="text" class="form-control" id="card-number" placeholder="Enter your card number">

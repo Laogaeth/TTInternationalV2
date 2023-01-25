@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jan 25, 2023 at 01:30 PM
+-- Generation Time: Jan 25, 2023 at 06:03 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -123,7 +123,12 @@ CREATE TABLE `personal_info` (
 --
 
 INSERT INTO `personal_info` (`id`, `address`, `phone_number`, `user_id`) VALUES
-(1, 'Lixbuna, rua do teste nr 54', '123456123', 68);
+(1, 'Lixbuna, rua do teste nr 56,Travessa 5', '123456123', 68),
+(2, 'home server, st.304,changed for a test', '913333333', 69),
+(3, 'Dracula 123 main st.', 'does it accept letters?', 70),
+(4, '123 main street', 'letters?', 72),
+(5, 'gallifrey', '912123123', 73),
+(6, 'MT Local Server, nr 42', '424242424', 1);
 
 -- --------------------------------------------------------
 
@@ -209,27 +214,16 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `user_type`, `client`, `name`, `email`, `password_hash`) VALUES
 (1, 'admin', 'admin', 'admin', 'admin@gmail.com', '$2y$10$iAQ9InVQvehJ3bq8os76Uu.3X.3buyzkw/YqCSqXO60naXu3Kmz/q'),
-(6, 'user', 'Pedro Pereira', 'user123', 'use21313r@gmail.com', '$2y$10$u5DyRUb4W9aa1ttOBIyWY.17BB4ciYe.CYVhk17liCiyjgYogMxiK'),
-(7, 'user', 'Lorem', 'Lorem32', 'lorem32@gmail.com', '$2y$10$QOaa6JSN7XZE1KVtk2pcgezun1xbmIszU8o2/a9PLLYqwMQUfVdpm'),
-(8, 'user', 'test', 'testUser', 'testuser@gmail.com', '$2y$10$KeydE042uzZBoO/UeRwVE.4TAbLfDhnW7zvKEZfXBzwVrDv5s3KL.'),
-(10, 'user', 'Pedro Miguel', 'PedroMigueld', 'miguel@gmail.com', '$2y$10$ufJVi8ChL7j/BAxmyU0gvuI2fGVun02IAu0voh7Aze5OuTpnXpqle'),
-(11, 'user', 'John Doe', 'DoeohnDD', 'jondoe@sapo.pts', '$2y$10$tw.NGepBLiESbbJOIGTZ1.yqWFRYbqiBkJc4biZL/1zy/kqNAUN9G'),
-(14, 'user', 'test', 'test', 'test@gmail.com', '$2y$10$0BgQ6rghawKSUF6TIhoCu.952892nZ1z1vUrImOzz5gXSIyJwPuYW'),
-(17, 'user', 'Pedro Miguel', 'PedroTeste1', 'pedro@gmail.com', '$2y$10$1T/rvK.CAKbeG8ev7pW9mOwaPF20TPxCha3DhHwEQm5rott6BxRiK'),
-(27, 'user', 'Stress Test Form Update', 'StressTestNumb8UpdateSucess', 'StressTestNumb8@gmail.com', '$2y$10$0s96SsjO0uB7cUhRUSvvqeoMWjPbnVbFf2s1wXxmj7xtjCjqX19mW'),
-(49, 'user', '', '', '', ''),
-(51, 'user', 'Test123', 'test123', 'test123@gmail.com', '$2y$10$.1j4yAmmmpygThQlx5QAPO4Zh3Epo.jCmnypttbBsCc8Q73JC5R3a'),
-(55, 'user', 'Pedro Pereira', 'ASDASD', 'bottest@gmail.com', '$2y$10$Y0jiZ1tmdgYZ1QBCC7wU5e28fipx5EKuR.1mEDZtGsC6v3VmUVKk.'),
 (56, 'user', 'CScriptBotTester', 'CScriptBotTester', 'CScriptBotTester@stress.pt', '$2y$10$VUDQvcjdhKsARGASapUQYuYXwPmIMdAJBJvB65K12z1W0S9kve8NC'),
 (57, 'user', 'CScriptBotTester2', 'CScriptBotTester2', 'CScriptBotTester2@stress.com', '$2y$10$qR4E22feFHxik2ErRY/cz.HRJi5PurLrPNd6FpiJAaowLuTkuoWsS'),
 (58, 'user', 'CScriptBotTester3', 'CScriptBotTester3', 'CScriptBotTester3@stress.aol', '$2y$10$kATmqYZJJZig9duBDXvxU.qCDbEu2zMX0Y/Ri3lp0c7O5xpS/86te'),
 (59, 'user', 'CScriptBotTester4', 'CScriptBotTester4', 'CScriptBotTester4@gmail.com', '$2y$10$39jCmWuhPLhLosgzIL/qL.mk2dHUPuCv7N9B.9EeKtuUHNfUotO82'),
 (60, 'user', 'CScriptBotTester5', 'CScriptBotTester5', 'CScriptBotTester5@gmail.pt', '$2y$10$n81S8R.ASR0rpVXuy.e1Xelf1qS3eZynCaTz0TQ5WYvazpVf51YDu'),
-(61, 'user', 'testeste', 'teste123456', 'testeteste123@gmail.com', '$2y$10$F.3mljdX4W1YSppaOy9s/OjszrdmPUf5mtADuxNyjwzrtVFtXtj2W'),
-(63, 'user', 'teste123', 'teste123456789', 'teste1234@gmail.com', '$2y$10$Qs12Ya/BzE7G09J7ZPKcreJIhYWwhidhZxT8MjHDjGgX/xQXfSfCG'),
-(65, 'user', 'pedro', 'pedroTeste15', 'pedroteste123@aol.com', '$2y$10$auCIPY87Kt3I/aPpjDido.9CBXAxuNXGOH71EhlVToZjds/kC6o2O'),
-(66, 'user', 'Pedro Miguel', 'Pedro123Miguel', 'pedro123miguel@aol.com', '$2y$10$m8IM/s4xBYuyggmCdCrOLOkb7fExTPqVcvo/3ZOxq8BfTfr/GB94W'),
-(68, 'user', 'Pedro Pereira', 'Pedro1234Miguel', '123pedro@gmail.com', '$2y$10$TVUThl3HcUl0XMLuAOCViemjeDv14bS3O7kLgxLSY1/6KXaZZxDdO');
+(68, 'user', 'Pedro Pereira', 'Pedro1234Miguel', '123pedro@gmail.com', '$2y$10$TVUThl3HcUl0XMLuAOCViemjeDv14bS3O7kLgxLSY1/6KXaZZxDdO'),
+(69, 'user', 'Kali Linux', 'penguin', 'kalitester@gmail.com', '$2y$10$X88Sdav46WXRIro6F6NDIeXvyfrwE8tfZz0Jf5I2ScAmJCvRXnpQy'),
+(70, 'user', 'Sir Christopher Lee', 'dracula1', 'dracula1@gmail.com', '$2y$10$hEQ0Wzlg4iU16hJmPKAITO/YgBOCs4FnvucbDyXxk9oR2kleB5Rri'),
+(72, 'user', 'Sir Christopher Lee the second', 'dracula2', 'dracula2@gmail.com', '$2y$10$LT7ibYQPfcW5nSB75hhqUOiZpGYZD91BLNFAAynPyoSEp2csJoDF.'),
+(73, 'user', 'The Doctor', 'justTheDoctor', 'tardis@gmail.com', '$2y$10$OwKDUTy/0Obm7NnsVLv5CefppM6l4gLZAh/51JKXSzYlaMJE7oco.');
 
 --
 -- Indexes for dumped tables
@@ -306,13 +300,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `personal_info`
 --
 ALTER TABLE `personal_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- Constraints for dumped tables
