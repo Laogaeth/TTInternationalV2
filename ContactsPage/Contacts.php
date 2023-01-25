@@ -56,7 +56,7 @@ session_start();
  <!--Form -->
  <div class="container-fluid">
     
-   <div class="container">
+   <div class="container--form">
    <form name="formulario" method="post" action="#" onsubmit="return validateForm()">
 
     <h1>Leave us a message</h1>

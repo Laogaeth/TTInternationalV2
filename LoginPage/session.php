@@ -35,7 +35,7 @@ if (isset($_SESSION["user_id"])){
  
  <style>
   main{
-    height: 100vh;
+    height: 100%;
   }
     .adminButton{
       padding: 1em 1em;
@@ -55,9 +55,9 @@ if (isset($_SESSION["user_id"])){
 </head>
 
 
-<body class="wrapper row">
+<body>
 
-
+<div class="wrapper row">
   
  <div class="col navbar">
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
@@ -87,10 +87,11 @@ if (isset($_SESSION["user_id"])){
        <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i><p class="menu--nav--text">Logout</p></a>
     <?php endif; ?>
       </div>
-</div>
+  </div>
 
-<main class="col-11 main--glass--effect">
-  <section>
+  <main class="col-11 main--glass--effect">
+
+  <section class="row">
 
   <div class="col-11 container--userarea main--glass--effect">
     <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
@@ -127,58 +128,74 @@ if (isset($_SESSION["user_id"])){
 
 <!--User Info & update-->
 
-<section>
 <?php
 $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 
 if (isset($_SESSION['user_id'])) {
   $username = $_SESSION['user_id'];
 
+  // Retrieve user and personal_info data
   $user_query = "SELECT * FROM user WHERE id = '$username'";
   $user_result = mysqli_query($db, $user_query);
   $user = mysqli_fetch_assoc($user_result);
 
-  echo "<div";
-  echo "<section class='container container--client'>";
+  $personal_info_query = "SELECT * FROM personal_info WHERE user_id = '$username'";
+  $personal_info_result = mysqli_query($db, $personal_info_query);
+  $personal_info = mysqli_fetch_assoc($personal_info_result);
+
+  echo "<div>";
+  echo "<section class='container col-sm-6 container--client'>";
   echo "Client: " . $user['client'] . "<br>";
+  echo "<br>";
   echo "Name: " . $user['name'] . "<br>";
+  echo "<br>";
   echo "Email: " . $user['email'] . "<br>";
-  echo "</div> <hr>";
+  echo "<br>";
+  echo "Phone Number: " . $personal_info['phone_number'] . "<br>";
+  echo "<br>";
+  echo "Address: " . $personal_info['address'] . "<br>";
+  echo "</div>";
 
   if (isset($_POST['update_user'])) {
-    $client = $_POST['client'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-
-    $update_query = "UPDATE user SET client = '$client', name = '$name', email = '$email' WHERE id = '$username'";
-    mysqli_query($db, $update_query);
-
-    $_SESSION['username']['client'] = $client;
-    $_SESSION['username']['name'] = $name;
-    $_SESSION['username']['email'] = $email;
-
-    header("Location: ../LoginPage/session.php");
+  $client = $_POST['client'];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $phone_number = $_POST['phone_number'];
+  $address = $_POST['address'];
+    // Update user data
+  $update_user_query = "UPDATE user SET client = '$client', name = '$name', email = '$email' WHERE id = '$username'";
+  mysqli_query($db, $update_user_query);
+    
+  // Update personal_info data
+  $update_personal_info_query = "UPDATE personal_info SET phone_number = '$phone_number', address = '$address' WHERE user_id = '$username'";
+  mysqli_query($db, $update_personal_info_query);
+    
+  $_SESSION['username']['client'] = $client;
+  $_SESSION['username']['name'] = $name;
+  $_SESSION['username']['email'] = $email;
+    
+  header("Location: ../LoginPage/session.php");
   }
 
   // Display the personal info update form
-
+  echo "<div class='col-sm-6 container container--client'>";
   echo "<form method='post' action='../LoginPage/session.php'>";
   echo "<h6>Update personal info</h6>";
   echo "Client: <input type='text' name='client' value='" . $user['client'] . "'required><br>";
   echo "Name: <input type='text' name='name' value='" . $user['name'] . "'required><br>";
   echo "Email: <input type='email' name='email' value='" . $user['email'] . "'required><br>";
+  echo "Phone Number: <input type='text' name='phone_number' value='" . $personal_info['phone_number'] . "'required><br>";
+  echo "Address: <input type='text' name='address' value='" . $personal_info['address'] . "'required><br>";
   echo "<input type='submit' class='sbmBtn' name='update_user' value='Update'>";
   echo "</form>";
-  echo "</section>";
-}
-?>
+  echo "</div> ";
+  }
+  ?>
 
-</form>
-
-
-
-  </section>
+</section>
 </main>    
+
+</div>
   <script src="../LoginPage/loginJavascript.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>

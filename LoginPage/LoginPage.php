@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       
   </div>
 
-  <div class="container">
+  <div class="container login--area">
   <!-- If login info is invalid display this: -->
     <?php if($is_invalid): ?>
      <div>  <h2><em>  Invalid Login </em></h2> </div>

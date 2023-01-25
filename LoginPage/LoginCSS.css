@@ -101,8 +101,7 @@ main {
 .wrapper {
     margin: auto;
     max-width: 1600px;
-    
-    
+
 }
 
 /*form*/
@@ -113,7 +112,9 @@ section{
     align-items: center;
    
 }
-
+.login--area{
+    margin: 187px auto;
+}
 
 .imgcontainer{
     margin-top: 100px;
@@ -135,7 +136,7 @@ section{
     padding: 10px 30px;
     box-shadow: 1px 1px 10px #222035ec;
     color: white;
-    margin-bottom: 300px;
+    margin-bottom: 40%;
 }
 .main--glass--effect {
     box-shadow: 0 0 50px rgba(34, 32, 53, 0.9);
@@ -213,7 +214,7 @@ h1{
     margin-bottom: 40px;
     max-width: 600px;
     color: white;
-    padding: 2px;
+    padding: 20px;
 
 }
 .logout{
@@ -236,6 +237,8 @@ margin-top: 50px ;
 .container--client{
     max-width: 600px;
     margin: auto;
+    margin:0 auto  100px;
+    padding: 20px;
 }
 
 .helloPanda{
