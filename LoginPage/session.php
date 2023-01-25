@@ -184,7 +184,7 @@ if (isset($_SESSION['user_id'])) {
   echo "Client: <input type='text' name='client' value='" . $user['client'] . "'required><br>";
   echo "Name: <input type='text' name='name' value='" . $user['name'] . "'required><br>";
   echo "Email: <input type='email' name='email' value='" . $user['email'] . "'required><br>";
-  echo "Phone Number: <input type='text' name='phone_number' value='" . $personal_info['phone_number'] . "'required><br>";
+  echo "Phone Number: <input type='text' name='phone_number'pattern='[0-9]{0,9}' value='" . $personal_info['phone_number'] . "'required><br>";
   echo "Address: <input type='text' name='address' value='" . $personal_info['address'] . "'required><br>";
   echo "<input type='submit' class='sbmBtn' name='update_user' value='Update'>";
   echo "</form>";

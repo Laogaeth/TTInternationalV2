@@ -115,7 +115,7 @@ main{
   
 }
 
-input, textarea, .sbmBtn, .googleMapsBtn{
+input, textarea, .sbmBtn{
   
   width: 100%;
   border-radius: 5px;
