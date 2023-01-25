@@ -15,6 +15,7 @@ body{
     left: 5px;
     height: 30px;
     width: 30px;
+    z-index: 10;
 }
 
 .sticky{
@@ -49,13 +50,21 @@ body{
       margin: 25px;
       padding: 10px 0 10px;
 }
+
 .menu--icon a:visited,
 .menu--icon:hover{
     background-color: #343151;
     color: #fff;
+    margin: 10px;
     padding: 5px;
     border-radius: 20px;  
 }
+.menu--icon--logout{
+  position: relative;
+  bottom: -100px;
+}
+
+
 .btn{
     border: none;
     cursor: pointer;
@@ -198,9 +207,13 @@ a{
 
 
 .navbar--cat{
-  max-height: 10rem;
+  max-height: 7rem;
   position: relative;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 .navbar--cat--text{
   margin-top: -50px;

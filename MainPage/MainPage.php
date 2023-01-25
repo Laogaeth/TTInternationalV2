@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -29,18 +28,27 @@ session_start();
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
     <div class="menu__nav">
-      <div>
+
+
+      <?php if (isset($_SESSION["user_name"])):?>
+        <div class="nav--user--area">
       <img src="../Images/welcomeCat.png" alt="" class="navbar--cat">
-     <p class="navbar--cat--text"> Welcome <?php echo $_SESSION["user_name"];?> </p></div>
-      <a class="menu--icon" href="../LoginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i>                   <p class="menu--nav--text">Logout         </p></a>
+     <p class="navbar--cat--text"> Welcome <?php echo $_SESSION["user_name"];?> </p>
+        </div>
+     
+      <?php endif; ?>
+      
       <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
       <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a> 
       <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
       <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
       <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
-
-    </div>
-</div>
+      
+      <?php if (isset($_SESSION["user_name"])):?>
+       <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i><p class="menu--nav--text">Logout         </p></a>
+    <?php endif; ?>
+      </div>
+  </div>
       
       
 
