@@ -1,4 +1,5 @@
-# TTInternational Version 2
+# Whiskers & Bandits
+formerly : TTInternational Version 2
 
 This project was a mock website for the fictional rescue service organization "Trauma Team International" from the game Cyberpunk 2077. 
 It was originally intended to be a bleak representation of the world in the game, but has since been reimagined as a more cheerful pet products shop.
@@ -28,4 +29,4 @@ Features a cleanear layout, making it easy for users to navigate and find the in
 Overall I'm having a whole lot fun with this, a whole lot of raccoons are to be expected.
 Soon you'll be able to run this locally once I complete the database for it. I'm running this through xampp as localhost:3307. 
 
-For the time I'll place here the sql to import for the current registration & login system. (Keep in mind user area still WIP and lacks formatting and with some remnants of the old project)
+Attached sql export allows you to copy my db, login & registration system
