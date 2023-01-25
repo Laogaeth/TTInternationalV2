@@ -25,23 +25,24 @@ function validateForm() {
 
 //script for the side menu animation
 
+
 $(document).ready(function(){
     $('.btn__menu__arrow').click(function() {
         const currentWidth = $('.navbar').css('width');
         if (currentWidth === '40px') {
             $('.navbar').animate({
                 width: '170px'
-            }, 'slow');
+            }, 'fast');
             $('.nav--arrow').animate({
                 left: '+=125px'
-            }, 'slow');
+            }, 'fast');
         } else {
             $('.navbar').animate({
                 width: '40px'
-            }, 'slow');
+            }, 'fast');
             $('.nav--arrow').animate({
                 left: '-=125px'
-            }, 'slow');
+            }, 'fast');
         }
     });
 });
@@ -55,11 +56,10 @@ $(document).ready(function() {
     } else {
       setTimeout(function() {
         $('.menu__nav').show();
-      }, 800);
+      }, 200);
     }
   });
 });
-
 
 
 

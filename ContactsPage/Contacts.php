@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +12,7 @@
   <link rel="icon" type="image/x-icon" href="../Images/brain.png">
   <title>Whiskers & Bandits</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../ContactsPage/ContactsCSS.css">    
@@ -34,7 +35,7 @@
      
       <?php endif; ?>
       
-      <a class="menu--icon" href="./MainPage/MainPage.php">      <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../MainPage/MainPage.php">      <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
     <?php if (isset($_SESSION["user_name"])):?>
       <a class="menu--icon" href="../LoginPage/session.php">     <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a>
   <?php else: ?>

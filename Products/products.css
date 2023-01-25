@@ -256,3 +256,26 @@ section{
     padding: 10px 10px;
     text-align: center;
 }
+
+.menu--icon--logout {
+    position: relative;
+    bottom: -100px;
+}
+
+.navbar--cat {
+    max-height: 7rem;
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.navbar--cat--text {
+    margin-top: -50px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
