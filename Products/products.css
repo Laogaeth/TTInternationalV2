@@ -82,6 +82,7 @@ main {
     margin: auto;
     font-family: 'Montserrat', sans-serif;
     word-wrap: break-word;
+    min-height: 100vh;
 }
 @media only screen and (max-width: 930px) {
     main {
