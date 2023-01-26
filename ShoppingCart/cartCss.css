@@ -58,10 +58,10 @@ body {
 .menu--icon:hover {
     background-color: #343151;
     color: #fff;
-    padding: 5px;
+    transition: ease-in-out 0.2s;
+    padding: 10px;
     border-radius: 20px;
 }
-
 .btn {
     border: none;
     cursor: pointer;
@@ -157,8 +157,7 @@ main {
 
 input,
 textarea,
-.sbmBtn,
-.googleMapsBtn {
+.sbmBtn {
 
     width: 100%;
     border-radius: 5px;
@@ -167,9 +166,14 @@ textarea,
     margin-top: 10px;
     padding: 10px 10px;
     border: none;
-
     margin-top: 20px;
     transition: background 500ms ease;
-
     box-shadow: 1px 1px 20px #222035a2;
+}
+.sbmBtn:hover{
+    background: #343151;
+}
+.error--raccoon{
+    max-height: 100%;
+    overflow: hidden;
 }

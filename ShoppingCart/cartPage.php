@@ -13,8 +13,47 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" 
   integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-  <link rel="stylesheet" href="../ShoppingCart/cartCss.css">
-    <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../ShoppingCart/cartCss.css" >
+  <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
+
+
+  <script>
+  //script for the side menu animation
+    $(document).ready(function(){
+        $('.btn__menu__arrow').click(function() {
+            const currentWidth = $('.navbar').css('width');
+            if (currentWidth === '40px') {
+                $('.navbar').animate({
+                    width: '170px'
+                }, 'fast');
+                $('.nav--arrow').animate({
+                    left: '+=125px'
+                }, 'fast');
+            } else {
+                $('.navbar').animate({
+                    width: '40px'
+                }, 'fast');
+                $('.nav--arrow').animate({
+                    left: '-=125px'
+                }, 'fast');
+            }
+        });
+    });
+
+    //this script makes the side menu content reappear once it's expanded
+    $(document).ready(function() {
+      $('.nav--arrow').click(function() {
+        if ($('.menu__nav').is(':visible')) {
+          $('.menu__nav').hide();
+        } else {
+          setTimeout(function() {
+            $('.menu__nav').show();
+          }, 200);
+        }
+      });
+    });
+      //after battling with the php & js for the side menu for a while,solution was to make it internal.
+    </script>
 
  
 </head>
@@ -57,16 +96,21 @@
         <h1 class="text-center">Checkout</h1>
 
         <div class="container--form">
-<?php
-  session_start();
-  if(!isset($_SESSION['user_id'])){
-    echo "You need to be logged in to access this page.";
-    exit();
-  }
-  $user_id = $_SESSION['user_id'];
+  <?php
+    session_start();
+    if(!isset($_SESSION['user_id'])){
+     echo "<div class='container row'>";
+      echo "<h1>Oops! You need to be logged in first!</h1>";
+      echo "<img src='./images/raccoon.png' alt='Raccoon' class='error--raccoon'>";
+      echo "<hr style='border:0 solid white'>";
+      echo "<a href='../LoginPage/loginPage.php'><button type='submit' name='btnSubmit' class='sbmBtn'>Login</button></a>";
+      echo "<a href='../RegistrationPage/registPage.html'><button type='submit' name='btnSubmit' class='sbmBtn'>Register</button></a>";
+      exit();
+    }
+    $user_id = $_SESSION['user_id'];
 
-  //connect to the database
-  $db = mysqli_connect("localhost:3307", "root", "", "db_login");
+    //connect to the database
+    $db = mysqli_connect("localhost:3307", "root", "", "db_login");
   //retrieve user information from the 'user' table
   $query1 = "SELECT name, email FROM user WHERE id = '$user_id'";
   $result1 = mysqli_query($db, $query1);
@@ -76,7 +120,8 @@
   $result2 = mysqli_query($db, $query2);
   $address_data = mysqli_fetch_assoc($result2);
 ?>
-
+<a href="../LoginPage/loginPage.php"></a>
+<a href="../RegistrationPage/registPage.html"></a>
 <div class="form-group">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name" value="<?php echo $user_data['name']; ?>" readonly>
@@ -89,7 +134,7 @@
           <label for="address">Address</label>
           <input type="text" class="form-control" id="address" value="<?php echo $address_data['address']; ?>" readonly>
         </div>
-
+      <input type="button">
         <div class="form-group">
           <label for="card-number">Card Number</label>
           <input type="text" class="form-control" id="card-number" placeholder="Enter your card number">

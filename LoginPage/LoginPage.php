@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
      
       <?php endif; ?>
       
-      <a class="menu--icon" href="./MainPage/MainPage.php">     <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../MainPage/MainPage.php">     <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
   <?php if (isset($_SESSION["user_name"])):?>
       <a class="menu--icon" href="../LoginPage/session.php">    <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a>
   <?php else: ?>

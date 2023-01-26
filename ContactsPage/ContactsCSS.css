@@ -56,7 +56,8 @@ body {
 .menu--icon:hover {
   background-color: #343151;
   color: #fff;
-  padding: 5px;
+  transition: ease-in-out 0.2s;
+  padding: 10px;
   border-radius: 20px;
 }
 
