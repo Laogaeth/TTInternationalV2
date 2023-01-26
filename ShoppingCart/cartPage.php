@@ -53,7 +53,9 @@
       });
     });
       //after battling with the php & js for the side menu for a while,solution was to make it internal.
-    </script>
+
+</script>
+
 
  
 </head>
@@ -92,14 +94,62 @@
       </div>
   </div>
 
- <main class="col-11 main--glass--effect section--color" >
-        <h1 class="text-center">Checkout</h1>
 
-        <div class="container--form">
-  <?php
-    session_start();
-    if(!isset($_SESSION['user_id'])){
-     echo "<div class='container row'>";
+ <main class="col-11 main--glass--effect section--color" >
+
+    <h1 class="text-center checkout--text">Checkout</h1>
+
+    <!-- Shopping cart -->
+        <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mb-4">Shopping Cart</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Product 1</td>
+            <td>$20</td>
+            <td>
+              <input type="number" class="form-control" value="1">
+            </td>
+            <td>$20</td>
+            <td>
+              <a href="#" class="btn btn-danger">Remove</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Product 2</td>
+            <td>$30</td>
+            <td>
+              <input type="number" class="form-control" value="1">
+            </td>
+            <td>$30</td>
+            <td>
+              <a href="#" class="btn btn-danger">Remove</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div
+
+  <div class="container">
+    <?php
+      session_start();
+      if(!isset($_SESSION['user_id'])){
+      echo "<div class='container row'>";
       echo "<h1>Oops! You need to be logged in first!</h1>";
       echo "<img src='./images/raccoon.png' alt='Raccoon' class='error--raccoon'>";
       echo "<hr style='border:0 solid white'>";
@@ -107,62 +157,61 @@
       echo "<a href='../RegistrationPage/registPage.html'><button type='submit' name='btnSubmit' class='sbmBtn'>Register</button></a>";
       exit();
     }
-    $user_id = $_SESSION['user_id'];
+        $user_id = $_SESSION['user_id'];
 
-    //connect to the database
-    $db = mysqli_connect("localhost:3307", "root", "", "db_login");
-  //retrieve user information from the 'user' table
-  $query1 = "SELECT name, email FROM user WHERE id = '$user_id'";
-  $result1 = mysqli_query($db, $query1);
-  $user_data = mysqli_fetch_assoc($result1);
-  //retrieve user address from the 'personal_info' table
-  $query2 = "SELECT address FROM personal_info WHERE user_id = '$user_id'";
-  $result2 = mysqli_query($db, $query2);
-  $address_data = mysqli_fetch_assoc($result2);
-?>
-<a href="../LoginPage/loginPage.php"></a>
-<a href="../RegistrationPage/registPage.html"></a>
-<div class="form-group">
+        //connect to the database
+        $db = mysqli_connect("localhost:3307", "root", "", "db_login");
+      //retrieve user information from the 'user' table
+      $query1 = "SELECT name, email FROM user WHERE id = '$user_id'";
+      $result1 = mysqli_query($db, $query1);
+      $user_data = mysqli_fetch_assoc($result1);
+      //retrieve user address from the 'personal_info' table
+      $query2 = "SELECT address FROM personal_info WHERE user_id = '$user_id'";
+      $result2 = mysqli_query($db, $query2);
+      $address_data = mysqli_fetch_assoc($result2);
+      ?>
+      <div class="container--form row">
+        <div class="form-group col-sm-6">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" value="<?php echo $user_data['name']; ?>" readonly>
+          <input type="text" id="name" value="<?php echo $user_data['name']; ?>" readonly>
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" value="<?php echo $user_data['email']; ?>" readonly>
+          <input type="email" id="email" value="<?php echo $user_data['email']; ?>" readonly>
         </div>
-        <div class="form-group">
+        <div class="form-group col-12">
           <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" value="<?php echo $address_data['address']; ?>" readonly>
+          <input type="text" id="address" value="<?php echo $address_data['address']; ?>" readonly>
         </div>
-      <input type="button">
-        <div class="form-group">
+        <div class="form-group col-12">
           <label for="card-number">Card Number</label>
-          <input type="text" class="form-control" id="card-number" placeholder="Enter your card number">
+          <input type="text"  id="card-number" maxlength="14" placeholder="Enter your card number">
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6">
           <label for="expiry-date">Expiry Date</label>
-          <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY">
+          <input type="text" id="expiry-date" maxlength="4" placeholder="MM/YY">
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6">
           <label for="cvv">CVV</label>
-          <input type="text" class="form-control" id="cvv" placeholder="Enter the CVV">
+          <input type="text" id="cvv" maxlength="2" placeholder="Enter the CVV">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+              <button type="submit" class="sbmBtn">Submit</button>
+
+      </div>
     </div>
 
 
 
 
- </div>
+ 
 </main>
-
- <div id="Footer">
+ </div>
+ <div class="container-fluid" id="Footer">
   <h4 class="socialstitle">TTI®</h4>
 
   <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
- </div>
-<script src="../ShoppingCart/cartJavascript.js"></script>
+
  <!--redundante// 4.1.3 for button -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

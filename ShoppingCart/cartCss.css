@@ -158,22 +158,27 @@ main {
 input,
 textarea,
 .sbmBtn {
-
     width: 100%;
     border-radius: 5px;
     background: #3a3a3a;
     color: white;
-    margin-top: 10px;
     padding: 10px 10px;
     border: none;
-    margin-top: 20px;
+    margin-bottom: 20px;
     transition: background 500ms ease;
     box-shadow: 1px 1px 20px #222035a2;
 }
+
 .sbmBtn:hover{
     background: #343151;
 }
 .error--raccoon{
     max-height: 100%;
     overflow: hidden;
+}
+
+.checkout--text{
+    padding: 30px 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
