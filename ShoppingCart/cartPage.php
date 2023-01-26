@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,62 +102,19 @@
 
     <h1 class="text-center checkout--text">Checkout</h1>
 
-    <!-- Shopping cart -->
-        <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h2 class="text-center mb-4">Shopping Cart</h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Product 1</td>
-            <td>$20</td>
-            <td>
-              <input type="number" class="form-control" value="1">
-            </td>
-            <td>$20</td>
-            <td>
-              <a href="#" class="btn btn-danger">Remove</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Product 2</td>
-            <td>$30</td>
-            <td>
-              <input type="number" class="form-control" value="1">
-            </td>
-            <td>$30</td>
-            <td>
-              <a href="#" class="btn btn-danger">Remove</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div
+  
 
   <div class="container">
     <?php
-      session_start();
+      
       if(!isset($_SESSION['user_id'])){
-      echo "<div class='container row'>";
+      echo "<div class='container--form row'>";
       echo "<h1>Oops! You need to be logged in first!</h1>";
       echo "<img src='./images/raccoon.png' alt='Raccoon' class='error--raccoon'>";
       echo "<hr style='border:0 solid white'>";
       echo "<a href='../LoginPage/loginPage.php'><button type='submit' name='btnSubmit' class='sbmBtn'>Login</button></a>";
       echo "<a href='../RegistrationPage/registPage.html'><button type='submit' name='btnSubmit' class='sbmBtn'>Register</button></a>";
+      echo "</div>";
       exit();
     }
         $user_id = $_SESSION['user_id'];
@@ -170,6 +130,45 @@
       $result2 = mysqli_query($db, $query2);
       $address_data = mysqli_fetch_assoc($result2);
       ?>
+ 
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mb-4">Shopping Cart</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class=" col-12">
+      <div class="row">
+        <div class="col">Product</div>
+        <div class="col">Price</div>
+        <div class="col">Quantity</div>
+        <div class="col">Total</div>
+      </div>
+      <div class="row">
+        <div class="col">Product 1</div>
+        <div class="col">$20</div>
+        <div class="col">
+          <input type="number" class="form-control" value="1">
+        </div>
+        <div class="col">$20</div>
+        <div class="col">
+          <a href="#" class="btn btn-danger">Remove</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">Product 2</div>
+        <div class="col">$30</div>
+        <div class="col">
+          <input type="number" class="form-control" value="1">
+        </div>
+        <div class="col">$30</div>
+        <div class="col">
+          <a href="#" class="btn btn-danger">Remove</a>
+        </div>
+      </div>
+  </div>
+
+
       <div class="container--form row">
         <div class="form-group col-sm-6">
           <label for="name">Name</label>
