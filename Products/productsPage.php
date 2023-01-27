@@ -76,8 +76,8 @@ session_start();
     <h5 id="hygiene">Hygiene</h5>
         <div id="hygiene-products" class="row"></div>
 
-    <h5 id="foods-div">Foods & Treats</h5>
-        <div id="food-treats" class="row"></div>
+    <h5 id="foods-div">Foods</h5>
+        <div id="food" class="row"></div>
 
     <h5 id="toys-div">Toys</h5>
         <div id="toys" class="row"></div>
