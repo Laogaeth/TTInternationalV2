@@ -6,25 +6,35 @@ const categoryDivMap ={
   "Clothes":"#clothes"
 };
 //Snatch products data from json file
-$.getJSON("productsData.json", function(data){
+$.getJSON("productsData.php", function(data){
     //Snatch the prices from prices.php script
     $.getJSON("prices.php", function(prices){
       //Loops through all products
-      $.each(data.products,function(index,product){
+      $.each(data,function(index,product){
         const categoryDiv = categoryDivMap[product.category];
         if (categoryDiv){
+          var name = "";
+          if(product.category == "Food & Treats"){
+            name = product["food.product_name"];
+          }else if(product.category == "Toys"){
+            name = product["toys.product_name"];
+          }else if(product.category == "Hygiene"){
+            name = product["hygiene.product_name"];
+          }else if(product.category == "Clothes"){
+            name = product["clothes.product_name"];
+          }
           $(categoryDiv).append(
             "<div class = 'col-sm card shadow--sm'>" +
-            "<img class = 'card--image' src='"+ product.image +"'>"+
-            "<p class ='card--text  card--buy--info'>"+ product.name + 
-             " <br>" +prices[product.name] + " €"+ "<i class='fa-solid fa-cart-shopping card--cart'></i>" + "</p>" +
+            "<img class = 'card--image' src='" +"'>"+
+            "<p class ='card--text  card--buy--info'>"+ name + 
+             "<br>" +prices[name] + " €"+ "<i class='fa-solid fa-cart-shopping card--cart'></i>" +
+            "<br> Stock: "+ product.stock + "</p>" +
             "</div>"
-          );
-        }
-      });
-    });
-});
-
+            );
+            }
+            });
+            });
+            });
 
 
 
