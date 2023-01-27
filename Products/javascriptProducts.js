@@ -1,35 +1,28 @@
-$.getJSON ("productsData.php", function(data){
-//loop through all products
-$.each(data, function(index, product){
-//get the correct div to append the product to
-const categoryDiv = categoryDivMap[product.category];
-if (categoryDiv){
-//get the correct product name based on the category
-const name = "";
-if(product.category == "food"){
-name = product.product_name;
-}else if(product.category == "toys"){
-name = product.product_name;
-}else if(product.category == "hygiene"){
-name = product.product_name;
-}else if(product.category == "clothes"){
-name = product.product_name;
-}
-//get the price of the product from the prices.php file
-$.getJSON("prices.php", {id: product.id}, function(price){
-//append the product to the correct category div
-$(categoryDiv).append(
-"<div class = 'col-sm card shadow--sm'>" +
-"<img class = 'card--image' src='" +"'>"+
-"<p class ='card--text  card--buy--info'>"+ name +
-"<br>" + price + " €"+ "<i class='fa-solid fa-cart-shopping card--cart'></i>" +
-"<br> Stock: "+ product.stock + "</p>" +
-"</div>"
-);
+
+$.getJSON("./dbProductsData.php", function(data) {
+     $.each(data, function(index, value) {
+        var category = value.category;
+        var product_name = value.product_name;
+        var price = value.price;
+        var image_path = value.image_path;
+
+        var categoryDiv = $("#" + category);
+        var card = $("<div>", { class: "col card shadow-sm" });
+        var cardImg = $("<img>", { class: "card-img-top card-image", src: image_path });
+        var cardBody = $("<div>", { class: "card-body" });
+        var cardTitle = $("<h5>", { class: "card-title", text: product_name });
+        var cardText = $("<p>", { class: "card-text card-buy-info", text: price + " €" });
+        var cardCart = $("<i>", { class: "fa fa-cart-plus card-cart" });
+
+        cardBody.append(cardTitle);
+        cardBody.append(cardText);
+        cardBody.append(cardCart);
+        card.append(cardImg);
+        card.append(cardBody);
+        categoryDiv.append(card);
+    });
 });
-}
-});
-});
+
 
 
 //get back to the top button
