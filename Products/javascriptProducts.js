@@ -1,41 +1,35 @@
-//map out category names 
-const categoryDivMap ={
-  "Food & Treats":"#food-treats",
-  "Hygiene":"#hygiene-products",
-  "Toys":"#toys",
-  "Clothes":"#clothes"
-};
-//Snatch products data from json file
-$.getJSON("productsData.php", function(data){
-    //Snatch the prices from prices.php script
-    $.getJSON("prices.php", function(prices){
-      //Loops through all products
-      $.each(data,function(index,product){
-        const categoryDiv = categoryDivMap[product.category];
-        if (categoryDiv){
-          var name = "";
-          if(product.category == "Food & Treats"){
-            name = product["food.product_name"];
-          }else if(product.category == "Toys"){
-            name = product["toys.product_name"];
-          }else if(product.category == "Hygiene"){
-            name = product["hygiene.product_name"];
-          }else if(product.category == "Clothes"){
-            name = product["clothes.product_name"];
-          }
-          $(categoryDiv).append(
-            "<div class = 'col-sm card shadow--sm'>" +
-            "<img class = 'card--image' src='" +"'>"+
-            "<p class ='card--text  card--buy--info'>"+ name + 
-             "<br>" +prices[name] + " €"+ "<i class='fa-solid fa-cart-shopping card--cart'></i>" +
-            "<br> Stock: "+ product.stock + "</p>" +
-            "</div>"
-            );
-            }
-            });
-            });
-            });
-
+$.getJSON ("productsData.php", function(data){
+//loop through all products
+$.each(data, function(index, product){
+//get the correct div to append the product to
+const categoryDiv = categoryDivMap[product.category];
+if (categoryDiv){
+//get the correct product name based on the category
+const name = "";
+if(product.category == "food"){
+name = product.product_name;
+}else if(product.category == "toys"){
+name = product.product_name;
+}else if(product.category == "hygiene"){
+name = product.product_name;
+}else if(product.category == "clothes"){
+name = product.product_name;
+}
+//get the price of the product from the prices.php file
+$.getJSON("prices.php", {id: product.id}, function(price){
+//append the product to the correct category div
+$(categoryDiv).append(
+"<div class = 'col-sm card shadow--sm'>" +
+"<img class = 'card--image' src='" +"'>"+
+"<p class ='card--text  card--buy--info'>"+ name +
+"<br>" + price + " €"+ "<i class='fa-solid fa-cart-shopping card--cart'></i>" +
+"<br> Stock: "+ product.stock + "</p>" +
+"</div>"
+);
+});
+}
+});
+});
 
 
 //get back to the top button
