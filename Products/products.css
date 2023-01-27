@@ -250,7 +250,7 @@ section{
 .card--cart.fa-cart-shopping{
     float: right;
     color: black;
-    
+    cursor: pointer;
 }
 
 

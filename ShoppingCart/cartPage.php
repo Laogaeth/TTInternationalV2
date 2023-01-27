@@ -1,6 +1,9 @@
 <?php
-session_start();
+    require_once('../Products/addToCart.php');  //include or require addToCart.php here
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +60,21 @@ session_start();
     });
       //after battling with the php & js for the side menu for a while,solution was to make it internal.
 
+        $(document).ready(function(){
+            $('.btn--remove').click(function(){
+                var productId = $(this).data('id');
+                $.ajax({
+                    url: 'removeFromCart.php',
+                    type: 'POST',
+                    data: {id: productId},
+                    success: function(response){
+                        $('#cart-content').html(response);
+                    }
+                });
+            });
+        });
+
+
 </script>
 
 
@@ -102,6 +120,27 @@ session_start();
 
     <h1 class="text-center checkout--text">Checkout</h1>
 
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+    </tr>
+    <?php
+        if (!empty($cart)) {
+            foreach ($cart as $item) {
+                echo "<tr>";
+                echo "<td>".$item['product_name']."</td>";
+                echo "<td>".$item['price']."</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "Your cart is empty.";
+        }
+    ?>
+</table>
+
+
+
   
 
   <div class="container">
@@ -137,36 +176,8 @@ session_start();
     </div>
   </div>
   <div class="row">
-    <div class=" col-12">
-      <div class="row">
-        <div class="col">Product</div>
-        <div class="col">Price</div>
-        <div class="col">Quantity</div>
-        <div class="col">Total</div>
-      </div>
-      <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col">
-          <input type="number" class="form-control" value="1">
-        </div>
-        <div class="col"></div>
-        <div class="col">
-          <a href="#" class="btn btn-danger">Remove</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col">
-          <input type="number" class="form-control" value="1">
-        </div>
-        <div class="col"></div>
-        <div class="col">
-          <a href="#" class="btn btn-danger">Remove</a>
-        </div>
-      </div>
-  </div>
+    
+
 
 
       <div class="container--form row">

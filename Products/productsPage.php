@@ -2,6 +2,7 @@
 session_start();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +18,52 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../Products/products.css">
+  <script>
+    
+$.getJSON("./dbProductsData.php", function(data) {
+     $.each(data, function(index, value) {
+        const category = value.category;
+        const product_name = value.product_name;
+        const price = value.price;
+        const image_path = value.image_path;
+
+        let categoryDiv = $("#" + category);
+        let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
+        let cardImg = $("<img>", { class: "card-img-top card--image", src: image_path });
+        let cardBody = $("<div>");
+        let cardTitle = $("<h5>", { class: "card--title", text: product_name });
+        let cardFooter = $("<div>", { class: "card--footer card--buy--info  " });
+        let cardText = $("<p>", { class: "card--text  col", text: price + " €" });
+        let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart" }); 
+        let addToCartLink = $("<a>", { href: "#", class: "cart-icon", "data-id": "123"});
+
+        
+        cardBody.append(cardTitle);
+        card.append(cardImg);
+        card.append(cardBody);
+        categoryDiv.append(card);
+        cardFooter.append(cardText, cardCart);
+        cardCart.append(addToCartLink);
+        card.append(cardFooter);
+    });
+});
+
+$(document).on('click', '.cart-icon', function(e) {
+    e.preventDefault();
+    var productId = $(this).data('id');
+    $.ajax({
+        url: 'addToCart.php',
+        type: 'POST',
+        data: {id: productId},
+        success: function(response){
+            $('#cart-content').html(response);
+        }
+    });
+});
+
+
+
+  </script>
   
 </head>
 
