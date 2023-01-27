@@ -202,7 +202,12 @@ section{
     animation: hideButton 1s ease-in-out;
     animation: showButton 0.5s ease-in-out;
 }
-
+.card--footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+}
 .button--icon--arrow{
     max-height: 3rem;
     z-index: 1;
@@ -235,7 +240,7 @@ section{
 
 .card--cart{
     float: right;
-    padding: 0 20px;
+    padding: 0 0;
     
 }
 

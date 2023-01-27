@@ -7,19 +7,21 @@ $.getJSON("./dbProductsData.php", function(data) {
         var image_path = value.image_path;
 
         var categoryDiv = $("#" + category);
-        var card = $("<div>", { class: "col card shadow-sm" });
-        var cardImg = $("<img>", { class: "card-img-top card-image", src: image_path });
-        var cardBody = $("<div>", { class: "card-body" });
-        var cardTitle = $("<h5>", { class: "card-title", text: product_name });
-        var cardText = $("<p>", { class: "card-text card-buy-info", text: price + " €" });
-        var cardCart = $("<i>", { class: "fa fa-cart-plus card-cart" });
+        var card = $("<div>", { class: "col-sm card shadow--sm" });
+        var cardImg = $("<img>", { class: "card-img-top card--image", src: image_path });
+        var cardBody = $("<div>", { class: "card--body" });
+        var cardTitle = $("<h5>", { class: "card--title", text: product_name });
+        var cardFooter = $("<div>", { class: "card--footer card--buy--info  " });
+        var cardText = $("<p>", { class: "card--text  col", text: price + " €" });
+        var cardCart = $("<i>", { class: "fa fa-cart-plus card--cart" });
 
+        
         cardBody.append(cardTitle);
-        cardBody.append(cardText);
-        cardBody.append(cardCart);
         card.append(cardImg);
         card.append(cardBody);
         categoryDiv.append(card);
+        cardFooter.append(cardText, cardCart);
+        card.append(cardFooter);
     });
 });
 
@@ -27,7 +29,7 @@ $.getJSON("./dbProductsData.php", function(data) {
 
 //get back to the top button
 const button = document.querySelector('.button--icon');
-const h5Title = document.getElementById('hygiene');
+const h5Title = document.getElementById('Hygiene');
 window.addEventListener('scroll', () => {
   // Get the position of the h5 title on the page
   const h5TitlePosition = h5Title.getBoundingClientRect();

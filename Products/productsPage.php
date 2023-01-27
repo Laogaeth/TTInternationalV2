@@ -63,10 +63,10 @@ session_start();
     <h3 id="takeMeBack--button"class="section--h3">Our Selection</h3>
 
     <div class="filters">
-  <a href="#hygiene">    <button class=" shadow--xs">Hygiene      </button></a>
-  <a href="#foods-div">  <button class=" shadow--xs">Food & Treats</button></a>
-  <a href="#toys-div">   <button class=" shadow--xs">Toys         </button></a>
-  <a href="#clothes-div"><button class=" shadow--xs">Clothes      </button></a>
+  <a href="#Hygiene">    <button class=" shadow--xs">Hygiene      </button></a>
+  <a href="#Food">  <button class=" shadow--xs">Food & Treats</button></a>
+  <a href="#Toys">   <button class=" shadow--xs">Toys         </button></a>
+  <a href="#Clothes"><button class=" shadow--xs">Clothes      </button></a>
     
     
     </div>
