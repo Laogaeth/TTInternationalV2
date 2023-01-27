@@ -145,23 +145,23 @@ session_start();
         <div class="col">Total</div>
       </div>
       <div class="row">
-        <div class="col">Product 1</div>
-        <div class="col">$20</div>
+        <div class="col"></div>
+        <div class="col"></div>
         <div class="col">
           <input type="number" class="form-control" value="1">
         </div>
-        <div class="col">$20</div>
+        <div class="col"></div>
         <div class="col">
           <a href="#" class="btn btn-danger">Remove</a>
         </div>
       </div>
       <div class="row">
-        <div class="col">Product 2</div>
-        <div class="col">$30</div>
+        <div class="col"></div>
+        <div class="col"></div>
         <div class="col">
           <input type="number" class="form-control" value="1">
         </div>
-        <div class="col">$30</div>
+        <div class="col"></div>
         <div class="col">
           <a href="#" class="btn btn-danger">Remove</a>
         </div>

@@ -156,17 +156,21 @@ section{
 .card {
     background: rgba(34, 32, 53, 0.4);
     border-radius: 30px;
-    margin: 20px 20px 20px auto;
+    margin: 10px auto;
     color: #fff;
     border: none;
     padding: 0;
+    min-width: 200px;
+    
+    
 }
+
 .card:hover{
     background: rgba(34, 32, 53, 0.8);
     border-radius: 30px;
     color: #fff;
     border: none;
-    transition: 0.5s;
+    transition: ease-in-out 0.5s;
     box-shadow: 0 0 20px rgba(68, 67, 76, 0.9);
 }
 .card--image{
@@ -177,12 +181,17 @@ section{
 }
 
 .card--text{
-    padding: 5px 10px 5px 10px;
+   padding: 10px;
     text-align: left;
     font-size: 1rem;
     color: white;
     margin-bottom: 1px;
     color: black;
+}
+.card--title{
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
 }
 .card--buy--info{
     background-color:#f5f5f5f5;
@@ -238,9 +247,9 @@ section{
     }
 }
 
-.card--cart{
+.card--cart.fa-cart-shopping{
     float: right;
-    padding: 0 0;
+    color: black;
     
 }
 

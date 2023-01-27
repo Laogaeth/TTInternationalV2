@@ -72,7 +72,7 @@ session_start();
     </div>
 
 
-   <div class="container">
+   <div class="container-fluid">
     <div class="row">
         <h5 class="col-12 ">Hygiene</h5>
         <hr>
