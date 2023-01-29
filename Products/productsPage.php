@@ -19,18 +19,6 @@ session_start();
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../Products/products.css">
   <script>
-$(document).on('click', '.addToCart', function(e) {
-    e.preventDefault();
-    const productId = $(this).data('id');
-    $.ajax({
-        url: './addToCart.php',
-        type: 'POST',
-        data: {id: productId},
-        success: function(response){
-            $('#cart-content').html(response);
-        }
-    });
-});
 
 
 $.getJSON("./dbProductsData.php", function(data) {
@@ -52,18 +40,23 @@ $.getJSON("./dbProductsData.php", function(data) {
         let addToCartLink = $("<a>", { href: "#", class: "addToCart", "data-id": product});
 
         //Here you can add the click event on the addToCartLink element
-        addToCartLink.on('click', function(e) {
-            e.preventDefault();
-            const productId = $(this).data('id');
-            $.ajax({
-                url: './addToCart.php',
-                type: 'POST',
-                data: {id: productId},
-                success: function(response){
-                    $('#cart-content').html(response);
-                }
-            });
-        });
+             addToCartLink.on('click', function(e) {
+    e.preventDefault();
+    const productId = $(this).data('id');
+    $.ajax({
+        url: './addToCart.php',
+        type: 'POST',
+        data: {product_id: productId, user_id: user_id},
+        success: function(response){
+            $('#cart-content').html(response);
+        }
+    });
+});       
+
+  
+
+
+
 
         cardBody.append(cardTitle);
         card.append(cardImg);

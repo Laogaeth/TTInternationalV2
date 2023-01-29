@@ -1,5 +1,5 @@
 <?php
-    require_once('../Products/addToCart.php');  //include or require addToCart.php here
+session_start();
 
 ?>
 
@@ -59,20 +59,26 @@
       });
     });
       //after battling with the php & js for the side menu for a while,solution was to make it internal.
-
-        $(document).ready(function(){
-            $('.btn--remove').click(function(){
-                var productId = $(this).data('id');
-                $.ajax({
-                    url: 'removeFromCart.php',
-                    type: 'POST',
-                    data: {id: productId},
-                    success: function(response){
-                        $('#cart-content').html(response);
-                    }
-                });
+      $.ajax({
+    url: './getCartItems.php',
+    type: 'POST',
+    data: {user_id: userId},
+    success: function(response){
+        let cart = JSON.parse(response);
+        if (!empty(cart)) {
+            cart.forEach(function(item) {
+                let row = $("<tr>");
+                let productName = $("<td>").text(item.product_name);
+                let productPrice = $("<td>").text(item.price);
+                row.append(productName, productPrice);
+                $("table").append(row);
             });
-        });
+        } else {
+            $("table").append("<tr><td>Your cart is empty</td></tr>");
+        }
+    }
+});
+
 
 
 </script>
@@ -120,6 +126,8 @@
 
     <h1 class="text-center checkout--text">Checkout</h1>
 
+
+
 <table>
     <tr>
         <th>Product</th>
@@ -138,7 +146,6 @@
         }
     ?>
 </table>
-
 
 
   
