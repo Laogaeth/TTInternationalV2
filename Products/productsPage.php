@@ -19,25 +19,52 @@ session_start();
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../Products/products.css">
   <script>
-    
+$(document).on('click', '.addToCart', function(e) {
+    e.preventDefault();
+    const productId = $(this).data('id');
+    $.ajax({
+        url: './addToCart.php',
+        type: 'POST',
+        data: {id: productId},
+        success: function(response){
+            $('#cart-content').html(response);
+        }
+    });
+});
+
+
 $.getJSON("./dbProductsData.php", function(data) {
-     $.each(data, function(index, value) {
+    $.each(data, function(index, value) {
+      //not the best looking way of doing this but it gets the job done
         const category = value.category;
         const product_name = value.product_name;
         const price = value.price;
         const image_path = value.image_path;
-
+        const product = value.product_id;
         let categoryDiv = $("#" + category);
         let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
         let cardImg = $("<img>", { class: "card-img-top card--image", src: image_path });
         let cardBody = $("<div>");
         let cardTitle = $("<h5>", { class: "card--title", text: product_name });
-        let cardFooter = $("<div>", { class: "card--footer card--buy--info  " });
-        let cardText = $("<p>", { class: "card--text  col", text: price + " €" });
-        let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart" }); 
-        let addToCartLink = $("<a>", { href: "#", class: "cart-icon", "data-id": "123"});
+        let cardFooter = $("<div>", { class: "card--footer card--buy--info " });
+        let cardText = $("<p>", { class: "card--text col", text: price + " €" });
+        let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart" });
+        let addToCartLink = $("<a>", { href: "#", class: "addToCart", "data-id": product});
 
-        
+        //Here you can add the click event on the addToCartLink element
+        addToCartLink.on('click', function(e) {
+            e.preventDefault();
+            const productId = $(this).data('id');
+            $.ajax({
+                url: './addToCart.php',
+                type: 'POST',
+                data: {id: productId},
+                success: function(response){
+                    $('#cart-content').html(response);
+                }
+            });
+        });
+
         cardBody.append(cardTitle);
         card.append(cardImg);
         card.append(cardBody);
@@ -47,20 +74,6 @@ $.getJSON("./dbProductsData.php", function(data) {
         card.append(cardFooter);
     });
 });
-
-$(document).on('click', '.cart-icon', function(e) {
-    e.preventDefault();
-    var productId = $(this).data('id');
-    $.ajax({
-        url: 'addToCart.php',
-        type: 'POST',
-        data: {id: productId},
-        success: function(response){
-            $('#cart-content').html(response);
-        }
-    });
-});
-
 
 
   </script>
