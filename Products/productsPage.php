@@ -56,17 +56,18 @@ $.getJSON("./dbProductsData.php", function(data) {
       const productId = addToCartLink.data('id');
 
       $.ajax({
-        url: './addToCart.php',
-        type: 'POST',
-        data: {product_id: productId, user_id: user, quantity: 1},
-        success: function(response){
-          console.log(productId, user_id)        
-          $('#cart-content').html(response);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          console.error(textStatus, errorThrown);
-        }
-      });
+  url: './addToCart.php',
+  type: 'POST',
+  data: {product_id: productId, user_id: user, product_name: product_name, price: price, quantity: 1},
+  success: function(response){
+    console.log(productId, user_id, product_name, price)        
+    $('#cart-content').html(response);
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.error(textStatus, errorThrown);
+  }
+});
+
     });
   });
 });

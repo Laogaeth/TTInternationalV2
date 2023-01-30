@@ -9,6 +9,8 @@ if(isset($_GET['user_id'])){
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,11 +99,29 @@ if(isset($_GET['user_id'])){
       }
 
      //retrieve the items in the cart associated with that user
-    $query = "SELECT cart.id as cart_id, products.id, products.category
-    FROM cart 
-    INNER JOIN products 
-    ON cart.product_id = products.id 
-    WHERE cart.user_id = '$user_id'";
+  $query = "SELECT cart.id as cart_id, products.id,
+CASE
+WHEN products.category = 'food' THEN food.product_name
+WHEN products.category = 'toys' THEN toys.product_name
+WHEN products.category = 'clothes' THEN clothes.product_name
+WHEN products.category = 'hygiene' THEN hygiene.product_name
+END AS product_name,
+CASE
+WHEN products.category = 'food' THEN food.price
+WHEN products.category = 'toys' THEN toys.price
+WHEN products.category = 'clothes' THEN clothes.price
+WHEN products.category = 'hygiene' THEN hygiene.price
+END AS price,
+cart.quantity
+FROM cart
+INNER JOIN products
+ON cart.product_id = products.id
+LEFT JOIN food ON products.id = food.id
+LEFT JOIN toys ON products.id = toys.id
+LEFT JOIN clothes ON products.id = clothes.id
+LEFT JOIN hygiene ON products.id = hygiene.id
+WHERE cart.user_id = '$user_id'";
+
 
     $result = mysqli_query($conn, $query);
     
@@ -113,21 +133,27 @@ if(isset($_GET['user_id'])){
     //check if there are any items in the cart
     if(mysqli_num_rows($result) > 0){
       //display the items in a table
-      echo "<table class='table--cart'>";
-      echo "<tr>";
-      echo "<th class='th--left'>Product Name</th>";
-      echo "<th class='th--right'>Price</th>";
-      
-       echo "</tr>";
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>".$row['id']."</td>";
-        echo "<td>".$row['category']."<button class='cart--remove--button' data-cart-id='".$row['cart_id']."'><i class='fa-solid fa-x'></i></button>"."</td>";
+      echo "<form action='updateCart.php' method='post'>";
+    echo "<table class='table--cart'>";
+    echo "<tr>";
+    echo "<th class='th--left'>Product Name</th>";
+    echo "<th >Price</th>";
+    echo "<th class='th--right'>Quantity</th>";
+    echo "</tr>";
+    while ($row = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>".$row['product_name']."</td>";
+    echo "<td>".$row['price']."</td>";
+    echo "<td><input type='number' class='form-control input--field--number' name='quantity[".$row['cart_id']."]' value='".$row['quantity']."' min='1' max='20'>
+    <button class='cart--remove--button' data-cart-id='".$row['cart_id']."'><i class='fa-solid fa-x'></i></button></td>";
+    echo "</tr>";
+  }
+    echo "</table>";
+    echo "<div class='container--cart'>";
+    echo "<p>Update Cart:</p><button type='submit' name='update_cart' class='btn cart--btn btn-primary'><i class='fa-solid fa-paw'></i></button>";
+    echo "</div>";
+    echo "</form>";
 
-        echo "</tr>";
-      }  
-    
-      echo "</table>";
     }else{
       echo "No items found in cart.";
     }

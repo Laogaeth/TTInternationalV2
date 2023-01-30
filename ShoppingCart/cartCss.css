@@ -185,15 +185,14 @@ textarea,
 
 .table--cart{
     
-    width: 100%;
+    
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;    
 }
 
 .table--cart th {
-    font-size: 1.5rem;
-    
+    font-size: 1.2rem;
     padding-bottom: 20px;
     background: #222035ec;
     color: #fff;
@@ -210,6 +209,7 @@ textarea,
 .table--cart td {
     font-size: 1rem;
     padding-left: 10px;
+    padding-top: 20px;
     padding-bottom: 20px;
     background: #222035ba;
     color: #fff;
@@ -224,9 +224,32 @@ textarea,
     color: #fff;
     border: none;
     background: none;
-    padding: 5px 10px;
+
     cursor: pointer;
     margin-right: 10px;
     transition: background 500ms ease;
     float: right;
+}
+
+.input--field--number{
+    padding: 0;
+    max-width: 40px;
+    margin: auto;
+    text-align: center;
+    float: left;
+    border: none;
+    border-radius: 10px;
+    }
+.container--cart{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: baseline;
+    max-width: 200px;
+    
+}
+.cart--btn{
+    background:none;
+    color: #222035ec;
+    text-decoration: underline;
 }
