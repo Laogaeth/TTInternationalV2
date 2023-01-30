@@ -22,54 +22,54 @@ session_start();
 
 
 $.getJSON("./dbProductsData.php", function(data) {
-    $.each(data, function(index, value) {
-      //not the best looking way of doing this but it gets the job done
-        const category = value.category;
-        const product_name = value.product_name;
-        const price = value.price;
-        const image_path = value.image_path;
-        const product = value.product_id;
-        let categoryDiv = $("#" + category);
-        let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
-        let cardImg = $("<img>", { class: "card-img-top card--image", src: image_path });
-        let cardBody = $("<div>");
-        let cardTitle = $("<h5>", { class: "card--title", text: product_name });
-        let cardFooter = $("<div>", { class: "card--footer card--buy--info " });
-        let cardText = $("<p>", { class: "card--text col", text: price + " €" });
-        let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart" });
-        let addToCartLink = $("<a>", { href: "#", class: "addToCart", "data-id": product});
-
-        //Here you can add the click event on the addToCartLink element
-    addToCartLink.on('click', function(e) {
-    e.preventDefault();
-    const productId = $(this).data('id');
+  $.each(data, function(index, value) {
+    const category = value.category;
+    const product_name = value.product_name;
+    const price = value.price;
+    const image_path = value.image_path;
+    const product = value.product_id;
+    const user = value.user_id;
     
-    $.ajax({
-    url: './addToCart.php',
-    type: 'POST',
-    data: {product_id: productId, user_id: user_id, quantity: 1},
-    success: function(response){
-    console.log(productId, user_id)        
-    $('#cart-content').html(response);
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-        console.error(textStatus, errorThrown);
-    }
+    let categoryDiv = $("#" + category);
+    let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
+    let cardImg = $("<img>", { class: "card-img-top card--image", src: image_path });
+    let cardBody = $("<div>");
+    let cardTitle = $("<h5>", { class: "card--title", text: product_name });
+    let cardFooter = $("<div>", { class: "card--footer card--buy--info " });
+    let cardText = $("<p>", { class: "card--text col", text: price + " €" });
+    let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart" });
+    let addToCartLink = $("<a>", { href: "#", class: "addToCart", "data-id": product });
+
+    cardBody.append(cardTitle);
+    card.append(cardImg);
+    card.append(cardBody);
+    categoryDiv.append(card);
+    cardFooter.append(cardText, cardCart);
+    cardCart.append(addToCartLink);
+    card.append(cardFooter);
+
+    // Add the click event on the shopping cart icon
+    cardCart.on('click', function(e) {
+      e.preventDefault();
+      console.log('Add to cart icon clicked');
+
+      const productId = addToCartLink.data('id');
+
+      $.ajax({
+        url: './addToCart.php',
+        type: 'POST',
+        data: {product_id: productId, user_id: user, quantity: 1},
+        success: function(response){
+          console.log(productId, user_id)        
+          $('#cart-content').html(response);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          console.error(textStatus, errorThrown);
+        }
+      });
+    });
+  });
 });
-
-
-});
-
-
-        cardBody.append(cardTitle);
-        card.append(cardImg);
-        card.append(cardBody);
-        categoryDiv.append(card);
-        cardFooter.append(cardText, cardCart);
-        cardCart.append(addToCartLink);
-        card.append(cardFooter);
-            });
-        });
 
 
   </script>
