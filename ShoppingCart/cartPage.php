@@ -117,11 +117,13 @@ if(isset($_GET['user_id'])){
       echo "<tr>";
       echo "<th class='th--left'>Product Name</th>";
       echo "<th class='th--right'>Price</th>";
+      
        echo "</tr>";
       while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>".$row['id']."</td>";
-        echo "<td>".$row['category']."</td>";
+        echo "<td>".$row['category']."<button class='cart--remove--button' data-cart-id='".$row['cart_id']."'><i class='fa-solid fa-x'></i></button>"."</td>";
+
         echo "</tr>";
       }  
     

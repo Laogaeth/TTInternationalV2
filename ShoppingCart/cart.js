@@ -32,6 +32,23 @@
         }
       });
     });
-      //after battling with the php & js for the side menu for a while,solution was to make it internal.
 
+    //Remove from cart functionality
+$(document).ready(function(){
+  $('.cart--remove--button').click(function(){
+    const cartId = $(this).data('cart-id');
 
+    $.ajax({
+      url: 'removeFromCart.php',
+      type: 'POST',
+      data: {cart_id: cartId},
+      success: function(response){
+        console.log('Item removed from cart');
+        location.reload();
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.error(textStatus, errorThrown);
+      }
+    });
+  });
+});
