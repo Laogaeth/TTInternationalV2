@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jan 30, 2023 at 12:45 PM
+-- Generation Time: Jan 30, 2023 at 07:29 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -31,17 +31,25 @@ CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `quantity` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `product_id`, `user_id`, `quantity`, `created_at`, `updated_at`) VALUES
-(1, 0, 75, 0, '2023-01-30 11:29:44', '2023-01-30 11:29:44');
+INSERT INTO `cart` (`id`, `product_id`, `user_id`, `quantity`) VALUES
+(1, 2, 76, 1),
+(2, 2, 76, 1),
+(3, 2, 76, 1),
+(4, 2, 76, 1),
+(5, 2, 76, 1),
+(6, 2, 76, 1),
+(7, 2, 76, 1),
+(20, 1, 1, 4),
+(21, 1, 1, 1),
+(22, 1, 1, 1),
+(23, 2, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -154,7 +162,9 @@ INSERT INTO `personal_info` (`id`, `address`, `phone_number`, `user_id`) VALUES
 (4, '123 main street', 'letters?', 72),
 (5, 'gallifrey', '912123123', 73),
 (6, 'MT Local Server, nr 42', '424242424', 1),
-(7, 'Artic st Nicol', '913112312', 75);
+(7, 'Artic st Nicol', '913112312', 75),
+(8, 'tester123123123', '123456789', 76),
+(9, 'C#BotStress@gmail.com', '123123123', 77);
 
 -- --------------------------------------------------------
 
@@ -267,7 +277,9 @@ INSERT INTO `user` (`id`, `user_type`, `client`, `name`, `email`, `password_hash
 (70, 'user', 'Sir Christopher Lee', 'dracula1', 'dracula1@gmail.com', '$2y$10$hEQ0Wzlg4iU16hJmPKAITO/YgBOCs4FnvucbDyXxk9oR2kleB5Rri'),
 (72, 'user', 'Sir Christopher Lee the second', 'dracula2', 'dracula2@gmail.com', '$2y$10$LT7ibYQPfcW5nSB75hhqUOiZpGYZD91BLNFAAynPyoSEp2csJoDF.'),
 (73, 'user', 'The Doctor', 'justTheDoctor', 'tardis@gmail.com', '$2y$10$OwKDUTy/0Obm7NnsVLv5CefppM6l4gLZAh/51JKXSzYlaMJE7oco.'),
-(75, 'user', 'Linux The Penguin ', 'Penguin2', 'penguin@gmail.com', '$2y$10$HfQFoTPGx6nlUKr9CrB.MOnbjLC6zrild90zPHT6A3sPbORGgpUQ2');
+(75, 'user', 'Linux The Penguin ', 'Penguin2', 'penguin@gmail.com', '$2y$10$HfQFoTPGx6nlUKr9CrB.MOnbjLC6zrild90zPHT6A3sPbORGgpUQ2'),
+(76, 'user', 'Testing123123', 'Tester123123', 'tester123123123@gmail.com', '$2y$10$P5adCDcRQSdbtbpG4U3UoOImVopteurzXF61FOOLQW99Br5fcxjwC'),
+(77, 'user', 'C#BotStress', 'C#BotStress', 'C#BotStress@gmail.com', '$2y$10$kloQI1mQjK8OzTbvLcpiXu/CI.xRx0OtHsPrGZ..mix1KFRmJ7Ija');
 
 --
 -- Indexes for dumped tables
@@ -277,7 +289,9 @@ INSERT INTO `user` (`id`, `user_type`, `client`, `name`, `email`, `password_hash
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `clothes`
@@ -350,13 +364,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `personal_info`
 --
 ALTER TABLE `personal_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `stock`
@@ -368,11 +382,18 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `clothes`
