@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jan 27, 2023 at 04:13 PM
+-- Generation Time: Jan 30, 2023 at 12:45 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_login`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `product_id`, `user_id`, `quantity`, `created_at`, `updated_at`) VALUES
+(1, 0, 75, 0, '2023-01-30 11:29:44', '2023-01-30 11:29:44');
 
 -- --------------------------------------------------------
 
@@ -89,7 +111,7 @@ CREATE TABLE `hygiene` (
 
 INSERT INTO `hygiene` (`id`, `product_name`, `product_id`, `price`, `image_path`) VALUES
 (1, 'Pet Head Shampoo Orange Scent', 1, '5.99', './images/hygiene1.png'),
-(2, 'Pet Head Shampoo Peach Scent', 1, '569.00', './images/hygiene2.png'),
+(2, 'Pet Head Shampoo Peach Scent', 1, '6.99', './images/hygiene2.png'),
 (3, 'Pet Head Shampoo Pear Scent', 1, '5.99', './images/hygiene3.png'),
 (4, 'Pet Head Dry Shampoo Coconut Scent', 1, '5.99', './images/hygiene4.png');
 
@@ -131,7 +153,8 @@ INSERT INTO `personal_info` (`id`, `address`, `phone_number`, `user_id`) VALUES
 (3, 'Dracula 123 main st.', 'does it accept letters?', 70),
 (4, '123 main street', 'letters?', 72),
 (5, 'gallifrey', '912123123', 73),
-(6, 'MT Local Server, nr 42', '424242424', 1);
+(6, 'MT Local Server, nr 42', '424242424', 1),
+(7, 'Artic st Nicol', '913112312', 75);
 
 -- --------------------------------------------------------
 
@@ -243,11 +266,18 @@ INSERT INTO `user` (`id`, `user_type`, `client`, `name`, `email`, `password_hash
 (69, 'user', 'Kali Linux', 'penguin', 'kalitester@gmail.com', '$2y$10$X88Sdav46WXRIro6F6NDIeXvyfrwE8tfZz0Jf5I2ScAmJCvRXnpQy'),
 (70, 'user', 'Sir Christopher Lee', 'dracula1', 'dracula1@gmail.com', '$2y$10$hEQ0Wzlg4iU16hJmPKAITO/YgBOCs4FnvucbDyXxk9oR2kleB5Rri'),
 (72, 'user', 'Sir Christopher Lee the second', 'dracula2', 'dracula2@gmail.com', '$2y$10$LT7ibYQPfcW5nSB75hhqUOiZpGYZD91BLNFAAynPyoSEp2csJoDF.'),
-(73, 'user', 'The Doctor', 'justTheDoctor', 'tardis@gmail.com', '$2y$10$OwKDUTy/0Obm7NnsVLv5CefppM6l4gLZAh/51JKXSzYlaMJE7oco.');
+(73, 'user', 'The Doctor', 'justTheDoctor', 'tardis@gmail.com', '$2y$10$OwKDUTy/0Obm7NnsVLv5CefppM6l4gLZAh/51JKXSzYlaMJE7oco.'),
+(75, 'user', 'Linux The Penguin ', 'Penguin2', 'penguin@gmail.com', '$2y$10$HfQFoTPGx6nlUKr9CrB.MOnbjLC6zrild90zPHT6A3sPbORGgpUQ2');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `clothes`
@@ -317,10 +347,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `personal_info`
 --
 ALTER TABLE `personal_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `stock`
@@ -332,7 +368,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- Constraints for dumped tables

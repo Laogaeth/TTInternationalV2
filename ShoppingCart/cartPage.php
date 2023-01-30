@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+if(isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
+}else{
+    $user_id = $_SESSION['user_id'];
+}
 ?>
 
 
@@ -59,25 +63,6 @@ session_start();
       });
     });
       //after battling with the php & js for the side menu for a while,solution was to make it internal.
-      $.ajax({
-    url: './getCartItems.php',
-    type: 'POST',
-    data: {user_id: userId},
-    success: function(response){
-        let cart = JSON.parse(response);
-        if (!empty(cart)) {
-            cart.forEach(function(item) {
-                let row = $("<tr>");
-                let productName = $("<td>").text(item.product_name);
-                let productPrice = $("<td>").text(item.price);
-                row.append(productName, productPrice);
-                $("table").append(row);
-            });
-        } else {
-            $("table").append("<tr><td>Your cart is empty</td></tr>");
-        }
-    }
-});
 
 
 
@@ -127,28 +112,54 @@ session_start();
     <h1 class="text-center checkout--text">Checkout</h1>
 
 
+<?php
+  //connect to the database
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
 
-<table>
-    <tr>
-        <th>Product</th>
-        <th>Price</th>
-    </tr>
-    <?php
-        if (!empty($cart)) {
-            foreach ($cart as $item) {
-                echo "<tr>";
-                echo "<td>".$item['product_name']."</td>";
-                echo "<td>".$item['price']."</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "Your cart is empty.";
-        }
-    ?>
-</table>
-
-
+  //get the user's ID from the session or query string
+  if(isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
+  }else{
+    if(isset($_SESSION['user_id'])){
+      $user_id = $_SESSION['user_id'];
+    }else{
+      die("Error: User ID is not set in session or query string.");
+    }
+  }
   
+ //retrieve the items in the cart associated with that user
+$query = "SELECT cart.id as cart_id, products.id, products.category
+FROM cart 
+INNER JOIN products 
+ON cart.product_id = products.id 
+WHERE cart.user_id = '$user_id'";
+
+$result = mysqli_query($conn, $query);
+
+//check if the query was successful
+if (!$result) {
+  die("Query failed: " . mysqli_error($conn));
+}
+
+//check if there are any items in the cart
+if(mysqli_num_rows($result) > 0){
+  //display the items in a table
+  echo "<table>";
+  while ($row = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>".$row['id']."</td>";
+    echo "<td>".$row['category']."</td>";
+    echo "</tr>";
+  }  
+  echo "</table>";
+}else{
+  echo "No items found in cart.";
+}
+
+?>
+
 
   <div class="container">
     <?php

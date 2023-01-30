@@ -40,22 +40,25 @@ $.getJSON("./dbProductsData.php", function(data) {
         let addToCartLink = $("<a>", { href: "#", class: "addToCart", "data-id": product});
 
         //Here you can add the click event on the addToCartLink element
-             addToCartLink.on('click', function(e) {
+    addToCartLink.on('click', function(e) {
     e.preventDefault();
     const productId = $(this).data('id');
+    
     $.ajax({
-        url: './addToCart.php',
-        type: 'POST',
-        data: {product_id: productId, user_id: user_id},
-        success: function(response){
-            $('#cart-content').html(response);
-        }
-    });
-});       
+    url: './addToCart.php',
+    type: 'POST',
+    data: {product_id: productId, user_id: user_id, quantity: 1},
+    success: function(response){
+    console.log(productId, user_id)        
+    $('#cart-content').html(response);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.error(textStatus, errorThrown);
+    }
+});
 
-  
 
-
+});
 
 
         cardBody.append(cardTitle);
@@ -65,8 +68,8 @@ $.getJSON("./dbProductsData.php", function(data) {
         cardFooter.append(cardText, cardCart);
         cardCart.append(addToCartLink);
         card.append(cardFooter);
-    });
-});
+            });
+        });
 
 
   </script>
