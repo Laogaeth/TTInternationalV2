@@ -140,22 +140,32 @@ WHERE cart.user_id = '$user_id'";
     echo "<th >Price</th>";
     echo "<th class='th--right'>Quantity</th>";
     echo "</tr>";
+    $total = 0;
     while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
     echo "<td>".$row['product_name']."</td>";
-    echo "<td>".$row['price']."</td>";
+    echo "<td>".$row['price'].' '."€"."</td>";
     echo "<td><input type='number' class='form-control input--field--number' name='quantity[".$row['cart_id']."]' value='".$row['quantity']."' min='1' max='20'>
     <button class='cart--remove--button' data-cart-id='".$row['cart_id']."'><i class='fa-solid fa-x'></i></button></td>";
     echo "</tr>";
+    $total += $row['price'] * $row['quantity'];
+
   }
+     echo "<tr>";
+    echo "<td><b>Your Total:</b></td>";
+    echo "<td><b>".$total.' '."€"."</b></td>";
+    echo "<td><button type='submit' name='update_cart' class='btn cart--btn btn-primary'>Update</button></td>";
+    echo "</tr>";
     echo "</table>";
     echo "<div class='container--cart'>";
-    echo "<p>Update Cart:</p><button type='submit' name='update_cart' class='btn cart--btn btn-primary'><i class='fa-solid fa-paw'></i></button>";
+    
     echo "</div>";
     echo "</form>";
 
     }else{
-      echo "No items found in cart.";
+      echo "<div class='cart--empty'>";
+      echo "<h2>No items found in cart.</h2>";
+      echo "</div>";
     }
 
     ?>

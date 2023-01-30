@@ -253,3 +253,10 @@ textarea,
     color: #222035ec;
     text-decoration: underline;
 }
+
+.cart--empty{
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5rem;
+}
