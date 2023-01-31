@@ -28,7 +28,6 @@ $.getJSON("./dbProductsData.php", function(data) {
     const price = value.price;
     const image_path = value.image_path;
     const product = value.product_id;
-    const user = value.user_id;
     
     let categoryDiv = $("#" + category);
     let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
@@ -54,23 +53,24 @@ $.getJSON("./dbProductsData.php", function(data) {
       console.log('Add to cart icon clicked');
 
       const productId = addToCartLink.data('id');
+      const userId = <?php echo json_encode($_SESSION['user_id']); ?>;
 
       $.ajax({
-  url: './addToCart.php',
-  type: 'POST',
-  data: {product_id: productId, user_id: user, product_name: product_name, price: price, quantity: 1},
-  success: function(response){
-    console.log(productId, user_id, product_name, price)        
-    $('#cart-content').html(response);
-  },
-  error: function(jqXHR, textStatus, errorThrown) {
-    console.error(textStatus, errorThrown);
-  }
-});
-
+        url: './addToCart.php',
+        type: 'POST',
+        data: {product_id: productId, user_id: userId, product_name: product_name, price: price, quantity: 1},
+        success: function(response){
+          console.log(productId, userId, product_name, price)        
+          $('#cart-content').html(response);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          console.error(textStatus, errorThrown);
+        }
+      });
     });
   });
 });
+
 
 
   </script>
