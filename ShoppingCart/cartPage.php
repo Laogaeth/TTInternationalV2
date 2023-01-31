@@ -152,7 +152,7 @@ WHERE cart.user_id = '$user_id'";
 
   }
      echo "<tr>";
-    echo "<td><b>Your Total:</b></td>";
+    echo "<td><b class='cart--total'>Your Total:</b></td>";
     echo "<td><b>".$total.' '."€"."</b></td>";
     echo "<td><button type='submit' class='update--cart' name='update_cart' class='btn cart--btn btn-primary'>Update</button></td>";
     echo "</tr>";
@@ -202,6 +202,7 @@ WHERE cart.user_id = '$user_id'";
     
       <div class="row">
 
+        <form action="order_history.php" method="POST">
           <div class="container--form row">
             <div class="form-group col-sm-6">
               <label for="name">Name</label>

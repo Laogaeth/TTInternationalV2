@@ -274,3 +274,8 @@ textarea,
 .update--cart:hover{
     background: #343151;
 }
+
+.cart--total{
+    float: right;
+    padding-right: 5px;
+}
