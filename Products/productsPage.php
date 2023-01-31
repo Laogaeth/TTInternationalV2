@@ -50,7 +50,7 @@ $.getJSON("./dbProductsData.php", function(data) {
     // Add the click event on the shopping cart icon
     cardCart.on('click', function(e) {
       e.preventDefault();
-      console.log('Add to cart icon clicked');
+      // console.log('Add to cart icon clicked');
 
       const productId = addToCartLink.data('id');
       const userId = <?php echo json_encode($_SESSION['user_id']); ?>;
@@ -60,7 +60,7 @@ $.getJSON("./dbProductsData.php", function(data) {
         type: 'POST',
         data: {product_id: productId, user_id: userId, product_name: product_name, price: price, quantity: 1},
         success: function(response){
-          console.log(productId, userId, product_name, price)        
+          // console.log(productId, userId, product_name, price)        
           $('#cart-content').html(response);
         },
         error: function(jqXHR, textStatus, errorThrown) {

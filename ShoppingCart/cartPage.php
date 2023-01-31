@@ -154,7 +154,7 @@ WHERE cart.user_id = '$user_id'";
      echo "<tr>";
     echo "<td><b>Your Total:</b></td>";
     echo "<td><b>".$total.' '."€"."</b></td>";
-    echo "<td><button type='submit' name='update_cart' class='btn cart--btn btn-primary'>Update</button></td>";
+    echo "<td><button type='submit' class='update--cart' name='update_cart' class='btn cart--btn btn-primary'>Update</button></td>";
     echo "</tr>";
     echo "</table>";
     echo "<div class='container--cart'>";

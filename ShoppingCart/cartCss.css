@@ -185,8 +185,8 @@ textarea,
 
 .table--cart{
     
-    
-    max-width: 600px;
+    width: 600px;
+    max-width:100%;
     margin-left: auto;
     margin-right: auto;    
 }
@@ -259,4 +259,18 @@ textarea,
     text-align: center;
     margin-top: 50px;
     font-size: 1.5rem;
+}
+
+.update--cart{
+    background: #222035ec;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding:5px;
+    cursor: pointer;
+    transition: background 500ms ease;
+}
+
+.update--cart:hover{
+    background: #343151;
 }
