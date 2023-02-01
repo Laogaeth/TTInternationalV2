@@ -145,7 +145,8 @@ if(isset($_GET['user_id'])){
     $total += $row['price'] * $row['quantity'];
     $products[] = array(
       'id' => $row['id'],
-      'quantity' => $row['quantity']
+      'quantity' => $row['quantity'],
+      'price' => $row['price']
     );
 
   }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jan 30, 2023 at 07:29 PM
+-- Generation Time: Feb 01, 2023 at 05:28 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -46,10 +46,15 @@ INSERT INTO `cart` (`id`, `product_id`, `user_id`, `quantity`) VALUES
 (5, 2, 76, 1),
 (6, 2, 76, 1),
 (7, 2, 76, 1),
-(20, 1, 1, 4),
-(21, 1, 1, 1),
-(22, 1, 1, 1),
-(23, 2, 1, 6);
+(47, 1, 1, 1),
+(48, 1, 1, 1),
+(63, 1, 77, 12),
+(64, 2, 77, 15),
+(66, 1, 68, 1),
+(67, 1, 68, 1),
+(68, 1, 68, 1),
+(69, 1, 68, 1),
+(70, 1, 68, 12);
 
 -- --------------------------------------------------------
 
@@ -130,13 +135,21 @@ INSERT INTO `hygiene` (`id`, `product_name`, `product_id`, `price`, `image_path`
 --
 
 CREATE TABLE `order_history` (
-  `user_email` varchar(255) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
-  `product_category` varchar(255) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `quantity` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `payment` float NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_history`
+--
+
+INSERT INTO `order_history` (`id`, `quantity`, `payment`, `user_id`) VALUES
+(6, 16, 0, 77),
+(7, 16, 95.84, 77),
+(8, 16, 95.84, 77),
+(9, 27, 161.73, 77);
 
 -- --------------------------------------------------------
 
@@ -205,8 +218,8 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id`, `item_id`, `item_table`, `quantity`) VALUES
-(1, 1, 'food', 99),
-(2, 2, 'food', 99),
+(1, 1, 'food', 87),
+(2, 2, 'food', 69),
 (3, 3, 'food', 99),
 (4, 4, 'food', 99),
 (5, 1, 'toys', 99),
@@ -318,8 +331,8 @@ ALTER TABLE `hygiene`
 -- Indexes for table `order_history`
 --
 ALTER TABLE `order_history`
-  ADD KEY `user_email` (`user_email`),
-  ADD KEY `product_id` (`product_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `personal_info`
@@ -364,7 +377,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
+--
+-- AUTO_INCREMENT for table `order_history`
+--
+ALTER TABLE `order_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_info`
@@ -417,8 +436,7 @@ ALTER TABLE `hygiene`
 -- Constraints for table `order_history`
 --
 ALTER TABLE `order_history`
-  ADD CONSTRAINT `order_history_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `user` (`email`),
-  ADD CONSTRAINT `order_history_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `order_history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `personal_info`
