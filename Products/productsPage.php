@@ -28,6 +28,7 @@ $.getJSON("./dbProductsData.php", function(data) {
     const price = value.price;
     const image_path = value.image_path;
     const product = value.product_id;
+    const user = value.user_id;
     
     let categoryDiv = $("#" + category);
     let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
@@ -36,33 +37,29 @@ $.getJSON("./dbProductsData.php", function(data) {
     let cardTitle = $("<h5>", { class: "card--title", text: product_name });
     let cardFooter = $("<div>", { class: "card--footer card--buy--info " });
     let cardText = $("<p>", { class: "card--text col", text: price + " €" });
-    let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart" });
-    let addToCartLink = $("<a>", { href: "#", class: "addToCart", "data-id": product });
-
+    let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart", "data-id": product, "data--product": product_name, "data-price": price });
 
     cardBody.append(cardTitle);
     card.append(cardImg);
     card.append(cardBody);
     categoryDiv.append(card);
     cardFooter.append(cardText, cardCart);
-    cardCart.append(addToCartLink);
     card.append(cardFooter);
 
     // Add the click event on the shopping cart icon
     cardCart.on('click', function(e) {
       e.preventDefault();
-      // console.log('Add to cart icon clicked');
 
-      const productId = addToCartLink.data('id');
-      const userId = <?php echo json_encode($_SESSION['user_id']); ?>;
+      const product_id = $(this).data('id');
+      const product_name = $(this).data('product-name');
+      const price = $(this).data('price');
+      const user_id = user;
 
       $.ajax({
-        url: './addToCart.php',
+        url: 'addToCart.php',
         type: 'POST',
-        data: {product_id: productId, user_id: userId, product_name: product_name, price: price, quantity: 1},
-
+        data: {product_id: product_id,product_name: product_name, user_id: user, price: price, quantity: 1},
         success: function(response){
-          // console.log(productId, userId, product_name, price)        
           $('#cart-content').html(response);
         },
         error: function(jqXHR, textStatus, errorThrown) {
