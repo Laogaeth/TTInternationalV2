@@ -275,3 +275,23 @@ textarea,
     float: right;
     padding-right: 5px;
 }
+
+.checkout--btn{
+    background: #222035ec;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding:5px;
+    cursor: pointer;
+    transition: background 500ms ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    box-shadow: none;
+    
+}
+
+.shadow--xs {
+    box-shadow: 0 5px #64646439;
+}
+

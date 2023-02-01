@@ -25,13 +25,6 @@ if(isset($_GET['user_id'])){
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <script src="./cart.js"></script>
 
-
-  <script>
-
-</script>
-
-
- 
 </head>
 
  <body>
@@ -60,7 +53,7 @@ if(isset($_GET['user_id'])){
   <?php endif; ?>
       <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
       <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
-      <a class="menu--icon" href="./cartPage.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
+      <a class="menu--icon" href="./creditCard.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
       
       <?php if (isset($_SESSION["user_name"])):?>
        <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i><p class="menu--nav--text">Logout</p></a>
@@ -71,113 +64,8 @@ if(isset($_GET['user_id'])){
 
  <main class="col-11 main--glass--effect section--color" >
 
-    <h1 class="text-center checkout--text">Checkout</h1>
+    <h1 class="text-center checkout--text">Verify Payment Info</h1>
       
-
-              <div class="col-12">
-          <h2 class="text-center mb-4">Shopping Cart</h2>
-              </div>
-    
-
-    <?php
-
-      $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
-
-      //get the user's ID from the session or query string
-      if(isset($_GET['user_id'])){
-        $user_id = $_GET['user_id'];
-      }else{
-        if(isset($_SESSION['user_id'])){
-          $user_id = $_SESSION['user_id'];
-        }
-      }
-
-     //retrieve the items in the cart associated with that user
-      $query = "SELECT cart.id as cart_id, products.id,
-      CASE
-      WHEN products.category = 'food' THEN food.product_name
-      WHEN products.category = 'toys' THEN toys.product_name
-      WHEN products.category = 'clothes' THEN clothes.product_name
-      WHEN products.category = 'hygiene' THEN hygiene.product_name
-      END AS product_name,
-      CASE
-      WHEN products.category = 'food' THEN food.price
-      WHEN products.category = 'toys' THEN toys.price
-      WHEN products.category = 'clothes' THEN clothes.price
-      WHEN products.category = 'hygiene' THEN hygiene.price
-      END AS price,
-      cart.quantity
-      FROM cart
-      INNER JOIN products
-      ON cart.product_id = products.id
-      LEFT JOIN food ON products.id = food.id
-      LEFT JOIN toys ON products.id = toys.id
-      LEFT JOIN clothes ON products.id = clothes.id
-      LEFT JOIN hygiene ON products.id = hygiene.id
-      WHERE cart.user_id = '$user_id'";
-
-
-    $result = mysqli_query($conn, $query);
-    
-    //check if the query was successful
-    if (!$result) {
-      die("Query failed: " . mysqli_error($conn));
-    }
-
-    //check if there are any items in the cart
-    if(mysqli_num_rows($result) > 0){
-      //display the items in a table
-    echo "<form action='updateCart.php' method='post'>";
-    echo "<table class='table--cart'>";
-    echo "<tr>";
-    echo "<th class='th--left'>Product Name</th>";
-    echo "<th >Price</th>";
-    echo "<th class='th--right'>Quantity</th>";
-    echo "</tr>";
-    $total = 0;
-    while ($row = mysqli_fetch_assoc($result)) {
-    echo "<tr>";
-    echo "<td>".$row['product_name']."</td>";
-    echo "<td>".$row['price'].' '."€"."</td>";
-    echo "<td><input type='number' class='form-control input--field--number' name='quantity[".$row['cart_id']."]' value='".$row['quantity']."' min='1' max='20'>
-    <button class='cart--remove--button' data-cart-id='".$row['cart_id']."'><i class='fa-solid fa-x'></i></button></td>";
-    echo "</tr>";
-    $total += $row['price'] * $row['quantity'];
-    $products[] = array(
-      'id' => $row['id'],
-      'quantity' => $row['quantity'],
-      'price' => $row['price']
-    );
-
-  }
-    echo "<tr>";
-    echo "<td><b class='cart--total'>Your Total:</b></td>";
-    echo "<td><b>".$total.' '."€"."</b></td>";
-    echo "<td><button type='submit' name='update_cart' class='btn update--cart'>Update</button></td>";
-    echo "</tr>";
-    echo "</table>";
-    echo "<div class='container--cart'>";
-    echo "</div>";
-    echo "</form>";
-
-    }else{
-      echo "<div class='cart--empty'>";
-      echo "<h2>No items found in cart.</h2>";
-      echo "</div>";
-    }
-
-    //Stores data in order history table @ db
-     echo "<form action='order_history.php' method='POST' class='text-center'>";
-echo "<input type='hidden' name='user_id' value='".$user_id."'>";
-echo "<input type='hidden' name='products' value='".serialize($products)."'>";
-echo "<button type='submit' name='checkout' class='btn sbmBtn checkout--btn shadow--xs'>Proceed to checkout</button>";
-echo "</form>";
-
-
-    ?>
-
-
-
       <div class="container">
         <?php
 
@@ -205,7 +93,36 @@ echo "</form>";
           $address_data = mysqli_fetch_assoc($result2);
           ?>
         </div>
-      
+         <form action="cartPage.php" method="POST">
+
+          <div class="container--form row">
+            <div class="form-group col-sm-6">
+              <label for="name">Name</label>
+              <input type="text" id="name" value="<?php echo $user_data['name']; ?>" readonly>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="email">Email</label>
+              <input type="email" id="email" value="<?php echo $user_data['email']; ?>" readonly>
+            </div>
+            <div class="form-group col-12">
+              <label for="address">Street Adress</label>
+              <input type="text" id="address" value="<?php echo $address_data['address']; ?>" readonly>
+            </div>
+            <div class="form-group col-12">
+              <label for="card-number">Card Number</label>
+              <input type="text"  id="card-number" maxlength="14" placeholder="Enter your card number" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="expiry-date">Expiry Date</label>
+              <input type="text" id="expiry-date" maxlength="4" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" maxlength="2" placeholder="Enter the CVV" required>
+            </div>
+            <button type="submit" class="sbmBtn credit--card--btn" name="submit">Proceed to checkout</button>
+          </form>
+
       
       
       

@@ -39,6 +39,7 @@ $.getJSON("./dbProductsData.php", function(data) {
     let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart" });
     let addToCartLink = $("<a>", { href: "#", class: "addToCart", "data-id": product });
 
+
     cardBody.append(cardTitle);
     card.append(cardImg);
     card.append(cardBody);
@@ -59,6 +60,7 @@ $.getJSON("./dbProductsData.php", function(data) {
         url: './addToCart.php',
         type: 'POST',
         data: {product_id: productId, user_id: userId, product_name: product_name, price: price, quantity: 1},
+
         success: function(response){
           // console.log(productId, userId, product_name, price)        
           $('#cart-content').html(response);
@@ -105,7 +107,7 @@ $.getJSON("./dbProductsData.php", function(data) {
   <?php endif; ?>
       <a class="menu--icon" href="./productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
       <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
-      <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
+      <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders </p></a>
       
       <?php if (isset($_SESSION["user_name"])):?>
        <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i><p class="menu--nav--text">Logout</p></a>
