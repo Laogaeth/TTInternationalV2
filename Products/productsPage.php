@@ -27,8 +27,8 @@ $.getJSON("./dbProductsData.php", function(data) {
     const product_name = value.product_name;
     const price = value.price;
     const image_path = value.image_path;
-    const product = value.product_id;
-    const user = value.user_id;
+    const product_id = value.product_id;
+    const user_id = value.user_id;
     
     let categoryDiv = $("#" + category);
     let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
@@ -37,7 +37,7 @@ $.getJSON("./dbProductsData.php", function(data) {
     let cardTitle = $("<h5>", { class: "card--title", text: product_name });
     let cardFooter = $("<div>", { class: "card--footer card--buy--info " });
     let cardText = $("<p>", { class: "card--text col", text: price + " €" });
-    let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart", "data-id": product, "data--product": product_name, "data-price": price });
+    let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart", "data-id": product_id, "data-product-name": product_name, "data-price": price });
 
     cardBody.append(cardTitle);
     card.append(cardImg);
@@ -53,12 +53,11 @@ $.getJSON("./dbProductsData.php", function(data) {
       const product_id = $(this).data('id');
       const product_name = $(this).data('product-name');
       const price = $(this).data('price');
-      const user_id = user;
 
       $.ajax({
         url: 'addToCart.php',
         type: 'POST',
-        data: {product_id: product_id,product_name: product_name, user_id: user, price: price, quantity: 1},
+        data: {product_id: product_id, product_name: product_name, user_id: user_id, price: price, quantity: 1},
         success: function(response){
           $('#cart-content').html(response);
         },
