@@ -39,6 +39,7 @@ $.getJSON("./dbProductsData.php", function(data) {
     let cardText = $("<p>", { class: "card--text col", text: price + " €" });
     let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart", "data-id": product_id, "data-product-name": product_name, "data-price": price });
 
+
     cardBody.append(cardTitle);
     card.append(cardImg);
     card.append(cardBody);
