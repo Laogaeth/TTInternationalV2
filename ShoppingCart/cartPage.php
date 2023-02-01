@@ -81,52 +81,48 @@ if(isset($_GET['user_id'])){
 
     <?php
 
-      $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
+        $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
+  $user_id = '';
 
-      //get the user's ID from the session or query string
-      if(isset($_GET['user_id'])){
-        $user_id = $_GET['user_id'];
-      }else{
-        if(isset($_SESSION['user_id'])){
-          $user_id = $_SESSION['user_id'];
-        }
-      }
+  //get the user's ID from the session or query string
+  if (isset($_GET['user_id'])) {
+    $user_id = intval($_GET['user_id']);
+  } else if (isset($_SESSION['user_id'])) {
+    $user_id = intval($_SESSION['user_id']);
+  }
 
-     //retrieve the items in the cart associated with that user
-      $query = "SELECT cart.id as cart_id, products.id,
-      CASE
-      WHEN products.category = 'food' THEN food.product_name
-      WHEN products.category = 'toys' THEN toys.product_name
-      WHEN products.category = 'clothes' THEN clothes.product_name
-      WHEN products.category = 'hygiene' THEN hygiene.product_name
-      END AS product_name,
-      CASE
-      WHEN products.category = 'food' THEN food.price
-      WHEN products.category = 'toys' THEN toys.price
-      WHEN products.category = 'clothes' THEN clothes.price
-      WHEN products.category = 'hygiene' THEN hygiene.price
-      END AS price,
-      cart.quantity
-      FROM cart
-      INNER JOIN products
-      ON cart.product_id = products.id
-      LEFT JOIN food ON products.id = food.id
-      LEFT JOIN toys ON products.id = toys.id
-      LEFT JOIN clothes ON products.id = clothes.id
-      LEFT JOIN hygiene ON products.id = hygiene.id
-      WHERE cart.user_id = '$user_id'";
+  $query = "SELECT cart.id as cart_id, products.id, 
+            COALESCE(hygiene.product_name, toys.product_name, food.product_name, clothes.product_name) as product_name, 
+            COALESCE(hygiene.price, toys.price, food.price, clothes.price) as price, 
+            cart.quantity
+        FROM cart
+        INNER JOIN products 
+            ON cart.product_id = products.id
+        LEFT JOIN hygiene 
+            ON products.id = hygiene.id AND products.category = 'hygiene'
+        LEFT JOIN toys 
+            ON products.id = toys.id AND products.category = 'toys'
+        LEFT JOIN food 
+            ON products.id = food.id AND products.category = 'food'
+        LEFT JOIN clothes 
+            ON products.id = clothes.id AND products.category = 'clothes'
+        WHERE cart.user_id = ?";
+
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "i", $user_id);
+mysqli_stmt_execute($stmt);
 
 
-    $result = mysqli_query($conn, $query);
-    
-    //check if the query was successful
-    if (!$result) {
-      die("Query failed: " . mysqli_error($conn));
-    }
+  $result = mysqli_stmt_get_result($stmt);
 
-    //check if there are any items in the cart
-    if(mysqli_num_rows($result) > 0){
-      //display the items in a table
+  //check if the query was successful
+  if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+  }
+
+  //check if there are any items in the cart
+  if (mysqli_num_rows($result) > 0) {
+    //display the items in a table
     echo "<form action='updateCart.php' method='post'>";
     echo "<table class='table--cart'>";
     echo "<tr>";
@@ -136,22 +132,22 @@ if(isset($_GET['user_id'])){
     echo "</tr>";
     $total = 0;
     while ($row = mysqli_fetch_assoc($result)) {
+      echo "<tr>";
+      echo "<td>" . $row['product_name'] . "</td>";
+      echo "<td>" . $row['price'] . ' ' . "€" . "</td>";
+      echo "<td><input type='number' class='form-control input--field--number' name='quantity[" . $row['cart_id'] . "]' value='" . $row['quantity'] . "' min='1' max='20'>
+      <button class='cart--remove--button' data-cart-id='" . $row['cart_id'] . "'><i class='fa-solid fa-x'></i></button></td>";
+      echo "</tr>";
+      $total += $row['price'] * $row['quantity'];
+      $products[] = array(
+        'id' => $row['id'],
+        'quantity' => $row['quantity'],
+        'price' => $row['price']
+      );
+    }
     echo "<tr>";
-    echo "<td>".$row['product_name']."</td>";
-    echo "<td>".$row['price'].' '."€"."</td>";
-    echo "<td><input type='number' class='form-control input--field--number' name='quantity[".$row['cart_id']."]' value='".$row['quantity']."' min='1' max='20'>
-    <button class='cart--remove--button' data-cart-id='".$row['cart_id']."'><i class='fa-solid fa-x'></i></button></td>";
-    echo "</tr>";
-    $total += $row['price'] * $row['quantity'];
-    $products[] = array(
-      'id' => $row['id'],
-      'quantity' => $row['quantity'],
-      'price' => $row['price']
-    );
+    echo "<td><b class='cart--total'>Your Total:</b</td>";
 
-  }
-    echo "<tr>";
-    echo "<td><b class='cart--total'>Your Total:</b></td>";
     echo "<td><b>".$total.' '."€"."</b></td>";
     echo "<td><button type='submit' name='update_cart' class='btn update--cart'>Update</button></td>";
     echo "</tr>";
