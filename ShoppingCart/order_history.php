@@ -1,74 +1,53 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
-//connect to the database
-$conn = mysqli_connect("localhost:3307", "root", "", "db_login");
+if(isset($_POST['checkout'])){
+  // Check if the "user_id" key is defined in the $_POST array
+  if(!array_key_exists("user_id", $_POST)) {
+    die("Error: 'user_id' key is not defined in the form data.");
+  }
 
-//check if the form has been submitted
-if(isset($_POST['submit'])){
-  //get the user's ID from the session
-  $user_id = $_SESSION['user_id'];
+  // Check if the "products" key is defined in the $_POST array
+  if(!array_key_exists("products", $_POST)) {
+    die("Error: 'products' key is not defined in the form data.");
+  }
 
-  //loop through each item in the cart
-  foreach ($_POST['quantity'] as $cart_id => $quantity) {
+  // Get the user_id and products information from the form data
+  $user_id = $_POST['user_id'];
+  $products = unserialize($_POST['products']);
 
-    //get the product_id, product_name and price of the item in the cart
-    $query = "SELECT cart.id as cart_id, products.id,
-    CASE
-    WHEN products.category = 'food' THEN food.product_name
-    WHEN products.category = 'toys' THEN toys.product_name
-    WHEN products.category = 'clothes' THEN clothes.product_name
-    WHEN products.category = 'hygiene' THEN hygiene.product_name
-    END AS product_name,
-    CASE
-    WHEN products.category = 'food' THEN food.price
-    WHEN products.category = 'toys' THEN toys.price
-    WHEN products.category = 'clothes' THEN clothes.price
-    WHEN products.category = 'hygiene' THEN hygiene.price
-    END AS price
-    FROM cart
-    INNER JOIN products
-    ON cart.product_id = products.id
-    LEFT JOIN food ON products.id = food.id
-    LEFT JOIN toys ON products.id = toys.id
-    LEFT JOIN clothes ON products.id = clothes.id
-    LEFT JOIN hygiene ON products.id = hygiene.id
-    WHERE cart.id = '$cart_id'";
+  // Calculate the total payment and total quantity
+  $total_payment = 0;
+  $total_quantity = 0;
+  foreach($products as $product){
+    $total_payment += ($product['price'] * $product['quantity']);
+    $total_quantity += $product['quantity'];
+  }
 
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
+  // Connect to the database
+  $servername = "localhost:3307";
+  $username = "root";
+  $password = "";
+  $dbname = "db_login";
 
-    //calculate the total price of the item
-    $price = $row['price'] * $quantity;
+  // Create connection
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    //insert the data into the "order_history" table
-    $query = "INSERT INTO order_history (user_id, product_id, product_name, quantity, price) 
-    VALUES ('$user_id', '".$row['id']."', '".$row['product_name']."', '$quantity', '$price')";
+  // Check connection
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
 
-    $result = mysqli_query($conn, $query);
+  // Insert data into the order_history table
+  $sql = "INSERT INTO order_history (user_id, quantity, payment)
+  VALUES ('$user_id', '$total_quantity', '$total_payment')";
 
-    //check if the query was successful
-    if (!$result) {
-      die("Error inserting data into the order_history table: " . mysqli_error($conn));
-    }
-
-    //update the stock table
-    $query = "UPDATE stock SET quantity = quantity - '$quantity' WHERE product_id = '".$row['id']."'";
-    $result = mysqli_query($conn, $query);
-
-    //check if the query was successful
-if (!$result) {
-die("Error updating the stock table: " . mysqli_error($conn));
+  if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
 }
-}
-// redirect to the order success page
-header("Location: ./orderSuccess.php");
-} else {
-// show error message if the form has not been submitted
-echo "Error: form has not been submitted";
-}
-
-// close the database connection
-mysqli_close($conn);
-
 ?>

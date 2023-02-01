@@ -1,11 +1,11 @@
 <?php
 session_start();
-
+if(isset($_GET['user_id'])){
+    $user_id = $_GET['user_id'];
+}else{
+    $user_id = $_SESSION['user_id'];
+}
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,10 +77,10 @@ session_start();
               <div class="col-12">
           <h2 class="text-center mb-4">Shopping Cart</h2>
               </div>
+    
+
     <?php
-      //connect to the database
-      error_reporting(E_ALL);
-      ini_set('display_errors', 1);
+
       $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
 
       //get the user's ID from the session or query string
@@ -93,28 +93,28 @@ session_start();
       }
 
      //retrieve the items in the cart associated with that user
-  $query = "SELECT cart.id as cart_id, products.id,
-CASE
-WHEN products.category = 'food' THEN food.product_name
-WHEN products.category = 'toys' THEN toys.product_name
-WHEN products.category = 'clothes' THEN clothes.product_name
-WHEN products.category = 'hygiene' THEN hygiene.product_name
-END AS product_name,
-CASE
-WHEN products.category = 'food' THEN food.price
-WHEN products.category = 'toys' THEN toys.price
-WHEN products.category = 'clothes' THEN clothes.price
-WHEN products.category = 'hygiene' THEN hygiene.price
-END AS price,
-cart.quantity
-FROM cart
-INNER JOIN products
-ON cart.product_id = products.id
-LEFT JOIN food ON products.id = food.id
-LEFT JOIN toys ON products.id = toys.id
-LEFT JOIN clothes ON products.id = clothes.id
-LEFT JOIN hygiene ON products.id = hygiene.id
-WHERE cart.user_id = '$user_id'";
+      $query = "SELECT cart.id as cart_id, products.id,
+      CASE
+      WHEN products.category = 'food' THEN food.product_name
+      WHEN products.category = 'toys' THEN toys.product_name
+      WHEN products.category = 'clothes' THEN clothes.product_name
+      WHEN products.category = 'hygiene' THEN hygiene.product_name
+      END AS product_name,
+      CASE
+      WHEN products.category = 'food' THEN food.price
+      WHEN products.category = 'toys' THEN toys.price
+      WHEN products.category = 'clothes' THEN clothes.price
+      WHEN products.category = 'hygiene' THEN hygiene.price
+      END AS price,
+      cart.quantity
+      FROM cart
+      INNER JOIN products
+      ON cart.product_id = products.id
+      LEFT JOIN food ON products.id = food.id
+      LEFT JOIN toys ON products.id = toys.id
+      LEFT JOIN clothes ON products.id = clothes.id
+      LEFT JOIN hygiene ON products.id = hygiene.id
+      WHERE cart.user_id = '$user_id'";
 
 
     $result = mysqli_query($conn, $query);
@@ -127,7 +127,7 @@ WHERE cart.user_id = '$user_id'";
     //check if there are any items in the cart
     if(mysqli_num_rows($result) > 0){
       //display the items in a table
-      echo "<form action='updateCart.php' method='post'>";
+    echo "<form action='updateCart.php' method='post'>";
     echo "<table class='table--cart'>";
     echo "<tr>";
     echo "<th class='th--left'>Product Name</th>";
@@ -143,16 +143,19 @@ WHERE cart.user_id = '$user_id'";
     <button class='cart--remove--button' data-cart-id='".$row['cart_id']."'><i class='fa-solid fa-x'></i></button></td>";
     echo "</tr>";
     $total += $row['price'] * $row['quantity'];
+    $products[] = array(
+      'id' => $row['id'],
+      'quantity' => $row['quantity']
+    );
 
   }
-     echo "<tr>";
+    echo "<tr>";
     echo "<td><b class='cart--total'>Your Total:</b></td>";
     echo "<td><b>".$total.' '."€"."</b></td>";
     echo "<td><button type='submit' name='update_cart' class='btn update--cart'>Update</button></td>";
     echo "</tr>";
     echo "</table>";
     echo "<div class='container--cart'>";
-    
     echo "</div>";
     echo "</form>";
 
@@ -162,11 +165,19 @@ WHERE cart.user_id = '$user_id'";
       echo "</div>";
     }
 
+    //Stores data in order history table @ db
+     echo "<form action='order_history.php' method='POST'>";
+echo "<input type='hidden' name='user_id' value='".$user_id."'>";
+echo "<input type='hidden' name='products' value='".serialize($products)."'>";
+echo "<button type='submit' name='checkout' class='btn checkout--button'>Proceed to checkout</button>";
+echo "</form>";
+
+
     ?>
 
 
-      <div class="container">
 
+      <div class="container">
         <?php
 
           if(!isset($_SESSION['user_id'])){
@@ -192,42 +203,6 @@ WHERE cart.user_id = '$user_id'";
           $result2 = mysqli_query($db, $query2);
           $address_data = mysqli_fetch_assoc($result2);
           ?>
-
-    
-      <div class="row">
-
-        <form action="order_history.php" method="POST">
-          
-          <div class="container--form row">
-            <div class="form-group col-sm-6">
-              <label for="name">Name</label>
-              <input type="text" id="name" value="<?php echo $user_data['name']; ?>" readonly>
-            </div>
-            <div class="form-group col-sm-6">
-              <label for="email">Email</label>
-              <input type="email" id="email" value="<?php echo $user_data['email']; ?>" readonly>
-            </div>
-            <div class="form-group col-12">
-              <label for="address">Address</label>
-              <input type="text" id="address" value="<?php echo $address_data['address']; ?>" readonly>
-            </div>
-            <div class="form-group col-12">
-              <label for="card-number">Card Number</label>
-              <input type="text"  id="card-number" maxlength="14" placeholder="Enter your card number">
-            </div>
-            <div class="form-group col-sm-6">
-              <label for="expiry-date">Expiry Date</label>
-              <input type="text" id="expiry-date" maxlength="4" placeholder="MM/YY">
-            </div>
-            <div class="form-group col-sm-6">
-              <label for="cvv">CVV</label>
-              <input type="text" id="cvv" maxlength="2" placeholder="Enter the CVV">
-            </div>
-            <button type="submit" class="sbmBtn" name="submit">Submit</button>
-          </form>
-                  
-      
-          </div>
         </div>
       
       
