@@ -1,10 +1,6 @@
 <?php
 session_start();
-if(isset($_GET['user_id'])){
-    $user_id = $_GET['user_id'];
-}else{
-    $user_id = $_SESSION['user_id'];
-}
+
 ?>
 
 
@@ -93,8 +89,6 @@ if(isset($_GET['user_id'])){
       }else{
         if(isset($_SESSION['user_id'])){
           $user_id = $_SESSION['user_id'];
-        }else{
-          die("Error: User ID is not set in session or query string.");
         }
       }
 
@@ -154,7 +148,7 @@ WHERE cart.user_id = '$user_id'";
      echo "<tr>";
     echo "<td><b class='cart--total'>Your Total:</b></td>";
     echo "<td><b>".$total.' '."€"."</b></td>";
-    echo "<td><button type='submit' class='update--cart' name='update_cart' class='btn cart--btn btn-primary'>Update</button></td>";
+    echo "<td><button type='submit' name='update_cart' class='btn update--cart'>Update</button></td>";
     echo "</tr>";
     echo "</table>";
     echo "<div class='container--cart'>";
@@ -203,6 +197,7 @@ WHERE cart.user_id = '$user_id'";
       <div class="row">
 
         <form action="order_history.php" method="POST">
+          
           <div class="container--form row">
             <div class="form-group col-sm-6">
               <label for="name">Name</label>
@@ -228,8 +223,9 @@ WHERE cart.user_id = '$user_id'";
               <label for="cvv">CVV</label>
               <input type="text" id="cvv" maxlength="2" placeholder="Enter the CVV">
             </div>
+            <button type="submit" class="sbmBtn" name="submit">Submit</button>
           </form>
-                  <button type="submit" class="sbmBtn">Submit</button>
+                  
       
           </div>
         </div>
