@@ -26,9 +26,7 @@ if(isset($_GET['user_id'])){
   <script src="./cart.js"></script>
 
 
-  <script>
 
-</script>
 
 
  
@@ -166,14 +164,8 @@ die("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
      echo "<form action='order_history.php' method='POST' class='text-center'>";
 echo "<input type='hidden' name='user_id' value='".$user_id."'>";
 echo "<input type='hidden' name='products' value='".serialize($products)."'>";
-echo "<button type='submit' name='checkout' class='btn sbmBtn checkout--btn shadow--xs'>Proceed to checkout</button>";
+echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Proceed to checkout</button>";
 echo "</form>";
-
-mysqli_close($conn);
-
-
-
-
     ?>
 
 
@@ -218,9 +210,22 @@ mysqli_close($conn);
       <h4 class="socialstitle">TTI®</h4>
       
       <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
-      
-     <!--redundante// 4.1.3 for button -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        $("#checkout").click(function() {
+          let user_id = <?php echo $user_id; ?>;
+          $.ajax({
+            url: "./removeFromCart.php",
+            method: "POST",
+            data: {user_id: user},
+            success: function(data) {
+              alert("Cart has been cleared");
+            }
+          });
+        });
+      });
+    </script>
+
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

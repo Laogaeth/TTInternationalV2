@@ -44,19 +44,17 @@ if(isset($_POST['checkout'])){
   // Insert data into the order_history table
   $sql = "INSERT INTO order_history (user_id, quantity, payment)
   VALUES ('$user_id', '$total_quantity', '$total_payment')";
-foreach($products as $product){
-  $total_payment += ($product['price'] * $product['quantity']);
-  $total_quantity += $product['quantity'];
-
-  // Subtract the quantity from the "stock" table, couldn't get it to work alongside the query above, probably missing something hela basic
-  $sql = "UPDATE stock SET quantity = quantity - {$product['quantity']} WHERE id = {$product['id']}";
+  
   if (mysqli_query($conn, $sql)) {
-    // Success
-  } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
-}
-  if (mysqli_query($conn, $sql)) {
+    // Subtract the quantity from the "stock" table for each product
+    foreach($products as $product){
+      $sql = "UPDATE stock SET quantity = quantity - {$product['quantity']} WHERE id = {$product['id']}";
+      if (mysqli_query($conn, $sql)) {
+        // Success
+      } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
+    }
     unset($_SESSION['shopping_cart']);
     header("Location: ./orderSuccess.php");
     exit();
