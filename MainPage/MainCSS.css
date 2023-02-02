@@ -111,13 +111,13 @@ main {
 
 .main--title{
   font-family: 'Quicksand', sans-serif;  color: #F57F17;
-  font-size:2rem;
+  font-size:3rem;
   margin-top: 100px;
   text-align: left;
   padding: 20px 20px;
 }
 .products--title{
-  font-size: 5rem;
+  font-size: 3rem;
   text-align: center;
 }
 
@@ -222,4 +222,22 @@ a{
   display: flex;
   justify-content: center;
   align-items: baseline;
+}
+
+
+
+.hall--images img{
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 20px;
+  border: none;
+}
+
+.hall--images{
+    object-fit: scale-down;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+     
 }

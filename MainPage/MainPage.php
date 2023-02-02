@@ -153,7 +153,7 @@ session_start();
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Clothes</h5>
-              <a href="../Products/productsPage.php#Clothes"><img  src="../MainPage/images/clothes.png" alt="Clothes" class="card--image">
+              <a href="../Products/productsPage.php#Clothes"><img  src="../MainPage/images/clothes.png" alt="Clothes" class="card--image"></a>
             </div>
           </div>
         </div>
@@ -161,7 +161,21 @@ session_start();
 
   </div>
 
-
+    <div class="container-fluid">
+      <h3 class="main--title products--title">Clients hall of fame</h3>
+      <div class="row">
+        <div class="col-sm hall--images"><img src="./hallfImages/1.jpg" alt=""></div>
+        <div class="col-sm hall--images"><img src="./hallfImages/2.jpg" alt=""></div>
+        <div class="col-sm hall--images"><img src="./hallfImages/3.jpg" alt=""></div>
+        <div class="col-sm hall--images"><img src="./hallfImages/4.jpg" alt=""></div>
+        
+      </div>
+      <div class="row">
+        <div class="col-sm hall--images"><img src="./hallfImages/1.jpg" alt=""></div>
+        <div class="col-sm hall--images"><img src="./hallfImages/5.jpg" alt=""></div>
+      </div>
+      
+    </div>
 
 
 
