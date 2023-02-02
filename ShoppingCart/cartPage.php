@@ -215,7 +215,7 @@ echo "</form>";
         $("#checkout").click(function() {
           let user_id = <?php echo $user_id; ?>;
           $.ajax({
-            url: "./removeFromCart.php",
+            url: "./removeFromDB.php",
             method: "POST",
             data: {user_id: user},
             success: function(data) {
