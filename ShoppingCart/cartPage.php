@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if(isset($_GET['user_id'])){
     $user_id = $_GET['user_id'];
 }else{
@@ -140,7 +141,6 @@ mysqli_stmt_execute($stmt);
       echo "</tr>";
       $total += $row['price'] * $row['quantity'];
       $products[] = array(
-        'id' => $row['id'],
         'quantity' => $row['quantity'],
         'price' => $row['price']
       );

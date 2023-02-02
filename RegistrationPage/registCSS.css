@@ -105,6 +105,7 @@ main {
 .pandaForm{
   max-height: 200px;
   height: auto;
+  
 }
 
 .container--form {
@@ -117,7 +118,11 @@ main {
   box-shadow: 1px 1px 20px #222035ec;
   color: white;
   display: flex;
+  margin-top: -100px;
   justify-content: center;
+  position: relative;
+  z-index: 0;
+ 
 }
   
   input, textarea, .sbmBtn{
@@ -127,7 +132,7 @@ main {
     border-radius: 5px;
     background: #3a3a3a;
     color: white;
-    padding: 10px 0;
+    padding: 10px 5px;
     border: none;
     margin: 0.5em;
     margin-top: 20px;
@@ -224,3 +229,8 @@ main {
 
   }
 
+
+
+    .shadow--xl {
+      box-shadow:  10px 10px #41414139;
+    }

@@ -122,7 +122,7 @@ session_start();
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Hygiene Products</h5>
-              <img  src="../MainPage/images/soap.png" alt="Hygiene" class="card--image">
+              <a href="../Products/productsPage.php#Hygiene"><img  src="../MainPage/images/soap.png" alt="Hygiene" class="card--image"></a>
             </div>
           </div>
         </div>
@@ -131,8 +131,8 @@ session_start();
         <div class="col-sm">
           <div class="card shadow--sm">
             <div class="card--body">
-              <h5 class="card--title">Food & Treats</h5>
-              <img  src="../MainPage/images/pet-food.png" alt="Food" class="card--image">
+              <h5 class="card--title">Foods</h5>
+              <a href="../Products/productsPage.php#Food"><img  src="../MainPage/images/pet-food.png" alt="Food" class="card--image"></a>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@ session_start();
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Toys</h5>
-              <img  src="../MainPage/images/toys.png" alt="Toys" class="card--image">
+              <a href="../Products/productsPage.php#Toys"><img  src="../MainPage/images/toys.png" alt="Toys" class="card--image"></a>
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@ session_start();
           <div class="card shadow--sm">
             <div class="card--body">
               <h5 class="card--title">Clothes</h5>
-              <img  src="../MainPage/images/clothes.png" alt="Clothes" class="card--image">
+              <a href="../Products/productsPage.php#Clothes"><img  src="../MainPage/images/clothes.png" alt="Clothes" class="card--image">
             </div>
           </div>
         </div>
