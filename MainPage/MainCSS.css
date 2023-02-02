@@ -185,15 +185,25 @@ a{
 .shadow--sm{
     box-shadow: 0 10px #64646439;
 }
+
 .card{
   max-width: 250px;
   margin: 10px auto;
   background:#f29f55;
   border-radius: 30px;
 }
+.card:hover{
+      border-radius: 30px;
+
+      border: none;
+      transition: ease-in-out 0.5s;
+      box-shadow: none;
+}
 
 .card--title{
   text-align: center;
+  font-size: 1rem;
+  padding: 10px;
 
 }
 .card--body{

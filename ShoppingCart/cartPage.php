@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(0);
 if(isset($_GET['user_id'])){
     $user_id = $_GET['user_id'];
 }else{
@@ -86,33 +85,33 @@ if(isset($_GET['user_id'])){
   $user_id = '';
 
   //get the user's ID from the session or query string
-  if (isset($_GET['user_id'])) {
-    $user_id = intval($_GET['user_id']);
-  } else if (isset($_SESSION['user_id'])) {
-    $user_id = intval($_SESSION['user_id']);
-  }
+if (isset($_GET['user_id'])) {
+    $user_id = intval(filter_var($_GET['user_id'], FILTER_SANITIZE_NUMBER_INT));
+} else if (isset($_SESSION['user_id'])) {
+    $user_id = intval(filter_var($_SESSION['user_id'], FILTER_SANITIZE_NUMBER_INT));
+}
 
-  $query = "SELECT cart.id as cart_id, products.id, 
-            COALESCE(hygiene.product_name, toys.product_name, food.product_name, clothes.product_name) as product_name, 
-            COALESCE(hygiene.price, toys.price, food.price, clothes.price) as price, 
-            cart.quantity
-        FROM cart
-        INNER JOIN products 
-            ON cart.product_id = products.id
-        LEFT JOIN hygiene 
-            ON products.id = hygiene.id AND products.category = 'hygiene'
-        LEFT JOIN toys 
-            ON products.id = toys.id AND products.category = 'toys'
-        LEFT JOIN food 
-            ON products.id = food.id AND products.category = 'food'
-        LEFT JOIN clothes 
-            ON products.id = clothes.id AND products.category = 'clothes'
-        WHERE cart.user_id = ?";
+$query = "SELECT cart.id as cart_id, products.id, cart.product_name,
+COALESCE(hygiene.price, toys.price, food.price, clothes.price) as price,
+cart.quantity
+FROM cart
+INNER JOIN products
+ON cart.product_id = products.id
+LEFT JOIN hygiene
+ON products.id = hygiene.id AND products.category = 'hygiene'
+LEFT JOIN toys
+ON products.id = toys.id AND products.category = 'toys'
+LEFT JOIN food
+ON products.id = food.id AND products.category = 'food'
+LEFT JOIN clothes
+ON products.id = clothes.id AND products.category = 'clothes'
+WHERE cart.user_id = ?";
 
 $stmt = mysqli_prepare($conn, $query);
 mysqli_stmt_bind_param($stmt, "i", $user_id);
-mysqli_stmt_execute($stmt);
-
+if (!mysqli_stmt_execute($stmt)) {
+die("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
+}
 
   $result = mysqli_stmt_get_result($stmt);
 
@@ -134,13 +133,14 @@ mysqli_stmt_execute($stmt);
     $total = 0;
     while ($row = mysqli_fetch_assoc($result)) {
       echo "<tr>";
-      echo "<td>" . $row['product_name'] . "</td>";
-      echo "<td>" . $row['price'] . ' ' . "€" . "</td>";
+      echo "<td>" . htmlspecialchars($row['product_name'], ENT_QUOTES, 'UTF-8') . "</td>";
+      echo "<td>" . htmlspecialchars($row['price'], ENT_QUOTES, 'UTF-8') . ' ' . "€" . "</td>";
       echo "<td><input type='number' class='form-control input--field--number' name='quantity[" . $row['cart_id'] . "]' value='" . $row['quantity'] . "' min='1' max='20'>
       <button class='cart--remove--button' data-cart-id='" . $row['cart_id'] . "'><i class='fa-solid fa-x'></i></button></td>";
       echo "</tr>";
       $total += $row['price'] * $row['quantity'];
       $products[] = array(
+        'id' => $row['id'],
         'quantity' => $row['quantity'],
         'price' => $row['price']
       );
@@ -168,6 +168,10 @@ echo "<input type='hidden' name='user_id' value='".$user_id."'>";
 echo "<input type='hidden' name='products' value='".serialize($products)."'>";
 echo "<button type='submit' name='checkout' class='btn sbmBtn checkout--btn shadow--xs'>Proceed to checkout</button>";
 echo "</form>";
+
+mysqli_close($conn);
+
+
 
 
     ?>
