@@ -161,16 +161,13 @@ session_start();
 
   </div>
 
-    <div class="container-fluid">
+    <div class="container">
       <h3 class="main--title products--title">Clients hall of fame</h3>
       <div class="row">
         <div class="col-sm hall--images"><img src="./hallfImages/1.jpg" alt=""></div>
         <div class="col-sm hall--images"><img src="./hallfImages/2.jpg" alt=""></div>
         <div class="col-sm hall--images"><img src="./hallfImages/3.jpg" alt=""></div>
         <div class="col-sm hall--images"><img src="./hallfImages/4.jpg" alt=""></div>
-        
-      </div>
-      <div class="row">
         <div class="col-sm hall--images"><img src="./hallfImages/1.jpg" alt=""></div>
         <div class="col-sm hall--images"><img src="./hallfImages/5.jpg" alt=""></div>
       </div>

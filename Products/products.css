@@ -311,6 +311,19 @@ section{
     margin-top: 10px;
 }
 
+@media (max-width: 760px) {
+    .filters--search--span{
+    display: grid;
+    place-items: center;
+    margin-top: 8px;
+    transition: ease-in-out 0.5s;
+    }
+    .filters{
+        text-align: center;
+    }
+}
+
+
 .products--area{
     margin-top: 100px;
     
