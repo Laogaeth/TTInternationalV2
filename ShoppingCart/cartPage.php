@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+
 session_start();
 if(isset($_GET['user_id'])){
     $user_id = $_GET['user_id'];
@@ -6,6 +8,55 @@ if(isset($_GET['user_id'])){
     $user_id = $_SESSION['user_id'];
 }
 ?>
+
+<?php
+
+// check if form has been submitted
+if (isset($_POST['submit'])) {
+
+    // Get the credit card information from the form
+    $cardNumber = $_POST['card-number'];
+    $expiryDate = $_POST['expiry-date'];
+    $cvv = $_POST['cvv'];
+
+    // validate and sanitize the input
+    $cardNumber = filter_var($_POST['card-number'], FILTER_SANITIZE_NUMBER_INT);
+    $expiryDate = filter_var($_POST['expiry-date'], FILTER_SANITIZE_NUMBER_INT);
+    $cvv = filter_var($_POST['cvv'], FILTER_SANITIZE_NUMBER_INT);
+
+    // encrypt the credit card information
+    $encryptedCardNumber = password_hash($cardNumber, PASSWORD_DEFAULT);
+    $encryptedExpiryDate = password_hash($expiryDate, PASSWORD_DEFAULT);
+    $encryptedCvv = password_hash($cvv, PASSWORD_DEFAULT);
+
+    // Connect to the database
+    $db = mysqli_connect("localhost:3307", "root", "", "db_login");
+
+    // Check if the connection was successful
+    if (!$db) {
+        die("Error connecting to database: " . mysqli_connect_error());
+    }
+
+    // Prepare the SQL statement to prevent SQL injection
+    $stmt = mysqli_prepare($db, "INSERT INTO credit_card (user_id, card_number, expiry_date, cvv) VALUES (?, ?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, 'ssss', $_SESSION['user_id'], $encryptedCardNumber, $encryptedExpiryDate, $encryptedCvv);
+
+    // Execute the SQL statement and check if it was successful
+    if (mysqli_stmt_execute($stmt)) {
+        // Success
+        echo "Credit card information stored successfully";
+    } else {
+        // Error
+        echo "Error storing credit card information: " . mysqli_stmt_error($stmt);
+    }
+
+    // Close the database connection and statement
+    mysqli_stmt_close($stmt);
+    mysqli_close($db);
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

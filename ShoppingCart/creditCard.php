@@ -121,6 +121,7 @@ if(isset($_GET['user_id'])){
               <label for="cvv">CVV</label>
               <input type="text" id="cvv" maxlength="2" placeholder="Enter the CVV" required>
             </div>
+              <input type="hidden" name="encryption" value="1">
             <button type="submit" class="sbmBtn credit--card--btn" name="submit">Proceed to checkout</button>
           </form>
 
