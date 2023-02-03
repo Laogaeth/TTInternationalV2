@@ -54,4 +54,16 @@ $(document).ready(function() {
 });
 
 
+//search bar
+$("#searchTerm").on("keyup", function() {
+  let searchTerm = $(this).val().toLowerCase();
+  $(".card").each(function() {
+    let productName = $(this).find(".card--title").text().toLowerCase();
+    if (productName.indexOf(searchTerm) === -1) {
+      $(this).fadeOut(500);
+    } else {
+      $(this).fadeIn(500);
+    }
+  });
+});
 

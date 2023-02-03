@@ -98,8 +98,8 @@ main {
 
 
 
-.filters{
-    text-align: center;
+.filters {
+    text-align: left;
 }
 .filters button{
     font-size: 1rem;
@@ -125,9 +125,9 @@ section{
 
 .section--h3{
     margin-top: 100px;
-    font-size: 3.5rem;
-    text-align: center;
-    font-weight: 500px;
+    font-size: min(max(2rem, 4vw), 4rem);    
+    text-align: left;
+    font-weight:200px;
 }
 
 
@@ -294,4 +294,33 @@ section{
     display: flex;
     justify-content: center;
     align-items: baseline;
+}
+
+.filters--search--bar{
+    background: url(./images/search.svg) no-repeat scroll 7px 7px;
+    background-size: 25px;
+    background-position-y: 8px;
+    background-color:#fff;
+    text-align: left;
+    text-indent: 30px;
+    padding: 7px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    float: right;
+    margin-top: 10px;
+}
+
+.products--area{
+    margin-top: 100px;
+    
+}
+
+.products--area--divisions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px;
+    margin-top: 50px;
 }

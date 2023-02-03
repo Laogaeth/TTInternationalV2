@@ -116,35 +116,35 @@ $.getJSON("./dbProductsData.php", function(data) {
   <main class="col-11 main--glass--effect">
   <section>
 
-    <h3 id="takeMeBack--button"class="section--h3">Our Selection</h3>
+    <h3 id="takeMeBack--button" class="section--h3">Our Selection</h3>
 
     <div class="filters">
   <a href="#Hygiene">    <button class=" shadow--xs">Hygiene      </button></a>
   <a href="#Food">  <button class=" shadow--xs">Food & Treats</button></a>
   <a href="#Toys">   <button class=" shadow--xs">Toys         </button></a>
   <a href="#Clothes"><button class=" shadow--xs">Clothes      </button></a>
-    
+  <span class="filters--search--span" ><input type="text" id="searchTerm" class="shadow--xs filters--search--bar"></span>
     
     </div>
 
 
-   <div class="container-fluid">
-    <div class="row">
+   <div class="container-fluid products--area">
+    <div class="row products--area--divisions">
         <h5 class="col-12 ">Hygiene</h5>
         <hr>
         <div id="Hygiene" class="row"></div>
     </div>
-    <div class="row">
+    <div class="row products--area--divisions">
         <h5 class="col-12">Food</h5>
         <hr>
         <div id="Food" class="row"></div>
     </div>
-    <div class="row">
+    <div class="row products--area--divisions">
         <h5 class="col-12 ">Toys</h5>
         <hr>
         <div id="Toys"class="row"></div>
     </div>
-    <div class="row">
+    <div class="row products--area--divisions">
         <h5 class="col-12 ">Clothes</h5>
         <hr>
         <div id="Clothes"class="row"></div>
