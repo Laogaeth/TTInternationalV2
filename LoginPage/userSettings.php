@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start();error_reporting(0);
 if (isset($_SESSION["user_id"])){
     $mysqli = require __DIR__ . "/../RegistrationPage/database.php";
     $sql = "SELECT * FROM user
@@ -97,62 +97,91 @@ if (isset($_SESSION["user_id"])){
 
     <div class="col-sm-5">
 
-      <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
+      
      <?php if (isset($user)): ?>
-        <h4>Welcome <b> <?=htmlspecialchars( $user["name"])?></b> to your user enviroment.</h4>
-        <!-- <p> <a class="logout" href="./logout.php">Log Out</a> </p> -->
         <?php else: ?>
                <p><a href="./LoginPage.php">You must be logged in to acess. Click here.</a></p>
                
                <?php endif; ?>
-               
-               <?php
-                $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
-                if (isset($_SESSION['user_id'])) {
-                  $user_id = $_SESSION['user_id'];
-                  // ask the database to get the user information
-                  $query = "SELECT * FROM user WHERE id = $user_id";
-                  $result = mysqli_query($db, $query);
-                
-                  //Check if id ==1 (admin)
-                  if (mysqli_num_rows($result) == 1) {
-                    $user = mysqli_fetch_assoc($result);
-                    if ($user['id'] == 1) {
-                      //show the div for admin domain
-                      echo "<button class='adminButton'>
-                             <a href='../LoginPage/ADMIN.php'>Go to admin page</a>
-                            </button>";
-                    }
-                  }
-                }
-                ?>
-             </div>
              
                  <?php if (isset($user)): ?>
 
-               <div class="col-sm user--settings">
-                <div class="col user--icons--background">
-                <i class="fa-solid fa-2x fa-box-open"></i><p>Orders</p>
-                </div>
-                <div class="col user--icons--background">
-                  <i class="fa-solid fa-2x fa-circle-info"></i><p>Help & Support</p>
-                </div>
-                <div class="col user--icons--background">
-                  <a href="./userSettings.php"> <i class="fa-solid fa-2x fa-gear"></i><p>Settings</p></a>
-                </div>
-                <div class="col user--icons--background">
-                  <a href="./logout.php" class="logout"><i class="fa-solid fa-2x fa-right-from-bracket"></i></i><p>Logout</p></a>
-                </div>
+               <span class="user--settings user--return--icon"> <a href="./session.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i><p>Return</p></a></span>
                </div>
               <?php endif; ?>
 
-
-
+<img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
   </div>
 
+<div class="container container--client">
+    
+    <?php
+    $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 
-</section>
-</main>    
+    if (isset($_SESSION['user_id'])) {
+  $username = $_SESSION['user_id'];
+
+  // Retrieve user and personal_info data
+  $user_query = "SELECT * FROM user WHERE id = '$username'";
+  $user_result = mysqli_query($db, $user_query);
+  $user = mysqli_fetch_assoc($user_result);
+
+  $personal_info_query = "SELECT * FROM personal_info WHERE user_id = '$username'";
+  $personal_info_result = mysqli_query($db, $personal_info_query);
+  $personal_info = mysqli_fetch_assoc($personal_info_result);
+
+  echo "<div>";
+  echo "<section class='container--fluid container--no--bg col-sm-6'>";
+  echo "Client: " . $user['client'] . "<br>";
+  echo "<br>";
+  echo "Username: " . $user['name'] . "<br>";
+  echo "<br>";
+  echo "Email: " . $user['email'] . "<br>";
+  echo "<br>";
+  echo "Phone Number: " . $personal_info['phone_number'] . "<br>";
+  echo "<br>";
+  echo "Address: " . $personal_info['address'] . "<br>";
+  echo "</div>";
+
+  if (isset($_POST['update_user'])) {
+  $client = $_POST['client'];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $phone_number = $_POST['phone_number'];
+  $address = $_POST['address'];
+    // Update user data
+  $update_user_query = "UPDATE user SET client = '$client', name = '$name', email = '$email' WHERE id = '$username'";
+  mysqli_query($db, $update_user_query);
+    
+  // Update personal_info data
+  $update_personal_info_query = "UPDATE personal_info SET phone_number = '$phone_number', address = '$address' WHERE user_id = '$username'";
+  mysqli_query($db, $update_personal_info_query);
+    
+  $_SESSION['username']['client'] = $client;
+  $_SESSION['username']['name'] = $name;
+  $_SESSION['username']['email'] = $email;
+
+  }
+    echo "<hr>";
+  // Display the personal info update form
+  echo "<div class='col-sm-6 container--no--bg container--fluid'>";
+  echo "<form method='post' action='../LoginPage/userSettings.php'>";
+  echo "<br><br><br>";
+  echo "<h4>Update personal info</h4>";
+  echo "<br>";
+  echo "Client: <input type='text' name='client' value='" . $user['client'] . "'required><br>";
+  echo "Name: <input type='text' name='name' value='" . $user['name'] . "'required><br>";
+  echo "Email: <input type='email' name='email' value='" . $user['email'] . "'required><br>";
+  echo "Phone Number: <input type='text' name='phone_number'pattern='[0-9]{0,9}' value='" . $personal_info['phone_number'] . "'required><br>";
+  echo "Address: <input type='text' name='address' value='" . $personal_info['address'] . "'required><br>";
+  echo "<input type='submit' class='sbmBtn' name='update_user' value='Update'>";
+  echo "</form>";
+  echo "</div> ";
+  }
+  ?>
+
+ </section>
+ </main>    
 
 </div>
   <script src="../LoginPage/loginJavascript.js"></script>

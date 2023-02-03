@@ -28,18 +28,19 @@ body {
 }
 
 .navbar {
-  background: #222035;
-  width: 40px;
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  border-top-right-radius: 1.25rem;
-  border-bottom-right-radius: 1.25rem;
-  transition: ease-in-out 0.3s;
-  z-index: 1;
-  color: white;
+      background: #222035;
+        width: 40px;
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        border-top-right-radius: 1.25rem;
+        border-bottom-right-radius: 1.25rem;
+        transition: ease-in-out 0.3s;
+        z-index: 1;
+        color: white;
+        overflow: scroll;
 }
 
 .menu--icon {
