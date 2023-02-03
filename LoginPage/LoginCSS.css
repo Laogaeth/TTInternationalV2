@@ -58,7 +58,7 @@ body {
     background-color: #343151;
     color: #fff;
     transition: ease-in-out 0.2s;
-    padding: 10px;
+    
     border-radius: 20px;
 }
 
@@ -219,15 +219,6 @@ h1{
     padding: 20px;
 
 }
-.logout{
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    padding: 15px 20px;
-}
-.logout:hover{
-    color: #ff480068;
-}
 
 
 
@@ -269,4 +260,38 @@ margin-top: 50px ;
 .menu--icon--logout {
     position: relative;
     bottom: -100px;
+}
+
+.user--settings{
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+.user--settings p{
+    font-size: 0.8rem;
+}
+.user--settings i{
+    padding: 10px;
+    background: #343151c2;
+    border-radius: 30px;
+    text-align: center;
+}
+a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+.user--settings i:hover{
+    padding: 20px;
+    background-color: #343151;
+    color: #fff;
+    transition: ease-in-out 0.2s;
+    border-radius: 20px;
+}
+@media (max-width: 760px) {
+    .user--settings {
+        display: flex;
+            align-items: baseline;
+            justify-content: center;
+            text-align: center;
+    }
 }

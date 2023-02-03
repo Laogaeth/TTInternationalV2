@@ -91,14 +91,19 @@ if (isset($_SESSION["user_id"])){
 
   <main class="col-11 main--glass--effect">
 
-  <section class="row">
 
-  <div class="col-11 container--userarea main--glass--effect">
-    <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
+
+  <div class="row container--userarea main--glass--effect">
+
+    <div class="col-sm-5">
+
+      <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
      <?php if (isset($user)): ?>
-        <h1>Welcome <b> <?=htmlspecialchars( $user["name"])?></b> to your user enviroment.</h1>
+        <h4>Welcome <b> <?=htmlspecialchars( $user["name"])?></b> to your user enviroment.</h4>
+        <!-- <p> <a class="logout" href="./logout.php">Log Out</a> </p> -->
         <?php else: ?>
                <p><a href="./LoginPage.php">You must be logged in to acess. Click here.</a></p>
+               
                <?php endif; ?>
                
                <?php
@@ -121,10 +126,24 @@ if (isset($_SESSION["user_id"])){
                   }
                 }
                 ?>
-               <p> <a class="logout" href="./logout.php">Log Out</a> </p>
+    </div>
 
+               <div class="col-sm user--settings">
+                <div class="col user--icons--background">
+                <i class="fa-solid fa-2x fa-box-open"></i><p>Orders</p>
+                </div>
+                <div class="col user--icons--background">
+                  <i class="fa-solid fa-2x fa-circle-info"></i><p>Help & Support</p>
+                </div>
+                <div class="col user--icons--background">
+                  <i class="fa-solid fa-2x fa-gear"></i><p>Settings</p>
+                </div>
+                <div class="col user--icons--background">
+                  <a href="./logout.php" class="logout"><i class="fa-solid fa-2x fa-right-from-bracket"></i></i><p>Logout</p></a>
+                </div>
                </div>
-</section>
+
+  </div>
 
 <!--User Info & update-->
 
