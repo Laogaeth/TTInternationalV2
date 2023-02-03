@@ -13,7 +13,7 @@ It was originally intended to be a bleak representation of the world in the game
 -CSS
 
 
--JavaScript // jQuery
+-JavaScript // jQuery // Ajax
 
 
 -PHP
