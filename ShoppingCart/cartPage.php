@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
     // Execute the SQL statement and check if it was successful
     if (mysqli_stmt_execute($stmt)) {
         // Success
-        echo "Credit card information stored successfully";
+        
     } else {
         // Error
         echo "Error storing credit card information: " . mysqli_stmt_error($stmt);

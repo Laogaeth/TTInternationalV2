@@ -62,8 +62,14 @@ $.getJSON("./dbProductsData.php", function(data) {
         success: function(response){
           $('#cart-content').html(response);
         },
+        success: function(response){
+  $('#cart-content').html(response);
+  alert("Item Added To Cart!");
+},
+
         error: function(jqXHR, textStatus, errorThrown) {
           console.error(textStatus, errorThrown);
+          
         }
       });
     });
