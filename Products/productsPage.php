@@ -62,15 +62,27 @@ $.getJSON("./dbProductsData.php", function(data) {
         success: function(response){
           $('#cart-content').html(response);
         },
-        success: function(response){
+        success: function(response) {
   $('#cart-content').html(response);
-  alert("Item Added To Cart!");
-},
+ // Create a new div element to display added to cart message
+  let div = document.createElement("div");
+  div.classList.add("cart--success--message");
+  let message = document.createElement("p");
+  message.classList.add("added--message");
+  message.innerHTML = "Item Added To Cart!";
+  div.appendChild(message);
 
-        error: function(jqXHR, textStatus, errorThrown) {
-          console.error(textStatus, errorThrown);
-          
-        }
+        document.body.appendChild(div);
+        setTimeout(function() {
+          document.body.removeChild(div);
+        }, 1000);
+}
+
+        // success: function(response){
+        //   $('#cart-content').html(response);
+        //   alert("Item Added To Cart!");
+        // },
+
       });
     });
   });
