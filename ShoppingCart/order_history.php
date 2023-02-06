@@ -55,7 +55,14 @@ if(isset($_POST['checkout'])){
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       }
     }
-    unset($_SESSION['shopping_cart']);
+    $sql = "DELETE FROM cart WHERE user_id = $user_id";
+    if (mysqli_query($conn, $sql)) {
+      // Success
+    } else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+    
     header("Location: ./orderSuccess.php");
     exit();
   } else {
