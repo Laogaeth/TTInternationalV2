@@ -52,7 +52,7 @@ require '../ShoppingCart/cardInfoCheck.php';
       <?php if($hasCreditCard): ?>
       <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders </p></a>
       <?php else: ?>
-              <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">bruh why no work </p></a>
+              <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders</p></a>
           <?php endif; ?>
       
       <?php if (isset($_SESSION["user_name"])):?>

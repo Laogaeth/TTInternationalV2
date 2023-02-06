@@ -7,6 +7,8 @@ if (isset($_SESSION["user_id"])){
             $result = $mysqli -> query($sql);
             $user = $result->fetch_assoc();
 }
+require '../ShoppingCart/cardInfoCheck.php'; 
+
 
 ?>
 
@@ -81,7 +83,11 @@ if (isset($_SESSION["user_id"])){
   <?php endif; ?>
       <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
       <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
+           <?php if($hasCreditCard): ?>
       <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders </p></a>
+      <?php else: ?>
+              <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders</p></a>
+          <?php endif; ?>
       
       <?php if (isset($_SESSION["user_name"])):?>
        <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i><p class="menu--nav--text">Logout</p></a>

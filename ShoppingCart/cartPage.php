@@ -1,7 +1,8 @@
 <?php
-error_reporting(0);
+session_start();error_reporting(0);
+require '../ShoppingCart/cardInfoCheck.php'; 
 
-session_start();
+
 if(isset($_GET['user_id'])){
     $user_id = $_GET['user_id'];
 }else{
@@ -101,15 +102,19 @@ if (isset($_POST['submit'])) {
      
       <?php endif; ?>
       
-      <a class="menu--icon" href="../MainPage/MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../MainPage/MainPage.php">     <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
     <?php if (isset($_SESSION["user_name"])):?>
       <a class="menu--icon" href="../LoginPage/session.php">     <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a>
   <?php else: ?>
      <a class="menu--icon" href="../LoginPage/LoginPage.php">    <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a>
   <?php endif; ?>
       <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
-      <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
-      <a class="menu--icon" href="./cartPage.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
+      <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts        </p></a>
+      <?php if($hasCreditCard): ?>
+      <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders </p></a>
+      <?php else: ?>
+              <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders</p></a>
+          <?php endif; ?>
       
       <?php if (isset($_SESSION["user_name"])):?>
        <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i><p class="menu--nav--text">Logout</p></a>
@@ -120,13 +125,8 @@ if (isset($_POST['submit'])) {
 
  <main class="col-11 main--glass--effect section--color" >
 
-    <h1 class="text-center checkout--text">Checkout</h1>
+    <h1 class="text-center checkout--text">Shopping Cart</h1>
       
-
-              <div class="col-12">
-          <h2 class="text-center mb-4">Shopping Cart</h2>
-              </div>
-    
 
     <?php
 
@@ -216,7 +216,7 @@ WHERE cart.user_id = ?";
       echo "<form action='order_history.php' method='POST' class='text-center'>";
       echo "<input type='hidden' name='user_id' value='" . $user_id . "'>";
       echo "<input type='hidden' name='products' value='" . serialize($products) . "'>";
-      echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Proceed to checkout</button>";
+      echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Finalize purchase</button>";
       echo "</form>";
 
     }
