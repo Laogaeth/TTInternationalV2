@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
 
     <?php
 
-        $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
+  $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
   $user_id = '';
 
   //get the user's ID from the session or query string
@@ -139,8 +139,9 @@ if (isset($_GET['user_id'])) {
 } else if (isset($_SESSION['user_id'])) {
     $user_id = intval(filter_var($_SESSION['user_id'], FILTER_SANITIZE_NUMBER_INT));
 }
+    if (isset($_SESSION['user_id'])) {
 
-$query = "SELECT cart.id as cart_id, products.id, cart.product_name,
+      $query = "SELECT cart.id as cart_id, products.id, cart.product_name,
 COALESCE(hygiene.price, toys.price, food.price, clothes.price) as price,
 cart.quantity
 FROM cart
@@ -156,67 +157,69 @@ LEFT JOIN clothes
 ON products.id = clothes.id AND products.category = 'clothes'
 WHERE cart.user_id = ?";
 
-$stmt = mysqli_prepare($conn, $query);
-mysqli_stmt_bind_param($stmt, "i", $user_id);
-if (!mysqli_stmt_execute($stmt)) {
-die("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
-}
+      $stmt = mysqli_prepare($conn, $query);
+      mysqli_stmt_bind_param($stmt, "i", $user_id);
+      if (!mysqli_stmt_execute($stmt)) {
+        die("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
+      }
 
-  $result = mysqli_stmt_get_result($stmt);
+      $result = mysqli_stmt_get_result($stmt);
 
-  //check if the query was successful
-  if (!$result) {
-    die("Query failed: " . mysqli_error($conn));
-  }
+      //check if the query was successful
+      if (!$result) {
+        die("Query failed: " . mysqli_error($conn));
+      }
 
-  //check if there are any items in the cart
-  if (mysqli_num_rows($result) > 0) {
-    //display the items in a table
-    echo "<form action='updateCart.php' method='post'>";
-    echo "<table class='table--cart'>";
-    echo "<tr>";
-    echo "<th class='th--left'>Product Name</th>";
-    echo "<th >Price</th>";
-    echo "<th class='th--right'>Quantity</th>";
-    echo "</tr>";
-    $total = 0;
-    while ($row = mysqli_fetch_assoc($result)) {
-      echo "<tr>";
-      echo "<td>" . htmlspecialchars($row['product_name'], ENT_QUOTES, 'UTF-8') . "</td>";
-      echo "<td>" . htmlspecialchars($row['price'], ENT_QUOTES, 'UTF-8') . ' ' . "€" . "</td>";
-      echo "<td><input type='number' class='form-control input--field--number' name='quantity[" . $row['cart_id'] . "]' value='" . $row['quantity'] . "' min='1' max='20'>
+      //check if there are any items in the cart
+      if (mysqli_num_rows($result) > 0) {
+        //display the items in a table
+        echo "<form action='updateCart.php' method='post'>";
+        echo "<table class='table--cart'>";
+        echo "<tr>";
+        echo "<th class='th--left'>Product Name</th>";
+        echo "<th >Price</th>";
+        echo "<th class='th--right'>Quantity</th>";
+        echo "</tr>";
+        $total = 0;
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<tr>";
+          echo "<td>" . htmlspecialchars($row['product_name'], ENT_QUOTES, 'UTF-8') . "</td>";
+          echo "<td>" . htmlspecialchars($row['price'], ENT_QUOTES, 'UTF-8') . ' ' . "€" . "</td>";
+          echo "<td><input type='number' class='form-control input--field--number' name='quantity[" . $row['cart_id'] . "]' value='" . $row['quantity'] . "' min='1' max='20'>
       <button class='cart--remove--button' data-cart-id='" . $row['cart_id'] . "'><i class='fa-solid fa-x'></i></button></td>";
-      echo "</tr>";
-      $total += $row['price'] * $row['quantity'];
-      $products[] = array(
-        'id' => $row['id'],
-        'quantity' => $row['quantity'],
-        'price' => $row['price']
-      );
+          echo "</tr>";
+          $total += $row['price'] * $row['quantity'];
+          $products[] = array(
+            'id' => $row['id'],
+            'quantity' => $row['quantity'],
+            'price' => $row['price']
+          );
+        }
+        echo "<tr>";
+        echo "<td><b class='cart--total'>Your Total:</b</td>";
+
+        echo "<td><b>" . $total . ' ' . "€" . "</b></td>";
+        echo "<td><button type='submit' name='update_cart' class='btn update--cart'>Update</button></td>";
+        echo "</tr>";
+        echo "</table>";
+        echo "<div class='container--cart'>";
+        echo "</div>";
+        echo "</form>";
+
+      } else {
+        echo "<div class='cart--empty'>";
+        echo "<h2>No items found in cart.</h2>";
+        echo "</div>";
+      }
+
+      //Stores data in order history table @ db
+      echo "<form action='order_history.php' method='POST' class='text-center'>";
+      echo "<input type='hidden' name='user_id' value='" . $user_id . "'>";
+      echo "<input type='hidden' name='products' value='" . serialize($products) . "'>";
+      echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Proceed to checkout</button>";
+      echo "</form>";
+
     }
-    echo "<tr>";
-    echo "<td><b class='cart--total'>Your Total:</b</td>";
-
-    echo "<td><b>".$total.' '."€"."</b></td>";
-    echo "<td><button type='submit' name='update_cart' class='btn update--cart'>Update</button></td>";
-    echo "</tr>";
-    echo "</table>";
-    echo "<div class='container--cart'>";
-    echo "</div>";
-    echo "</form>";
-
-    }else{
-      echo "<div class='cart--empty'>";
-      echo "<h2>No items found in cart.</h2>";
-      echo "</div>";
-    }
-
-    //Stores data in order history table @ db
-     echo "<form action='order_history.php' method='POST' class='text-center'>";
-echo "<input type='hidden' name='user_id' value='".$user_id."'>";
-echo "<input type='hidden' name='products' value='".serialize($products)."'>";
-echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Proceed to checkout</button>";
-echo "</form>";
     ?>
 
 
