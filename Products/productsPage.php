@@ -100,7 +100,7 @@ $.getJSON("./dbProductsData.php", function(data) {
  <div class="wrapper row">
  
   <!--Nav Menu-->
- <div class=" col navbar">
+ <div class="navbar">
       <button  class="btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
     <div class="menu__nav">
@@ -131,7 +131,7 @@ $.getJSON("./dbProductsData.php", function(data) {
 </div>
       
  
-  <main class="col-11 main--glass--effect">
+  <main class="col-12 main--glass--effect">
   <section>
 
     <h3 id="takeMeBack--button" class="section--h3">Our Selection</h3>

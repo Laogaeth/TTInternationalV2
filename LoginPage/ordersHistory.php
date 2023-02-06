@@ -61,7 +61,7 @@ if (isset($_SESSION["user_id"])){
 
 <div class="wrapper row">
   
- <div class="col navbar">
+ <div class="navbar">
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
    <div class="menu__nav">
@@ -98,7 +98,7 @@ if (isset($_SESSION["user_id"])){
       </div>
   </div>
 
-  <main class="col-11 main--glass--effect">
+  <main class="col-12 main--glass--effect">
 
 
 

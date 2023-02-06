@@ -41,6 +41,7 @@ body {
   transition: ease-in-out 0.3s;
   z-index: 1;
   color: white;
+  height: 40px;
 }
 
 .menu--icon {

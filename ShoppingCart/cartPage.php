@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
  
  <div class="wrapper row">
   
- <div class="col navbar">
+ <div class="navbar">
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
     <div class="menu__nav">
@@ -123,7 +123,7 @@ if (isset($_POST['submit'])) {
   </div>
 
 
- <main class="col-11 main--glass--effect section--color" >
+ <main class="col-12 main--glass--effect section--color" >
 
     <h1 class="text-center checkout--text">Shopping Cart</h1>
       
@@ -212,12 +212,14 @@ WHERE cart.user_id = ?";
         echo "</div>";
       }
 
-      //Stores data in order history table @ db
+      //Stores data in order history table @ db, only shows up if there are items in the cart
+      if (!empty($products)){
       echo "<form action='order_history.php' method='POST' class='text-center'>";
       echo "<input type='hidden' name='user_id' value='" . $user_id . "'>";
       echo "<input type='hidden' name='products' value='" . serialize($products) . "'>";
       echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Finalize purchase</button>";
       echo "</form>";
+      }
 
     }
     ?>

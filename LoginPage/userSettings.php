@@ -34,6 +34,8 @@ require '../ShoppingCart/cardInfoCheck.php';
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <!--My css & JS-->
 <link rel="stylesheet" href="../LoginPage/LoginCSS.css">
+  <script src="../LoginPage/loginJavascript.js"></script>
+
  
  <style>
   main{
@@ -61,7 +63,7 @@ require '../ShoppingCart/cardInfoCheck.php';
 
 <div class="wrapper row">
   
- <div class="col navbar">
+ <div class="navbar">
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
    <div class="menu__nav">
@@ -75,7 +77,7 @@ require '../ShoppingCart/cardInfoCheck.php';
      
       <?php endif; ?>
       
-      <a class="menu--icon" href="../MainPage/MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+      <a class="menu--icon" href="../MainPage/MainPage.php">     <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
     <?php if (isset($_SESSION["user_name"])):?>
       <a class="menu--icon" href="../LoginPage/session.php">     <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a>
   <?php else: ?>
@@ -95,7 +97,7 @@ require '../ShoppingCart/cardInfoCheck.php';
       </div>
   </div>
 
-  <main class="col-11 main--glass--effect">
+  <main class="col-12 main--glass--effect">
 
 
 
@@ -205,7 +207,6 @@ if (mysqli_query($db, $update_user_query) && mysqli_query($db, $update_personal_
  </main>    
 
 </div>
-  <script src="../LoginPage/loginJavascript.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

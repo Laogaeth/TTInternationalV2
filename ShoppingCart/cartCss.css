@@ -43,6 +43,7 @@ body {
             z-index: 1;
             color: white;
             overflow: scroll;
+            height: 40px;
 }
 
 .menu--icon {

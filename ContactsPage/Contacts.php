@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@ session_start();
 
 <body>
   <div class="wrapper row">
- <div class=" col navbar">
+ <div class=" navbar">
       <button  class="btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
      <div class="menu__nav">
@@ -51,7 +52,7 @@ session_start();
       </div>
 </div>
   
-   <main class="col-11 main--glass--effect">
+   <main class="col-12 main--glass--effect">
 
  <!--Form -->
  <div class="container-fluid">

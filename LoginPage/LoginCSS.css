@@ -42,6 +42,7 @@ body {
             z-index: 1;
             color: white;
             overflow: scroll;
+            height: 40px;
 }
 
 .menu--icon {
@@ -88,12 +89,6 @@ main {
    
    
 
-}
-
-@media only screen and (max-width: 930px) {
-    main {
-        margin-right: 0;
-    }
 }
 
 
@@ -246,7 +241,7 @@ margin-top: 50px ;
 .helloPanda{
     max-height: 200px;
     width: auto;
-    padding: 20px 20px;
+    float: right;
 }
 
 .navbar--cat {

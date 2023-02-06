@@ -41,6 +41,7 @@ body {
         z-index: 1;
         color: white;
         overflow: scroll;
+        height: 40px;
 }
 
 .menu--icon {
@@ -85,11 +86,6 @@ main{
   font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
 
-}
-@media only screen and (max-width: 930px) {
-  main {
-    margin-right: 0;
-  }
 }
 
 .wrapper {
