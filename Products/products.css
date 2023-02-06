@@ -359,3 +359,10 @@ background-color: rgba(0, 0, 0, 0.8);
     font-size: 1rem;
     margin-top: 400px;
 }
+.quantity--input{
+    text-align: center;
+    width: 40px;
+    margin: 5px;
+    border-radius: 20px;
+    border: 0.2px black solid;
+}

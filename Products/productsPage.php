@@ -1,5 +1,8 @@
 <?php
 session_start();
+require '../ShoppingCart/cardInfoCheck.php'; 
+
+
 ?>
 
 
@@ -29,6 +32,7 @@ $.getJSON("./dbProductsData.php", function(data) {
     const image_path = value.image_path;
     const product_id = value.product_id;
     const user_id = value.user_id;
+    const quantity = value.quantity;
     
     let categoryDiv = $("#" + category);
     let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
@@ -38,27 +42,27 @@ $.getJSON("./dbProductsData.php", function(data) {
     let cardFooter = $("<div>", { class: "card--footer card--buy--info " });
     let cardText = $("<p>", { class: "card--text col", text: price + " €" });
     let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart", "data-id": product_id, "data-product-name": product_name, "data-price": price });
-
-
+    let quantityInput = $('<input>', { type: 'number',placeholder:'1' , class: 'quantity--input'});
+    
     cardBody.append(cardTitle);
     card.append(cardImg);
     card.append(cardBody);
     categoryDiv.append(card);
-    cardFooter.append(cardText, cardCart);
+    cardFooter.append(cardText,quantityInput, cardCart);
     card.append(cardFooter);
 
     // Add the click event on the shopping cart icon
     cardCart.on('click', function(e) {
       e.preventDefault();
-
       const product_id = $(this).data('id');
       const product_name = $(this).data('product-name');
       const price = $(this).data('price');
+      const quantity = $('.quantity--input').val();
 
       $.ajax({
         url: 'addToCart.php',
         type: 'POST',
-        data: {product_id: product_id, product_name: product_name, user_id: user_id, price: price, quantity: 1},
+        data: {product_id: product_id, product_name: product_name, user_id: user_id, price: price, quantity: quantity},
         success: function(response){
           $('#cart-content').html(response);
         },
@@ -77,12 +81,6 @@ $.getJSON("./dbProductsData.php", function(data) {
           document.body.removeChild(div);
         }, 1000);
 }
-
-        // success: function(response){
-        //   $('#cart-content').html(response);
-        //   alert("Item Added To Cart!");
-        // },
-
       });
     });
   });
@@ -122,7 +120,11 @@ $.getJSON("./dbProductsData.php", function(data) {
   <?php endif; ?>
       <a class="menu--icon" href="./productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
       <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
+      <?php if($hasCreditCard): ?>
       <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders </p></a>
+      <?php else: ?>
+              <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders</p></a>
+          <?php endif; ?>
       
       <?php if (isset($_SESSION["user_name"])):?>
        <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i><p class="menu--nav--text">Logout</p></a>

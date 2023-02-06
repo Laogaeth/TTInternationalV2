@@ -10,8 +10,10 @@ $product_name = $_POST['product_name'];
 $price = $_POST['price'];
 $user_id = $_SESSION['user_id'];
 $quantity = $_POST['quantity'];
+// echo "Quantity: " . $quantity;
 
-// Check if the product is already in the cart
+
+
 // Check if the product is already in the cart
 $check_query = "SELECT * FROM cart WHERE product_name = '$product_name' AND user_id = '$user_id'";
 $check_result = mysqli_query($conn, $check_query);
