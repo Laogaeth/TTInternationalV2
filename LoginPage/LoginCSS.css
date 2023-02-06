@@ -163,10 +163,11 @@ textarea,
     border-radius: 5px;
     background: #3a3a3a;
     color: white;
+    text-indent: 20px;
     padding: 10px 0;
     border: none;
-    margin: 0.5em;
-    margin-top: 20px;
+    margin: 20px auto;
+    margin-bottom: 20px;
     transition: background 500ms ease;
 }
 .sbmBtn:hover,
@@ -307,4 +308,43 @@ a:visited{
 }
 .user--return--icon{
     float: left;
+}
+
+/* order history page */
+
+.table--cart {
+
+    width: 600px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table--cart th {
+    font-size: 1rem;
+    padding-bottom: 20px;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
+
+.th--left {
+    border-radius: 20px 0 0 0;
+}
+
+.th--right {
+    border-radius: 0 20px 0 0;
+}
+
+.table--cart td {
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    color: #fff;
+    text-align: center;
+
+
+
 }

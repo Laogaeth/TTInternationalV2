@@ -27,7 +27,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-color: #2D2D2D;
-        min-height: 77vh;
+        min-height: 100vh;
       }
       a{
         text-decoration:none;
@@ -35,13 +35,14 @@
       }
         h6{
            padding: 30px;
-            font-size: 3rem;
+            font-size: 2rem;
             color: white;
             text-align: center;
-            margin-top: 300px;
+            margin: auto;
         }
         b{
             color: #F57F17;
+            
         }
     </style>
 
@@ -52,7 +53,7 @@
 
         <h6>Payment<b> complete!</b> <br>
         <hr>
-        Order will be on your way briefly, you can consult your order in your user <a href="../LoginPage/session.php"><b>area.</b></a>.</h6>
+        Order will be on your way briefly, you can consult your order in your user <a href="../LoginPage/session.php"><b>area</b></a>.</h6>
         
         
 

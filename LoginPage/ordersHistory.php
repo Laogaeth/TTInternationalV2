@@ -111,89 +111,48 @@ if (isset($_SESSION["user_id"])){
               <?php endif; ?>
 
 <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
+  
   </div>
 
 <div class="container container--client">
-    
-    <?php
-    $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
+<?php
 
-    if (isset($_SESSION['user_id'])) {
-  $username = $_SESSION['user_id'];
+// Connect to the database
+$db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 
-  // Retrieve user and personal_info data
-  $user_query = "SELECT * FROM user WHERE id = '$username'";
-  $user_result = mysqli_query($db, $user_query);
-  $user = mysqli_fetch_assoc($user_result);
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    // Get the user_id of the logged-in user
+    $user_id = $_SESSION['user_id'];
 
-  $personal_info_query = "SELECT * FROM personal_info WHERE user_id = '$username'";
-  $personal_info_result = mysqli_query($db, $personal_info_query);
-  $personal_info = mysqli_fetch_assoc($personal_info_result);
+    // Retrieve order history data for the logged-in user 
+    $order_history_query = "SELECT id,quantity, payment FROM order_history WHERE user_id = '$user_id'";
+    $order_history_result = mysqli_query($db, $order_history_query);
+    echo "<div><h5>Your Orders:</h5></div>";
+    echo "<br>";
+    echo "<table class='table--cart'>";
+    echo "<tr>";
+    echo "<th>Order ID</th>";
+    echo "<th>Items</th>";
+    echo "<th>Total</th>";
+    echo "</tr>";
 
-  echo "<div>";
-  echo "<section class='container-fluid container--no--bg col-sm-6'>";
-  echo "Client: " . $user['client'] . "<br>";
-  echo "<br>";
-  echo "Username: " . $user['name'] . "<br>";
-  echo "<br>";
-  echo "Email: " . $user['email'] . "<br>";
-  echo "<br>";
-  echo "Phone Number: " . $personal_info['phone_number'] . "<br>";
-  echo "<br>";
-  echo "Address: " . $personal_info['address'] . "<br>";
-  echo "</div>";
+    while ($order_history = mysqli_fetch_assoc($order_history_result)) {
+        echo "<tr>";
+        echo "<td>" . $order_history['id'] . "</td>";
+        echo "<td>" . $order_history['quantity'] . "</td>";
+        echo "<td>" . $order_history['payment'] .'€'. "</td>";
+        echo "</tr>";
+    }
 
-  if (isset($_POST['update_user'])) {
-  $client = $_POST['client'];
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $phone_number = $_POST['phone_number'];
-  $address = $_POST['address'];
-    // Update user data
-  $update_user_query = "UPDATE user SET client = '$client', name = '$name', email = '$email' WHERE id = '$username'";
-  mysqli_query($db, $update_user_query);
-    
-  // Update personal_info data
-  $update_personal_info_query = "UPDATE personal_info SET phone_number = '$phone_number', address = '$address' WHERE user_id = '$username'";
-  mysqli_query($db, $update_personal_info_query);
-    
-  $_SESSION['username']['client'] = $client;
-  $_SESSION['username']['name'] = $name;
-  $_SESSION['username']['email'] = $email;
-
-  }
-    echo "<hr>";
-  // Display the personal info update form
-  echo "<div class='col-sm-6 container--no--bg container-fluid'>";
-  echo "<form method='post' action='../LoginPage/userSettings.php'>";
-  echo "<br><br><br>";
-  echo "<h4>Update personal info</h4>";
-  echo "<br>";
-  echo "Client: <input type='text' name='client' value='" . $user['client'] . "'required><br>";
-  echo "Name: <input type='text' name='name' value='" . $user['name'] . "'required><br>";
-  echo "Email: <input type='email' name='email' value='" . $user['email'] . "'required><br>";
-  echo "Phone Number: <input type='text' name='phone_number'pattern='[0-9]{0,9}' value='" . $personal_info['phone_number'] . "'required><br>";
-  echo "Address: <input type='text' name='address' value='" . $personal_info['address'] . "'required><br>";
-  echo "<input type='submit' class='sbmBtn' name='update_user' value='Update'>";
-  echo "</form>";
-  echo "</div> ";
-  }
- 
-if (mysqli_query($db, $update_user_query) && mysqli_query($db, $update_personal_info_query)) {
-    echo "<br><br><br><br>";
-    echo "<div class='container-fluid' style='margin-top:-90px';>";
-    echo "<h4 style='color: green; text-align: center;'>User information updated successfully!</h4>";
-    echo "</div>";
+    echo "</table>";
 } else {
-    echo "<br><br><br><br>";
-    echo "<div class='container-fluid'>";
-    echo "<h4 style='color: red; text-align: center;'>An error occurred. Please try again.</h4>";
-    echo "</div>";
-     header('Location: ./userSettings.php');
+    // Show an error message if the user is not logged in
+    echo "Please log in to view your order history.";
 }
 
-  ?>
-  
+?>
+
 
  </section>
  </main>    

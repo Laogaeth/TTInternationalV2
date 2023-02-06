@@ -132,7 +132,7 @@ if (isset($_SESSION["user_id"])){
 
                <div class="col-sm user--settings">
                 <div class="col user--icons--background">
-                <i class="fa-solid fa-2x fa-box-open"></i><p>Orders</p>
+               <a href="./ordersHistory.php"> <i class="fa-solid fa-2x fa-box-open"></i><p>Orders</p></a>
                 </div>
                 <div class="col user--icons--background">
                   <i class="fa-solid fa-2x fa-circle-info"></i><p>Help & Support</p>
