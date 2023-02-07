@@ -27,19 +27,38 @@ if(isset($_POST['checkout'])){
     $total_quantity += $product['quantity'];
   }
 
-  // Connect to the database
   $servername = "localhost:3307";
   $username = "root";
   $password = "";
   $dbname = "db_login";
 
-  // Create connection
   $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-  // Check connection
   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
+    // Check stock availability for each product
+
+foreach ($products as $product) {
+    $sql = "SELECT stock.quantity, products.name 
+        FROM stock 
+        JOIN products ON stock.product_id = products.id 
+        WHERE stock.id = {$product['id']}";
+
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        if ($row['quantity'] < $product['quantity']) {
+            echo "<script> alert('{$row['name']} stock is insufficient. Only {$row['quantity']} available.');</script>";
+            exit();
+        }
+    } else {
+        echo "<script> alert('{$row['name']} stock is not available.');</script>";
+        exit();
+    }
+}
+
+  
 
   // Insert data into the order_history table
   $sql = "INSERT INTO order_history (user_id, quantity, payment)

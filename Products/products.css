@@ -87,11 +87,7 @@ main {
     word-wrap: break-word;
     min-height: 100vh;
 }
-@media only screen and (max-width: 930px) {
-    main {
-        margin-right: 0;
-    }
-}
+
 
 .wrapper {
     margin: auto;
@@ -158,10 +154,10 @@ section{
 .card {
     background: rgba(34, 32, 53, 0.4);
     border-radius: 30px;
-    margin: 10px auto;
+    margin: 50px 50px 50px auto;
     color: #fff;
     border: none;
-    padding: 0;
+    padding:0;
     min-width: 200px;
     
     
