@@ -129,6 +129,7 @@ if (isset($_POST['submit'])) {
       
 
     <?php
+ 
 
   $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
   $user_id = '';
@@ -211,7 +212,7 @@ WHERE cart.user_id = ?";
         echo "<h2>No items found in cart.</h2>";
         echo "</div>";
       }
-
+        
       //Stores data in order history table @ db, only shows up if there are items in the cart
       if (!empty($products)){
       echo "<form action='order_history.php' method='POST' class='text-center'>";
@@ -266,6 +267,8 @@ WHERE cart.user_id = ?";
       <h4 class="socialstitle">TTI®</h4>
       
       <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
+
+      
     <script>
       $(document).ready(function() {
         $("#checkout").click(function() {

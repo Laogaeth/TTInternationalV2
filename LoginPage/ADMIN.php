@@ -62,38 +62,114 @@ if ($result->num_rows > 0) {
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <!--My css & JS-->
 <link rel="stylesheet" href="../LoginPage/LoginCSS.css">
+ 
+ <style>
+  main{
+    height: 100%;
+  }
+    .adminButton{
+      padding: 1em 1em;
+      border-radius: 5px;
+      background: #3a3a3a;      
+      border: none;
+      transition: background 500ms ease;
+      float: left;
+      margin-right: 10px;
+      margin-bottom: 10px
+    }
 
-
+  
+  </style>
 
 </head>
 
 
 <body>
 
-    <!-- Navbar Menu -->
- <div class="wrapper row">
+<div class="wrapper row">
   
  <div class="col navbar">
       <button  class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
-    <div class="menu__nav">
-      <a class="menu--icon" href="./MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
-      <a class="menu--icon" href="../LoginPage/LoginPage.php">   <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a> 
+   <div class="menu__nav">
+
+
+      <?php if (isset($_SESSION["user_name"])):?>
+        <div class="nav--user--area">
+      <img src="../Images/welcomeCat.png" alt="" class="navbar--cat">
+     <p class="navbar--cat--text"> Welcome <?php echo $_SESSION["user_name"];?> </p>
+        </div>
+     
+      <?php endif; ?>
+      
+      <a class="menu--icon" href="../MainPage/MainPage.php">               <i class="fas fa-2x fa-home"></i>              <p class="menu--nav--text">Home           </p></a>
+    <?php if (isset($_SESSION["user_name"])):?>
+      <a class="menu--icon" href="../LoginPage/session.php">     <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a>
+  <?php else: ?>
+     <a class="menu--icon" href="../LoginPage/LoginPage.php">    <i class="fa-solid fa-2x fa-user"></i>         <p class="menu--nav--text">User           </p></a>
+  <?php endif; ?>
       <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>     <p class="menu--nav--text">Products       </p></a>    
-      <a class="menu--icon" href="../ContactsPage/Contacts.html"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
-      <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-cart-shopping"></i><p class="menu--nav--text">Shopping Cart  </p></a>
+      <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i> <p class="menu--nav--text">Contacts       </p></a>
+           <?php if($hasCreditCard): ?>
+      <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders </p></a>
+      <?php else: ?>
+              <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i><p class="menu--nav--text">Orders</p></a>
+          <?php endif; ?>
+      
+      <?php if (isset($_SESSION["user_name"])):?>
+       <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i><p class="menu--nav--text">Logout</p></a>
+    <?php endif; ?>
+      </div>
+  </div>
 
-    </div>
+  <main class="col-11 main--glass--effect">
+
+
+
+  <div class="row container--userarea main--glass--effect">
+
+    <div class="col-sm-5">
+
+      <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
+     <?php if (isset($user)): ?>
+        <h4>Welcome <b> <?=htmlspecialchars( $user["name"])?></b> to your user enviroment.</h4>
+        <!-- <p> <a class="logout" href="./logout.php">Log Out</a> </p> -->
+        <?php else: ?>
+               <p><a href="./LoginPage.php">You must be logged in to acess. Click here.</a></p>
+               
+               <?php endif; ?>
+               
+        
+             </div>
+             
+                 <?php if (isset($user)): ?>
+
+               <div class="col-sm user--settings">
+                <div class="col user--icons--background">
+               <a href="./ordersHistory.php"> <i class="fa-solid fa-2x fa-box-open"></i><p>Orders</p></a>
+                </div>
+                <div class="col user--icons--background">
+                  <i class="fa-solid fa-2x fa-circle-info"></i><p>Help & Support</p>
+                </div>
+                <div class="col user--icons--background">
+                  <a href="./userSettings.php"> <i class="fa-solid fa-2x fa-gear"></i><p>Settings</p></a>
+                </div>
+                <div class="col user--icons--background">
+                  <a href="./logout.php" class="logout"><i class="fa-solid fa-2x fa-right-from-bracket"></i></i><p>Logout</p></a>
+                </div>
+               </div>
+              <?php endif; ?>
+
+
+
+  </div>
+
+
+</section>
+</main>    
+
 </div>
-
-  <main class="main--glass--effect">
-
-
-
-</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <script src="../LoginPage/loginJavascript.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

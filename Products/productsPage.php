@@ -42,8 +42,17 @@ $.getJSON("./dbProductsData.php", function(data) {
     let cardFooter = $("<div>", { class: "card--footer card--buy--info " });
     let cardText = $("<p>", { class: "card--text col", text: price + " €" });
     let cardCart = $( "<i>", { class: "cart-icon fa-solid fa-2x fa-cart-shopping card--cart", "data-id": product_id, "data-product-name": product_name, "data-price": price });
-    let quantityInput = $('<input>', { type: 'number',placeholder:'1' , class: 'quantity--input'});
-    
+    let quantityInput = $('<input>', 
+    { type: 'number',
+      placeholder:'1',
+      min: "1", 
+      max: "99",
+      class: 'quantity--input'});
+      quantityInput.on('input', function() {
+      if (this.value < 1) this.value = 1;
+      if (this.value > 99) this.value = 99;
+});
+      
     cardBody.append(cardTitle);
     card.append(cardImg);
     card.append(cardBody);
@@ -51,13 +60,16 @@ $.getJSON("./dbProductsData.php", function(data) {
     cardFooter.append(cardText,quantityInput, cardCart);
     card.append(cardFooter);
 
-    // Add the click event on the shopping cart icon
-    cardCart.on('click', function(e) {
-      e.preventDefault();
-      const product_id = $(this).data('id');
-      const product_name = $(this).data('product-name');
-      const price = $(this).data('price');
-      const quantity = $('.quantity--input').val();
+// Add the click event on the shopping cart icon
+cardCart.on('click', function(e) {
+  e.preventDefault();
+  const product_id = $(this).data('id');
+  const product_name = $(this).data('product-name');
+  const price = $(this).data('price');
+  const quantity = $(this).siblings('.quantity--input').val();
+  console.log(quantity)
+
+
 
       $.ajax({
         url: 'addToCart.php',

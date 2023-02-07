@@ -44,8 +44,7 @@ require '../ShoppingCart/cardInfoCheck.php';
       background: #3a3a3a;      
       border: none;
       transition: background 500ms ease;
-      float: right;
-      margin-top: -20px;
+      float: left;
       margin-right: 10px;
       margin-bottom: 10px
     }
