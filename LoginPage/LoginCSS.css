@@ -45,9 +45,7 @@ body {
     height: 40px;
 }
 .navbar::-webkit-scrollbar {
-    width: 0.25rem;
-    background-color: #22203500;
-    border-radius: 20px;
+width: 0;
 }
 
 .navbar::-webkit-scrollbar-thumb {
@@ -354,7 +352,36 @@ a:visited{
 
     color: #fff;
     text-align: center;
+}
 
 
+/* admin page stock update */
+.admin--stock--table table{
+
+    width: 100%;
+
+    
+   
+}
+.admin--stock--table th{
+    text-align: center;
+    color: #fff;
+  
+}
+.admin--stock--table td{
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+
+}
+.admin--stock--table input{
+    text-indent: 1px;
+    text-align: center;
+}
+
+.stock--update--num{
+    width: 50px;
+   
 
 }

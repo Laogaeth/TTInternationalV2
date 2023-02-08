@@ -39,24 +39,22 @@ if(isset($_POST['checkout'])){
   }
     // Check stock availability for each product
 
-foreach ($products as $product) {
-    $sql = "SELECT stock.quantity, products.name 
-        FROM stock 
-        JOIN products ON stock.product_id = products.id 
-        WHERE stock.id = {$product['id']}";
 
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        if ($row['quantity'] < $product['quantity']) {
-            echo "<script> alert('{$row['name']} stock is insufficient. Only {$row['quantity']} available.');</script>";
-            exit();
-        }
-    } else {
-        echo "<script> alert('{$row['name']} stock is not available.');</script>";
-        exit();
+  $sql = "SELECT quantity FROM stock WHERE item_id = {$product['id']}";
+  var_dump($product['id']);
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    if ($row['quantity'] < $product['quantity']) {
+      echo "<script> alert('{$product['name']} stock is insufficient. Only {$row['quantity']} available.');</script>";
+      exit();
     }
-}
+  } else {
+    echo "<script> alert('{$product['name']} stock is not available.');</script>";
+    exit();
+  }
+
+
 
   
 

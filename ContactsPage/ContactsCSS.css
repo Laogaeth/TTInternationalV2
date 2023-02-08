@@ -44,9 +44,7 @@ body {
   height: 40px;
 }
 .navbar::-webkit-scrollbar {
-  width: 0.25rem;
-  background-color: #22203500;
-  border-radius: 20px;
+width: 0;
 }
 
 .navbar::-webkit-scrollbar-thumb {

@@ -124,7 +124,7 @@ if ($result->num_rows > 0) {
       </div>
   </div>
 
-  <main class="col-11 main--glass--effect">
+  <main class="col-12 main--glass--effect">
 
 
 
@@ -146,25 +146,52 @@ if ($result->num_rows > 0) {
              
                  <?php if (isset($user)): ?>
 
-               <div class="col-sm user--settings">
-                <div class="col user--icons--background">
-               <a href="./ordersHistory.php"> <i class="fa-solid fa-2x fa-box-open"></i><p>Orders</p></a>
-                </div>
-                <div class="col user--icons--background">
-                  <i class="fa-solid fa-2x fa-circle-info"></i><p>Help & Support</p>
-                </div>
-                <div class="col user--icons--background">
-                  <a href="../LoginPage/stockManagement.php"> <i class="fa-solid fa-2x fa-gear"></i><p>Edit Stock</p></a>
-                </div>
-                <div class="col user--icons--background">
-                  <a href="./logout.php" class="logout"><i class="fa-solid fa-2x fa-right-from-bracket"></i></i><p>Logout</p></a>
-                </div>
-               </div>
+               <span class="user--settings user--return--icon"> <a href="./ADMIN.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i><p>Return</p></a></span>
+            </div>
               <?php endif; ?>
+       
+              <div class="container--userarea">
+  <table class='admin--stock--table'>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    <?php
+      $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
+      $query = "SELECT hygiene.product_name, stock.quantity, hygiene.price
+                FROM hygiene
+                INNER JOIN stock ON hygiene.product_id = stock.item_id
+                UNION 
+                SELECT food.product_name, stock.quantity, food.price
+                FROM food
+                INNER JOIN stock ON food.product_id = stock.item_id
+                UNION 
+                SELECT toys.product_name, stock.quantity, toys.price
+                FROM toys
+                INNER JOIN stock ON toys.product_id = stock.item_id
+                UNION 
+                SELECT clothes.product_name, stock.quantity, clothes.price
+                FROM clothes
+                INNER JOIN stock ON clothes.product_id = stock.item_id";
+      $result = mysqli_query($conn, $query);
+      while ($row = mysqli_fetch_array($result)) {
+        echo "<tr>";
+        echo "<form action='update_product.php' method='post'>";
+        echo "<td><input type='text' name='product_name' value='".$row['product_name']."'></td>";
+        echo "<td><input type='text' class='stock--update--num' name='quantity' value='".$row['quantity']."'></td>";
+        echo "<td><input type='text' class='stock--update--num' name='price' value='".$row['price']."€"."'></td>";
+        echo "<td><input type='submit' name='update' value='Update'></td>";
+        echo "</form>";
+        echo "</tr>";
+      }
+    ?>
+  </table>
+</div>
+</table>
 
 
-
-  </div>
 
 
 </section>

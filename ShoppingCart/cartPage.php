@@ -186,14 +186,15 @@ WHERE cart.user_id = ?";
           echo "<tr>";
           echo "<td>" . htmlspecialchars($row['product_name'], ENT_QUOTES, 'UTF-8') . "</td>";
           echo "<td>" . htmlspecialchars($row['price'], ENT_QUOTES, 'UTF-8') . ' ' . "€" . "</td>";
-          echo "<td><input type='number' class='form-control input--field--number' name='quantity[" . $row['cart_id'] . "]' value='" . $row['quantity'] . "' min='1' max='20'>
+          echo "<td><input type='number' class='form-control input--field--number' name='quantity[" . $row['cart_id'] . "]' value='" . $row['quantity'] . "' min='1' max='99'>
       <button class='cart--remove--button' data-cart-id='" . $row['cart_id'] . "'><i class='fa-solid fa-x'></i></button></td>";
           echo "</tr>";
           $total += $row['price'] * $row['quantity'];
           $products[] = array(
             'id' => $row['id'],
             'quantity' => $row['quantity'],
-            'price' => $row['price']
+            'price' => $row['price'],
+            'name' => $row['product_name']
           );
         }
         echo "<tr>";
@@ -214,15 +215,15 @@ WHERE cart.user_id = ?";
       }
         
       //Stores data in order history table @ db, only shows up if there are items in the cart
-      if (!empty($products)){
-      echo "<form action='order_history.php' method='POST' class='text-center'>";
-      echo "<input type='hidden' name='user_id' value='" . $user_id . "'>";
-      echo "<input type='hidden' name='products' value='" . serialize($products) . "'>";
-      echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Finalize purchase</button>";
-      echo "</form>";
-      }
+      if (!empty($products)) {
+  echo "<form action='order_history.php' method='POST' class='text-center'>";
+  echo "<input type='hidden' name='user_id' value='" . $user_id . "'>";
+  echo "<input type='hidden' name='products' value='" . serialize($products) . "'>";
+  echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Finalize purchase</button>";
+  echo "</form>";
+}
 
-    }
+}
     ?>
 
 
