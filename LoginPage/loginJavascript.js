@@ -34,3 +34,18 @@ $(document).ready(function(){
   });
 });
 
+  $.ajax({
+   url: "./fetch_stock.php",
+   method: "GET",
+   success: function(data) {
+      var products = JSON.parse(data);
+      products.forEach(function(product) {
+         $("#stock-table").append("<tr>" + 
+            "<td>" + product.product_name + "</td>" + 
+            "<td>" + product.quantity + "</td>" + 
+            "<td>" + product.price + "</td>" + 
+            "<td>" + "<input type='button' value='Update' class='update-button'>" + "</td>" + 
+         "</tr>");
+      });
+   }
+});

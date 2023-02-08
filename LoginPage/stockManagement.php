@@ -151,47 +151,20 @@ if ($result->num_rows > 0) {
               <?php endif; ?>
        
               <div class="container--userarea">
-  <table class='admin--stock--table'>
+<table class='admin--stock--table' id="stock-table">
     <tr>
       <th>Product Name</th>
       <th>Quantity</th>
       <th>Price</th>
       <th>Action</th>
     </tr>
-    <?php
-      $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
-      $query = "SELECT hygiene.product_name, stock.quantity, hygiene.price, stock.item_id
-                FROM hygiene
-                INNER JOIN stock ON hygiene.product_id = stock.item_id
-                UNION
-                SELECT food.product_name, stock.quantity, food.price, stock.item_id
-                FROM food
-                INNER JOIN stock ON food.product_id = stock.item_id
-                UNION
-                SELECT toys.product_name, stock.quantity, toys.price, stock.item_id
-                FROM toys
-                INNER JOIN stock ON toys.product_id = stock.item_id
-                UNION
-                SELECT clothes.product_name, stock.quantity, clothes.price, stock.item_id
-                FROM clothes
-                INNER JOIN stock ON clothes.product_id = stock.item_id";
 
-      $result = mysqli_query($conn, $query);
-      while ($row = mysqli_fetch_array($result)) {
-        echo "<tr>";
-        echo "<form name='update' action='update_stock.php' method='post'>";
-        echo "<input type='hidden' name='id' value='".$row['item_id']."'>";
-        echo "<td><input type='text' name='product_name' value='".$row['product_name']."'></td>";
-        echo "<td><input type='text' class='stock--update--num' name='quantity' value='".$row['quantity']."'></td>";
-        echo "<td><input type='text' class='stock--update--num' name='price' value='".$row['price']."€"."'></td>";
-        echo "<td><input type='submit' name='update' value='Update'></td>";
-        echo "</form>";
-        echo "</tr>";
-      }
-    ?>
+  
+
   </table>
+
 </div>
-</table>
+
 
 
 
