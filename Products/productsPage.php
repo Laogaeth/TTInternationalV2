@@ -45,7 +45,7 @@ $.getJSON("./dbProductsData.php", function(data) {
     let quantityInput = $('<input>', 
     { type: 'number',
       placeholder:'1',
-      min: "1", 
+      min: "0", 
       max: "99",
       class: 'quantity--input'});
       quantityInput.on('input', function() {
