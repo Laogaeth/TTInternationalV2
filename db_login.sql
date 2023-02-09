@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Tempo de geração: 08-Fev-2023 às 15:45
+-- Tempo de geração: 09-Fev-2023 às 15:52
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -42,7 +42,6 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`product_name`, `id`, `product_id`, `user_id`, `quantity`) VALUES
 ('Pet Head Shampoo Orange Scent', 569, 1, 84, 99),
 ('Pet Head Shampoo Peach Scent', 570, 1, 84, 1),
-('Smilla Diet with beef', 627, 2, 1, 99),
 ('Pet Head Shampoo Orange Scent', 628, 1, 77, 99);
 
 -- --------------------------------------------------------
@@ -135,10 +134,10 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`id`, `product_name`, `product_id`, `price`, `image_path`) VALUES
-(1, 'Purina ONE with chicken', 2, '5.99', './images/food1.png'),
-(2, 'Smilla Diet with beef', 2, '5.99', './images/food2.png'),
-(3, 'Concept for life Urinary with chicken', 2, '5.99', './images/food3.png'),
-(4, 'Concept for Life Hypo Allergenic', 2, '5.99', './images/food4.png');
+(1, 'Purina ONE with chicken', 2, '15.99', './images/food1.png'),
+(2, 'Smilla Diet with beef', 2, '52.99', './images/food2.png'),
+(3, 'Concept for life Urinary with chicken', 2, '35.99', './images/food3.png'),
+(4, 'Concept for Life Hypo Allergenic', 2, '55.99', './images/food4.png');
 
 -- --------------------------------------------------------
 
@@ -162,7 +161,7 @@ INSERT INTO `hygiene` (`id`, `product_name`, `product_id`, `price`, `image_path`
 (1, 'Pet Head Shampoo Orange Scent', 1, '5.99', './images/hygiene1.png'),
 (2, 'Pet Head Shampoo Peach Scent', 1, '6.99', './images/hygiene2.png'),
 (3, 'Pet Head Shampoo Pear Scent', 1, '5.99', './images/hygiene3.png'),
-(4, 'Pet Head Dry Shampoo Coconut Scent', 1, '8.99', './images/hygiene4.png');
+(4, 'Pet Head Dry Shampoo Coconut Scent', 1, '82.99', './images/hygiene4.png');
 
 -- --------------------------------------------------------
 
@@ -243,7 +242,9 @@ INSERT INTO `order_history` (`id`, `quantity`, `payment`, `user_id`) VALUES
 (64, 33, 197.67, 1),
 (65, 33, 197.67, 1),
 (66, 66, 395.34, 1),
-(67, 99, 593.01, 1);
+(67, 99, 593.01, 1),
+(68, 710, 4666.9, 1),
+(69, 198, 1186.02, 1);
 
 -- --------------------------------------------------------
 
@@ -306,33 +307,36 @@ INSERT INTO `products` (`id`, `category`) VALUES
 --
 
 CREATE TABLE `stock` (
-  `id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
-  `item_table` varchar(255) NOT NULL,
-  `quantity` int(11) NOT NULL
+  `stock_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `item_table` varchar(255) DEFAULT NULL,
+  `hygiene_item_id` int(11) DEFAULT NULL,
+  `food_item_id` int(11) DEFAULT NULL,
+  `toys_item_id` int(11) DEFAULT NULL,
+  `clothes_item_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `stock`
 --
 
-INSERT INTO `stock` (`id`, `item_id`, `item_table`, `quantity`) VALUES
-(1, 1, 'food', 4),
-(2, 2, 'food', 444),
-(3, 3, 'food', 83),
-(4, 4, 'food', 44),
-(5, 1, 'toys', 99),
-(6, 2, 'toys', 99),
-(7, 3, 'toys', 99),
-(8, 4, 'toys', 99),
-(9, 1, 'hygiene', 99),
-(10, 2, 'hygiene', 99),
-(11, 3, 'hygiene', 99),
-(12, 4, 'hygiene', 99),
-(13, 1, 'clothes', 99),
-(14, 2, 'clothes', 99),
-(15, 3, 'clothes', 99),
-(16, 4, 'clothes', 99);
+INSERT INTO `stock` (`stock_id`, `quantity`, `item_table`, `hygiene_item_id`, `food_item_id`, `toys_item_id`, `clothes_item_id`) VALUES
+(1, 99, 'hygiene', 1, NULL, NULL, NULL),
+(2, 99, 'hygiene', 1, NULL, NULL, NULL),
+(3, 99, 'hygiene', 1, NULL, NULL, NULL),
+(4, 99, 'hygiene', 1, NULL, NULL, NULL),
+(8, 99, 'food', NULL, 2, NULL, NULL),
+(9, 99, 'food', NULL, 2, NULL, NULL),
+(10, 99, 'food', NULL, 2, NULL, NULL),
+(11, 99, 'food', NULL, 2, NULL, NULL),
+(15, 99, 'toys', NULL, NULL, 3, NULL),
+(16, 99, 'toys', NULL, NULL, 3, NULL),
+(17, 99, 'toys', NULL, NULL, 3, NULL),
+(18, 99, 'toys', NULL, NULL, 3, NULL),
+(22, 99, 'clothes', NULL, NULL, NULL, 4),
+(23, 99, 'clothes', NULL, NULL, NULL, 4),
+(24, 99, 'clothes', NULL, NULL, NULL, 4),
+(25, 99, 'clothes', NULL, NULL, NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -462,8 +466,11 @@ ALTER TABLE `products`
 -- Índices para tabela `stock`
 --
 ALTER TABLE `stock`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `item_id` (`item_id`);
+  ADD PRIMARY KEY (`stock_id`),
+  ADD KEY `hygiene_item_id` (`hygiene_item_id`),
+  ADD KEY `food_item_id` (`food_item_id`),
+  ADD KEY `toys_item_id` (`toys_item_id`),
+  ADD KEY `clothes_item_id` (`clothes_item_id`);
 
 --
 -- Índices para tabela `toys`
@@ -488,7 +495,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=629;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=651;
 
 --
 -- AUTO_INCREMENT de tabela `credit_card`
@@ -500,7 +507,7 @@ ALTER TABLE `credit_card`
 -- AUTO_INCREMENT de tabela `order_history`
 --
 ALTER TABLE `order_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de tabela `personal_info`
@@ -512,7 +519,7 @@ ALTER TABLE `personal_info`
 -- AUTO_INCREMENT de tabela `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `user`
@@ -571,10 +578,10 @@ ALTER TABLE `personal_info`
 -- Limitadores para a tabela `stock`
 --
 ALTER TABLE `stock`
-  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `food` (`id`),
-  ADD CONSTRAINT `stock_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `toys` (`id`),
-  ADD CONSTRAINT `stock_ibfk_3` FOREIGN KEY (`item_id`) REFERENCES `hygiene` (`id`),
-  ADD CONSTRAINT `stock_ibfk_4` FOREIGN KEY (`item_id`) REFERENCES `clothes` (`id`);
+  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`hygiene_item_id`) REFERENCES `hygiene` (`product_id`),
+  ADD CONSTRAINT `stock_ibfk_2` FOREIGN KEY (`food_item_id`) REFERENCES `food` (`product_id`),
+  ADD CONSTRAINT `stock_ibfk_3` FOREIGN KEY (`toys_item_id`) REFERENCES `toys` (`product_id`),
+  ADD CONSTRAINT `stock_ibfk_4` FOREIGN KEY (`clothes_item_id`) REFERENCES `clothes` (`product_id`);
 
 --
 -- Limitadores para a tabela `toys`

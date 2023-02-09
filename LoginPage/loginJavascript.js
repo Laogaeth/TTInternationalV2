@@ -38,7 +38,7 @@ $(document).ready(function(){
    url: "./fetch_stock.php",
    method: "GET",
    success: function(data) {
-      var products = JSON.parse(data);
+      let products = JSON.parse(data);
       products.forEach(function(product) {
          $("#stock-table").append("<tr>" + 
             "<td>" + product.product_name + "</td>" + 
