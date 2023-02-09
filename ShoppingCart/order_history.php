@@ -40,8 +40,8 @@ if(isset($_POST['checkout'])){
     // Check stock availability for each product
 
 
-  $sql = "SELECT quantity FROM stock WHERE item_id = {$product['id']}";
-  var_dump($product['id']);
+  $sql = "SELECT quantity FROM stock WHERE stock_id = {$product['id']}";
+
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
