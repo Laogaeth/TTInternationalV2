@@ -17,7 +17,7 @@ function fetchData($conn, $table) {
     $data_array = array();
     while ($row = mysqli_fetch_array($data)) {
         $data_array[] = array(
-            'item_id' => $row['id'],
+            'id' => $row['id'],
             'product_name' => $row['product_name'],
             'product_id' => $row['product_id'],
             'price' => $row['price'],
