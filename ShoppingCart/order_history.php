@@ -13,11 +13,17 @@ if(isset($_POST['checkout'])){
   if(!array_key_exists("products", $_POST)) {
     die("Error: 'products' key is not defined in the form data.");
   }
+  if (!array_key_exists("category", $_POST)) {
+    die("Error: 'products' key is not defined in the form data.");
+  }
+
 
   // Get the user_id and products information from the form data
   $user_id = $_POST['user_id'];
   $products = unserialize($_POST['products']);
-  
+  $id = $_POST['id'];
+  $category = $_POST['category'];
+  print_r($id);
 
   // Calculate the total payment and total quantity
   $total_payment = 0;
@@ -37,24 +43,23 @@ if(isset($_POST['checkout'])){
   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
-    // Check stock availability for each product
 
 
-  $sql = "SELECT quantity FROM stock WHERE stock_id = {$product['id']}";
+
+  $sql = "SELECT stock FROM {$category} WHERE id = {$id}";
 
   $result = mysqli_query($conn, $sql);
-  if (mysqli_num_rows($result) > 0) {
+  if (mysqli_num_rows($result) > 0
+  ) {
     $row = mysqli_fetch_assoc($result);
-    if ($row['quantity'] < $product['quantity']) {
-      echo "<script> alert('{$product['name']} stock is insufficient. Only {$row['quantity']} available.');</script>";
+    if ($row['stock'] < $product['stock']) {
+      echo "<script> alert('{$product['name']} stock is insufficient. Only {$row['stock']} available.');</script>";
       exit();
     }
   } else {
     echo "<script> alert('{$product['name']} stock is not available.');</script>";
     exit();
   }
-
-
 
   
 
@@ -65,7 +70,7 @@ if(isset($_POST['checkout'])){
   if (mysqli_query($conn, $sql)) {
     // Subtract the quantity from the "stock" table for each product
     foreach($products as $product){
-      $sql = "UPDATE stock SET quantity = quantity - {$product['quantity']} WHERE id = {$product['id']}";
+      $sql = "UPDATE {$category} SET stock = stock - {$product['quantity']} WHERE id = {$id}";
       if (mysqli_query($conn, $sql)) {
         // Success
       } else {
@@ -87,3 +92,4 @@ if(isset($_POST['checkout'])){
   }
 }
 ?>
+
