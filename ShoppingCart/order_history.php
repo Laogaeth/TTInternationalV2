@@ -23,7 +23,7 @@ if(isset($_POST['checkout'])){
   $products = unserialize($_POST['products']);
   $id = $_POST['id'];
   $category = $_POST['category'];
-  print_r($id);
+
 
   // Calculate the total payment and total quantity
   $total_payment = 0;
@@ -52,12 +52,13 @@ if(isset($_POST['checkout'])){
   if (mysqli_num_rows($result) > 0
   ) {
     $row = mysqli_fetch_assoc($result);
-    if ($row['stock'] < $product['stock']) {
-      echo "<script> alert('{$product['name']} stock is insufficient. Only {$row['stock']} available.');</script>";
+    if ($row['stock'] < $product['quantity']) {
+      echo "<script> alert('{$product['name']} stock is insufficient. Only {$row['stock']} available.');window.location.href = 'cartPage.php';</script>";
+      
       exit();
     }
   } else {
-    echo "<script> alert('{$product['name']} stock is not available.');</script>";
+    echo "<script> alert('{$product['name']} is not available.');window.location.href = 'cartPage.php';</script>";
     exit();
   }
 

@@ -10,7 +10,8 @@ $product_name = $_POST['product_name'];
 $price = $_POST['price'];
 $user_id = $_SESSION['user_id'];
 $quantity = $_POST['quantity'];
-// echo "Quantity: " . $quantity;
+$id = $_POST['id'];
+
 
 
 
@@ -32,7 +33,8 @@ if (mysqli_num_rows($check_result) > 0) {
 
 // If the product is not in the cart, insert it
 } else {
-  $insert_query = "INSERT INTO cart (product_id, product_name, user_id, quantity) VALUES ('$product_id', '$product_name', '$user_id', '$quantity')";
+  $insert_query = "INSERT INTO cart (product_id, product_name, user_id, quantity) VALUES ('$product_id' , '$product_name', '$user_id', '$quantity')";
+  var_dump($insert_query);
   $insert_result = mysqli_query($conn, $insert_query);
 
   if ($insert_result) {

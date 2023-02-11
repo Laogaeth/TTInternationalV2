@@ -33,6 +33,7 @@ $.getJSON("./dbProductsData.php", function(data) {
     const product_id = value.product_id;
     const user_id = value.user_id;
     const quantity = value.quantity;
+    const id = value.id;
     
     let categoryDiv = $("#" + category);
     let card = $("<div>", { class: "col-sm-2 card shadow--sm" });
@@ -74,7 +75,7 @@ cardCart.on('click', function(e) {
       $.ajax({
         url: 'addToCart.php',
         type: 'POST',
-        data: {product_id: product_id, product_name: product_name, user_id: user_id, price: price, quantity: quantity},
+        data: {product_id: product_id, product_name: product_name, user_id: user_id, price: price, quantity: quantity, id:id},
         success: function(response){
           $('#cart-content').html(response);
         },

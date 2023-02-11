@@ -158,28 +158,32 @@ if (isset($_POST['submit'])) {
         $user_id = intval(filter_var($_SESSION['user_id'], FILTER_SANITIZE_NUMBER_INT));
       }
       if (isset($_SESSION['user_id'])) {
-        $query = "SELECT cart.id as cart_id, products.id, cart.product_name,
+        $query = "SELECT cart.id as cart_id, cart.product_name, cart.quantity,
 COALESCE(hygiene.price, toys.price, food.price, clothes.price) as price,
-cart.quantity,
 CASE
-WHEN hygiene.id IS NOT NULL THEN 'hygiene'
-WHEN toys.id IS NOT NULL THEN 'toys'
-WHEN food.id IS NOT NULL THEN 'food'
-WHEN clothes.id IS NOT NULL THEN 'clothes'
+WHEN hygiene.product_name IS NOT NULL THEN 'hygiene'
+WHEN toys.product_name IS NOT NULL THEN 'toys'
+WHEN food.product_name IS NOT NULL THEN 'food'
+WHEN clothes.product_name IS NOT NULL THEN 'clothes'
 ELSE 'unknown'
-END AS category
+END AS category,
+CASE
+WHEN hygiene.product_name IS NOT NULL THEN hygiene.id
+WHEN toys.product_name IS NOT NULL THEN toys.id
+WHEN food.product_name IS NOT NULL THEN food.id
+WHEN clothes.product_name IS NOT NULL THEN clothes.id
+END AS item_id
 FROM cart
-INNER JOIN products
-ON cart.product_id = products.id
 LEFT JOIN hygiene
-ON products.id = hygiene.id AND products.category = 'hygiene'
+ON cart.product_name = hygiene.product_name
 LEFT JOIN toys
-ON products.id = toys.id AND products.category = 'toys'
+ON cart.product_name = toys.product_name
 LEFT JOIN food
-ON products.id = food.id AND products.category = 'food'
+ON cart.product_name = food.product_name
 LEFT JOIN clothes
-ON products.id = clothes.id AND products.category = 'clothes'
-WHERE cart.user_id = ?";
+ON cart.product_name = clothes.product_name
+WHERE cart.user_id = ?
+";
 
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "i", $user_id);
@@ -214,15 +218,15 @@ WHERE cart.user_id = ?";
             echo "</tr>";
             $total += $row['price'] * $row['quantity'];
             $category = $row['category'];
+            $id = $row['item_id'];
             $products[] = array(
-              'id' => $row['id'],
               'quantity' => $row['quantity'],
               'price' => $row['price'],
               'name' => $row['product_name'],
               
 
             );
-            var_dump($products);
+    
           }
           echo "<tr>";
           echo "<td><b class='cart--total'>Your Total:</b</td>";
@@ -246,6 +250,7 @@ WHERE cart.user_id = ?";
           echo "<input type='hidden' name='user_id' value='" . $user_id . "'>";
           echo "<input type='hidden' name='products' value='" . serialize($products) . "'>";
           echo "<input type='hidden' name='category' value='" . $category . "'>";
+          echo "<input type='hidden' name='id' value='" . $id . "'>";
           echo "<button type='submit' id='checkout' name='checkout' class='btn sbmBtn checkout--btn shadow--xs' >Finalize purchase</button>";
           echo "</form>";
         }
