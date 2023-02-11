@@ -319,26 +319,3 @@ WHERE cart.user_id = ?";
 
 </html>
 
-
-
-
-
-<!-- 
-dont I need to reference the category in the sql? because here its written as category however in the database that colum is called product_id, each product_id is related to a category which is in the table products
-
-$query = "SELECT cart.id as cart_id, products.id, cart.product_name,
-COALESCE(hygiene.price, toys.price, food.price, clothes.price) as price,
-cart.quantity
-
-FROM cart
-INNER JOIN products
-ON cart.product_id = products.id
-LEFT JOIN hygiene
-ON products.id = hygiene.id AND products.category = 'hygiene'
-LEFT JOIN toys
-ON products.id = toys.id AND products.category = 'toys'
-LEFT JOIN food
-ON products.id = food.id AND products.category = 'food'
-LEFT JOIN clothes
-ON products.id = clothes.id AND products.category = 'clothes'
-WHERE cart.user_id = ?"; -->
