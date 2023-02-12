@@ -54,7 +54,7 @@ width: 0;
 .navbar::-webkit-scrollbar-thumb:hover {
   background-color: #ffffff44;
 }
-/* @media (min-width: 2000px) {
+@media (min-width: 2000px) {
   .navbar{
     height: 100%;
     width: 175px;
@@ -63,7 +63,7 @@ width: 0;
   .menu--icon{
     margin-right: 175px;
   }
-} */
+} 
 
 .menu--icon {
       display: flex;
