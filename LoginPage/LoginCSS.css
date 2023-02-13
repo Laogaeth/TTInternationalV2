@@ -164,7 +164,7 @@ section{
 
 input,
 textarea,
-.sbmBtn{
+.sbmBtn, .dropdown--btn{
 
     width: 100%;
     border: 1px solid;
@@ -177,6 +177,8 @@ textarea,
     margin: 20px auto;
     margin-bottom: 20px;
     transition: background 500ms ease;
+    outline: none;
+    
 }
 .sbmBtn:hover,
 button:hover {
@@ -234,6 +236,7 @@ h1{
     max-width: 600px;
     color: white;
     padding: 20px;
+    
 
 }
 
@@ -282,8 +285,12 @@ margin-top: 50px ;
 
 .user--settings{
     margin: auto;
-    display: block;
+
     text-align: center;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+    
 }
 .user--settings p{
     font-size: 0.8rem;
@@ -306,6 +313,7 @@ a:visited{
     color: #fff;
     transition: ease-in-out 0.2s;
     border-radius: 20px;
+    
 }
 @media (max-width: 760px) {
     .user--settings {
@@ -315,9 +323,11 @@ a:visited{
             text-align: center;
     }
 }
-.user--return--icon{
+.user--return--icon {
+    display: flex;
+    justify-content: right;
+    align-items: center;
     
-    margin-right: 1px;
 }
 
 /* order history page */
@@ -402,4 +412,58 @@ a:visited{
     padding: 7px;
     border-radius: 20px;
     margin-top: 10px;
+}
+
+.table--select--dropdown{
+    background: #222035ec;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 20px;
+}
+.icons--menu{
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+ 
+
+}
+.user--icons--menu{
+    max-height: 120px;
+    max-width: 120px;
+    padding: 10px;
+}
+.user--icons--images{
+    max-height: 100px;
+    max-width: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    margin: 10px;
+    background: #222035ec;
+    border-radius: 20px;
+    max-width: 300px;
+    max-height: max-content;   
+    color: #fff;
+}
+
+.card:hover {
+    background: rgba(34, 32, 53, 0.8);
+    border-radius: 30px;
+    color: #fff;
+    border: none;
+    transition: ease-in-out 0.2s;
+}
+
+.shadow--sm {
+    box-shadow: 10px 10px #0b0b0b60;
+}
+
+.shadow--xs {
+    box-shadow: 0 5px #64646439;
 }

@@ -128,7 +128,7 @@ if ($result->num_rows > 0) {
 
   <div class="row container--userarea main--glass--effect">
 
-    <div class="col-sm-5">
+    <div class="col-sm-7">
 
       <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
      <?php if (isset($user)): ?>

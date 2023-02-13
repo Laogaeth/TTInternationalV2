@@ -145,7 +145,7 @@ if ($result->num_rows > 0) {
 
       <div class="row container--userarea main--glass--effect">
 
-        <div class="col-sm-5">
+        <div class="col-sm-9">
 
           <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
           <?php if (isset($user)) : ?>
@@ -161,9 +161,10 @@ if ($result->num_rows > 0) {
 
         <?php if (isset($user)) : ?>
 
-          <span class="user--settings user--return--icon"> <a href="./ADMIN.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
+          <div class="user--settings user--return--icon"> <a href="./ADMIN.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
               <p>Return</p>
-            </a></span>
+            </a>
+          </div>
       </div>
     <?php endif; ?>
 
@@ -183,7 +184,7 @@ if ($result->num_rows > 0) {
                 <input type="text" id="product_name" name="product-name" required>
               </td>
               <td>
-                <select id="category" name="category" required>
+                <select id="category" class="dropdown--btn" name="category" required>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
