@@ -239,6 +239,7 @@ h1{
 
 
 
+
 .admin--divider{
 margin-top: 50px ;
 
@@ -252,7 +253,7 @@ margin-top: 50px ;
 }
 
 .helloPanda{
-    max-height: 200px;
+    max-height: 100px;
     width: auto;
     float: right;
 }
@@ -315,7 +316,8 @@ a:visited{
     }
 }
 .user--return--icon{
-    float: left;
+    
+    margin-right: 1px;
 }
 
 /* order history page */
@@ -380,11 +382,12 @@ a:visited{
     text-indent: 1px;
     text-align: center;
 }
+.userarea--table--add{
+    text-align: left;
+}
 
 .stock--update--num{
     width: 50px;
-   
-
 }
 
 

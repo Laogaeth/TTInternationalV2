@@ -39,7 +39,7 @@ require '../ShoppingCart/cardInfoCheck.php';
     height: 100%;
   }
     .adminButton{
-      padding: 1em 1em;
+      padding: 0.5em 0.5em;
       border-radius: 5px;
       background: #3a3a3a;      
       border: none;
@@ -93,13 +93,13 @@ require '../ShoppingCart/cardInfoCheck.php';
       </div>
   </div>
 
-  <main class="col-11 main--glass--effect">
+  <main class="col-12 main--glass--effect">
 
 
 
   <div class="row container--userarea main--glass--effect">
 
-    <div class="col-sm-5">
+    <div class="col-sm">
 
       <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
      <?php if (isset($user)): ?>

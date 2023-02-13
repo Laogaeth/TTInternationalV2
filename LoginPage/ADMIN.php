@@ -66,9 +66,7 @@ if ($result->num_rows > 0) {
 <link rel="stylesheet" href="../LoginPage/LoginCSS.css">
  
  <style>
-  main{
-    height: 100%;
-  }
+
     .adminButton{
       padding: 1em 1em;
       border-radius: 5px;
@@ -124,7 +122,7 @@ if ($result->num_rows > 0) {
       </div>
   </div>
 
-  <main class="col-11 main--glass--effect">
+  <main class="col-12 main--glass--effect">
 
 
 
