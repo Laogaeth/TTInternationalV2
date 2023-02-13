@@ -169,68 +169,70 @@ if ($result->num_rows > 0) {
 
     <div class="container--userarea userarea--table--add col-12">
       <!-- well , hello there, this might seem stupidly long but trust me, looks nice in the browser -->
-      <form action="addProducts.php" method="POST">
-          <table class='admin--stock--table'>
-            <thead>
-              <tr>
-                <th>Product Name</th>
-                <th>Category</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <input type="text" name="productName" required>
-                </td>
-                <td>
-                  <select name="category" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                  </select>
-                </td>
-              </tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <input type="number" name="price" required>
-                </td>
-              </tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th>Stock</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <input type="number" name="stock" required>
-                </td>
-              </tr>
-            </tbody>
-            <thead>
-              <tr>
-                <th>Image Path</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <input type="text" name="imagePath" required>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <input type="submit" value="Submit">
-        </form>
+      <form id="form--add--products" action="addProducts.php" method="POST">
+        <table class='admin--stock--table'>
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" id="product_name" name="product-name" required>
+              </td>
+              <td>
+                <select id="category" name="category" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <input type="number" id="price" name="price" required>
+              </td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th>Stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <input type="number" id="stock" name="stock" required>
+              </td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th>Image Path</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <input type="text" id="image_path" name="image_path" required>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="hidden" id="selected_category" name="selected_category">
+
+        <input type="submit" value="Submit">
+      </form>
 
     </div>
 

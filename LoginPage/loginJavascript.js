@@ -115,3 +115,35 @@ $("#stock-table").on("click", ".update--button", function (e) {
   });
 });
 
+
+////////////////////////add Products to the database////////////////////////
+
+
+$(document).ready(function () {
+  $("#category").change(function () {
+    $("#selected_category").val($(this).val());
+  });
+
+  $("#form--add--products").submit(function (e) {
+    e.preventDefault();
+    let product_name = $("#product_name").val();
+    let price = $("#price").val();
+    let stock = $("#stock").val();
+    let image_path = $("#image_path").val();
+    let category = $("#selected_category").val();
+    $.ajax({
+      type: "POST",
+      url: "addProducts.php",
+      data: {
+        product_name: product_name,
+        price: price,
+        stock: stock,
+        image_path: image_path,
+        category: category,
+      },
+      success: function (data) {
+        console.log("Product added successfully");
+      },
+    });
+  });
+});
