@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Tempo de geração: 09-Fev-2023 às 15:52
+-- Tempo de geração: 13-Fev-2023 às 12:22
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -32,7 +32,7 @@ CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `quantity` int(11) DEFAULT 1
+  `quantity` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -40,9 +40,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`product_name`, `id`, `product_id`, `user_id`, `quantity`) VALUES
-('Pet Head Shampoo Orange Scent', 569, 1, 84, 99),
-('Pet Head Shampoo Peach Scent', 570, 1, 84, 1),
-('Pet Head Shampoo Orange Scent', 628, 1, 77, 99);
+('Pet Head Shampoo Pear Scent 2', 10, 1, 1, 55);
 
 -- --------------------------------------------------------
 
@@ -55,18 +53,19 @@ CREATE TABLE `clothes` (
   `product_name` varchar(255) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT 5.99,
-  `image_path` varchar(255) DEFAULT NULL
+  `image_path` varchar(255) DEFAULT NULL,
+  `stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `clothes`
 --
 
-INSERT INTO `clothes` (`id`, `product_name`, `product_id`, `price`, `image_path`) VALUES
-(1, 'Winter Jumper', 4, '5.99', './images/clothes1.png'),
-(2, 'Camouflage Jumper', 4, '9.99', './images/clothes2.png'),
-(3, 'Melon Jumper', 4, '5.99', './images/clothes3.png'),
-(4, 'Festive Cloaks', 4, '5.99', './images/clothes4.png');
+INSERT INTO `clothes` (`id`, `product_name`, `product_id`, `price`, `image_path`, `stock`) VALUES
+(1, 'Pet Head Shampoo Orange Scent modd8', 4, '5.99', './images/clothes1.png', 3),
+(2, 'Camouflage Jumper9', 4, '9.99', './images/clothes2.png', 13),
+(3, 'Melon Jumper0', 4, '5.99', './images/clothes3.png', 14),
+(4, 'Festive Cloaks11', 4, '5.99', './images/clothes4.png', 16);
 
 -- --------------------------------------------------------
 
@@ -113,7 +112,11 @@ INSERT INTO `credit_card` (`id`, `user_id`, `card_number`, `expiry_date`, `cvv`)
 (27, 84, '$2y$10$yzrwO4hYzC86rWaaXdN/.uOkw.NpTiqU.4UQEnoB1tQlERp8lyINu', '$2y$10$fUfM9GbSHp60QAdAXDZJvuU1FoPwpiSR7LDzsqtqoefzqTU1rJT4m', '$2y$10$o/FrCzceEdiHTiltNgQNiu1IdXKIM/Ja1eRVB1p2BWrZ1BZ7/bwaO'),
 (28, 84, '$2y$10$Efr7yLoJNO1NWH0vZM6zPew2Gqo.Dngv/uXO56d.mPAzjdT8jz0qq', '$2y$10$uBgNVRhj3l.MyUh/6KQtv.0gU9v4aDNfzJFlTqaOKphoeaC7vDypG', '$2y$10$QA.BwCgsLSVvrE/s400ypu6j6ANIaPdeOUqtOK/WLGzUvob/F8o/W'),
 (29, 84, '$2y$10$Vknn7.1g2ekk9TlkiVULku3c2NxGdJlSIz1V/Exu5WvZCBHFqJbIa', '$2y$10$iUEkZsjk/Rak/5AKSdaXc.RoFVddjeNOzOBimidxTmExoaiostGt2', '$2y$10$4jlUfvUzQW/2jw/w1mTbu.wOe3jsknis0anXgm.SL/ZW122JytPO.'),
-(30, 84, '$2y$10$xIdhZ26Wat8EQS3abjUi1eqp91RLsJliylXA1crrfIXJn4YhbGWSm', '$2y$10$S2f.2xfGb7m8tJT9lt/ururVgu/Pf94EE5c9lKVqdDKD.cLX8nxIi', '$2y$10$ARsjVWl/H5o0zjqWZ97DD.meifQAhXf22LLzd53WlyBwt/TlLDMb.');
+(30, 84, '$2y$10$xIdhZ26Wat8EQS3abjUi1eqp91RLsJliylXA1crrfIXJn4YhbGWSm', '$2y$10$S2f.2xfGb7m8tJT9lt/ururVgu/Pf94EE5c9lKVqdDKD.cLX8nxIi', '$2y$10$ARsjVWl/H5o0zjqWZ97DD.meifQAhXf22LLzd53WlyBwt/TlLDMb.'),
+(31, 85, '$2y$10$iq9OmI65WpCJarUmVwAj5.s3bUVHG7m/Rf5/5pVTx69vIq1wFT36e', '$2y$10$BSmp2SnMjJ0hdyc0D3xSX.BHFsUxVz95/Z0F9lJ24DTIp826NemiG', '$2y$10$mF42IsqhgVqOCxL/uaewT.kaynogl.9atloYb16xkO2h1l/9mMZa.'),
+(33, 86, '$2y$10$IxflAeNd1KvLCEWN211rceK4APHXD30xNDsJ3v5aiBNTbYACHkqNa', '$2y$10$.FIurE8iKEZ0IVnHie5iN.Hihwm36u6afTEhyMX.zwp5Lo2yEcbee', '$2y$10$hpPNFVUSo7.E/1xjMHdYaek3htFCEV4DEsu4ocqg7uJ3OGKNHu6SC'),
+(34, 87, '$2y$10$64/u8EsdJWTFiLlN31HtN.ajh59/6T/zcF.cwk0npFI7wgQJcehpu', '$2y$10$Le6x0zD5vsTPZ5GhmrCopuo7VhyXldBEDkRERaz4ARSiEyiVL04cu', '$2y$10$QZQCk4lna6t24hexHVyFNOD4QbbvqdUVBEGksa94HAFtDVb/zmKKq'),
+(35, 87, '$2y$10$oW2e2FolGrqyh613kVCDgOk6R9kM1hO3173n0v4nOl7eOsny0EN.K', '$2y$10$YOWOiuB1K1qV5LudqwPFXOq1XjbKv/RBqczMCXocYDda7x9bZ718a', '$2y$10$bs7yrzkPTcVzDcIj7cShleX1SMHO/xc8.u6XH2sTjP8QChYIOB7K6');
 
 -- --------------------------------------------------------
 
@@ -126,18 +129,19 @@ CREATE TABLE `food` (
   `product_name` varchar(255) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT 5.99,
-  `image_path` varchar(255) DEFAULT NULL
+  `image_path` varchar(255) DEFAULT NULL,
+  `stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `food`
 --
 
-INSERT INTO `food` (`id`, `product_name`, `product_id`, `price`, `image_path`) VALUES
-(1, 'Purina ONE with chicken', 2, '15.99', './images/food1.png'),
-(2, 'Smilla Diet with beef', 2, '52.99', './images/food2.png'),
-(3, 'Concept for life Urinary with chicken', 2, '35.99', './images/food3.png'),
-(4, 'Concept for Life Hypo Allergenic', 2, '55.99', './images/food4.png');
+INSERT INTO `food` (`id`, `product_name`, `product_id`, `price`, `image_path`, `stock`) VALUES
+(1, 'Pet Head Shampoo Orange Scent modd12', 2, '5.99', './images/food1.png', 3),
+(2, 'Smilla Diet with beef13', 2, '52.99', './images/food2.png', 31),
+(3, 'Concept for life Urinary with chicken14', 2, '35.99', './images/food3.png', 99),
+(4, 'Concept for Life Hypo Allergenic16', 2, '55.99', './images/food4.png', 55);
 
 -- --------------------------------------------------------
 
@@ -150,18 +154,19 @@ CREATE TABLE `hygiene` (
   `product_name` varchar(255) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT 5.99,
-  `image_path` varchar(255) DEFAULT NULL
+  `image_path` varchar(255) DEFAULT NULL,
+  `stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `hygiene`
 --
 
-INSERT INTO `hygiene` (`id`, `product_name`, `product_id`, `price`, `image_path`) VALUES
-(1, 'Pet Head Shampoo Orange Scent', 1, '5.99', './images/hygiene1.png'),
-(2, 'Pet Head Shampoo Peach Scent', 1, '6.99', './images/hygiene2.png'),
-(3, 'Pet Head Shampoo Pear Scent', 1, '5.99', './images/hygiene3.png'),
-(4, 'Pet Head Dry Shampoo Coconut Scent', 1, '82.99', './images/hygiene4.png');
+INSERT INTO `hygiene` (`id`, `product_name`, `product_id`, `price`, `image_path`, `stock`) VALUES
+(1, 'Pet Head Shampoo Coconut Scent', 1, '15.99', './images/hygiene1.png', 41),
+(2, 'Pet Head Shampoo Peach Scent ', 1, '6.99', './images/hygiene2.png', 547),
+(3, 'Pet Head Shampoo Pear Scent ', 1, '55.99', './images/hygiene3.png', 33),
+(4, 'Pet Head Dry Shampoo Coconut Scent', 1, '82.99', './images/hygiene4.png', 22);
 
 -- --------------------------------------------------------
 
@@ -244,7 +249,38 @@ INSERT INTO `order_history` (`id`, `quantity`, `payment`, `user_id`) VALUES
 (66, 66, 395.34, 1),
 (67, 99, 593.01, 1),
 (68, 710, 4666.9, 1),
-(69, 198, 1186.02, 1);
+(69, 198, 1186.02, 1),
+(70, 12, 71.88, 1),
+(71, 12, 71.88, 1),
+(72, 330, 6376.7, 1),
+(73, 11, 98.89, 1),
+(74, 2, 105.98, 1),
+(75, 2, 105.98, 1),
+(76, 2, 105.98, 1),
+(77, 2, 105.98, 1),
+(78, 2, 105.98, 1),
+(79, 99, 593.01, 1),
+(80, 3, 17.97, 1),
+(81, 33, 197.67, 1),
+(82, 33, 197.67, 1),
+(83, 44, 263.56, 1),
+(84, 44, 263.56, 1),
+(85, 44, 263.56, 1),
+(86, 33, 197.67, 1),
+(87, 33, 197.67, 1),
+(88, 33, 197.67, 1),
+(89, 12, 305.88, 1),
+(90, 3, 17.97, 1),
+(91, 3, 17.97, 1),
+(92, 3, 17.97, 1),
+(93, 3, 17.97, 1),
+(94, 38, 607.62, 1),
+(95, 66, 1055.34, 1),
+(96, 18, 1023.82, 1),
+(97, 10, 829.9, 1),
+(98, 4, 331.96, 1),
+(99, 99, 692.01, 1),
+(100, 8, 67.92, 85);
 
 -- --------------------------------------------------------
 
@@ -277,7 +313,10 @@ INSERT INTO `personal_info` (`id`, `address`, `phone_number`, `user_id`) VALUES
 (11, 'C#BotStress@gmail.com', '123123123', 79),
 (12, '12changed for a test', '123123123', 80),
 (13, 'Jon Smith Streets changed 9', '91426364', 81),
-(14, 'Adress Update', '914475858', 84);
+(14, 'Adress Update', '914475858', 84),
+(15, 'bot lane cpu street', '914637370', 85),
+(16, 'lane teste', '914393902', 86),
+(17, 'botlane', '914749593', 87);
 
 -- --------------------------------------------------------
 
@@ -303,44 +342,6 @@ INSERT INTO `products` (`id`, `category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `stock`
---
-
-CREATE TABLE `stock` (
-  `stock_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `item_table` varchar(255) DEFAULT NULL,
-  `hygiene_item_id` int(11) DEFAULT NULL,
-  `food_item_id` int(11) DEFAULT NULL,
-  `toys_item_id` int(11) DEFAULT NULL,
-  `clothes_item_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `stock`
---
-
-INSERT INTO `stock` (`stock_id`, `quantity`, `item_table`, `hygiene_item_id`, `food_item_id`, `toys_item_id`, `clothes_item_id`) VALUES
-(1, 99, 'hygiene', 1, NULL, NULL, NULL),
-(2, 99, 'hygiene', 1, NULL, NULL, NULL),
-(3, 99, 'hygiene', 1, NULL, NULL, NULL),
-(4, 99, 'hygiene', 1, NULL, NULL, NULL),
-(8, 99, 'food', NULL, 2, NULL, NULL),
-(9, 99, 'food', NULL, 2, NULL, NULL),
-(10, 99, 'food', NULL, 2, NULL, NULL),
-(11, 99, 'food', NULL, 2, NULL, NULL),
-(15, 99, 'toys', NULL, NULL, 3, NULL),
-(16, 99, 'toys', NULL, NULL, 3, NULL),
-(17, 99, 'toys', NULL, NULL, 3, NULL),
-(18, 99, 'toys', NULL, NULL, 3, NULL),
-(22, 99, 'clothes', NULL, NULL, NULL, 4),
-(23, 99, 'clothes', NULL, NULL, NULL, 4),
-(24, 99, 'clothes', NULL, NULL, NULL, 4),
-(25, 99, 'clothes', NULL, NULL, NULL, 4);
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `toys`
 --
 
@@ -349,18 +350,19 @@ CREATE TABLE `toys` (
   `product_name` varchar(255) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT 5.99,
-  `image_path` varchar(255) NOT NULL
+  `image_path` varchar(255) NOT NULL,
+  `stock` int(99) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `toys`
 --
 
-INSERT INTO `toys` (`id`, `product_name`, `product_id`, `price`, `image_path`) VALUES
-(1, 'Squeeky wild mouse', 3, '5.99', './images/toys1.png'),
-(2, 'Squeeky cheese', 3, '5.99', './images/toys2.png'),
-(3, 'Ball with bell', 3, '8.99', './images/toys3.png'),
-(4, 'Chase ball with a bell', 3, '5.99', './images/toys4.png');
+INSERT INTO `toys` (`id`, `product_name`, `product_id`, `price`, `image_path`, `stock`) VALUES
+(1, 'Cat toy', 3, '5.99', './images/toys1.png', 3),
+(2, 'Squeeky cheese5', 3, '5.99', './images/toys2.png', 99),
+(3, 'Ball with bell6', 3, '8.99', './images/toys3.png', 99),
+(4, 'Chase ball with a bell7', 3, '5.99', './images/toys4.png', 99);
 
 -- --------------------------------------------------------
 
@@ -400,7 +402,10 @@ INSERT INTO `user` (`id`, `user_type`, `client`, `name`, `email`, `password_hash
 (79, 'user', 'RXGPU AMD', 'thisistheuser', 'amd@gmail.com', '$2y$10$2SBhh.O6axkvpOjj4LGOROyy4Bn8fv9CzxDabMqsfCzHUPoP1KKEC'),
 (80, 'user', 'Full Name Test', 'UserTest', 'usertest@gmail.com', '$2y$10$x/WuIQ04XujhJ3GiUABGV.BbOs2rTJdX236S0DLu/9AW4CzXA.cvu'),
 (81, 'user', 'John Smith', 'smithjon', 'smithjon@gmail.com', '$2y$10$pq/Icaj5NO8aMgkaENORb.2MbyA6xnyhtUcry0vMn/IsHM2h05r6i'),
-(84, 'user', 'C#BotStress', 'C#BotStress2', 'C#BotStress2@gmail.com', '$2y$10$C6Sp9s6CwNfeY.UO45fA3OwuFN7Rny.Spq7X15WxyTTfibtflVNA2');
+(84, 'user', 'C#BotStress', 'C#BotStress2', 'C#BotStress2@gmail.com', '$2y$10$C6Sp9s6CwNfeY.UO45fA3OwuFN7Rny.Spq7X15WxyTTfibtflVNA2'),
+(85, 'user', 'Test User Bot Generated', 'bottester1', 'bottester1@gmail.com', '$2y$10$7.glWtiiR3VOzxZQXZ/fmOEFFXlYwXE79BhArww2iF2cHcPRC5YY2'),
+(86, 'user', 'Bot Test 3', 'bottester3', 'bottester3@gmail.com', '$2y$10$rVa9QkJXrHZW44f4oLepRODB1cH8RW7nFhDde3q2NNfTixjgPkuHO'),
+(87, 'user', 'C#BotStress5', 'cbot', 'bottester4@gmail.com', '$2y$10$Q.c8nrcK36ANd8qNeMd1/OB.8X7YZA1S7rKhArees5Qv4fkr9GGCm');
 
 --
 -- Índices para tabelas despejadas
@@ -463,16 +468,6 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `stock`
---
-ALTER TABLE `stock`
-  ADD PRIMARY KEY (`stock_id`),
-  ADD KEY `hygiene_item_id` (`hygiene_item_id`),
-  ADD KEY `food_item_id` (`food_item_id`),
-  ADD KEY `toys_item_id` (`toys_item_id`),
-  ADD KEY `clothes_item_id` (`clothes_item_id`);
-
---
 -- Índices para tabela `toys`
 --
 ALTER TABLE `toys`
@@ -495,37 +490,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=651;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `credit_card`
 --
 ALTER TABLE `credit_card`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de tabela `order_history`
 --
 ALTER TABLE `order_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT de tabela `personal_info`
 --
 ALTER TABLE `personal_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT de tabela `stock`
---
-ALTER TABLE `stock`
-  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- Restrições para despejos de tabelas
@@ -573,15 +562,6 @@ ALTER TABLE `order_history`
 --
 ALTER TABLE `personal_info`
   ADD CONSTRAINT `personal_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
---
--- Limitadores para a tabela `stock`
---
-ALTER TABLE `stock`
-  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`hygiene_item_id`) REFERENCES `hygiene` (`product_id`),
-  ADD CONSTRAINT `stock_ibfk_2` FOREIGN KEY (`food_item_id`) REFERENCES `food` (`product_id`),
-  ADD CONSTRAINT `stock_ibfk_3` FOREIGN KEY (`toys_item_id`) REFERENCES `toys` (`product_id`),
-  ADD CONSTRAINT `stock_ibfk_4` FOREIGN KEY (`clothes_item_id`) REFERENCES `clothes` (`product_id`);
 
 --
 -- Limitadores para a tabela `toys`
