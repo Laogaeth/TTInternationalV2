@@ -46,15 +46,44 @@ $.ajax({
     products.forEach(function(product) {
       $("#stock-table").append("<tr>" + 
           "<input type='hidden' name='id' value='"+ product.id +" '>" + 
-          "<input type='hidden' name='product_id' value='"+ product.product_id +" '>" + 
-          "<td><input name='product_name' type='text' value='" + product.product_name + "'" + "</td>" + 
+          "<input class='product--category' type='hidden' name='product_id' value='"+ product.product_id +" '>" + 
+          "<td ><input class='product--name'  name='product_name' type='text' value='" + product.product_name + "'" + "</td>" + 
           "<td><input name='quantity' type='number' value='" + product.quantity + "'" + "</td>" + 
-          "<td><input name='price' type='text' value='" + product.price + "'" + "</td>" + 
+          "<td><input name='price' type='text' value='" + product.price + "'" +  "</td>" + 
           "<td>" + "<input type='submit' name='update--btn' value='update' class='update--button'>" + "</td>" + 
       "</tr>" 
       );
     });
+
   }
+});
+
+
+//search bar
+$("#searchTerm").on("keyup", function () {
+  let searchTerm = $(this).val().toLowerCase();
+  $("#stock-table input")
+    .filter(".product--name")
+    .each(function () {
+      let productName = $(this).val().toLowerCase();
+      let productCategory = $(this)
+        .closest("tr")
+        .find(".product--category")
+        .val()
+        .toLowerCase();
+      let hideRow = true;
+      if (productName.indexOf(searchTerm) !== -1) {
+        hideRow = false;
+      }
+      if (productCategory.indexOf(searchTerm) !== -1) {
+        hideRow = false;
+      }
+      if (hideRow) {
+        $(this).closest("tr").fadeOut(500);
+      } else {
+        $(this).closest("tr").fadeIn(500);
+      }
+    });
 });
 
 // Add the click event listener to a parent element using event delegation
@@ -85,3 +114,4 @@ $("#stock-table").on("click", ".update--button", function (e) {
     },
   });
 });
+

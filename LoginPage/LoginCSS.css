@@ -364,8 +364,9 @@ a:visited{
    
 }
 .admin--stock--table th{
-    text-align: center;
+    text-align: left;
     color: #fff;
+    margin: 5px;
   
 }
 .admin--stock--table td{
@@ -384,4 +385,18 @@ a:visited{
     width: 50px;
    
 
+}
+
+
+.filters--search--bar {
+    background: url(./images/search.svg) no-repeat scroll 10px 10px;
+    background-size: 25px;
+    background-position-y: 10px;
+    outline: none;
+    border: none;
+    text-align: left;
+    text-indent: 30px;
+    padding: 7px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
