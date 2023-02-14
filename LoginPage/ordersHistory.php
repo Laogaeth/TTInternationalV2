@@ -135,7 +135,7 @@ if (isset($_SESSION["user_id"])) {
         </div>
       <?php endif; ?>
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-8">
           <h5>Here are all of your orders!</h5>
         </div>
         <div class="col-sm">
