@@ -5,6 +5,9 @@ if(empty($_POST["client"])){
 if(empty($_POST["name"])){
   die("Please fill out the username field");
 }
+if (empty($_POST["birthday"])) {
+  die("Please fill out the birthday field");
+}
 if(! filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
   die ("Please enter a valid email");
 }
@@ -48,12 +51,12 @@ if ($stmt->execute()) {
     $user_id = $mysqli->insert_id;
 
     // Inserting data into personal_info table
-    $sql = "INSERT INTO personal_info (user_id, phone_number, address) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO personal_info (user_id, phone_number, address,birthday) VALUES (?, ?, ?,?)";
     $stmt = $mysqli->stmt_init();
     if (!$stmt->prepare($sql)) {
         die("SQL error: " . $mysqli->error);
     }
-    $stmt->bind_param("iss", $user_id, $_POST["phone"], $_POST["address"]);
+    $stmt->bind_param("isss", $user_id, $_POST["phone"], $_POST["address"], $_POST["birthday"]);
     if ($stmt->execute()) {
         header("Location: SignupSucess.html"); // Makes the user go to the page
         exit;

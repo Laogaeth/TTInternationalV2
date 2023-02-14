@@ -1,6 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
+
 if (isset($_SESSION["user_id"])) {
   $mysqli = require __DIR__ . "/../RegistrationPage/database.php";
   $sql = "SELECT * FROM user
@@ -144,6 +145,7 @@ require '../ShoppingCart/cardInfoCheck.php';
       <div class="container col-sm-8 container--client">
 
         <?php
+
         $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 
         if (isset($_SESSION['user_id'])) {
@@ -158,18 +160,25 @@ require '../ShoppingCart/cardInfoCheck.php';
           $personal_info_result = mysqli_query($db, $personal_info_query);
           $personal_info = mysqli_fetch_assoc($personal_info_result);
 
-          echo "<div>";
-          echo "<section class='container-fluid container--no--bg col-sm-6'>";
-          echo "Client: " . $user['client'] . "<br>";
-          echo "<br>";
-          echo "Username: " . $user['name'] . "<br>";
-          echo "<br>";
-          echo "Email: " . $user['email'] . "<br>";
-          echo "<br>";
-          echo "Phone Number: " . $personal_info['phone_number'] . "<br>";
-          echo "<br>";
-          echo "Address: " . $personal_info['address'] . "<br>";
-          echo "</div>";
+          echo "<table border='1'>";
+          echo "<tr>";
+          echo "<th>Client and Birthday</th>";
+          echo "<th>Username</th>";
+          echo "<th>Email</th>";
+          echo "<th>Phone Number</th>";
+          echo "<th>Address</th>";
+          echo "</tr>";
+
+          echo "<tr>";
+          echo "<td>" . $user['client'] . "<br>" . $personal_info['birthday'] . "</td>";
+          echo "<td>" . $user['name'] . "</td>";
+          echo "<td>" . $user['email'] . "</td>";
+          echo "<td>" . $personal_info['phone_number'] . "</td>";
+          echo "<td>" . $personal_info['address'] . "</td>";
+          echo "</tr>";
+
+          echo "</table>";
+
 
           if (isset($_POST['update_user'])) {
             $client = $_POST['client'];
@@ -197,7 +206,7 @@ require '../ShoppingCart/cardInfoCheck.php';
           echo "<h4>Update personal info</h4>";
           echo "<br>";
           echo "Client: <input type='text' name='client' value='" . $user['client'] . "'required><br>";
-          echo "Name: <input type='text' name='name' value='" . $user['name'] . "'required><br>";
+          echo "Username: <input type='text' name='name' value='" . $user['name'] . "'required><br>";
           echo "Email: <input type='email' name='email' value='" . $user['email'] . "'required><br>";
           echo "Phone Number: <input type='text' name='phone_number'pattern='[0-9]{0,9}' value='" . $personal_info['phone_number'] . "'required><br>";
           echo "Address: <input type='text' name='address' value='" . $personal_info['address'] . "'required><br>";
@@ -216,10 +225,11 @@ require '../ShoppingCart/cardInfoCheck.php';
           echo "<div class='container-fluid'>";
           echo "<h4 style='color: red; text-align: center;'>An error occurred. Please try again.</h4>";
           echo "</div>";
-          header('Location: ./userSettings.php');
         }
+        header("Refresh:0");
 
         ?>
+        
       </div>
      
 

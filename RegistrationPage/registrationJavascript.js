@@ -59,3 +59,18 @@ $(document).ready(function(){
         }
     });
 });
+
+
+ document.getElementById("birthday").addEventListener("change", function () {
+   let today = new Date();
+   let birthdate = new Date(this.value);
+   let age = today.getFullYear() - birthdate.getFullYear();
+   let m = today.getMonth() - birthdate.getMonth();
+   if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+     age--;
+   }
+   if (age < 18) {
+     alert("You must be at least 18 years old to register.");
+     this.value = "";
+   }
+ });

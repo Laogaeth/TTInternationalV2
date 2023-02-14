@@ -12,8 +12,9 @@ if (isset($_GET['user_id'])) {
 ?>
 
 <?php
+    ////////////////////////////////////Important note, this is not how you are supposed to do this. I want to look into a cryptography 
+    ////////////////////////////////////library for PHP to encrypt the credit card information. This is just a temporary solution.////////////////////////////////////
 
-// check if form has been submitted
 if (isset($_POST['submit'])) {
 
   // Get the credit card information from the form

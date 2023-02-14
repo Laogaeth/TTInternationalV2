@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Trauma Team, Life Insurance">
+
   <meta name="author" content="Pedro Pereira">
   <link rel="icon" type="image/x-icon" href="../Images/brain.png">
 
-  <title>Night City</title>
+  <title>Registration</title>
   
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -51,31 +51,32 @@
     <h1>Join us today!</h1>
     <br>
       <p>Full Name</p>
-    <input type="text" id="client" name="client" placeholder="John Smith" >
+    <input type="text" id="client" name="client" placeholder="John Smith" required>
     <br>
-    <br>
-    
-    <br>
-    <p>Username</p>
-  <input type="text" id="name" name="name" placeholder="Username" >
+      <p>Username</p>
+      <input type="text" id="name" name="name" placeholder="Username" required>
+      <br>
+      <br>
+    <p>Birthday date</p>
+  <input type="date" id="birthday" name="birthday"  required>
   <br>
   <br>
   <p>Email Adress</p>
-    <input type="email" id="email" name="email" placeholder="ImAUser@gmail.com"  >
+    <input type="email" id="email" name="email" placeholder="ImAUser@gmail.com" required >
     <br>
     <br>
     <p>Phone number</p>
-    <input type="text" id="phone" name="phone" pattern="[0-9]{0,9}" placeholder="123-456-7890">
+    <input type="text" id="phone" name="phone" pattern="[0-9]{0,9}" placeholder="123-456-7890" required>
     <br>
     <br>
     <p>Home address</p>
-    <input type="text" id="address" name="address" placeholder="123 Main St.">
+    <input type="text" id="address" name="address" placeholder="123 Main St." required>
     <br>
     <br>
     <p>Password</p>
-    <input type="password" id="password" name="password" placeholder="Password" >
+    <input type="password" id="password" name="password" placeholder="Password"  required>
     <p>Repeat password</p>
-    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Password" >
+    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Password" required>
 
     <button type="submit" name="btnSubmit" class="sbmBtn">Submit</button>
     <input type="hidden" name="form_submitted" value="1" />
