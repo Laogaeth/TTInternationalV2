@@ -3,13 +3,11 @@ $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-
-$productName = $_POST['product_name'];
-$price = $_POST['price'];
-$stock = $_POST['stock'];
-$imagePath = $_POST['image_path'];
-$category = $_POST['category'];
-
+$productName = mysqli_real_escape_string($conn, $_POST['product_name']);
+$price = mysqli_real_escape_string($conn, $_POST['price']);
+$stock = mysqli_real_escape_string($conn, $_POST['stock']);
+$imagePath = mysqli_real_escape_string($conn, $_POST['image_path']);
+$category = mysqli_real_escape_string($conn, $_POST['category']);
 $table = '';
 
 switch ($category) {

@@ -189,13 +189,13 @@ require '../../ShoppingCart/cardInfoCheck.php';
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td>" . $row['id'] . "</td>";
-                            echo "<td>" . $row['client'] . "</td>";
-                            echo "<td>" . $row['birthday'] . "</td>";
-                            echo "<td>" . $row['name'] . "</td>";
-                            echo "<td>" . $row['email'] . "</td>";
-                            echo "<td>" . $row['phone_number'] . "</td>";
-                            echo "<td>" . $row['address'] . "</td>";
+                            echo "<td>" . htmlspecialchars($row          ['id']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row      ['client']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row    ['birthday']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row        ['name']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row       ['email']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['phone_number']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row     ['address']) . "</td>";
                             echo "</tr>";
                         }
                     } else {
