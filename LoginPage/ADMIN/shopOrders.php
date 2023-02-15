@@ -188,7 +188,7 @@ if (isset($_SESSION["user_id"])) {
 
                 echo "</table>";
             }
-
+            mysqli_close($db);
             ?>
 
 

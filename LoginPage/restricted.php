@@ -10,7 +10,7 @@
         img{
             text-align: center;
             max-width: 100%;
-            margin-top: 50%;
+            margin-top: 10%;
         }
         h1{
             text-align: center;

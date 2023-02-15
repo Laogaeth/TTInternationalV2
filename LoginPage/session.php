@@ -68,7 +68,7 @@ require '../ShoppingCart/cardInfoCheck.php';
         <?php if (isset($_SESSION["user_name"])) : ?>
           <div class="nav--user--area">
             <img src="../Images/welcomeCat.png" alt="" class="navbar--cat">
-            <p class="navbar--cat--text"> Welcome <?php echo $_SESSION["user_name"]; ?> </p>
+            <h4>Welcome <b><?= htmlspecialchars($user["name"]) ?></b> to your user environment.</h4>
           </div>
 
         <?php endif; ?>
@@ -131,7 +131,7 @@ require '../ShoppingCart/cardInfoCheck.php';
           if (isset($_SESSION['user_id'])) {
             $user_id = $_SESSION['user_id'];
             // ask the database to get the user information
-            $query = "SELECT * FROM user WHERE id = $user_id";
+            $query = "SELECT * FROM user WHERE id = " . mysqli_real_escape_string($db, $user_id);
             $result = mysqli_query($db, $query);
 
             //Check if id ==1 (admin)
@@ -154,10 +154,18 @@ require '../ShoppingCart/cardInfoCheck.php';
       <?php if (isset($user)) : ?>
 
         <div class="row user--settings icons--menu">
-            <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./ordersHistory.php">        <img class="user--icons--images"  src="./images/orders.png" alt="">        <p>Orders</p></a></div>
-            <div class="col-sm card shadow--xs  user--icons--menu">                                       <img class="user--icons--images"  src="./images/support.png" alt="">       <p>Help & Support</p></div>
-            <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./userSettings.php">         <img class="user--icons--images"  src="./images/settings.png" alt="">       <p>Settings</p></a></div>
-            <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./logout.php" class="logout"><img class="user--icons--images"  src="./images/logout.png" alt=""><p>Logout</p></a></div>
+          <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./ordersHistory.php"> <img class="user--icons--images" src="./images/orders.png" alt="">
+              <p>Orders</p>
+            </a></div>
+          <div class="col-sm card shadow--xs  user--icons--menu"> <img class="user--icons--images" src="./images/support.png" alt="">
+            <p>Help & Support</p>
+          </div>
+          <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./userSettings.php"> <img class="user--icons--images" src="./images/settings.png" alt="">
+              <p>Settings</p>
+            </a></div>
+          <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./logout.php" class="logout"><img class="user--icons--images" src="./images/logout.png" alt="">
+              <p>Logout</p>
+            </a></div>
         </div>
       <?php endif; ?>
 

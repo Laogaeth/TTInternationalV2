@@ -159,7 +159,7 @@ if (isset($_SESSION["user_id"])) {
       // Check if the user is logged in
       if (isset($_SESSION['user_id'])) {
         // Get the user_id of the logged-in user
-        $user_id = $_SESSION['user_id'];
+        $user_id = mysqli_real_escape_string($db, $_SESSION['user_id']);
 
         // Retrieve order history data for the logged-in user 
         $order_history_query = "SELECT id,quantity, payment FROM order_history WHERE user_id = '$user_id'";
@@ -175,6 +175,9 @@ if (isset($_SESSION["user_id"])) {
         echo "</tr>";
 
         while ($order_history = mysqli_fetch_assoc($order_history_result)) {
+          $id = htmlspecialchars($order_history['id']);
+          $quantity = htmlspecialchars($order_history['quantity']);
+          $payment = htmlspecialchars($order_history['payment']);
           echo "<tr>";
           echo "<td>" . $order_history['id'] . "</td>";
           echo "<td>" . $order_history['quantity'] . "</td>";
@@ -184,7 +187,7 @@ if (isset($_SESSION["user_id"])) {
 
         echo "</table>";
       }
-
+      mysqli_close($db);
       ?>
 
 
