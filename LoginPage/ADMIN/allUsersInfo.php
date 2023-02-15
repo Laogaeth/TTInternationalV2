@@ -133,8 +133,12 @@ require '../../ShoppingCart/cardInfoCheck.php';
 
 
                 </div>
+                <h5>
+                    Our clients
+                </h5>
             <?php endif; ?>
             <div class="col-sm-5">
+
                 <img src="../../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
             </div>
             <div class="col user--settings user--return--icon"> <a href="../../LoginPage/ADMIN/ADMIN.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
@@ -148,6 +152,8 @@ require '../../ShoppingCart/cardInfoCheck.php';
             <?php if (isset($user) && $user['id'] == 1) : ?>
 
                 <div class="container col-sm-12 container--client container--client--table">
+
+                    <div class='filters--search--span'><input type'text' id='search--clients' placeholder='search bar' class='shadow--xs filters--search--bar'></div>
 
 
                     <?php

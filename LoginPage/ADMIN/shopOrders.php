@@ -126,7 +126,7 @@ if (isset($_SESSION["user_id"])) {
 
                     <?php if (isset($user)) : ?>
                     <?php else : ?>
-                        <p><a href="./LoginPage.php">You must be logged in to acess. Click here.</a></p>
+                        <p><a href=".././LoginPage.php">You must be logged in to acess. Click here.</a></p>
 
                     <?php endif; ?>
 

@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 
 $.ajax({
-  url: "./fetch_stock.php",
+  url: ".././fetch_stock.php",
   method: "GET",
   success: function(data) {
     let products = JSON.parse(data);
@@ -163,5 +163,31 @@ $(document).ready(function () {
             -1
         );
       });
+  });
+});
+
+/////////////////////////clients info search bar/////////////////////////
+$(document).ready(function () {
+  $("#search--clients").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $(".table--all--users tbody tr").filter(function () {
+      var matches = false;
+      $(this)
+        .find("td")
+        .each(function () {
+          var cellText = $(this).text().toLowerCase();
+          if (
+            cellText.indexOf(value) > -1 &&
+            ($(this).hasClass("id") ||
+              $(this).hasClass("client") ||
+              $(this).hasClass("email") ||
+              $(this).hasClass("address"))
+          ) {
+            matches = true;
+            return false;
+          }
+        });
+      $(this).toggle(matches);
+    });
   });
 });

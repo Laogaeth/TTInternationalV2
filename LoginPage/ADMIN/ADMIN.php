@@ -166,7 +166,11 @@ if ($result->num_rows > 0) {
       <?php if (isset($user)) : ?>
 
         <div class="row user--settings icons--menu">
+
           <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./shopOrders.php"> <img class="user--icons--images" src=".././images/ordersAdmin.png" alt="">
+              <p>Shop Orders</p>
+            </a></div>
+          <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./stockManagement.php"> <img class="user--icons--images" src=".././images/stockManagement.png" alt="">
               <p>Shop Orders</p>
             </a></div>
           <div class="col-sm card shadow--xs  user--icons--menu"> <img class="user--icons--images" src=".././images/support.png" alt="">
@@ -175,9 +179,12 @@ if ($result->num_rows > 0) {
           <div class="col-sm card shadow--xs  user--icons--menu"> <a href="../ADMIN/allUsersInfo.php"> <img class="user--icons--images" src=".././images/adminSettings.png" alt="">
               <p>Users Settings</p>
             </a></div>
+        </div>
+        <div class="row user--settings icons--menu">
           <div class="col-sm card shadow--xs  user--icons--menu"> <a href=".././logout.php" class="logout"><img class="user--icons--images" src=".././images/logout.png" alt="">
               <p>Logout</p>
             </a></div>
+
         </div>
       <?php endif; ?>
 
