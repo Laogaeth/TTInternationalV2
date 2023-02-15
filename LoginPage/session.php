@@ -140,7 +140,7 @@ require '../ShoppingCart/cardInfoCheck.php';
               if ($user['id'] == 1) {
                 //show the div for admin domain
                 echo "<button class='adminButton'>
-                             <a href='../LoginPage/ADMIN.php'>Go to admin page</a>
+                             <a href='../LoginPage/ADMIN/ADMIN.php'>Go to admin page</a>
                             </button>";
               }
             }

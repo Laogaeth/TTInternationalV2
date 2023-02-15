@@ -133,62 +133,59 @@ if (isset($_SESSION["user_id"])) {
           <?php if (isset($user)) : ?>
 
         </div>
-      <?php endif; ?>
-      <div class="row">
-        <div class="col-sm-8">
-          <h5>Here are all of your orders!</h5>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <h5>Here are all of your orders!</h5>
+          </div>
+          <div class="col-sm">
+            <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
+          </div>
         </div>
-        <div class="col-sm">
-          <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
-        </div>
-      </div>
-      <div class="user--settings user--return--icon"> <a href="./session.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
-          <p>Return</p>
-        </a></div>
+        <div class="user--settings user--return--icon"> <a href="./session.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
+            <p>Return</p>
+          </a></div>
 
       </div>
+    <?php endif; ?>
+    <div class="container container--client">
+      <?php
 
-      <div class="container container--client">
-        <?php
+      // Connect to the database
+      $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
 
-        // Connect to the database
-        $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
+      // Check if the user is logged in
+      if (isset($_SESSION['user_id'])) {
+        // Get the user_id of the logged-in user
+        $user_id = $_SESSION['user_id'];
 
-        // Check if the user is logged in
-        if (isset($_SESSION['user_id'])) {
-          // Get the user_id of the logged-in user
-          $user_id = $_SESSION['user_id'];
+        // Retrieve order history data for the logged-in user 
+        $order_history_query = "SELECT id,quantity, payment FROM order_history WHERE user_id = '$user_id'";
+        $order_history_result = mysqli_query($db, $order_history_query);
+        echo "<div><h5>Your Orders:</h5></div>";
+        echo "<br>";
+        echo "<table class='table--cart'>";
+        echo "<tr>";
+        echo "<th>Order ID</th>";
+        echo "<th>Items</th>";
+        echo "<th>Total</th>";
+        echo "</tr>";
 
-          // Retrieve order history data for the logged-in user 
-          $order_history_query = "SELECT id,quantity, payment FROM order_history WHERE user_id = '$user_id'";
-          $order_history_result = mysqli_query($db, $order_history_query);
-          echo "<div><h5>Your Orders:</h5></div>";
-          echo "<br>";
-          echo "<table class='table--cart'>";
+        while ($order_history = mysqli_fetch_assoc($order_history_result)) {
           echo "<tr>";
-          echo "<th>Order ID</th>";
-          echo "<th>Items</th>";
-          echo "<th>Total</th>";
+          echo "<td>" . $order_history['id'] . "</td>";
+          echo "<td>" . $order_history['quantity'] . "</td>";
+          echo "<td>" . $order_history['payment'] . '€' . "</td>";
           echo "</tr>";
-
-          while ($order_history = mysqli_fetch_assoc($order_history_result)) {
-            echo "<tr>";
-            echo "<td>" . $order_history['id'] . "</td>";
-            echo "<td>" . $order_history['quantity'] . "</td>";
-            echo "<td>" . $order_history['payment'] . '€' . "</td>";
-            echo "</tr>";
-          }
-
-          echo "</table>";
-        } else {
-          // Show an error message if the user is not logged in
-          echo "Please log in to view your order history.";
         }
 
-        ?>
+        echo "</table>";
+      } 
+
+      ?>
 
 
-        </section>
+      </section>
     </main>
 
   </div>

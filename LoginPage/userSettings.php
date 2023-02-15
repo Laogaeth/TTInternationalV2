@@ -132,9 +132,9 @@ require '../ShoppingCart/cardInfoCheck.php';
 
           <?php if (isset($user)) : ?>
 
-            <span class="user--settings user--return--icon"> <a href="./session.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
+            <div class="user--settings user--return--icon"> <a href="./session.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
                 <p>Return</p>
-              </a></span>
+              </a></div>
         </div>
       <?php endif; ?>
 
@@ -171,6 +171,7 @@ require '../ShoppingCart/cardInfoCheck.php';
 
           echo "<tr>";
           echo "<td>" . $user['client'] . "<br>" . $personal_info['birthday'] . "</td>";
+          
           echo "<td>" . $user['name'] . "</td>";
           echo "<td>" . $user['email'] . "</td>";
           echo "<td>" . $personal_info['phone_number'] . "</td>";
