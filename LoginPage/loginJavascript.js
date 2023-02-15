@@ -147,3 +147,21 @@ $(document).ready(function () {
     });
   });
 });
+
+/////////////////////////orders search bar/////////////////////////
+
+
+$(document).ready(function () {
+  $("#search--orders").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    //in here its ignoring table--cart thead tr, this way they'll remain visible.
+    $(".table--cart tbody tr")
+      .not(":first")
+      .filter(function () {
+        $(this).toggle(
+          $(this).find("td:first-child").text().toLowerCase().indexOf(value) >
+            -1
+        );
+      });
+  });
+});

@@ -1,16 +1,15 @@
 <?php
 session_start();
 
+require '../../ShoppingCart/cardInfoCheck.php';
 
 if (isset($_SESSION["user_id"])) {
-    $mysqli = require  "./../../RegistrationPage/database.php";
+    $mysqli = require  "../../RegistrationPage/database.php";
     $sql = "SELECT * FROM user
             WHERE id = {$_SESSION['user_id']}";
     $result = $mysqli->query($sql);
     $user = $result->fetch_assoc();
 }
-require '../../ShoppingCart/cardInfoCheck.php';
-
 
 ?>
 
@@ -37,8 +36,6 @@ require '../../ShoppingCart/cardInfoCheck.php';
     <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
     <!--My css & JS-->
     <link rel="stylesheet" href="../../LoginPage/LoginCSS.css">
-    <script src="../../LoginPage/loginJavascript.js"></script>
-
 
     <style>
         main {
@@ -97,18 +94,21 @@ require '../../ShoppingCart/cardInfoCheck.php';
                 <a class="menu--icon" href="../../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i>
                     <p class="menu--nav--text">Contacts </p>
                 </a>
+
                 <?php if ($hasCreditCard) : ?>
                     <a class="menu--icon" href="../../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i>
                         <p class="menu--nav--text">Orders </p>
                     </a>
                 <?php else : ?>
                     <a class="menu--icon" href="../../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i>
-                        <p class="menu--nav--text">Orders</p>
+                        <p class="menu--nav--text">Orders </p>
                     </a>
                 <?php endif; ?>
 
+
                 <?php if (isset($_SESSION["user_name"])) : ?>
-                    <a class="menu--icon menu--icon--logout" href="../../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i>
+                    <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php">
+                        <i class="fa-solid fa-2x fa-sign-out-alt"></i>
                         <p class="menu--nav--text">Logout</p>
                     </a>
                 <?php endif; ?>
@@ -121,98 +121,83 @@ require '../../ShoppingCart/cardInfoCheck.php';
 
             <div class="row container--userarea main--glass--effect">
 
-                <div class="col-sm">
+                <div class="col-sm-5">
 
-                    <?php if (isset($user) && $user['id'] == 1) : ?>
+
+                    <?php if (isset($user)) : ?>
                     <?php else : ?>
-                        <p><a href=".././LoginPage.php">You must be logged in to acess. Click here.</a></p>
+                        <p><a href="./LoginPage.php">You must be logged in to acess. Click here.</a></p>
 
                     <?php endif; ?>
 
                     <?php if (isset($user)) : ?>
 
-
-                </div>
-            <?php endif; ?>
-            <div class="col-sm-5">
-                <img src="../../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
-            </div>
-            <div class="col user--settings user--return--icon"> <a href="../../LoginPage/ADMIN/ADMIN.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
-                    <p>Return</p>
-                </a></div>
-
-
-
-            </div>
-
-            <?php if (isset($user) && $user['id'] == 1) : ?>
-
-                <div class="container col-sm-12 container--client container--client--table">
-
-
-                    <?php
-                    // Connect to the database
-                    $servername = "localhost:3307";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "db_login";
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-
-                    // Fetch data from the database
-                    $sql = "SELECT * FROM user JOIN personal_info ON user.id = personal_info.user_id";
-                    $result = $conn->query($sql);
-
-                    // Display data in a table
-                    echo "<table class='table--all--users '>";
-                    echo "<thead>
-                <tr>
-                <th class='table--all--users--top'>ID</th>
-                <th class='table--all--users--middle'>Client</th>
-                <th class='table--all--users--middle' >Birthday</th>
-                <th class='table--all--users--middle'>Username</th>
-                <th class='table--all--users--middle'>Email</th>
-                <th class='table--all--users--middle'>Phone Number</th>
-                <th class='table--all--users--bottom'>Address</th>
-                </tr></thead>";
-                    echo "<tbody>";
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>" . $row['id'] . "</td>";
-                            echo "<td>" . $row['client'] . "</td>";
-                            echo "<td>" . $row['birthday'] . "</td>";
-                            echo "<td>" . $row['name'] . "</td>";
-                            echo "<td>" . $row['email'] . "</td>";
-                            echo "<td>" . $row['phone_number'] . "</td>";
-                            echo "<td>" . $row['address'] . "</td>";
-                            echo "</tr>";
-                        }
-                    } else {
-                        echo "<tr><td colspan='6'>No data found.</td></tr>";
-                    }
-                    echo "</tbody>";
-                    echo "</table>";
-
-                    // Close the database connection
-                    $conn->close();
-                    ?>
-
-
-
                 </div>
 
-            <?php endif; ?>
+                <div class="row">
+                    <div class="col-sm-8">
+
+                        <img src="../../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
+
+                        <h5>Store wide orders</h5>
+                    </div>
+
+                    <div class="col user--settings user--return--icon"> <a href="../../LoginPage/ADMIN/ADMIN.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
+                            <p>Return</p>
+                        </a></div>
+                </div>
+
+
+            </div>
+        <?php endif; ?>
+        <div class="container container--client">
+            <?php
+
+            // Connect to the database
+            $db = mysqli_connect('localhost:3307', 'root', '', 'db_login');
+
+            // Check if the user is logged in
+            if (isset($_SESSION['user_id'])) {
+                // Get the user_id of the logged-in user
+                $user_id = $_SESSION['user_id'];
+
+                // Retrieve order history data for the logged-in user 
+                $order_history_query = "SELECT * FROM order_history ";
+                $order_history_result = mysqli_query($db, $order_history_query);
+                echo "<br>";
+                echo "<div class='filters--search--span'><input type'text' id='search--orders' placeholder='search by client id' class='shadow--xs filters--search--bar'></div>";
+
+                echo "<table class='table--cart'>";
+                echo "<tr>";
+                echo "<th class='table--header' >Client ID</th>";
+                echo "<th class='table--header' >Order ID</th>";
+                echo "<th class='table--header' >Items</th>";
+                echo "<th class='table--header' >Total</th>";
+                echo "</tr>";
+
+                while ($order_history = mysqli_fetch_assoc($order_history_result)) {
+                    echo "<tr>";
+                    echo "<td>" . $order_history['user_id'] . "</td>";
+                    echo "<td>" . $order_history['id'] . "</td>";
+                    echo "<td>" . $order_history['quantity'] . "</td>";
+                    echo "<td>" . $order_history['payment'] . '€' . "</td>";
+                    // add additional columns here
+                    echo "</tr>";
+                }
+
+
+                echo "</table>";
+            }
+
+            ?>
+
 
             </section>
         </main>
 
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </div>
+    <script src="../../LoginPage/loginJavascript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>

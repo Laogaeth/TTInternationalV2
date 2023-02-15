@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
 
 
     if ($row['id'] != 1) {
-      header("Location: restricted.php");
+      header("Location: ../restricted.php");
     }
   }
 }
@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
             <p class="menu--nav--text">Orders </p>
           </a>
         <?php else : ?>
-          <a class="menu--icon" href="v../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i>
+          <a class="menu--icon" href="../../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i>
             <p class="menu--nav--text">Orders</p>
           </a>
         <?php endif; ?>
@@ -166,7 +166,7 @@ if ($result->num_rows > 0) {
       <?php if (isset($user)) : ?>
 
         <div class="row user--settings icons--menu">
-          <div class="col-sm card shadow--xs  user--icons--menu"> <a href=".././ordersHistory.php"> <img class="user--icons--images" src=".././images/ordersAdmin.png" alt="">
+          <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./shopOrders.php"> <img class="user--icons--images" src=".././images/ordersAdmin.png" alt="">
               <p>Shop Orders</p>
             </a></div>
           <div class="col-sm card shadow--xs  user--icons--menu"> <img class="user--icons--images" src=".././images/support.png" alt="">

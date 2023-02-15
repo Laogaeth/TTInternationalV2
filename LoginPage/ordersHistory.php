@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+// error_reporting(0);
 require '../ShoppingCart/cardInfoCheck.php';
 
 if (isset($_SESSION["user_id"])) {
@@ -136,15 +136,17 @@ if (isset($_SESSION["user_id"])) {
 
         <div class="row">
           <div class="col-sm-8">
+            
+              <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
+
             <h5>Here are all of your orders!</h5>
           </div>
-          <div class="col-sm">
-            <img src="../RegistrationPage/images/panda.png" alt="Hello Panda" class="helloPanda">
-          </div>
+
+          <div class="col user--settings user--return--icon"> <a href="./session.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
+              <p>Return</p>
+            </a></div>
         </div>
-        <div class="user--settings user--return--icon"> <a href="./session.php"> <i class="fas fa-2x fa-long-arrow-alt-left"></i>
-            <p>Return</p>
-          </a></div>
+
 
       </div>
     <?php endif; ?>
@@ -163,12 +165,13 @@ if (isset($_SESSION["user_id"])) {
         $order_history_query = "SELECT id,quantity, payment FROM order_history WHERE user_id = '$user_id'";
         $order_history_result = mysqli_query($db, $order_history_query);
         echo "<div><h5>Your Orders:</h5></div>";
+        echo "<div class='filters--search--span'><input type'text' id='search--orders' placeholder='search by id' class='shadow--xs filters--search--bar'></div>";
         echo "<br>";
         echo "<table class='table--cart'>";
         echo "<tr>";
-        echo "<th>Order ID</th>";
-        echo "<th>Items</th>";
-        echo "<th>Total</th>";
+        echo "<th clas='table--header' >Order ID</th>";
+        echo "<th clas='table--header' >Items</th>";
+        echo "<th clas='table--header' >Total</th>";
         echo "</tr>";
 
         while ($order_history = mysqli_fetch_assoc($order_history_result)) {
@@ -180,7 +183,7 @@ if (isset($_SESSION["user_id"])) {
         }
 
         echo "</table>";
-      } 
+      }
 
       ?>
 

@@ -402,7 +402,7 @@ a:visited{
 
 
 .filters--search--bar {
-    background: url(./images/search.svg) no-repeat scroll 10px 10px;
+    background: url(./Products/images/search.svg) no-repeat scroll 10px 10px;
     background-size: 25px;
     background-position-y: 10px;
     outline: none;
@@ -507,3 +507,55 @@ a:visited{
     color: #fff;
     text-align: center;
 }
+
+/*                           admin users table                                       */
+
+.table--all--users table{
+    width: 100%;
+        max-width: 600px;
+        position: fixed;
+        overflow-x: auto;
+        border-collapse: collapse;
+
+}
+.table--all--users   th,
+.table--all--users td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    
+}
+.table--all--users--top{
+    border-radius: 20px 0 0 0;
+}
+.table--all--users--bottom {
+    border-radius: 0 20px 0 0;
+}
+
+.table--all--users--middle tr {
+    border-radius: 0 0 0 0;
+}
+.table--all--users th {
+    background-color: #222035ec;
+}
+
+.container--client--table{
+    overflow: auto;
+    max-width: 1920px;
+}
+/* 
+@media screen and (max-width: 1600px) {
+  .container--client--table {
+    position: relative;
+  }
+  .container--client--table::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0rem;
+    bottom: 0;
+    width: 50px;
+    background: linear-gradient(to right, transparent, #000);
+  }
+} */
