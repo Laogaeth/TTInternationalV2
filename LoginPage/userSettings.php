@@ -160,25 +160,29 @@ require '../ShoppingCart/cardInfoCheck.php';
           $personal_info_result = mysqli_query($db, $personal_info_query);
           $personal_info = mysqli_fetch_assoc($personal_info_result);
 
-          echo "<table border='1'>";
-          echo "<tr>";
-          echo "<th>Client and Birthday</th>";
-          echo "<th>Username</th>";
-          echo "<th>Email</th>";
-          echo "<th>Phone Number</th>";
-          echo "<th>Address</th>";
-          echo "</tr>";
+          echo "<table class='table--user--info' border='1'>";
+          echo "<thead><tr><th>Name</th></tr></thead>";
+          echo "<tbody class='table--user--td'><tr><td>" . $user['client'] . "</td></tr></tbody>";
 
-          echo "<tr>";
-          echo "<td>" . $user['client'] . "<br>" . $personal_info['birthday'] . "</td>";
-          
-          echo "<td>" . $user['name'] . "</td>";
-          echo "<td>" . $user['email'] . "</td>";
-          echo "<td>" . $personal_info['phone_number'] . "</td>";
-          echo "<td>" . $personal_info['address'] . "</td>";
-          echo "</tr>";
+          echo "<thead class='table--user--info--middle'><tr><th>Birthday</th></tr></thead>";
+          echo "<tbody class='table--user--td'><tr><td>" . $personal_info['birthday'] . "</td></tr></tbody>";
+
+          echo "<thead class='table--user--info--middle'><tr><th>Username</th></tr></thead>";
+          echo "<tbody class='table--user--td'><tr><td>" . $user['name'] . "</td></tr></tbody>";
+
+          echo "<thead class='table--user--info--middle'><tr><th>Email</th></tr></thead>";
+          echo "<tbody class='table--user--td'><tr><td>" . $user['email'] . "</td></tr></tbody>";
+
+          echo "<thead  class='table--user--info--middle'><tr><th>Phone Number</th></tr></thead>";
+          echo "<tbody class='table--user--td'><tr><td>" . $personal_info['phone_number'] . "</td></tr></tbody>";
+
+          echo "<thead class='table--user--info--middle'><tr><th>Address</th></tr></thead>";
+          echo "<tbody class='table--user--td'><tr><td>" . $personal_info['address'] . "</td></tr></tbody>";
+
+          echo "<thead class='table--user--info--bottom'><tr><th>&nbsp;</th></tr></thead>";
 
           echo "</table>";
+
 
 
           if (isset($_POST['update_user'])) {

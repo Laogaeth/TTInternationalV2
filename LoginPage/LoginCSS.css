@@ -467,3 +467,43 @@ a:visited{
 .shadow--xs {
     box-shadow: 0 5px #64646439;
 }
+
+.table--user--info {
+
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+       
+}
+
+.table--user--info th {
+    font-size: 1.2rem;
+    padding-bottom: 20px;
+    background: #222035ec;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+.table--user--info--bottom th{
+    border-radius: 0 0  20px 20px;
+}
+.table--user--info--middle th{
+    border-radius: 0 0 0 0;
+}
+.table--user--td td {
+    border-right:  1px solid #222035ec;
+    border-left:   1px solid #222035ec;
+
+}
+
+.table--user--info td {
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
