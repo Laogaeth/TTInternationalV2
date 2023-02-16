@@ -10,63 +10,69 @@ body {
     margin: 0;
     background: #ff480068;
 }
-
-.nav--arrow {
-    position: fixed;
-    top: 5px;
-    left: 5px;
-    height: 30px;
-    width: 30px;
-}
-
 .sticky {
     position: fixed;
 }
 
-.menu__nav {
-    display: none;
-    transition: all 0.5s ease-in-out;
-}
-
 .navbar {
-background: #222035;
-width: 40px;
-position: fixed;
-overflow: hidden;
-top: 0;
-left: 0;
-bottom: 0;
-border-top-right-radius: 1.25rem;
-border-bottom-right-radius: 1.25rem;
-transition: ease-in-out 0.3s;
-z-index: 1;
-color: white;
-overflow: scroll;
-height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: #222035;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    /* border: 0.2px solid black; */
+    transition: ease-in-out 0.3s;
+    z-index: 1;
+    color: white;
+    height: 50px;
 }
-.navbar::-webkit-scrollbar {
-  width: 0;
 
+@media screen and (min-width: 600px) {
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        height: 60px;
+        gap: 2rem;
+        /* Adjust this value as desired */
+    }
+
+}
+
+
+.navbar::-webkit-scrollbar {
+    width: 0;
 }
 
 .navbar::-webkit-scrollbar-thumb {
-  border-radius: 1.25rem;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff44;
+    border-radius: 1.25rem;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff44;
 }
 
 .navbar::-webkit-scrollbar-thumb:hover {
-  background-color: #ffffff44;
+    background-color: #ffffff44;
 }
 
 .menu--icon {
-    display: flex;
-    align-items: center;
-    justify-content: baseline;
+
+    font-size: 1.5em;
     color: #fff;
     text-decoration: none;
-    margin: 25px;
-    padding: 10px 0 10px;
+    margin: 0 10px 0 10px;
+
+}
+
+@media (min-width: 600px) {
+    .menu--icon {
+        margin: 0 50px 0 50px;
+    }
 }
 
 .menu--icon a:visited,
@@ -74,8 +80,24 @@ height: 40px;
     background-color: #343151;
     color: #fff;
     transition: ease-in-out 0.2s;
-    padding: 10px;
+    padding: 5px;
     border-radius: 20px;
+}
+
+.menu--icon--logout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px 0 10px;
+}
+
+
+.nav--user--area {
+    position: flex;
+    padding: 10px 10px;
 }
 
 .btn {
@@ -86,9 +108,8 @@ height: 40px;
 }
 
 .menu--nav--text {
-    display: flex;
-    justify-content: baseline;
-    align-items: center;
+    font-size: 0.8em;
+    text-align: center;
     margin-left: 10px;
     padding-top: 16px;
 }

@@ -12,8 +12,8 @@ if (isset($_GET['user_id'])) {
 ?>
 
 <?php
-    ////////////////////////////////////Important note, this is not how you are supposed to do this. I want to look into a cryptography 
-    ////////////////////////////////////library for PHP to encrypt the credit card information. This is just a temporary solution.////////////////////////////////////
+////////////////////////////////////Important note, this is not how you are supposed to do this. I want to look into a cryptography 
+////////////////////////////////////library for PHP to encrypt the credit card information. This is just a temporary solution.////////////////////////////////////
 
 if (isset($_POST['submit'])) {
 
@@ -87,59 +87,36 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+  <div class="menu__nav">
+  <div class=" navbar">
 
+
+    <?php if (isset($_SESSION["user_name"])) : ?>
+
+
+    <?php endif; ?>
+
+    <a class="menu--icon" href="../MainPage/MainPage.php"> <i class="fas  fa-home"></i> </a>
+    <?php if (isset($_SESSION["user_name"])) : ?>
+      <a class="menu--icon" href="../LoginPage/session.php"> <i class="fa-solid  fa-user"></i></a>
+
+    <?php else : ?>
+      <a class="menu--icon" href="../LoginPage/LoginPage.php"> <i class="fa-solid  fa-user"></i> </a>
+    <?php endif; ?>
+    <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands  fa-shopify"></i> </a>
+    <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid  fa-address-book"></i> </a>
+
+    <?php if ($hasCreditCard) : ?>
+      <a class="menu--icon" href=".creditCard.php"> <i class="fa-solid  fa-box"></i></a>
+    <?php else : ?>
+      <a class="menu--icon" href="./cartPage.php"> <i class="fa-solid  fa-box"></i></a>
+    <?php endif; ?>
+
+
+
+  </div>
+  </div>
   <div class="wrapper row">
-
-    <div class="navbar">
-      <button class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
-
-      <div class="menu__nav">
-
-
-        <?php if (isset($_SESSION["user_name"])) : ?>
-          <div class="nav--user--area">
-            <img src="../Images/welcomeCat.png" alt="" class="navbar--cat">
-            <p class="navbar--cat--text"> Welcome <?php echo $_SESSION["user_name"]; ?> </p>
-          </div>
-
-        <?php endif; ?>
-
-        <a class="menu--icon" href="../MainPage/MainPage.php"> <i class="fas fa-2x fa-home"></i>
-          <p class="menu--nav--text">Home </p>
-        </a>
-        <?php if (isset($_SESSION["user_name"])) : ?>
-          <a class="menu--icon" href="../LoginPage/session.php"> <i class="fa-solid fa-2x fa-user"></i>
-            <p class="menu--nav--text">User </p>
-          </a>
-        <?php else : ?>
-          <a class="menu--icon" href="../LoginPage/LoginPage.php"> <i class="fa-solid fa-2x fa-user"></i>
-            <p class="menu--nav--text">User </p>
-          </a>
-        <?php endif; ?>
-        <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>
-          <p class="menu--nav--text">Products </p>
-        </a>
-        <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i>
-          <p class="menu--nav--text">Contacts </p>
-        </a>
-        <?php if ($hasCreditCard) : ?>
-          <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i>
-            <p class="menu--nav--text">Orders </p>
-          </a>
-        <?php else : ?>
-          <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i>
-            <p class="menu--nav--text">Orders</p>
-          </a>
-        <?php endif; ?>
-
-        <?php if (isset($_SESSION["user_name"])) : ?>
-          <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i>
-            <p class="menu--nav--text">Logout</p>
-          </a>
-        <?php endif; ?>
-      </div>
-    </div>
-
 
     <main class="col-12 main--glass--effect section--color">
 
@@ -224,10 +201,9 @@ WHERE cart.user_id = ?
               'quantity' => $row['quantity'],
               'price' => $row['price'],
               'name' => $row['product_name'],
-              
+
 
             );
-    
           }
           echo "<tr>";
           echo "<td><b class='cart--total'>Your Total:</b</td>";
@@ -324,4 +300,3 @@ WHERE cart.user_id = ?
 </body>
 
 </html>
-
