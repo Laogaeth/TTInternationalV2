@@ -19,10 +19,10 @@ if(isset($_POST['checkout'])){
 
 
   // Get the user_id and products information from the form data
-  $user_id = $_POST['user_id'];
+  $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
   $products = unserialize($_POST['products']);
-  $id = $_POST['id'];
-  $category = $_POST['category'];
+  $id = mysqli_real_escape_string($conn, $_POST['id']);
+  $category = mysqli_real_escape_string($conn, $_POST['category']);
 
 
   // Calculate the total payment and total quantity
