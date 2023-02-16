@@ -153,7 +153,7 @@ require '../../ShoppingCart/cardInfoCheck.php';
 
                 <div class="container col-sm-12 container--client container--client--table">
 
-                    <div class='filters--search--span'><input type'text' id='search--clients' placeholder='search bar' class='shadow--xs filters--search--bar'></div>
+                    <!-- <div class='filters--search--span'><input type'text' id='search--clients' placeholder='search bar' class='shadow--xs filters--search--bar'></div> -->
 
 
                     <?php
@@ -204,8 +204,7 @@ require '../../ShoppingCart/cardInfoCheck.php';
                     echo "</tbody>";
                     echo "</table>";
 
-                    // Close the database connection
-                    $conn->close();
+                    
                     ?>
 
 

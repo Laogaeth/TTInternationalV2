@@ -56,58 +56,39 @@ require '../ShoppingCart/cardInfoCheck.php';
 
 
 <body>
+  <div class="menu__nav">
+    <div class=" navbar">
+
+
+      <?php if (isset($_SESSION["user_name"])) : ?>
+
+
+      <?php endif; ?>
+
+      <a class="menu--icon" href="../MainPage/MainPage.php"> <i class="fas  fa-home"></i> </a>
+      <?php if (isset($_SESSION["user_name"])) : ?>
+        <a class="menu--icon" href="./session.php"> <i class="fa-solid  fa-user"></i></a>
+
+      <?php else : ?>
+        <a class="menu--icon" href="./LoginPage.php"> <i class="fa-solid  fa-user"></i> </a>
+      <?php endif; ?>
+      <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands  fa-shopify"></i> </a>
+      <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid  fa-address-book"></i> </a>
+
+      <?php if ($hasCreditCard) : ?>
+        <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid  fa-box"></i></a>
+      <?php else : ?>
+        <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid  fa-box"></i></a>
+      <?php endif; ?>
+
+
+
+    </div>
+  </div>
 
   <div class="wrapper row">
 
-    <div class="col navbar">
-      <button class=" btn col btn__menu__arrow sticky"><img src="../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
 
-      <div class="menu__nav">
-
-
-        <?php if (isset($_SESSION["user_name"])) : ?>
-          <div class="nav--user--area">
-            <img src="../Images/welcomeCat.png" alt="" class="navbar--cat">
-            <h4>Welcome <b><?= htmlspecialchars($user["name"]) ?></b> to your user environment.</h4>
-          </div>
-
-        <?php endif; ?>
-
-        <a class="menu--icon" href="../MainPage/MainPage.php"> <i class="fas fa-2x fa-home"></i>
-          <p class="menu--nav--text">Home </p>
-        </a>
-        <?php if (isset($_SESSION["user_name"])) : ?>
-          <a class="menu--icon" href="../LoginPage/session.php"> <i class="fa-solid fa-2x fa-user"></i>
-            <p class="menu--nav--text">User </p>
-          </a>
-        <?php else : ?>
-          <a class="menu--icon" href="../LoginPage/LoginPage.php"> <i class="fa-solid fa-2x fa-user"></i>
-            <p class="menu--nav--text">User </p>
-          </a>
-        <?php endif; ?>
-        <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>
-          <p class="menu--nav--text">Products </p>
-        </a>
-        <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i>
-          <p class="menu--nav--text">Contacts </p>
-        </a>
-        <?php if ($hasCreditCard) : ?>
-          <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i>
-            <p class="menu--nav--text">Orders </p>
-          </a>
-        <?php else : ?>
-          <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i>
-            <p class="menu--nav--text">Orders</p>
-          </a>
-        <?php endif; ?>
-
-        <?php if (isset($_SESSION["user_name"])) : ?>
-          <a class="menu--icon menu--icon--logout" href="../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i>
-            <p class="menu--nav--text">Logout</p>
-          </a>
-        <?php endif; ?>
-      </div>
-    </div>
 
     <main class="col-12 main--glass--effect">
 
@@ -173,6 +154,12 @@ require '../ShoppingCart/cardInfoCheck.php';
       </section>
     </main>
 
+  </div>
+
+  <div id="Footer">
+    <h4 class="socialstitle">TTI®</h4>
+
+    <div class="rights">2022 Pedro, Pereira. All rights reserved.</div>
   </div>
   <script src="../LoginPage/loginJavascript.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

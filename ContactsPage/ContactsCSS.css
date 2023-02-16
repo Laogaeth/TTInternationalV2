@@ -11,40 +11,40 @@ body {
   padding: 0;
   margin: 0;
 }
-
-.nav--arrow {
-  position: fixed;
-  top: 5px;
-  left: 5px;
-  height: 30px;
-  width: 30px;
-}
-.menu__nav {
-  display: none;
-  transition: all 0.5s ease-in-out;
-}
-.sticky {
-  position: fixed;
-}
-
 .navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   background: #222035;
-  width: 40px;
+  width: 100%;
   position: fixed;
-  overflow: hidden;
-  top: 0;
-  left: 0;
   bottom: 0;
-  border-top-right-radius: 1.25rem;
-  border-bottom-right-radius: 1.25rem;
+  /* border: 0.2px solid black; */
   transition: ease-in-out 0.3s;
   z-index: 1;
   color: white;
-  overflow: scroll;
-  height: 40px;
+  height: 50px;
 }
+
+@media screen and (min-width: 600px) {
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    gap: 2rem;
+    /* Adjust this value as desired */
+  }
+
+}
+
+
 .navbar::-webkit-scrollbar {
-width: 0;
+  width: 0;
 }
 
 .navbar::-webkit-scrollbar-thumb {
@@ -58,13 +58,18 @@ width: 0;
 }
 
 .menu--icon {
-  display: flex;
-  align-items: center;
-  justify-content: baseline;
+
+  font-size: 1.5em;
   color: #fff;
   text-decoration: none;
-  margin: 25px;
-  padding: 10px 0 10px;
+  margin: 0 10px 0 10px;
+
+}
+
+@media (min-width: 600px) {
+  .menu--icon {
+    margin: 0 50px 0 50px;
+  }
 }
 
 .menu--icon a:visited,
@@ -72,10 +77,25 @@ width: 0;
   background-color: #343151;
   color: #fff;
   transition: ease-in-out 0.2s;
-  padding: 10px;
+  padding: 5px;
   border-radius: 20px;
 }
 
+.menu--icon--logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.5em;
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px 0 10px;
+}
+
+
+.nav--user--area {
+  position: flex;
+  padding: 10px 10px;
+}
 .btn {
   border: none;
   cursor: pointer;

@@ -1,40 +1,40 @@
 //script for the side menu animation
 // its not that pretty, arguably anything in the world can be programmed with Elses and isFinite, I got to thrive to go beyond this.
 
-$(document).ready(function(){
-    $('.btn__menu__arrow').click(function() {
-        $(this).toggleClass('menu-open');
-        const currentWidth = $('.navbar').css('width');
-        if ($(this).hasClass('menu-open')) {
-            $('.navbar').animate({
-                width: '10.625rem',
-                height: '100%'
-            }, 'fast');
-            $('.nav--arrow').animate({
-                left: '+=7.813rem'
-            }, 'fast');
-        } else {
-            $('.navbar').animate({
-                width: '2.5rem',
-                height: '2.5rem'
-            }, 'fast');
-            $('.nav--arrow').animate({
-                left: '-=7.813rem'
-            }, 'fast');
-        }
-    });
+// $(document).ready(function(){
+//     $('.btn__menu__arrow').click(function() {
+//         $(this).toggleClass('menu-open');
+//         const currentWidth = $('.navbar').css('width');
+//         if ($(this).hasClass('menu-open')) {
+//             $('.navbar').animate({
+//                 width: '10.625rem',
+//                 height: '100%'
+//             }, 'fast');
+//             $('.nav--arrow').animate({
+//                 left: '+=7.813rem'
+//             }, 'fast');
+//         } else {
+//             $('.navbar').animate({
+//                 width: '2.5rem',
+//                 height: '2.5rem'
+//             }, 'fast');
+//             $('.nav--arrow').animate({
+//                 left: '-=7.813rem'
+//             }, 'fast');
+//         }
+//     });
 
-    //this bit makes the side menu content reappear once it's expanded
-    $('.nav--arrow').click(function() {
-        if ($('.menu__nav').is(':visible')) {
-            $('.menu__nav').hide();
-        } else {
-            setTimeout(function() {
-                $('.menu__nav').show();
-            }, 100);
-        }
-    });
-});
+//     //this bit makes the side menu content reappear once it's expanded
+//     $('.nav--arrow').click(function() {
+//         if ($('.menu__nav').is(':visible')) {
+//             $('.menu__nav').hide();
+//         } else {
+//             setTimeout(function() {
+//                 $('.menu__nav').show();
+//             }, 100);
+//         }
+//     });
+// });
 
 
 
@@ -167,27 +167,27 @@ $(document).ready(function () {
 });
 
 /////////////////////////clients info search bar/////////////////////////
-$(document).ready(function () {
-  $("#search--clients").on("keyup", function () {
-    var value = $(this).val().toLowerCase();
-    $(".table--all--users tbody tr").filter(function () {
-      var matches = false;
-      $(this)
-        .find("td")
-        .each(function () {
-          var cellText = $(this).text().toLowerCase();
-          if (
-            cellText.indexOf(value) > -1 &&
-            ($(this).hasClass("id") ||
-              $(this).hasClass("client") ||
-              $(this).hasClass("email") ||
-              $(this).hasClass("address"))
-          ) {
-            matches = true;
-            return false;
-          }
-        });
-      $(this).toggle(matches);
-    });
-  });
-});
+// $(document).ready(function () {
+//   $("#search--clients").on("keyup", function () {
+//     var value = $(this).val().toLowerCase();
+//     $(".table--all--users tbody tr").filter(function () {
+//       var matches = false;
+//       $(this)
+//         .find("td")
+//         .each(function () {
+//           var cellText = $(this).text().toLowerCase();
+//           if (
+//             cellText.indexOf(value) > -1 &&
+//             ($(this).hasClass("id") ||
+//               $(this).hasClass("client") ||
+//               $(this).hasClass("email") ||
+//               $(this).hasClass("address"))
+//           ) {
+//             matches = true;
+//             return false;
+//           }
+//         });
+//       $(this).toggle(matches);
+//     });
+//   });
+// });

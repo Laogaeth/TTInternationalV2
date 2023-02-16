@@ -23,6 +23,8 @@ require '../ShoppingCart/cardInfoCheck.php';
   <script src="https://kit.fontawesome.com/9d05ceeaf4.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../Products/products.css">
   <script>
+
+    
     $.getJSON("./dbProductsData.php", function(data) {
       $.each(data, function(index, value) {
         const category = value.category;

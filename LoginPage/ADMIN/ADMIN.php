@@ -171,7 +171,7 @@ if ($result->num_rows > 0) {
               <p>Shop Orders</p>
             </a></div>
           <div class="col-sm card shadow--xs  user--icons--menu"> <a href="./stockManagement.php"> <img class="user--icons--images" src=".././images/stockManagement.png" alt="">
-              <p>Shop Orders</p>
+              <p>Inventory</p>
             </a></div>
           <div class="col-sm card shadow--xs  user--icons--menu"> <img class="user--icons--images" src=".././images/support.png" alt="">
             <p>Tickets</p>
