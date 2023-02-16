@@ -3,17 +3,13 @@ session_start();
 
 // Connect to the database
 $conn = mysqli_connect("localhost:3307", "root", "", "db_login");
-
 // Get the product information from the POST request
-$product_id = $_POST['product_id'];
-$product_name = $_POST['product_name'];
-$price = $_POST['price'];
-$user_id = $_SESSION['user_id'];
-$quantity = $_POST['quantity'];
-$id = $_POST['id'];
-
-
-
+$product_id = mysqli_real_escape_string($conn, $_POST['product_id']);
+$product_name = mysqli_real_escape_string($conn, $_POST['product_name']);
+$price = mysqli_real_escape_string($conn, $_POST['price']);
+$user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+$quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
+$id = mysqli_real_escape_string($conn, $_POST['id']);
 
 // Check if the product is already in the cart
 $check_query = "SELECT * FROM cart WHERE product_name = '$product_name' AND user_id = '$user_id'";

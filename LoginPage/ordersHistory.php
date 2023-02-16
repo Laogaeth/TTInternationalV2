@@ -68,7 +68,7 @@ if (isset($_SESSION["user_id"])) {
 
       <?php endif; ?>
 
-      <a class="menu--icon" href="./MainPage.php"> <i class="fas  fa-home"></i> </a>
+      <a class="menu--icon" href="../MainPage/MainPage.php"> <i class="fas  fa-home"></i> </a>
       <?php if (isset($_SESSION["user_name"])) : ?>
         <a class="menu--icon" href="../LoginPage/session.php"> <i class="fa-solid  fa-user"></i></a>
 

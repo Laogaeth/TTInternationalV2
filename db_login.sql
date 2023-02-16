@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Tempo de geração: 13-Fev-2023 às 12:22
+-- Tempo de geração: 16-Fev-2023 às 16:21
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -35,13 +35,6 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `cart`
---
-
-INSERT INTO `cart` (`product_name`, `id`, `product_id`, `user_id`, `quantity`) VALUES
-('Pet Head Shampoo Pear Scent 2', 10, 1, 1, 55);
-
 -- --------------------------------------------------------
 
 --
@@ -62,8 +55,8 @@ CREATE TABLE `clothes` (
 --
 
 INSERT INTO `clothes` (`id`, `product_name`, `product_id`, `price`, `image_path`, `stock`) VALUES
-(1, 'Pet Head Shampoo Orange Scent modd8', 4, '5.99', './images/clothes1.png', 3),
-(2, 'Camouflage Jumper9', 4, '9.99', './images/clothes2.png', 13),
+(1, 'Winter Pink Jumper', 4, '5.99', './images/clothes1.png', 3),
+(2, 'Camouflage Jumper', 4, '9.99', './images/clothes2.png', 13),
 (3, 'Melon Jumper0', 4, '5.99', './images/clothes3.png', 14),
 (4, 'Festive Cloaks11', 4, '5.99', './images/clothes4.png', 16);
 
@@ -109,14 +102,17 @@ INSERT INTO `credit_card` (`id`, `user_id`, `card_number`, `expiry_date`, `cvv`)
 (24, 81, '$2y$10$MYvUODFQbAAkulFDSSVaxOG.rJ.GAghc1ZT5m3Rz.B7UROSA6Fjhq', '$2y$10$.Ogk0je9A89rf7DeEtURC.LHQ.11gvG8bVCLB3N31KQRZhFYEOu2C', '$2y$10$omqukkndA/jSrqRvBpmFxO43Ur.BrQ25gM3mz02.tZRmHdF2D.3mu'),
 (25, 81, '$2y$10$h/wN.dvdN8x91bQ3weLAcOuYvIIo/d7O5I/CdGE55EWl8pDGbP93W', '$2y$10$zTnBiMZcBsmamJnScTiRjuXk3AQlNrV8Dqs7c7ESWQ2lZuhC8FJPm', '$2y$10$GslDp8C3lJFwScqiu484aeg6SeBRL9D45MGzhsTMgwWL2CebFlljy'),
 (26, 81, '$2y$10$jNHB4CUHJZLcWvou42Rzf.zni.SlP.EZ0BAi2swPTq887LF.kmGr6', '$2y$10$b.WI2glY8k.QaBrDS9kuWe0Q7hq9BWQWPWaiJif3BaGqUrsnFAnLe', '$2y$10$RjLT4n6ZwYVcnzypGrO3led.0FGN7Xd65/rgPnWwOwsOY.XRBXwIS'),
-(27, 84, '$2y$10$yzrwO4hYzC86rWaaXdN/.uOkw.NpTiqU.4UQEnoB1tQlERp8lyINu', '$2y$10$fUfM9GbSHp60QAdAXDZJvuU1FoPwpiSR7LDzsqtqoefzqTU1rJT4m', '$2y$10$o/FrCzceEdiHTiltNgQNiu1IdXKIM/Ja1eRVB1p2BWrZ1BZ7/bwaO'),
-(28, 84, '$2y$10$Efr7yLoJNO1NWH0vZM6zPew2Gqo.Dngv/uXO56d.mPAzjdT8jz0qq', '$2y$10$uBgNVRhj3l.MyUh/6KQtv.0gU9v4aDNfzJFlTqaOKphoeaC7vDypG', '$2y$10$QA.BwCgsLSVvrE/s400ypu6j6ANIaPdeOUqtOK/WLGzUvob/F8o/W'),
-(29, 84, '$2y$10$Vknn7.1g2ekk9TlkiVULku3c2NxGdJlSIz1V/Exu5WvZCBHFqJbIa', '$2y$10$iUEkZsjk/Rak/5AKSdaXc.RoFVddjeNOzOBimidxTmExoaiostGt2', '$2y$10$4jlUfvUzQW/2jw/w1mTbu.wOe3jsknis0anXgm.SL/ZW122JytPO.'),
-(30, 84, '$2y$10$xIdhZ26Wat8EQS3abjUi1eqp91RLsJliylXA1crrfIXJn4YhbGWSm', '$2y$10$S2f.2xfGb7m8tJT9lt/ururVgu/Pf94EE5c9lKVqdDKD.cLX8nxIi', '$2y$10$ARsjVWl/H5o0zjqWZ97DD.meifQAhXf22LLzd53WlyBwt/TlLDMb.'),
+(27, 84, '$2y$10$raxgvLGU.NZHFCYpHPF6i.24VJK3kwDEaNHNM2EAW/QqM5Wnr.kai', '$2y$10$5aT96Sz6qEG1z6Q1aODdY.waFc2ilPSeE.F4TDwJBXquynWrwAmjG', '$2y$10$hXfVE5D197J.AXqH7UXXlugbcWmcsCeYc1xVEjcanJA7dTn7k4AHm'),
+(28, 84, '$2y$10$raxgvLGU.NZHFCYpHPF6i.24VJK3kwDEaNHNM2EAW/QqM5Wnr.kai', '$2y$10$5aT96Sz6qEG1z6Q1aODdY.waFc2ilPSeE.F4TDwJBXquynWrwAmjG', '$2y$10$hXfVE5D197J.AXqH7UXXlugbcWmcsCeYc1xVEjcanJA7dTn7k4AHm'),
+(29, 84, '$2y$10$raxgvLGU.NZHFCYpHPF6i.24VJK3kwDEaNHNM2EAW/QqM5Wnr.kai', '$2y$10$5aT96Sz6qEG1z6Q1aODdY.waFc2ilPSeE.F4TDwJBXquynWrwAmjG', '$2y$10$hXfVE5D197J.AXqH7UXXlugbcWmcsCeYc1xVEjcanJA7dTn7k4AHm'),
+(30, 84, '$2y$10$raxgvLGU.NZHFCYpHPF6i.24VJK3kwDEaNHNM2EAW/QqM5Wnr.kai', '$2y$10$5aT96Sz6qEG1z6Q1aODdY.waFc2ilPSeE.F4TDwJBXquynWrwAmjG', '$2y$10$hXfVE5D197J.AXqH7UXXlugbcWmcsCeYc1xVEjcanJA7dTn7k4AHm'),
 (31, 85, '$2y$10$iq9OmI65WpCJarUmVwAj5.s3bUVHG7m/Rf5/5pVTx69vIq1wFT36e', '$2y$10$BSmp2SnMjJ0hdyc0D3xSX.BHFsUxVz95/Z0F9lJ24DTIp826NemiG', '$2y$10$mF42IsqhgVqOCxL/uaewT.kaynogl.9atloYb16xkO2h1l/9mMZa.'),
 (33, 86, '$2y$10$IxflAeNd1KvLCEWN211rceK4APHXD30xNDsJ3v5aiBNTbYACHkqNa', '$2y$10$.FIurE8iKEZ0IVnHie5iN.Hihwm36u6afTEhyMX.zwp5Lo2yEcbee', '$2y$10$hpPNFVUSo7.E/1xjMHdYaek3htFCEV4DEsu4ocqg7uJ3OGKNHu6SC'),
 (34, 87, '$2y$10$64/u8EsdJWTFiLlN31HtN.ajh59/6T/zcF.cwk0npFI7wgQJcehpu', '$2y$10$Le6x0zD5vsTPZ5GhmrCopuo7VhyXldBEDkRERaz4ARSiEyiVL04cu', '$2y$10$QZQCk4lna6t24hexHVyFNOD4QbbvqdUVBEGksa94HAFtDVb/zmKKq'),
-(35, 87, '$2y$10$oW2e2FolGrqyh613kVCDgOk6R9kM1hO3173n0v4nOl7eOsny0EN.K', '$2y$10$YOWOiuB1K1qV5LudqwPFXOq1XjbKv/RBqczMCXocYDda7x9bZ718a', '$2y$10$bs7yrzkPTcVzDcIj7cShleX1SMHO/xc8.u6XH2sTjP8QChYIOB7K6');
+(35, 87, '$2y$10$oW2e2FolGrqyh613kVCDgOk6R9kM1hO3173n0v4nOl7eOsny0EN.K', '$2y$10$YOWOiuB1K1qV5LudqwPFXOq1XjbKv/RBqczMCXocYDda7x9bZ718a', '$2y$10$bs7yrzkPTcVzDcIj7cShleX1SMHO/xc8.u6XH2sTjP8QChYIOB7K6'),
+(36, 1, '$2y$10$xSawqc8Db.pDgpHVhXb4LensPJFGulkCMHnAspgL.gYVl3rwlMN4q', '$2y$10$VB14IYSKo4glHnnbEXET6OoVfRnxglQo0sbRB0Fmjkp48P.Vx6iTy', '$2y$10$ejCtutXl00/f.p90do3WAOfsETcsgmr6ZwiAdUePu6AtWV860sri2'),
+(37, 1, '$2y$10$0M0lEk2U.5pIf3/CxDmzjeb7sifuHs3SRo1F8eel7.gu3NNdT7Wji', '$2y$10$5.UJ2zD9iPRwBeBIl7DR2OR65jNRfbpSNSiKwqZ3x0g3mCF0O6U8i', '$2y$10$8R3M2UcculSCQTXUno9BKuLc2iP/mJMgvVOUIP6HO9DpjJ1RE5Zvu'),
+(38, 1, '$2y$10$cEuaAvWI3h/919D03Xb9tewdUTW0aiYzY80D9x/bOYSDqrupjs.oq', '$2y$10$2USAVhrtKoRgAoltPkv9E.5OQ/XZHs1RzMZlwIPSI5kmR/wfHhVJO', '$2y$10$9fEHzdUgQKuYb.foZ1U.Aurwr6Ra4w4QY1uFQ2ZaACi2DgUboVlAS');
 
 -- --------------------------------------------------------
 
@@ -127,7 +123,7 @@ INSERT INTO `credit_card` (`id`, `user_id`, `card_number`, `expiry_date`, `cvv`)
 CREATE TABLE `food` (
   `id` int(11) NOT NULL,
   `product_name` varchar(255) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT 2,
   `price` decimal(10,2) NOT NULL DEFAULT 5.99,
   `image_path` varchar(255) DEFAULT NULL,
   `stock` int(11) NOT NULL
@@ -141,7 +137,11 @@ INSERT INTO `food` (`id`, `product_name`, `product_id`, `price`, `image_path`, `
 (1, 'Pet Head Shampoo Orange Scent modd12', 2, '5.99', './images/food1.png', 3),
 (2, 'Smilla Diet with beef13', 2, '52.99', './images/food2.png', 31),
 (3, 'Concept for life Urinary with chicken14', 2, '35.99', './images/food3.png', 99),
-(4, 'Concept for Life Hypo Allergenic16', 2, '55.99', './images/food4.png', 55);
+(4, 'Concept for Life Hypo Allergenic16', 2, '55.99', './images/food4.png', 55),
+(8, 'Is food add test working1', 2, '21.00', './images/food2.png', 123),
+(9, 'Is food add test working2', 2, '21.00', './images/food2.png', 123),
+(10, 'Is food add test working3', 2, '55.00', './images/food4.png', 76),
+(11, 'Is food add test working7', 2, '12.00', './images/food1.png', 98);
 
 -- --------------------------------------------------------
 
@@ -163,9 +163,9 @@ CREATE TABLE `hygiene` (
 --
 
 INSERT INTO `hygiene` (`id`, `product_name`, `product_id`, `price`, `image_path`, `stock`) VALUES
-(1, 'Pet Head Shampoo Coconut Scent', 1, '15.99', './images/hygiene1.png', 41),
-(2, 'Pet Head Shampoo Peach Scent ', 1, '6.99', './images/hygiene2.png', 547),
-(3, 'Pet Head Shampoo Pear Scent ', 1, '55.99', './images/hygiene3.png', 33),
+(1, 'Mudado 4', 1, '15.99', './images/hygiene1.png', 66),
+(2, 'Pet Head Shampoo Peach Scent  modded', 1, '6.99', './images/hygiene2.png', 547),
+(3, 'Pet Head Shampoo Pear Scent ', 1, '55.99', './images/hygiene3.png', 0),
 (4, 'Pet Head Dry Shampoo Coconut Scent', 1, '82.99', './images/hygiene4.png', 22);
 
 -- --------------------------------------------------------
@@ -186,38 +186,12 @@ CREATE TABLE `order_history` (
 --
 
 INSERT INTO `order_history` (`id`, `quantity`, `payment`, `user_id`) VALUES
-(6, 16, 0, 77),
-(7, 16, 95.84, 77),
 (8, 16, 95.84, 77),
-(9, 27, 161.73, 77),
-(10, 0, 0, 77),
-(11, 0, 0, 77),
-(12, 0, 0, 68),
-(13, 12, 74.88, 78),
-(14, 13, 80.87, 78),
-(15, 19, 116.81, 78),
-(16, 19, 116.81, 78),
 (17, 8, 47.92, 78),
-(18, 8, 47.92, 78),
 (19, 8, 47.92, 78),
 (20, 8, 47.92, 78),
 (21, 8, 47.92, 78),
-(22, 8, 47.92, 78),
-(23, 8, 47.92, 78),
-(24, 8, 47.92, 78),
-(25, 0, 0, 78),
 (26, 5, 29.95, 78),
-(27, 5, 29.95, 78),
-(28, 5, 29.95, 78),
-(29, 5, 29.95, 78),
-(30, 5, 29.95, 78),
-(31, 6, 35.94, 78),
-(32, 6, 35.94, 78),
-(33, 6, 35.94, 78),
-(34, 6, 35.94, 78),
-(35, 6, 35.94, 78),
-(36, 6, 35.94, 78),
-(37, 0, 0, 78),
 (38, 5, 38.95, 78),
 (39, 17, 101.83, 78),
 (40, 78, 467.22, 68),
@@ -226,61 +200,19 @@ INSERT INTO `order_history` (`id`, `quantity`, `payment`, `user_id`) VALUES
 (43, 4, 23.96, 81),
 (44, 16, 95.84, 81),
 (45, 10, 62.9, 84),
-(46, 99, 593.01, 1),
-(47, 99, 593.01, 1),
-(48, 99, 593.01, 1),
-(49, 99, 593.01, 1),
-(50, 99, 593.01, 1),
-(51, 88, 527.12, 1),
 (52, 88, 527.12, 1),
-(53, 99, 593.01, 1),
-(54, 99, 593.01, 1),
-(55, 99, 593.01, 1),
-(56, 33, 197.67, 1),
-(57, 16, 95.84, 1),
-(58, 99, 593.01, 1),
-(59, 0, 0, 1),
-(60, 0, 0, 1),
-(61, 99, 593.01, 1),
-(62, 99, 593.01, 1),
-(63, 33, 197.67, 1),
-(64, 33, 197.67, 1),
 (65, 33, 197.67, 1),
 (66, 66, 395.34, 1),
-(67, 99, 593.01, 1),
-(68, 710, 4666.9, 1),
 (69, 198, 1186.02, 1),
-(70, 12, 71.88, 1),
-(71, 12, 71.88, 1),
 (72, 330, 6376.7, 1),
 (73, 11, 98.89, 1),
-(74, 2, 105.98, 1),
-(75, 2, 105.98, 1),
-(76, 2, 105.98, 1),
 (77, 2, 105.98, 1),
-(78, 2, 105.98, 1),
 (79, 99, 593.01, 1),
 (80, 3, 17.97, 1),
 (81, 33, 197.67, 1),
-(82, 33, 197.67, 1),
-(83, 44, 263.56, 1),
-(84, 44, 263.56, 1),
-(85, 44, 263.56, 1),
-(86, 33, 197.67, 1),
-(87, 33, 197.67, 1),
-(88, 33, 197.67, 1),
-(89, 12, 305.88, 1),
-(90, 3, 17.97, 1),
-(91, 3, 17.97, 1),
-(92, 3, 17.97, 1),
-(93, 3, 17.97, 1),
-(94, 38, 607.62, 1),
-(95, 66, 1055.34, 1),
-(96, 18, 1023.82, 1),
-(97, 10, 829.9, 1),
-(98, 4, 331.96, 1),
-(99, 99, 692.01, 1),
-(100, 8, 67.92, 85);
+(101, 14, 168.89, 84),
+(102, 27, 431.73, 1),
+(103, 33, 1847.67, 1);
 
 -- --------------------------------------------------------
 
@@ -292,31 +224,37 @@ CREATE TABLE `personal_info` (
   `id` int(11) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone_number` varchar(255) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `birthday` date NOT NULL DEFAULT '1970-01-01'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `personal_info`
 --
 
-INSERT INTO `personal_info` (`id`, `address`, `phone_number`, `user_id`) VALUES
-(1, 'Lixbuna, rua do teste nr 56,Travessa 5', '123456123', 68),
-(2, 'home server, st.304,changed for a test', '913333333', 69),
-(3, 'Dracula 123 main st.', 'does it accept letters?', 70),
-(4, '123 main street', 'letters?', 72),
-(5, 'gallifrey', '912123123', 73),
-(6, 'MT Local Server, nr 42', '424242424', 1),
-(7, 'Artic st Nicol', '913112312', 75),
-(8, 'tester123123123', '123456789', 76),
-(9, 'C#BotStress@gmail.com', '123123123', 77),
-(10, 'Rua do teste, numero 000', '914266364', 78),
-(11, 'C#BotStress@gmail.com', '123123123', 79),
-(12, '12changed for a test', '123123123', 80),
-(13, 'Jon Smith Streets changed 9', '91426364', 81),
-(14, 'Adress Update', '914475858', 84),
-(15, 'bot lane cpu street', '914637370', 85),
-(16, 'lane teste', '914393902', 86),
-(17, 'botlane', '914749593', 87);
+INSERT INTO `personal_info` (`id`, `address`, `phone_number`, `user_id`, `birthday`) VALUES
+(1, 'Lixbuna, rua do teste nr 56,Travessa 5', '123456123', 68, '1970-01-01'),
+(2, 'home server, st.304,changed for a test', '913333333', 69, '1970-01-01'),
+(3, 'Dracula 123 main st.', 'does it accept letters?', 70, '1970-01-01'),
+(4, '123 main street', 'letters?', 72, '1970-01-01'),
+(5, 'gallifrey', '912123123', 73, '1970-01-01'),
+(6, 'MT Local Server, nr 42', '424242424', 1, '1970-01-01'),
+(7, 'Artic st Nicol', '913112312', 75, '1970-01-01'),
+(8, 'tester123123123', '123456789', 76, '1970-01-01'),
+(9, 'C#BotStress@gmail.com', '123123123', 77, '1970-01-01'),
+(10, 'Rua do teste, numero 000', '914266364', 78, '1970-01-01'),
+(11, 'C#BotStress@gmail.com', '123123123', 79, '1970-01-01'),
+(12, '12changed for a test', '123123123', 80, '1970-01-01'),
+(13, 'Jon Smith Streets changed 9', '91426364', 81, '1970-01-01'),
+(14, 'Rua do porto', '914475858', 84, '1970-01-01'),
+(15, 'bot lane cpu street', '914637370', 85, '1970-01-01'),
+(16, 'lane teste', '914393902', 86, '1970-01-01'),
+(17, 'botlane', '914749593', 87, '1970-01-01'),
+(18, 'Im Street Bot Test Auto', '91426364', 90, '2000-05-11'),
+(19, 'Im Street Bot Test Auto', '91426364', 91, '2023-02-02'),
+(20, 'Rua do teste, numero 000', '914475858', 95, '2023-02-02'),
+(21, 'Im Street Bot Test Auto', '914475858', 97, '2017-06-01'),
+(22, 'Im Street Bot Test Auto', '91472679', 98, '2000-02-17');
 
 -- --------------------------------------------------------
 
@@ -361,8 +299,8 @@ CREATE TABLE `toys` (
 INSERT INTO `toys` (`id`, `product_name`, `product_id`, `price`, `image_path`, `stock`) VALUES
 (1, 'Cat toy', 3, '5.99', './images/toys1.png', 3),
 (2, 'Squeeky cheese5', 3, '5.99', './images/toys2.png', 99),
-(3, 'Ball with bell6', 3, '8.99', './images/toys3.png', 99),
-(4, 'Chase ball with a bell7', 3, '5.99', './images/toys4.png', 99);
+(3, 'Ball with bell', 3, '8.99', './images/toys3.png', 99),
+(4, 'Chase ball with a bell', 3, '5.99', './images/toys4.png', 99);
 
 -- --------------------------------------------------------
 
@@ -402,10 +340,16 @@ INSERT INTO `user` (`id`, `user_type`, `client`, `name`, `email`, `password_hash
 (79, 'user', 'RXGPU AMD', 'thisistheuser', 'amd@gmail.com', '$2y$10$2SBhh.O6axkvpOjj4LGOROyy4Bn8fv9CzxDabMqsfCzHUPoP1KKEC'),
 (80, 'user', 'Full Name Test', 'UserTest', 'usertest@gmail.com', '$2y$10$x/WuIQ04XujhJ3GiUABGV.BbOs2rTJdX236S0DLu/9AW4CzXA.cvu'),
 (81, 'user', 'John Smith', 'smithjon', 'smithjon@gmail.com', '$2y$10$pq/Icaj5NO8aMgkaENORb.2MbyA6xnyhtUcry0vMn/IsHM2h05r6i'),
-(84, 'user', 'C#BotStress', 'C#BotStress2', 'C#BotStress2@gmail.com', '$2y$10$C6Sp9s6CwNfeY.UO45fA3OwuFN7Rny.Spq7X15WxyTTfibtflVNA2'),
+(84, 'user', 'Bot Smith The Second', 'C#BotStress2', 'C#BotStress2@gmail.com', '$2y$10$C6Sp9s6CwNfeY.UO45fA3OwuFN7Rny.Spq7X15WxyTTfibtflVNA2'),
 (85, 'user', 'Test User Bot Generated', 'bottester1', 'bottester1@gmail.com', '$2y$10$7.glWtiiR3VOzxZQXZ/fmOEFFXlYwXE79BhArww2iF2cHcPRC5YY2'),
 (86, 'user', 'Bot Test 3', 'bottester3', 'bottester3@gmail.com', '$2y$10$rVa9QkJXrHZW44f4oLepRODB1cH8RW7nFhDde3q2NNfTixjgPkuHO'),
-(87, 'user', 'C#BotStress5', 'cbot', 'bottester4@gmail.com', '$2y$10$Q.c8nrcK36ANd8qNeMd1/OB.8X7YZA1S7rKhArees5Qv4fkr9GGCm');
+(87, 'user', 'C#BotStress5', 'cbot', 'bottester4@gmail.com', '$2y$10$Q.c8nrcK36ANd8qNeMd1/OB.8X7YZA1S7rKhArees5Qv4fkr9GGCm'),
+(88, 'user', 'John Smith The Smithiest', 'mrSmithers', 'Smithiest@gmail.com', '$2y$10$bN3qZw7K./N7IYDEddRZquP0aNUZk8DS1tLeBtvs1SxwcPNPRTZUW'),
+(90, 'user', 'Sir Christopher Lee the second Thirds', 'mrSmitherss', 'mrSmithers@gmail.com', '$2y$10$M54VnhLZJwewFhjWMgZhbuzCNEyEwQqTrLTiKJD2BH9vny4ApLQFa'),
+(91, 'user', 'testestessssssss', 'mrssssSmithers', 'mrssssSmithers@gmail.com', '$2y$10$CaZHFcnee4OegNEHRJ9Fvud1gFOc9lvEZb6.Dj7bARmwk4fVbCPYm'),
+(95, 'user', 'wwwwwwwwwwwww', 'mrsssfsfdsdsSmithers', 'ww@gmail.com', '$2y$10$Qqj.s7PNtB0YdDeXDsAqSuRS47U2WOCAcCjtri0943PyRsi7skIbu'),
+(97, 'user', 'Tester Ive lost counts', 'mrsssfaadsadsadsdsdsSmithers', 'fdsfs@gmai.com', '$2y$10$6B59Z0xW5UnsQb9o4jNAp.Rom85wYHdGNI7LzFzPU.r7HNDNuPk26'),
+(98, 'user', 'Pedro Miguel Pereira', 'fsdfdsfsdfsdsdfds', 'pedrogmh@gmail.com', '$2y$10$SPYC2GebjJV.tb4uLlWHQuoZXmH6RTX2Ip2dB7ntD7/rNZcfdMPce');
 
 --
 -- Índices para tabelas despejadas
@@ -490,31 +434,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de tabela `credit_card`
 --
 ALTER TABLE `credit_card`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT de tabela `food`
+--
+ALTER TABLE `food`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `order_history`
 --
 ALTER TABLE `order_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT de tabela `personal_info`
 --
 ALTER TABLE `personal_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- Restrições para despejos de tabelas

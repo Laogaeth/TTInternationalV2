@@ -14,8 +14,8 @@ if ($conn->connect_error) {
 
 $json = array();
 
-if(isset($category)){
-    switch ($category) {
+if (isset($_GET['category'])) {
+    switch ($_GET['category']) {
    case "Hygiene":
     $sql = "SELECT hygiene.product_id, hygiene.product_name, hygiene.price, hygiene.image_path
             FROM hygiene

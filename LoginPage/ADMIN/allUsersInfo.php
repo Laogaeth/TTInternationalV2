@@ -63,57 +63,37 @@ require '../../ShoppingCart/cardInfoCheck.php';
 
 <body>
 
-    <div class="wrapper row">
-
-        <div class="navbar">
-            <button class=" btn col btn__menu__arrow sticky"><img src="../../icons/right-arrow.png" alt="arrow" class="nav--arrow"></button>
-
-            <div class="menu__nav">
+    <div class="menu__nav">
+        <div class=" navbar">
 
 
-                <?php if (isset($_SESSION["user_name"])) : ?>
-                    <div class="nav--user--area">
-                        <img src="../../Images/welcomeCat.png" alt="" class="navbar--cat">
-                        <p class="navbar--cat--text"> Welcome <?php echo $_SESSION["user_name"]; ?> </p>
-                    </div>
+            <?php if (isset($_SESSION["user_name"])) : ?>
 
-                <?php endif; ?>
 
-                <a class="menu--icon" href="../../MainPage/MainPage.php"> <i class="fas fa-2x fa-home"></i>
-                    <p class="menu--nav--text">Home </p>
-                </a>
-                <?php if (isset($_SESSION["user_name"])) : ?>
-                    <a class="menu--icon" href="../../LoginPage/session.php"> <i class="fa-solid fa-2x fa-user"></i>
-                        <p class="menu--nav--text">User </p>
-                    </a>
-                <?php else : ?>
-                    <a class="menu--icon" href="../../LoginPage/LoginPage.php"> <i class="fa-solid fa-2x fa-user"></i>
-                        <p class="menu--nav--text">User </p>
-                    </a>
-                <?php endif; ?>
-                <a class="menu--icon" href="../../Products/productsPage.php"> <i class="fa-brands fa-2x fa-shopify"></i>
-                    <p class="menu--nav--text">Products </p>
-                </a>
-                <a class="menu--icon" href="../../ContactsPage/Contacts.php"><i class="fa-solid fa-2x fa-address-book"></i>
-                    <p class="menu--nav--text">Contacts </p>
-                </a>
-                <?php if ($hasCreditCard) : ?>
-                    <a class="menu--icon" href="../../ShoppingCart/creditCard.php"> <i class="fa-solid fa-2x fa-box"></i>
-                        <p class="menu--nav--text">Orders </p>
-                    </a>
-                <?php else : ?>
-                    <a class="menu--icon" href="../../ShoppingCart/cartPage.php"> <i class="fa-solid fa-2x fa-box"></i>
-                        <p class="menu--nav--text">Orders</p>
-                    </a>
-                <?php endif; ?>
+            <?php endif; ?>
 
-                <?php if (isset($_SESSION["user_name"])) : ?>
-                    <a class="menu--icon menu--icon--logout" href="../../loginPage/logout.php"> <i class="fa-solid fa-2x fa-sign-out-alt"></i>
-                        <p class="menu--nav--text">Logout</p>
-                    </a>
-                <?php endif; ?>
-            </div>
+            <a class="menu--icon" href="../MainPage/MainPage.php"> <i class="fas  fa-home"></i> </a>
+            <?php if (isset($_SESSION["user_name"])) : ?>
+                <a class="menu--icon" href="../LoginPage/session.php"> <i class="fa-solid  fa-user"></i></a>
+
+            <?php else : ?>
+                <a class="menu--icon" href="../LoginPage/LoginPage.php"> <i class="fa-solid  fa-user"></i> </a>
+            <?php endif; ?>
+            <a class="menu--icon" href="../Products/productsPage.php"> <i class="fa-brands  fa-shopify"></i> </a>
+            <a class="menu--icon" href="../ContactsPage/Contacts.php"><i class="fa-solid  fa-address-book"></i> </a>
+
+            <?php if ($hasCreditCard) : ?>
+                <a class="menu--icon" href="../ShoppingCart/creditCard.php"> <i class="fa-solid  fa-box"></i></a>
+            <?php else : ?>
+                <a class="menu--icon" href="../ShoppingCart/cartPage.php"> <i class="fa-solid  fa-box"></i></a>
+            <?php endif; ?>
+
+
+
         </div>
+    </div>
+
+    <div class="wrapper row">
 
         <main class="col-12 main--glass--effect">
 
@@ -189,13 +169,13 @@ require '../../ShoppingCart/cardInfoCheck.php';
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td>" . htmlspecialchars($row          ['id']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row      ['client']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row    ['birthday']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row        ['name']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row       ['email']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['client']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['birthday']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['email']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['phone_number']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row     ['address']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['address']) . "</td>";
                             echo "</tr>";
                         }
                     } else {
@@ -204,7 +184,7 @@ require '../../ShoppingCart/cardInfoCheck.php';
                     echo "</tbody>";
                     echo "</table>";
 
-                    
+
                     ?>
 
 
