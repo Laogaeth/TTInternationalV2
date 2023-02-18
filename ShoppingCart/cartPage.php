@@ -190,7 +190,7 @@ WHERE cart.user_id = ?
           while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>" . htmlspecialchars($row['product_name'], ENT_QUOTES, 'UTF-8') . "</td>";
-            echo "<td>" . htmlspecialchars($row['price'], ENT_QUOTES, 'UTF-8') . ' ' . "€" . "</td>";
+            echo "<td>" . htmlspecialchars($row['price'], ENT_QUOTES, 'UTF-8'). "€" . "</td>";
             echo "<td><input type='number' class='form-control input--field--number' name='quantity[" . $row['cart_id'] . "]' value='" . $row['quantity'] . "' min='1' max='99'>
       <button class='cart--remove--button' data-cart-id='" . $row['cart_id'] . "'><i class='fa-solid fa-x'></i></button></td>";
             echo "</tr>";
