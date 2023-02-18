@@ -16,6 +16,17 @@ if(isset($_POST['checkout'])){
   if (!array_key_exists("category", $_POST)) {
     die("Error: 'products' key is not defined in the form data.");
   }
+  $servername = "localhost:3307";
+  $username = "root";
+  $password = "";
+  $dbname = "db_login";
+
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
+
 
 
   // Get the user_id and products information from the form data
@@ -31,17 +42,6 @@ if(isset($_POST['checkout'])){
   foreach($products as $product){
     $total_payment += ($product['price'] * $product['quantity']);
     $total_quantity += $product['quantity'];
-  }
-
-  $servername = "localhost:3307";
-  $username = "root";
-  $password = "";
-  $dbname = "db_login";
-
-  $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
   }
 
 
