@@ -62,34 +62,41 @@ if(isset($_POST['checkout'])){
     exit();
   }
 
-  
 
   // Insert data into the order_history table
   $sql = "INSERT INTO order_history (user_id, quantity, payment)
   VALUES ('$user_id', '$total_quantity', '$total_payment')";
-  
+
   if (mysqli_query($conn, $sql)) {
-    // Subtract the quantity from the "stock" table for each product
-    foreach($products as $product){
+    $order_id = mysqli_insert_id($conn);
+
+    foreach ($products as $product) {
       $sql = "UPDATE {$category} SET stock = stock - {$product['quantity']} WHERE id = {$id}";
       if (mysqli_query($conn, $sql)) {
-        // Success
-      } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-      }
-    }
-    $sql = "DELETE FROM cart WHERE user_id = $user_id";
-    if (mysqli_query($conn, $sql)) {
-      // Success
-    } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-
+        // Insert data into the order_details table with the order_id, product_id, and quantity information
+        foreach ($products as $product) {
+          $product_id = $product['name'];
+          $product_name = $product['name'];
+          $quantity=$product['quantity'];
+          $sql = "INSERT INTO orders_details (order_id, product_name,quantity) VALUES ('$order_id', '$product_name','$quantity')";
+          if (mysqli_query($conn, $sql)) {
+            // Success
+          } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          }
+        }
+        // Clear the cart by removing all products from the cart table for this user
+        $sql = "DELETE FROM cart WHERE user_id = {$user_id}";
+        if (mysqli_query($conn, $sql)) {
+          // Success
+        } else {
+          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
     
     header("Location: ./orderSuccess.php");
     exit();
-  } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
+    }
   }
 }
 ?>
