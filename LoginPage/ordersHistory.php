@@ -152,12 +152,20 @@ if (isset($_SESSION["user_id"])) {
           $id = htmlspecialchars($order_history['id']);
           $quantity = htmlspecialchars($order_history['quantity']);
           $payment = htmlspecialchars($order_history['payment']);
-          echo "<tr>";
+          echo "<tr class='order-row'>";
           echo "<td>" . $order_history['id'] . "</td>";
           echo "<td>" . $order_history['quantity'] . "</td>";
           echo "<td>" . $order_history['payment'] . '€' . "</td>";
+          echo "<td> <button class='btn btn-primary btn-details'>+</button> </td>";
+          echo "</tr>";
+          echo "<tr class='details-row hidden' data-order-id='$id'>";
+          echo "<td colspan='4'>";
+          echo "<table class='details-table'>";
+          echo "</table>";
+          echo "</td>";
           echo "</tr>";
         }
+
 
         echo "</table>";
       }

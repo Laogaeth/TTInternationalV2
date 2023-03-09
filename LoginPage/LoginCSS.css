@@ -368,6 +368,7 @@ a:visited{
     color: #fff;
     padding: 5px;
     text-align: center;
+    
 }
 
 .th--left {
@@ -383,6 +384,7 @@ a:visited{
     padding-left: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
+    
 
     color: #fff;
     text-align: center;
@@ -581,3 +583,17 @@ a:visited{
     background: linear-gradient(to right, transparent, #000);
   }
 } */
+
+
+
+.btn-primary{
+    background: #ff480068 !important;
+}
+
+.order-extra-details{
+    text-align: left !important;
+}
+
+.details-table{
+    width: 100%;
+}

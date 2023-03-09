@@ -191,3 +191,47 @@ $(document).ready(function () {
 //     });
 //   });
 // });
+
+// Select all the buttons with the class "btn-details"
+const buttons = document.querySelectorAll('.btn-details');
+
+// Loop through each button and add a click event listener to it
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Get the parent row of the button (which has the "order-row" class)
+    const orderRow = button.closest('.order-row');
+
+    // Get the next row (which has the "details-row" class)
+    const detailsRow = orderRow.nextElementSibling;
+
+    // Get the order ID from the data-order-id attribute of the details row
+    const orderId = detailsRow.getAttribute('data-order-id');
+
+    // Get the table element inside the details row
+    const detailsTable = detailsRow.querySelector('.details-table');
+
+    // Send a GET request to the PHP script to retrieve the order details
+    fetch(`./get_orders_details.php?order_id=${orderId}`)
+      .then(response => response.json())
+      .then(data => {
+        // Clear the existing rows in the details table
+        detailsTable.innerHTML = '';
+
+        // Loop through the order details and add a row for each one
+        data.order_details.forEach(orderDetail => {
+          const productName = orderDetail.product_name;
+          const quantity = orderDetail.quantity;
+
+          const row = document.createElement('tr');
+          row.innerHTML = `<td class='order-extra-details'><h5>Product: </h5> ${productName}</td><td class='order-extra-details'>${quantity} x</td>`;
+          detailsTable.appendChild(row);
+        });
+
+        // Toggle the "hidden" class of the details row to show it
+        detailsRow.classList.toggle('hidden');
+      })
+      .catch(error => {
+        console.error('Error retrieving order details:', error);
+      });
+  });
+});
